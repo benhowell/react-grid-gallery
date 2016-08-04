@@ -8,6 +8,7 @@ class Gallery extends Component {
 
         this.state = {
             lightboxIsOpen: false,
+            thumbHover: null,
             currentImage: 0,
             containerWidth: 0
         };
@@ -19,6 +20,9 @@ class Gallery extends Component {
         this.handleClickImage = this.handleClickImage.bind(this);
         this.openLightbox = this.openLightbox.bind(this);
         this.onSelect = this.onSelect.bind(this);
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
+        this.visibility = this.visibility.bind(this);
     }
 
     componentDidMount () {
@@ -75,11 +79,25 @@ class Gallery extends Component {
         this.gotoNext();
     }
 
-    onSelect (selected) {
-        console.log("yep, checked: " + selected);
+    onSelect (idx) {
+        console.log("yep, checked: " + idx);
     }
 
+    onMouseEnter (idx) {
+        console.log("yep, mouseover: " + idx);
+        this.state.thumbHover = idx;
+    }
 
+    onMouseLeave (idx) {
+        console.log("yep, mouseout: " + idx);
+        this.state.thumbHover = null;
+    }
+
+    visibility (idx) {
+        if (this.state.thumbHover == idx)
+            return 'visible';
+        return 'hidden';
+    }
 
     /**
      * Distribute a delta (integer value) to n items based on
@@ -164,18 +182,15 @@ class Gallery extends Component {
     }
 
     /**
-     * Creates a new thumbail in the image area. An attaches a fade in animation
+     * Creates a new thumbnail in the image area. An attaches a fade in animation
      * to the image.
      */
     createImageElement (item, idx) {
 
-        let checkButton = [
-                <CheckButton key="Select" onClick={this.onSelect} />,
-        ];
-
-
         return (<div className="imageContainer"
                 key={"imageOuter-"+idx}
+                onMouseEnter={this.onMouseEnter.bind(this, idx)}
+                onMouseLeave={this.onMouseLeave.bind(this, idx)}
                 style={{
                     margin: ""+this.props.margin+"px",
                     WebkitUserSelect: "none",
@@ -187,6 +202,7 @@ class Gallery extends Component {
                              overflow: "hidden"}}
                 key={"imageInner-"+idx}>
 
+
                 <div className="tile-icon-bar"
                 style={{opacity: 1,
                         position: "absolute",
@@ -195,13 +211,12 @@ class Gallery extends Component {
                         background: "transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent) repeat scroll 0% 0%"
                        }}>
 
-                {checkButton
-                 /*
-                  <i className="material-icons md-24 md-light md-inactive md-thumb-select">check_circle</i>
-                  */
-                }
+                <CheckButton key="Select"
+                onClick={this.onSelect.bind(this, idx)}
+                visibility={this.visibility(idx)}/>
 
                 </div>
+
 
 
                 <a className="viewImageAction"
@@ -215,6 +230,8 @@ class Gallery extends Component {
                        }}
                 />
                 </a>
+
+
                 </div>
                 </div>
                );
