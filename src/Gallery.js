@@ -80,9 +80,6 @@ class Gallery extends Component {
     }
 
 
-    /**
-     * Adapted from GPlusGallery by Florian Maul http://fmaul.de/gallery-grid-example/
-     */
 
     /**
      * Distribute a delta (integer value) to n items based on
