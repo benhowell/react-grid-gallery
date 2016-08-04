@@ -7,20 +7,22 @@ class CheckButton extends Component {
 
         this.state = {
             selected: this.props.selected,
+            visibility: this.props.visibility,
             hover: this.props.hover,
             onClick: this.props.onClick
         };
 
         this.select = this.select.bind(this);
         this.fill = this.fill.bind(this);
-        this.tickFill = this.tickFill.bind(this);
         this.onMouseOver = this.onMouseOver.bind(this);
         this.onMouseOut = this.onMouseOut.bind(this);
     }
 
     componentDidUpdate (pProps, cProps) {
+        console.log("cProps= " + cProps);
         if(pProps.selected != cProps.selected)
             this.props.onClick(this.state.selected);
+        this.setState({visibility: cProps.visibility});
     }
 
     select () {
@@ -35,12 +37,6 @@ class CheckButton extends Component {
         return "rgba(255, 255, 255, 0.7)";
     }
 
-    tickFill () {
-        if (this.state.selected)
-            return "rgba(255, 255, 255, 1)";
-        return "none";
-    }
-
     onMouseOver () {
         this.setState({hover: true});
     }
@@ -53,10 +49,11 @@ class CheckButton extends Component {
         return (
                 <button
             title="Select"
-                style={{
-                    background: 'none',
-                    border: 'none',
-                    paddingTop: '6px'}}
+            style={{
+                visibility: this.state.visibility,
+                background: 'none',
+                border: 'none',
+                paddingTop: '6px'}}
             onClick={this.select}
             onMouseOver={this.onMouseOver}
             onMouseOut={this.onMouseOut}>
@@ -72,9 +69,11 @@ class CheckButton extends Component {
 }
 
 CheckButton.propTypes = {selected: React.PropTypes.bool,
+                         visibility: React.PropTypes.string,
                          hover: React.PropTypes.bool,
                          onClick: React.PropTypes.func};
 CheckButton.defaultProps = {selected: false,
+                            visibility: 'visible',
                             hover: false};
 
 export default CheckButton;
