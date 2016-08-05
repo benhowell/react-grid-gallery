@@ -33,6 +33,7 @@ class Gallery extends Component {
     }
 
     componentDidUpdate(){
+        console.log("gallery did update");
         if (ReactDOM.findDOMNode(this).clientWidth
             !== this.state.containerWidth){
             this.setState(
@@ -85,12 +86,16 @@ class Gallery extends Component {
 
     onMouseEnter (idx) {
         console.log("yep, mouseover: " + idx);
-        this.state.thumbHover = idx;
+        this.setState({
+            thumbHover: idx
+        });
     }
 
     onMouseLeave (idx) {
         console.log("yep, mouseout: " + idx);
-        this.state.thumbHover = null;
+        this.setState({
+            thumbHover: null
+        });
     }
 
     visibility (idx) {
