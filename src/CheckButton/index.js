@@ -18,11 +18,14 @@ class CheckButton extends Component {
         this.onMouseOut = this.onMouseOut.bind(this);
     }
 
-    componentDidUpdate (pProps, cProps) {
-        console.log("cProps= " + cProps);
-        if(pProps.selected != cProps.selected)
+    componentWillReceiveProps (p) {
+        if(p.selected != this.state.selected) //selected index!
             this.props.onClick(this.state.selected);
-        this.setState({visibility: cProps.visibility});
+        if(!this.state.selected)
+            this.setState({visibility: p.visibility});
+    }
+
+    componentDidUpdate (oProps, nProps) {
     }
 
     select () {
@@ -73,7 +76,7 @@ CheckButton.propTypes = {selected: React.PropTypes.bool,
                          hover: React.PropTypes.bool,
                          onClick: React.PropTypes.func};
 CheckButton.defaultProps = {selected: false,
-                            visibility: 'visible',
+                            visibility: 'hidden',
                             hover: false};
 
 export default CheckButton;
