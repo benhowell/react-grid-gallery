@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Lightbox from 'react-images';
-import CheckButton from './CheckButton';
+import CheckButton from './CheckButton.js';
 
 class Gallery extends Component {
     constructor () {
