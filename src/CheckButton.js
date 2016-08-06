@@ -46,8 +46,8 @@ class CheckButton extends Component {
 
     svgBackgroundState () {
         if (this.state.isSelected)
-            return "block";
-        return "none";
+            return "visible";
+        return "hidden";
     }
 
 
@@ -96,14 +96,14 @@ class CheckButton extends Component {
                 </stop>
                 </radialGradient>
                 <circle
-            display={this.svgBackgroundState()}
+            visibility={this.svgBackgroundState()}
             opacity=".26"
             fill="url(#shadow)"
             cx="12" cy="13.512"
             r="10.488">
                 </circle>
                 <circle
-            display={this.svgBackgroundState()}
+            visibility={this.svgBackgroundState()}
             fill="#FFF"
             cx="12"
             cy="12.2"
