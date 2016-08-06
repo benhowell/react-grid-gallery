@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Lightbox from 'react-images';
-import CheckButton from './CheckButton.js';
+import Image from './Image.js';
 
 class Gallery extends Component {
     constructor () {
@@ -20,10 +20,6 @@ class Gallery extends Component {
         this.gotoPrevious = this.gotoPrevious.bind(this);
         this.handleClickImage = this.handleClickImage.bind(this);
         this.openLightbox = this.openLightbox.bind(this);
-        this.onSelect = this.onSelect.bind(this);
-        this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.onMouseLeave = this.onMouseLeave.bind(this);
-        this.visibility = this.visibility.bind(this);
     }
 
     componentDidMount () {
@@ -80,39 +76,6 @@ class Gallery extends Component {
         this.gotoNext();
     }
 
-    onSelect (idx, isSelected) {
-        if(isSelected){
-            if(this.state.selectedImages.indexOf(idx) === -1){
-                this.setState({selectedImages:
-                               this.state.selectedImages.concat([idx])});
-            }
-        }
-        else {
-            var i = this.state.selectedImages.indexOf(idx);
-            if(i > -1){
-                this.setState({selectedImages:
-                               this.state.selectedImages.splice(i,1)});
-            }
-        }
-    }
-
-    onMouseEnter (idx) {
-        this.setState({
-            thumbHover: idx
-        });
-    }
-
-    onMouseLeave (idx) {
-        this.setState({
-            thumbHover: null
-        });
-    }
-
-    visibility (idx) {
-        if (this.state.thumbHover == idx)
-            return 'visible';
-        return 'hidden';
-    }
 
     /**
      * Distribute a delta (integer value) to n items based on
@@ -197,62 +160,6 @@ class Gallery extends Component {
     }
 
     /**
-     * Creates a new thumbnail in the image area. An attaches a fade in animation
-     * to the image.
-     */
-    createImageElement (item, idx) {
-
-        return (<div className="imageContainer"
-                key={"imageOuter-"+idx}
-                onMouseEnter={this.onMouseEnter.bind(this, idx)}
-                onMouseLeave={this.onMouseLeave.bind(this, idx)}
-                style={{
-                    margin: ""+this.props.margin+"px",
-                    WebkitUserSelect: "none",
-                    position: "relative",
-                    float: "left",
-                    padding: "0px"}}>
-                <div style={{width: ""+item.vwidth+"px",
-                             height: this.props.rowHeight,
-                             overflow: "hidden"}}
-                key={"imageInner-"+idx}>
-
-
-                <div className="tile-icon-bar"
-                style={{opacity: 1,
-                        position: "absolute",
-                        height: "36px",
-                        width: "100%",
-                        background: "transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent) repeat scroll 0% 0%"
-                       }}>
-
-                <CheckButton key="Select"
-                onClick={this.onSelect.bind(this, idx)}
-                visibility={this.visibility(idx)}/>
-
-                </div>
-
-
-
-                <a className="viewImageAction"
-                key={"viewImage-"+idx}
-                onClick={(e) => this.openLightbox(idx, e)}>
-                <img src={item.thumbnail} title={item.caption}
-                style={{width: ""+item.scaletwidth+"px",
-                        height: this.props.rowHeight,
-                        marginLeft: ""+(item.vx ? (-item.vx) : 0)+"px",
-                        marginTop: "" + 0 + "px"
-                       }}
-                />
-                </a>
-
-
-                </div>
-                </div>
-               );
-    }
-
-    /**
      * Scales thumbnails to match props.rowHeight
      */
     scaleThumbs (items) {
@@ -285,8 +192,15 @@ class Gallery extends Component {
             for(var i in rows[r]) {
                 var item = rows[r][i];
                 // create image
-                item.el = this.createImageElement(item, idx);
-                images.push(item.el);
+                images.push(
+                        <Image
+                    key={"Image-"+idx}
+                    item={item}
+                    index={idx}
+                    margin={this.props.margin}
+                    height={this.props.rowHeight}
+                    onClick={this.openLightbox} />
+                );
                 idx++;
             }
         }
@@ -294,11 +208,6 @@ class Gallery extends Component {
     }
 
     render () {
-        /*let customControls = [
-                <DownloadButton key="Download"
-            handler={this.handleDownload.bind(this)} />,
-            ];*/
-
         /* custom controls param goes in lightbox below
          {customControls={customControls} */
         return (
@@ -326,5 +235,27 @@ Gallery.propTypes = {
     margin: PropTypes.number // margin size for each image
 };
 
-
+/*
+const styles = {
+    gallery: {
+        marginLeft: -5,
+        marginRight: -5,
+        overflow: 'hidden',
+    },
+    thumbnail: {
+        backgroundSize: 'cover',
+        borderRadius: 3,
+        float: 'left',
+        height: THUMBNAIL_SIZE,
+        margin: 5,
+        overflow: 'hidden',
+        width: THUMBNAIL_SIZE,
+    },
+    thumbnailImage: {
+        display: 'block',
+        height: 'auto',
+        maxWidth: '100%',
+    },
+};
+*/
 module.exports = Gallery;
