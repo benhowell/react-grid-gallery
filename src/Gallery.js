@@ -9,6 +9,7 @@ class Gallery extends Component {
         this.state = {
             lightboxIsOpen: false,
             thumbHover: null,
+            selectedImages: [],
             currentImage: 0,
             containerWidth: 0
         };
@@ -33,7 +34,6 @@ class Gallery extends Component {
     }
 
     componentDidUpdate(){
-        console.log("gallery did update");
         if (ReactDOM.findDOMNode(this).clientWidth
             !== this.state.containerWidth){
             this.setState(
@@ -80,19 +80,29 @@ class Gallery extends Component {
         this.gotoNext();
     }
 
-    onSelect (idx) {
-        console.log("yep, checked: " + idx);
+    onSelect (idx, isSelected) {
+        if(isSelected){
+            if(this.state.selectedImages.indexOf(idx) === -1){
+                this.setState({selectedImages:
+                               this.state.selectedImages.concat([idx])});
+            }
+        }
+        else {
+            var i = this.state.selectedImages.indexOf(idx);
+            if(i > -1){
+                this.setState({selectedImages:
+                               this.state.selectedImages.splice(i,1)});
+            }
+        }
     }
 
     onMouseEnter (idx) {
-        console.log("yep, mouseover: " + idx);
         this.setState({
             thumbHover: idx
         });
     }
 
     onMouseLeave (idx) {
-        console.log("yep, mouseout: " + idx);
         this.setState({
             thumbHover: null
         });
