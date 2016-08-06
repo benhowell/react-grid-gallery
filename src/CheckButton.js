@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-
 class CheckButton extends Component {
     constructor (props) {
         super(props);
@@ -46,8 +45,8 @@ class CheckButton extends Component {
 
     svgBackgroundState () {
         if (this.state.isSelected)
-            return "visible";
-        return "hidden";
+            return "block";
+        return "none";
     }
 
 
@@ -60,14 +59,21 @@ class CheckButton extends Component {
     }
 
     render () {
+        let circleStyle = {
+            display: this.svgBackgroundState()
+        };
+
         return (
-                <button
+                <div
             title="Select"
             style={{
                 visibility: this.state.visibility,
                 background: 'none',
+                width: '36px',
+                height: '36px',
                 border: 'none',
-                paddingTop: '6px'}}
+                padding: '6px'
+            }}
             onClick={this.toggleIsSelected}
             onMouseOver={this.onMouseOver}
             onMouseOut={this.onMouseOut}>
@@ -76,7 +82,6 @@ class CheckButton extends Component {
             height="24" viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg">
-
 
                 <radialGradient
             id="shadow"
@@ -95,15 +100,16 @@ class CheckButton extends Component {
             stopOpacity="0">
                 </stop>
                 </radialGradient>
+
                 <circle
-            visibility={this.svgBackgroundState()}
+            style={circleStyle}
             opacity=".26"
             fill="url(#shadow)"
             cx="12" cy="13.512"
             r="10.488">
                 </circle>
                 <circle
-            visibility={this.svgBackgroundState()}
+            style={circleStyle}
             fill="#FFF"
             cx="12"
             cy="12.2"
@@ -113,12 +119,11 @@ class CheckButton extends Component {
 
 
 
-
                 <path d="M0 0h24v24H0z" fill="none"/>
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                 </svg>
 
-                </button>
+                </div>
         )
     }
 }
