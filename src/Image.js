@@ -24,12 +24,14 @@ class Image extends Component {
     }
 
     componentWillUpdate (np, ns) {
-        //if(ns.isSelected != this.state.isSelected){
-        //    this.props.onClick(ns.isSelected);
-       // }
+        if(ns.isSelected != this.state.isSelected){
+            //console.log("update: " + this.props.index + " | " + ns.isSelected);
+            this.props.onToggleSelected(this.props.index, ns.isSelected);
+        }
     }
 
     componentDidUpdate (oProps, nProps) {
+        //console.log("selected idx: " + this.state.isSelected + " | " + this.props.index);
     }
 
     toggleIsSelected () {
@@ -62,23 +64,6 @@ class Image extends Component {
     onSelect (isSelected) {
         this.setState({isSelected: isSelected});
     }
-
-    /*onSelect (idx, isSelected) {
-     if(isSelected){
-     if(this.state.selectedImages.indexOf(idx) === -1){
-     this.setState({selectedImages:
-     this.state.selectedImages.concat([idx])});
-     }
-     }
-     else {
-     var i = this.state.selectedImages.indexOf(idx);
-     if(i > -1){
-     this.setState({selectedImages:
-     this.state.selectedImages.splice(i,1)});
-     }
-     }
-     }*/
-
 
 
     visibility () {
@@ -151,7 +136,8 @@ Image.propTypes = {item: React.PropTypes.object,
                    index: React.PropTypes.number,
                    margin: React.PropTypes.number,
                    height: React.PropTypes.number,
-                   onClick: React.PropTypes.func};
+                   onClick: React.PropTypes.func,
+                   onToggleSelected: React.PropTypes.func};
 Image.defaultProps = {isSelected: false,
                       hover: false};
 
