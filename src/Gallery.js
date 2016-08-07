@@ -2,14 +2,16 @@ import React, { Component, PropTypes } from 'react';
 import Lightbox from 'react-images';
 import Image from './Image.js';
 
+var update = require('react-addons-update');
+
 class Gallery extends Component {
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
 
         this.state = {
             lightboxIsOpen: false,
             thumbHover: null,
-            selectedImages: [],
+            selectedImages: this.props.selectedImages,
             currentImage: 0,
             containerWidth: 0
         };
@@ -20,6 +22,7 @@ class Gallery extends Component {
         this.gotoPrevious = this.gotoPrevious.bind(this);
         this.handleClickImage = this.handleClickImage.bind(this);
         this.openLightbox = this.openLightbox.bind(this);
+        this.onToggleSelected = this.onToggleSelected.bind(this);
     }
 
     componentDidMount () {
@@ -29,7 +32,11 @@ class Gallery extends Component {
         window.addEventListener('resize', this.handleResize);
     }
 
-    componentDidUpdate(){
+    componentWillUpdate (np, ns) {
+        console.log("selectedImages: " + ns.selectedImages);
+    }
+
+    componentDidUpdate () {
         if (ReactDOM.findDOMNode(this).clientWidth
             !== this.state.containerWidth){
             this.setState(
@@ -76,6 +83,23 @@ class Gallery extends Component {
         this.gotoNext();
     }
 
+    onToggleSelected (idx, isSelected) {
+        if(isSelected){
+            if(this.state.selectedImages.indexOf(idx) === -1){
+                this.setState({selectedImages:
+                               update(this.state.selectedImages,
+                                      {$push: [idx]})});
+            }
+        }
+        else {
+            var i = this.state.selectedImages.indexOf(idx);
+            if(i > -1){
+                this.setState({
+                    selectedImages: update(this.state.selectedImages,
+                                           {$splice: [[i, 1]]})});
+            }
+        }
+    }
 
     /**
      * Distribute a delta (integer value) to n items based on
@@ -199,7 +223,8 @@ class Gallery extends Component {
                     index={idx}
                     margin={this.props.margin}
                     height={this.props.rowHeight}
-                    onClick={this.openLightbox} />
+                    onClick={this.openLightbox}
+                    onToggleSelected={this.onToggleSelected}/>
                 );
                 idx++;
             }
@@ -229,11 +254,16 @@ class Gallery extends Component {
 };
 
 Gallery.displayName = 'Gallery';
+
 Gallery.propTypes = {
     images: PropTypes.array,
+    selectedImages: PropTypes.array,
     rowHeight: PropTypes.number,
     margin: PropTypes.number // margin size for each image
 };
+Gallery.defaultProps = {selectedImages: [],
+                        rowHeight: 120,
+                        margin: 2};
 
 /*
 const styles = {
