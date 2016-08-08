@@ -1,14 +1,14 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.0.1",
-  "description": "Justified grid gallery react component inspired by Google Photos and GPlusGallery by Florian Maul.",
+  "version": "0.0.2",
+  "description": "Justified grid gallery component for React.js inspired by Google Photos and GPlusGallery by Florian Maul.",
   "main": "lib/Gallery.js",
   "scripts": {
     "test": "null"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benhowell/react-grid-gallery.git"
+    "url": "https://github.com/benhowell/react-grid-gallery.git"
   },
   "keywords": [
     "react",
