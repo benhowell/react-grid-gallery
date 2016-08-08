@@ -4,26 +4,25 @@
   "description": "Justified grid gallery component for React.js inspired by Google Photos and GPlusGallery by Florian Maul.",
   "main": "lib/Gallery.js",
   "dependencies": {
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
     "react-images": "^0.4.9"
   },
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.11.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.11.5",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
     "gulp": "^3.9.1",
-    "react-addons-update": "^15.3.0"
+    "react": "^15.3.0",
+    "react-addons-update": "^15.3.0",
+    "react-component-gulp-tasks": "^0.7.0",
+    "react-dom": "^15.3.0"
   },
   "browserify-shim": {
     "react": "global:React"
   },
   "scripts": {
-    "build": "gulp clean && NODE_ENV=production gulp build",
-    "bump": "gulp bump",
-    "bump:major": "gulp bump:major",
-    "bump:minor": "gulp bump:minor",
-    "examples": "gulp dev:server",
-    "release": "gulp release",
-    "start": "gulp dev",
-    "watch": "gulp watch:lib"
+    "transpile": "babel --presets es2015,react --ignore require.js src --out-dir lib"
   },
   "repository": {
     "type": "git",
