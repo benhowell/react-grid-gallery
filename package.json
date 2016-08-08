@@ -18,9 +18,6 @@
     "react-component-gulp-tasks": "^0.7.0",
     "react-dom": "^15.3.0"
   },
-  "browserify-shim": {
-    "react": "global:React"
-  },
   "scripts": {
     "transpile": "babel --presets es2015,react --ignore require.js src --out-dir lib"
   },
