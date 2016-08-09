@@ -16,6 +16,30 @@ class Image extends Component {
         //this.fill = this.fill.bind(this);
         this.onMouseEnter = this.onMouseEnter.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
+
+
+        this.style = {
+            thumbnail: {
+                cursor: 'pointer',
+                width: ""+this.props.item.scaletwidth+"px",
+                height: this.props.height,
+                marginLeft: ""+(this.props.item.vx ?
+                                (-this.props.item.vx) : 0)+"px",
+                marginTop: "" + 0 + "px"
+            },
+            thumbnailSelected: {
+                cursor: 'pointer',
+                width: ""+ this.props.item.scaletwidth - 32 +"px",
+                height: this.props.height -32,
+                marginLeft: ""+(this.props.item.vx ?
+                                (-this.props.item.vx + 16) : 16)+"px",
+                marginTop: "" + 16 + "px"
+            }
+        };
+
+
+
+
     }
 
     componentWillReceiveProps (np) {
@@ -73,10 +97,16 @@ class Image extends Component {
      }
 
     tileOverlayBackground () {
-        if (this.state.hover)
+        if (this.state.hover && !this.state.isSelected)
             return 'linear-gradient(to bottom,rgba(0,0,0,0.26),transparent 56px,transparent)';
-        //'transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent) repeat scroll 0% 0%';
         return 'none';
+    }
+
+
+    imageStyle () {
+        if (this.state.isSelected)
+            return this.style.thumbnailSelected;
+        return this.style.thumbnail;
     }
 
 
@@ -93,9 +123,10 @@ class Image extends Component {
                 float: "left",
                 background: "#eee",
                 padding: "0px"}}>
-                <div style={{width: ""+this.props.item.vwidth+"px",
-                             height: this.props.height,
-                             overflow: "hidden"}}
+                <div style={{
+                    width: ""+this.props.item.vwidth+"px",
+                    height: this.props.height,
+                    overflow: "hidden"}}
                 key={"imageInner-"+this.props.index}>
 
 
@@ -104,11 +135,10 @@ class Image extends Component {
             style={{
                 pointerEvents: "none",
                 opacity: 1,
-                    position: "absolute",
-                    height: "100%",
-                    width: "100%",
-                    background: this.tileOverlayBackground()
-                   }}>
+                position: "absolute",
+                height: "100%",
+                width: "100%",
+                background: this.tileOverlayBackground()}}>
 
 
                 <div className="tile-icon-bar"
@@ -118,13 +148,11 @@ class Image extends Component {
                 opacity: 1,
                 position: "absolute",
                 height: "36px",
-                width: "100%"
-            }}>
+                width: "100%"}}>
 
                 <CheckButton key="Select"
             onClick={this.onSelect}
             visibility={this.checkButtonVisibility()}/>
-
                 </div>
                 </div>
 
@@ -135,22 +163,23 @@ class Image extends Component {
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
-            style={{
-                cursor: 'pointer',
-                width: ""+this.props.item.scaletwidth+"px",
-                height: this.props.height,
-                marginLeft: ""+(this.props.item.vx ?
-                                (-this.props.item.vx) : 0)+"px",
-                marginTop: "" + 0 + "px"
-                       }}
+            style={this.imageStyle()}
                 />
                 </a>
-
-
                 </div>
                 </div>
         )
     }
+
+
+
+
+
+
+
+
+
+
 }
 
 Image.propTypes = {item: React.PropTypes.object,
@@ -161,5 +190,6 @@ Image.propTypes = {item: React.PropTypes.object,
                    onToggleSelected: React.PropTypes.func};
 Image.defaultProps = {isSelected: false,
                       hover: false};
+
 
 export default Image;
