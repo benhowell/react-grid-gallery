@@ -66,12 +66,18 @@ class Image extends Component {
     }
 
 
-    visibility () {
+    checkButtonVisibility () {
         if (this.state.hover)
             return 'visible';
         return 'hidden';
      }
 
+    tileOverlayBackground () {
+        if (this.state.hover)
+            return 'linear-gradient(to bottom,rgba(0,0,0,0.26),transparent 56px,transparent)';
+        //'transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent) repeat scroll 0% 0%';
+        return 'none';
+    }
 
 
     render () {
@@ -93,21 +99,34 @@ class Image extends Component {
                 key={"imageInner-"+this.props.index}>
 
 
+                <div className="tile-overlay"
+            key={"tile-overlay-"+this.props.index}
+            style={{
+                pointerEvents: "none",
+                opacity: 1,
+                    position: "absolute",
+                    height: "100%",
+                    width: "100%",
+                    background: this.tileOverlayBackground()
+                   }}>
+
+
                 <div className="tile-icon-bar"
             key={"tile-icon-bar-"+this.props.index}
-                style={{opacity: 1,
-                        position: "absolute",
-                        height: "36px",
-                        width: "100%",
-                        background: "transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent) repeat scroll 0% 0%" //fixme, on select = transparent
-                       }}>
+            style={{
+                pointerEvents: "none",
+                opacity: 1,
+                position: "absolute",
+                height: "36px",
+                width: "100%"
+            }}>
 
                 <CheckButton key="Select"
             onClick={this.onSelect}
-            visibility={this.visibility()}/>
+            visibility={this.checkButtonVisibility()}/>
 
                 </div>
-
+                </div>
 
 
                 <a className="viewImageAction"
@@ -116,11 +135,13 @@ class Image extends Component {
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
-                style={{width: ""+this.props.item.scaletwidth+"px",
-                        height: this.props.height,
-                        marginLeft: ""+(this.props.item.vx ?
-                                        (-this.props.item.vx) : 0)+"px",
-                        marginTop: "" + 0 + "px"
+            style={{
+                cursor: 'pointer',
+                width: ""+this.props.item.scaletwidth+"px",
+                height: this.props.height,
+                marginLeft: ""+(this.props.item.vx ?
+                                (-this.props.item.vx) : 0)+"px",
+                marginTop: "" + 0 + "px"
                        }}
                 />
                 </a>
