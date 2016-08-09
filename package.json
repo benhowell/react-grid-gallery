@@ -1,6 +1,6 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Justified grid gallery component for React.js inspired by Google Photos and GPlusGallery.",
   "main": "lib/Gallery.js",
   "dependencies": {
@@ -21,7 +21,7 @@
     "react-dom": "^15.3.0"
   },
   "scripts": {
-    "transpile": "babel --presets es2015,react --ignore require.js src --out-dir lib"
+    "transpile": "babel --presets es2015,react --ignore require.js,react-grid-gallery.bundle.js src --out-dir lib"
   },
   "repository": {
     "type": "git",
