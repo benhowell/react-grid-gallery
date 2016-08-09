@@ -72,7 +72,9 @@ class CheckButton extends Component {
                 width: '36px',
                 height: '36px',
                 border: 'none',
-                padding: '6px'
+                padding: '6px',
+                cursor: 'pointer',
+                pointerEvents: 'visible'
             }}
             onClick={this.toggleIsSelected}
             onMouseOver={this.onMouseOver}
