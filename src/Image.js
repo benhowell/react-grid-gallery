@@ -102,7 +102,6 @@ class Image extends Component {
         return this.style.thumbnail;
     }
 
-
     render () {
         return (
                 <div className="imageContainer"
@@ -136,7 +135,6 @@ class Image extends Component {
                 }
                 key={"imageInner-"+this.props.index}>
 
-
                 <div className="tile-overlay"
             key={"tile-overlay-"+this.props.index}
             style={{
@@ -156,21 +154,10 @@ class Image extends Component {
             src={this.props.item.thumbnail} title={this.props.item.caption}
             style={this.thumbnailStyle()} /></a>
 
-
                 </div>
                 </div>
         )
     }
-
-
-
-
-
-
-
-
-
-
 }
 
 Image.propTypes = {item: React.PropTypes.object,
@@ -181,6 +168,5 @@ Image.propTypes = {item: React.PropTypes.object,
                    onToggleSelected: React.PropTypes.func};
 Image.defaultProps = {isSelected: false,
                       hover: false};
-
 
 export default Image;
