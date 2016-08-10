@@ -1,5 +1,9 @@
 # react-grid-gallery
 
+### v0.0.4 / 2016-08-10
+
+* Shrinkage effect on thumbnail selection.
+
 ### v0.0.3 / 2016-08-09
 
 * Darkening effect on thumbnail hover (increases visibility of check button).
