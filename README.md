@@ -77,7 +77,7 @@ caption                 | string        | undefined     | Optional. Image captio
 
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
-images                  | array         | undefined     | Required. An array of objects containing image properties (see [Image Options](#Image-Options))
+images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above)
 selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected
 rowHeight               | number        | 160           | Optional. The height of each row of images in the gallery
 margin                  | number        | 2             | Optional. The margin around each image in the gallery
