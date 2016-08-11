@@ -61,7 +61,7 @@ Another thing to note is that 'h' or height in the srcset attribute does not yet
 Read more about the srcset and sizes attributes here: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
 
 
-## (#Image-Options):
+## Image Options
 
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
