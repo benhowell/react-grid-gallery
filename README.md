@@ -51,7 +51,6 @@ export default class Example extends React.Component {
 ### Using srcset: TODO.
 
 
-```
 
 Notes on srcset support:
 
