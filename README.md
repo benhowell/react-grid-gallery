@@ -2,8 +2,9 @@
 
 Justified grid gallery component for React.js inspired by [Google Photos](https://photos.google.com/) and [GPlusGallery](http://fmaul.de/gallery-grid-example/) by Florian Maul.
 
-Backend lightbox functionality by [React Images](https://github.com/jossmac/react-images).
+## Demo & Examples
 
+Live demo: TODO.
 
 
 ## Quick start
@@ -12,7 +13,7 @@ Backend lightbox functionality by [React Images](https://github.com/jossmac/reac
 import React from 'react';
 import Gallery from 'react-grid-gallery';
 
-export default class ReactGridGallery extends React.Component {
+export default class Example extends React.Component {
   ...
   render() {
     return (
@@ -23,22 +24,22 @@ export default class ReactGridGallery extends React.Component {
             src: "https://c1.staticflickr.com/9/8834/27980317100_4122816a5c_o.png",
             thumbnail: "https://c5.staticflickr.com/9/8834/27980317100_e87052d0b0_m.jpg",
             caption: "Warnie",
-            twidth: 240,
-            theight: 165
+            thumbnailWidth: 240,
+            thumbnailHeight: 165
           },
           {
             src: "https://c5.staticflickr.com/8/7635/28157459892_28f5784891_o.jpg",
             thumbnail: "https://c5.staticflickr.com/8/7635/28157459892_08d53d0a8d_m.jpg",
             caption: "Servo",
-            twidth: 240,
-            theight: 160
+            thumbnailWidth: 240,
+            thumbnailHeight: 160
           },
           {
             src: "https://c2.staticflickr.com/8/7515/28157459642_47f8e073ce_o.png",
             thumbnail: "https://c3.staticflickr.com/8/7515/28157459642_506a1008f2_m.jpg",
             caption: "Footy",
-            twidth: 240,
-            theight: 207
+            thumbnailWidth: 240,
+            thumbnailHeight: 207
           }]}
       />
     );
@@ -46,10 +47,6 @@ export default class ReactGridGallery extends React.Component {
 }
 ```
 
-
-## Demo & Examples
-
-Live demo: TODO.
 
 ### Using srcset: TODO.
 
@@ -65,6 +62,42 @@ Another thing to note is that 'h' or height in the srcset attribute does not yet
 Read more about the srcset and sizes attributes here: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
 
 
-### Captions: TODO.
+## (#Image-Options):
+
+Property	|	Type		|	Default		|	Description
+:-----------------------|:--------------|:--------------|:--------------------------------
+src                     | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc.)
+thumbnail               | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc.)
+thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image
+thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image
+caption                 | string        | undefined     | Optional. Image caption
 
 
+
+## Options
+
+Property	|	Type		|	Default		|	Description
+:-----------------------|:--------------|:--------------|:--------------------------------
+images                  | array         | undefined     | Required. An array of objects containing image properties (see [Image Options](#Image-Options))
+selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected
+rowHeight               | number        | 160           | Optional. The height of each row of images in the gallery
+margin                  | number        | 2             | Optional. The margin around each image in the gallery
+backdropClosesModal	|	bool	| false	        | Optional. Allow users to exit the lightbox by clicking the backdrop
+currentImage            | number        | 0             | Optional. The index of the image to display initially (only relevant when used in conjunction with `isOpen` property)
+customControls          | array         | undefined     | Optional. An array of elements to display as custom controls on the top of lightbox
+enableKeyboardInput     | bool          | true          | Optional. Supports keyboard input - <code>esc</code>, <code>arrow left</code>, and <code>arrow right</code>
+imageCountSeparator     | string        | ' of '        | Optional. Customize separator in the image count
+isOpen                  | bool          | false         | Optional. Whether or not the lightbox is displayed when gallery first rendered (can be used in conjunction with `currentImage` property, otherwise the first image will be diplayed)
+showCloseButton         | bool          | true          | Optional. Display a close "X" button in top right corner
+showImageCount          | bool          | true          | Optional. Display image index, e.g., "3 of 20"
+
+
+
+
+
+
+
+
+### Acknowledgements
+
+Backend lightbox functionality by [React Images](https://github.com/jossmac/react-images).
