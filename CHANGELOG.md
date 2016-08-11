@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.1.1 / 2016-08-11
+
+* Added support for all functional lightbox options
+* Updated README with options documentation
+
 ### v0.1.0 / 2016-08-11
 
 * Simplified thumbnail viewport
