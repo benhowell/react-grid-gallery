@@ -15,37 +15,6 @@ class Image extends Component {
         this.onMouseEnter = this.onMouseEnter.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
 
-
-        this.style = {
-            tileInner:
-            {
-                width: ""+this.props.item.vwidth+"px",
-                height: this.props.height,
-                overflow: "hidden"
-            },
-            tileInnerSelected: {
-                width: ""+this.props.item.vwidth -32 +"px",
-                height: this.props.height -32,
-                margin: 16,
-                overflow: "hidden"
-            },
-            thumbnail: {
-                cursor: 'pointer',
-                width: ""+this.props.item.scaletwidth+"px",
-                height: this.props.height,
-                marginLeft: ""+(this.props.item.vx ?
-                                (-this.props.item.vx) : 0)+"px",
-                marginTop: "" + 0 + "px"
-            },
-            thumbnailSelected: {
-                cursor: 'pointer',
-                width: ""+ this.props.item.scaletwidth - 32 +"px",
-                height: this.props.height -32,
-                marginLeft: ""+(this.props.item.vx ?
-                                (-this.props.item.vx) : 0)+"px",
-                marginTop: "" + 0 + "px"
-            }
-        };
     }
 
     componentWillUpdate (np, ns) {
@@ -90,22 +59,61 @@ class Image extends Component {
         return 'none';
     }
 
-    tileInnerStyle () {
+    tileViewportStyle () {
         if (this.state.isSelected)
-            return this.style.tileInnerSelected;
-        return this.style.tileInner;
+            return {
+                width: this.props.item.vwidth -32,
+                height: this.props.height -32,
+                margin: 16,
+                overflow: "hidden"
+            };
+        return {
+            width: ""+this.props.item.vwidth+"px",
+            height: this.props.height,
+            overflow: "hidden"
+        };
     }
 
     thumbnailStyle () {
-        if (this.state.isSelected)
-            return this.style.thumbnailSelected;
-        return this.style.thumbnail;
+        if (this.state.isSelected){
+
+            var ratio = (this.props.item.scaletwidth / this.props.height);
+            var height = 0;
+            var width = 0;
+            var viewportHeight = (this.props.height - 32);
+            var viewportWidth = (this.props.item.vwidth -32);
+            if(this.props.item.scaletwidth > this.props.height){
+                width = this.props.item.scaletwidth -32;
+                height = Math.floor(width / ratio);
+            }
+            else {
+                height = this.props.height -32;
+                width = Math.floor(height * ratio);
+            }
+            var marginTop = -Math.abs(Math.floor((viewportHeight - height) / 2));
+            var marginLeft = -Math.abs(Math.floor((viewportWidth - width) / 2));
+
+            return {
+                cursor: 'pointer',
+                width: width,
+                height: height,
+                marginLeft: marginLeft,
+                marginTop: marginTop
+            };
+        }
+        return {
+            cursor: 'pointer',
+            width: this.props.item.scaletwidth,
+            height: this.props.height,
+            marginLeft: this.props.item.marginLeft,
+            marginTop: 0
+        };
     }
 
     render () {
         return (
-                <div className="imageContainer"
-            key={"imageOuter-"+this.props.index}
+                <div className="tile"
+            key={"tile-"+this.props.index}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
             style={{
@@ -130,11 +138,6 @@ class Image extends Component {
             visibility={this.checkButtonVisibility()}/>
                 </div>
 
-                <div style={
-                    this.tileInnerStyle()
-                }
-                key={"imageInner-"+this.props.index}>
-
                 <div className="tile-overlay"
             key={"tile-overlay-"+this.props.index}
             style={{
@@ -146,13 +149,17 @@ class Image extends Component {
                 background: this.tileOverlayBackground()}}>
                 </div>
 
-                <a className="viewImageAction"
-            key={"viewImage-"+this.props.index}
+                <div className="tile-viewport"
+            style={
+                this.tileViewportStyle()
+            }
+            key={"tile-viewport-"+this.props.index}
             onClick={(e) => this.props.onClick(this.props.index, e)}>
+
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
-            style={this.thumbnailStyle()} /></a>
+            style={this.thumbnailStyle()} />
 
                 </div>
                 </div>
@@ -166,6 +173,7 @@ Image.propTypes = {item: React.PropTypes.object,
                    height: React.PropTypes.number,
                    onClick: React.PropTypes.func,
                    onToggleSelected: React.PropTypes.func};
+
 Image.defaultProps = {isSelected: false,
                       hover: false};
 
