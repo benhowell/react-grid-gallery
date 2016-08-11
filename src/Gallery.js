@@ -9,10 +9,9 @@ class Gallery extends Component {
         super(props);
 
         this.state = {
-            lightboxIsOpen: false,
-            thumbHover: null,
+            lightboxIsOpen: this.props.isOpen,
             selectedImages: this.props.selectedImages,
-            currentImage: 0,
+            currentImage: this.props.currentImage,
             containerWidth: 0
         };
 
@@ -190,7 +189,7 @@ class Gallery extends Component {
         for (var i in items) {
             items[i].scaletwidth =
                 Math.floor(this.props.rowHeight *
-                           (items[i].twidth / items[i].theight));
+                           (items[i].thumbnailWidth / items[i].thumbnailHeight));
         }
         return items;
     }
@@ -238,14 +237,19 @@ class Gallery extends Component {
                 <div id="Gallery">
                 {this.renderGallery()}
                 <Lightbox
-            currentImage={this.state.currentImage}
             images={this.props.images}
+            backdropClosesModal={this.props.backdropClosesModal}
+            currentImage={this.state.currentImage}
+            customControls={this.props.customControls}
+            enableKeyboardInput={this.props.enableKeyboardInput}
+            imageCountSeparator={this.props.imageCountSeparator}
             isOpen={this.state.lightboxIsOpen}
-            onClickPrev={this.gotoPrevious}
-            onClickNext={this.gotoNext}
             onClickImage={this.handleClickImage}
+            onClickNext={this.gotoNext}
+            onClickPrev={this.gotoPrevious}
             onClose={this.closeLightbox}
-            theme={this.props.theme}
+            showCloseButton={this.props.showCloseButton}
+            showImageCount={this.props.showImageCount}
                 />
                 </div>
         );
@@ -255,13 +259,44 @@ class Gallery extends Component {
 Gallery.displayName = 'Gallery';
 
 Gallery.propTypes = {
-    images: PropTypes.array,
-    selectedImages: PropTypes.array,
+    images: PropTypes.arrayOf(
+        PropTypes.shape({
+            src: PropTypes.string.isRequired,
+            thumbnail: PropTypes.string.isRequired,
+            srcset: PropTypes.array,
+            caption: PropTypes.string,
+            thumbnailWidth: PropTypes.number,
+            thumbnailHeight: PropTypes.number
+        })
+    ).isRequired,
+    selectedImages: PropTypes.arrayOf(PropTypes.number),
     rowHeight: PropTypes.number,
-    margin: PropTypes.number // margin size for each image
+    margin: PropTypes.number, // margin size for each image
+    backdropClosesModal: PropTypes.bool,
+    currentImage: PropTypes.number,
+    customControls: PropTypes.arrayOf(PropTypes.node),
+    enableKeyboardInput: PropTypes.bool,
+    imageCountSeparator: PropTypes.string,
+    isOpen: PropTypes.bool,
+    onClickImage: PropTypes.func,
+    onClickNext: PropTypes.func,
+    onClickPrev: PropTypes.func,
+    onClose: PropTypes.func.isRequired,
+    showCloseButton: PropTypes.bool,
+    showImageCount: PropTypes.bool
 };
-Gallery.defaultProps = {selectedImages: [],
-                        rowHeight: 120,
-                        margin: 2};
+
+Gallery.defaultProps = {
+    selectedImages: [],
+    rowHeight: 160,
+    margin: 2,
+    backdropClosesModal: false,
+    currentImage: 0,
+    enableKeyboardInput: true,
+    imageCountSeparator: ' of ',
+    isOpen: false,
+    showCloseButton: true,
+    showImageCount: true
+};
 
 module.exports = Gallery;
