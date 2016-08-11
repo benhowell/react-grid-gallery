@@ -1,5 +1,12 @@
 # react-grid-gallery
 
+### v0.1.0 / 2016-08-11
+
+* Simplified thumbnail viewport
+* Fixed aspect bug on shrinkage effect on thumbnail selection 
+
+* * *
+
 ### v0.0.4 / 2016-08-10
 
 * Shrinkage effect on thumbnail selection.
