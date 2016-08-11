@@ -104,7 +104,7 @@ images={[{
     'http://example.com/example/img2_500.jpg 500w',
     'http://example.com/example/img2_320.jpg 320w',
   ],
-  thumbnail: 'http://example.com/example/thumbnailimg2.jpg',
+  thumbnail: 'http://example.com/example/thumbnailImg2.jpg',
   caption: "Image 2",
   thumbnailWidth: 240,
   thumbnailHeight: 165
