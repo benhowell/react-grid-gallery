@@ -56,7 +56,7 @@ thumbnail               | string        | undefined     | Required. A string ref
 thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image
 thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image
 caption                 | string        | undefined     | Optional. Image caption
-
+srcset 	                | array 	| undefined 	| Optional. Array of srcsets for lightbox
 
 
 ## Options
