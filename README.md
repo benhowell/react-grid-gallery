@@ -68,7 +68,7 @@ selectedImages          | array         | empty         | Optional. An array of 
 rowHeight               | number        | 160           | Optional. The height of each row of images in the gallery
 margin                  | number        | 2             | Optional. The margin around each image in the gallery
 backdropClosesModal	|	bool	| false	        | Optional. Allow users to exit the lightbox by clicking the backdrop
-currentImage            | number        | 0             | Optional. The index of the image to display initially (only relevant when used in conjunction with `isOpen` property)
+currentImage            | number        | 0             | Optional. The index of the image to display initially (only relevant when used in conjunction with `isOpen: true` property)
 customControls          | array         | undefined     | Optional. An array of elements to display as custom controls on the top of lightbox
 enableKeyboardInput     | bool          | true          | Optional. Supports keyboard input - <code>esc</code>, <code>arrow left</code>, and <code>arrow right</code>
 imageCountSeparator     | string        | ' of '        | Optional. Customize separator in the image count
