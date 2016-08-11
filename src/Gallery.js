@@ -166,7 +166,7 @@ class Gallery extends Component {
                 item = row[i];
 
                 // move the left border inwards by half the pixels
-                item.vx = Math.floor(pixelsToRemove / 2);
+                item.marginLeft = -Math.abs(Math.floor(pixelsToRemove / 2));
 
                 // shrink the width of the image by pixelsToRemove
                 item.vwidth = item.scaletwidth - pixelsToRemove;
@@ -176,7 +176,7 @@ class Gallery extends Component {
             // all images fit in the row, set vx and vwidth
             for(var i in row) {
                 item = row[i];
-                item.vx = 0;
+                item.marginLeft = 0;
                 item.vwidth = item.scaletwidth;
             }
         }
@@ -188,8 +188,9 @@ class Gallery extends Component {
      */
     scaleThumbs (items) {
         for (var i in items) {
-            var ratio = (items[i].twidth / items[i].theight);
-            items[i].scaletwidth = Math.floor(this.props.rowHeight * ratio);
+            items[i].scaletwidth =
+                Math.floor(this.props.rowHeight *
+                           (items[i].twidth / items[i].theight));
         }
         return items;
     }
@@ -233,8 +234,6 @@ class Gallery extends Component {
     }
 
     render () {
-        /* custom controls param goes in lightbox below
-         {customControls={customControls} */
         return (
                 <div id="Gallery">
                 {this.renderGallery()}
