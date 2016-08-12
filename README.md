@@ -1,6 +1,6 @@
 # React Grid Gallery
 
-Justified grid gallery component for React.js inspired by [Google Photos](https://photos.google.com/) and [GPlusGallery](http://fmaul.de/gallery-grid-example/) by Florian Maul.
+Justified grid gallery component for React.js.
 
 ## Demo & Examples
 
@@ -123,4 +123,6 @@ Read more about the srcset and sizes attributes here: [https://ericportis.com/po
 
 ### Acknowledgements
 
+Gallery design inspired by [Google Photos](https://photos.google.com/).
+Gallery viewport implementation inspired by [GPlusGallery](http://fmaul.de/gallery-grid-example/) by Florian Maul.
 Backend lightbox functionality by [React Images](https://github.com/jossmac/react-images).
