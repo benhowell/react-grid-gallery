@@ -123,8 +123,8 @@ Read more about the srcset and sizes attributes here: [https://ericportis.com/po
 
 ### Acknowledgements
 
-Gallery design inspired by [Google Photos](https://photos.google.com/).
+React Grid Gallery design inspired by [Google Photos](https://photos.google.com/).
 
-Gallery viewport implementation inspired by [GPlusGallery](http://fmaul.de/gallery-grid-example/) by Florian Maul.
+React Grid Gallery viewport implementation inspired by [GPlusGallery](http://fmaul.de/gallery-grid-example/) by Florian Maul.
 
 Backend lightbox functionality via [React Images](https://github.com/jossmac/react-images) by [@jossmac](https://github.com/jossmac).
