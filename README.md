@@ -127,4 +127,4 @@ Gallery design inspired by [Google Photos](https://photos.google.com/).
 
 Gallery viewport implementation inspired by [GPlusGallery](http://fmaul.de/gallery-grid-example/) by Florian Maul.
 
-Backend lightbox functionality by [React Images](https://github.com/jossmac/react-images) by [https://github.com/jossmac](@jossmac).
+Backend lightbox functionality by [React Images](https://github.com/jossmac/react-images) by [@jossmac](https://github.com/jossmac).
