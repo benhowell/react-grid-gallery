@@ -1,10 +1,10 @@
 # React Grid Gallery
 
-Justified grid gallery component for React.js.
+Justified grid gallery component for [React](http://facebook.github.io/react/).
 
 ## Demo & Examples
 
-Live demo: TODO.
+Live demo: https://benhowell.github.io/react-grid-gallery/
 
 
 ## Quick start
