@@ -65,11 +65,11 @@ Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above)
 enableImageSelection    | bool          | true          | Optional. Allow images to be selectable
-selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (only relevant if `enableImageSelection: true`)(TODO)
+selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (only relevant if `enableImageSelection: true`)
 onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array (only relevant if `enableImageSelection: true`)
-rowHeight               | number        | 160           | Optional. The height of each row of images in the gallery
+rowHeight               | number        | 180           | Optional. The height of each row in the gallery
 margin                  | number        | 2             | Optional. The margin around each image in the gallery
-backdropClosesModal	|	bool	| false	        | Optional. Allow users to exit the lightbox by clicking the backdrop
+backdropClosesModal	| bool          | false	        | Optional. Allow users to exit the lightbox by clicking the backdrop
 currentImage            | number        | 0             | Optional. The index of the image to display initially (only relevant when used in conjunction with `isOpen: true` property)
 customControls          | array         | undefined     | Optional. An array of elements to display as custom controls on the top of lightbox
 enableKeyboardInput     | bool          | true          | Optional. Supports keyboard input - <code>esc</code>, <code>arrow left</code>, and <code>arrow right</code>
