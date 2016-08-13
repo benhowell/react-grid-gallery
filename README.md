@@ -122,7 +122,7 @@ images={[{
 
 ```
 
-Notes on srcset support:
+### Notes on srcset Support
 
 The srcset attribute is supported by some modern browsers.  Results of browser implementation and behaviour may vary. The sizes attribute uses the default maxWidth CSS property set to the image.  By default this is 80% so 80vw.
 
