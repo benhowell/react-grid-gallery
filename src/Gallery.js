@@ -158,12 +158,6 @@ class Gallery extends Component {
         return items;
     }
 
-    isImageSelected (idx) {
-        if (this.state.selectedImages.indexOf(idx) > -1)
-            return true;
-        return false;
-    }
-
     renderGallery () {
         if (!this.props.images) return;
         if (this.state.containerWidth == 0) return;
@@ -186,7 +180,8 @@ class Gallery extends Component {
                     margin={this.props.margin}
                     height={this.props.rowHeight}
                     isSelectable={this.props.enableImageSelection}
-                    isSelected={this.isImageSelected(idx)}
+                    isSelected={(this.state.selectedImages.indexOf(idx) > -1) ?
+                                true : false}
                     onClick={this.openLightbox}
                     onToggleSelected={this.onToggleSelected}/>
                 );
