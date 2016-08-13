@@ -64,7 +64,8 @@ srcset 	                | array 	| undefined 	| Optional. Array of srcsets for l
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above)
-selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected
+selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (TODO)
+onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array 
 rowHeight               | number        | 160           | Optional. The height of each row of images in the gallery
 margin                  | number        | 2             | Optional. The margin around each image in the gallery
 backdropClosesModal	|	bool	| false	        | Optional. Allow users to exit the lightbox by clicking the backdrop
