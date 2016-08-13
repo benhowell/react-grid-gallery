@@ -65,7 +65,7 @@ Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above)
 enableImageSelection    | bool          | true          | Optional. Allow images to be selectable
-selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (only relevant if `enableImageSelection: true`)
+selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (Note: this selection is permanent if `enableImageSelection: false`
 onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array (only relevant if `enableImageSelection: true`)
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery
 margin                  | number        | 2             | Optional. The margin around each image in the gallery
