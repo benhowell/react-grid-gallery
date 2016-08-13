@@ -226,6 +226,7 @@ class Gallery extends Component {
                     index={idx}
                     margin={this.props.margin}
                     height={this.props.rowHeight}
+                    isSelectable={this.props.enableImageSelection}
                     onClick={this.openLightbox}
                     onToggleSelected={this.onToggleSelected}/>
                 );
@@ -272,8 +273,9 @@ Gallery.propTypes = {
             thumbnailHeight: PropTypes.number
         })
     ).isRequired,
-    onSelectedImagesChange: PropTypes.func,
+    enableImageSelection: PropTypes.bool,
     selectedImages: PropTypes.arrayOf(PropTypes.number),
+    onSelectedImagesChange: PropTypes.func,
     rowHeight: PropTypes.number,
     margin: PropTypes.number, // margin size for each image
     backdropClosesModal: PropTypes.bool,
@@ -291,6 +293,7 @@ Gallery.propTypes = {
 };
 
 Gallery.defaultProps = {
+    enableImageSelection: true,
     selectedImages: [],
     rowHeight: 160,
     margin: 2,
