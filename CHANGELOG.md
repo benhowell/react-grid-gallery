@@ -1,5 +1,11 @@
 # react-grid-gallery
 
+### v0.1.2 / 2016-08-13
+
+* Added support for onSelectedImagesChange function (optional).
+* Updated options documentation
+
+
 ### v0.1.1 / 2016-08-11
 
 * Added support for all functional lightbox options
