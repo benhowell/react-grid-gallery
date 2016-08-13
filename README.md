@@ -55,18 +55,18 @@ src                     | string        | undefined     | Required. A string ref
 thumbnail               | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc).
 thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image.
 thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image.
-caption                 | string        | undefined     | Optional. Image caption
+caption                 | string        | undefined     | Optional. Image caption.
 srcset 	                | array 	| undefined 	| Optional. Array of srcsets for lightbox.
 
 
-## Options
+## General Options
 
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above).
 enableImageSelection    | bool          | true          | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying a non empty `selectedImages` array will result in those images being permanently selected. 
-selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (Note: this selection is permanent if `enableImageSelection: false`.
-onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array (only relevant if `enableImageSelection: true`). This function is only executable when `enableImageSelection: true`. 
+selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (Note: this selection is permanent if `enableImageSelection: false`).
+onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array. This function is only executable when `enableImageSelection: true`. 
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
 backdropClosesModal	| bool          | false	        | Optional. Allow users to exit the lightbox by clicking the backdrop.
@@ -81,7 +81,10 @@ showImageCount          | bool          | true          | Optional. Display imag
 
 ### General Notes
 
-As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonably pleasing.
+As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size applied when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonably pleasing.
+
+Gallery width is determined by the containing element.
+
 
 
 
