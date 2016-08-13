@@ -85,21 +85,18 @@ class Gallery extends Component {
         this.gotoNext();
     }
 
-    onToggleSelected (idx, isSelected) {
-        if(isSelected){
-            if(this.state.selectedImages.indexOf(idx) === -1){
-                this.setState({selectedImages:
-                               update(this.state.selectedImages,
-                                      {$push: [idx]})});
-            }
+    onToggleSelected (index, event) {
+        event.preventDefault();
+        var i = this.state.selectedImages.indexOf(index);
+        if(i == -1){
+            this.setState({selectedImages:
+                           update(this.state.selectedImages,
+                                  {$push: [index]})});
         }
         else {
-            var i = this.state.selectedImages.indexOf(idx);
-            if(i > -1){
-                this.setState({
-                    selectedImages: update(this.state.selectedImages,
-                                           {$splice: [[i, 1]]})});
-            }
+            this.setState({
+                selectedImages: update(this.state.selectedImages,
+                                       {$splice: [[i, 1]]})});
         }
     }
 
@@ -197,6 +194,12 @@ class Gallery extends Component {
         return items;
     }
 
+    isImageSelected (idx) {
+        if (this.state.selectedImages.indexOf(idx) > -1)
+            return true;
+        return false;
+    }
+
     /**
      * Builds images and packs them in rows
      */
@@ -227,6 +230,7 @@ class Gallery extends Component {
                     margin={this.props.margin}
                     height={this.props.rowHeight}
                     isSelectable={this.props.enableImageSelection}
+                    isSelected={this.isImageSelected(idx)}
                     onClick={this.openLightbox}
                     onToggleSelected={this.onToggleSelected}/>
                 );
@@ -295,7 +299,7 @@ Gallery.propTypes = {
 Gallery.defaultProps = {
     enableImageSelection: true,
     selectedImages: [],
-    rowHeight: 160,
+    rowHeight: 180,
     margin: 2,
     backdropClosesModal: false,
     currentImage: 0,
