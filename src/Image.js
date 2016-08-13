@@ -167,12 +167,12 @@ class Image extends Component {
     }
 }
 
-Image.propTypes = {item: React.PropTypes.object,
-                   index: React.PropTypes.number,
-                   margin: React.PropTypes.number,
-                   height: React.PropTypes.number,
-                   onClick: React.PropTypes.func,
-                   onToggleSelected: React.PropTypes.func};
+Image.propTypes = {item: PropTypes.object,
+                   index: PropTypes.number,
+                   margin: PropTypes.number,
+                   height: PropTypes.number,
+                   onClick: PropTypes.func,
+                   onToggleSelected: PropTypes.func};
 
 Image.defaultProps = {isSelected: false,
                       hover: false};
