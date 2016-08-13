@@ -25,9 +25,7 @@ class Gallery extends Component {
     }
 
     componentDidMount () {
-        this.setState(
-            {containerWidth:
-             Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
+        this.handleResize();
         window.addEventListener('resize', this.handleResize);
     }
 
@@ -41,16 +39,14 @@ class Gallery extends Component {
     componentDidUpdate () {
         if (ReactDOM.findDOMNode(this).clientWidth
             !== this.state.containerWidth){
-            this.setState(
-                {containerWidth:
-                 Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
+            this.handleResize();
         }
     }
 
-    handleResize (e) {
-        this.setState(
-            {containerWidth:
-             Math.floor(ReactDOM.findDOMNode(this).clientWidth)});
+    handleResize (event) {
+        this.setState({
+            containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)
+        });
     }
 
     openLightbox (index, event) {
@@ -81,7 +77,8 @@ class Gallery extends Component {
     }
 
     handleClickImage () {
-        if (this.state.currentImage === this.props.images.length - 1) return;
+        if (this.state.currentImage === this.props.images.length - 1)
+            return;
         this.gotoNext();
     }
 
@@ -96,21 +93,14 @@ class Gallery extends Component {
         else {
             this.setState({
                 selectedImages: update(this.state.selectedImages,
-                                       {$splice: [[i, 1]]})});
+                                       {$splice: [[i, 1]]})
+            });
         }
     }
 
-    /**
-     * Distribute a delta (integer value) to n items based on
-     * the size (width) of the items thumbnails.
-     */
     calculateCutOff (len, delta, items) {
-        // resulting distribution
         var cutoff = [];
         var cutsum = 0;
-
-        // distribute the delta based on the proportion of
-        // thumbnail size to length of all thumbnails.
         for(var i in items) {
             var item = items[i];
             var fractOfLen = item.scaletwidth / len;
@@ -118,14 +108,10 @@ class Gallery extends Component {
             cutsum += cutoff[i];
         }
 
-        // still more pixel to distribute because of decimal
-        // fractions that were omitted.
         var stillToCutOff = delta - cutsum;
         while(stillToCutOff > 0) {
             for(i in cutoff) {
-                // distribute pixels evenly until done
                 cutoff[i]++;
-                cutsum++; //debug
                 stillToCutOff--;
                 if (stillToCutOff < 0) break;
             }
@@ -133,46 +119,27 @@ class Gallery extends Component {
         return cutoff;
     }
 
-    /**
-     * Takes images from the items array (removes them) as
-     * long as they fit into a width of maxwidth pixels.
-     */
     buildImageRow (items) {
         var row = [];
         var len = 0;
-
-        // left and right margin = 2x props.margin
         var imgMargin = 2 * this.props.margin;
-
-        // Build a row of images until longer than maxwidth
         while(items.length > 0 && len < this.state.containerWidth) {
             var item = items.shift();
             row.push(item);
             len += (item.scaletwidth + imgMargin);
         }
 
-        // calculate by how many pixels too long...
         var delta = len - this.state.containerWidth;
-
-        // if the line is too long, make images smaller
         if(row.length > 0 && delta > 0) {
-
-            // calculate the distribution to each image in the row
             var cutoff = this.calculateCutOff(len, delta, row);
-
             for(var i in row) {
                 var pixelsToRemove = cutoff[i];
                 item = row[i];
-
-                // move the left border inwards by half the pixels
                 item.marginLeft = -Math.abs(Math.floor(pixelsToRemove / 2));
-
-                // shrink the width of the image by pixelsToRemove
                 item.vwidth = item.scaletwidth - pixelsToRemove;
             }
         }
         else {
-            // all images fit in the row, set vx and vwidth
             for(var i in row) {
                 item = row[i];
                 item.marginLeft = 0;
@@ -182,14 +149,11 @@ class Gallery extends Component {
         return row;
     }
 
-    /**
-     * Scales thumbnails to match props.rowHeight
-     */
     scaleThumbs (items) {
         for (var i in items) {
             items[i].scaletwidth =
-                Math.floor(this.props.rowHeight *
-                           (items[i].thumbnailWidth / items[i].thumbnailHeight));
+                Math.floor(this.props.rowHeight * (items[i].thumbnailWidth
+                                                   / items[i].thumbnailHeight));
         }
         return items;
     }
@@ -200,17 +164,10 @@ class Gallery extends Component {
         return false;
     }
 
-    /**
-     * Builds images and packs them in rows
-     */
     renderGallery () {
         if (!this.props.images) return;
         if (this.state.containerWidth == 0) return;
-
-        // Calculate new thumbnail size to match this.props.rowHeight
         var items = this.scaleThumbs(this.props.images.slice());
-
-        // calculate rows of images
         var images = [];
         var rows = [];
         while(items.length > 0) {
@@ -221,7 +178,6 @@ class Gallery extends Component {
         for(var r in rows) {
             for(var i in rows[r]) {
                 var item = rows[r][i];
-                // create image
                 images.push(
                         <Image
                     key={"Image-"+idx}
@@ -281,7 +237,7 @@ Gallery.propTypes = {
     selectedImages: PropTypes.arrayOf(PropTypes.number),
     onSelectedImagesChange: PropTypes.func,
     rowHeight: PropTypes.number,
-    margin: PropTypes.number, // margin size for each image
+    margin: PropTypes.number,
     backdropClosesModal: PropTypes.bool,
     currentImage: PropTypes.number,
     customControls: PropTypes.arrayOf(PropTypes.node),
