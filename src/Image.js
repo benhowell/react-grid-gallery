@@ -6,29 +6,15 @@ class Image extends Component {
         super(props);
 
         this.state = {
-            isSelected: this.props.isSelected,
-            visibility: this.props.visibility,
             hover: false
         };
 
-        this.onSelect = this.onSelect.bind(this);
         this.onMouseEnter = this.onMouseEnter.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
-
-    }
-
-    componentWillUpdate (np, ns) {
-        if(ns.isSelected != this.state.isSelected){
-            this.props.onToggleSelected(this.props.index, ns.isSelected);
-        }
-    }
-
-    toggleIsSelected () {
-        this.setState({isSelected: !this.state.isSelected});
     }
 
     fill () {
-        if (this.state.isSelected)
+        if (this.props.isSelected)
             return "#4285f4";
         else if (this.state.hover)
             return "rgba(255, 255, 255, 1)";
@@ -43,10 +29,6 @@ class Image extends Component {
         this.setState({hover: false});
     }
 
-    onSelect (isSelected) {
-        this.setState({isSelected: isSelected});
-    }
-
     checkButtonVisibility () {
         if (this.state.hover)
             return 'visible';
@@ -54,13 +36,13 @@ class Image extends Component {
      }
 
     tileOverlayBackground () {
-        if (this.state.hover && !this.state.isSelected)
+        if (this.state.hover && !this.props.isSelected)
             return 'linear-gradient(to bottom,rgba(0,0,0,0.26),transparent 56px,transparent)';
         return 'none';
     }
 
     tileViewportStyle () {
-        if (this.state.isSelected)
+        if (this.props.isSelected)
             return {
                 width: this.props.item.vwidth -32,
                 height: this.props.height -32,
@@ -75,13 +57,13 @@ class Image extends Component {
     }
 
     thumbnailStyle () {
-        if (this.state.isSelected){
-
+        if (this.props.isSelected){
             var ratio = (this.props.item.scaletwidth / this.props.height);
             var height = 0;
             var width = 0;
             var viewportHeight = (this.props.height - 32);
             var viewportWidth = (this.props.item.vwidth -32);
+
             if(this.props.item.scaletwidth > this.props.height){
                 width = this.props.item.scaletwidth -32;
                 height = Math.floor(width / ratio);
@@ -90,9 +72,9 @@ class Image extends Component {
                 height = this.props.height -32;
                 width = Math.floor(height * ratio);
             }
+
             var marginTop = -Math.abs(Math.floor((viewportHeight - height) / 2));
             var marginLeft = -Math.abs(Math.floor((viewportWidth - width) / 2));
-
             return {
                 cursor: 'pointer',
                 width: width,
@@ -114,8 +96,10 @@ class Image extends Component {
         if(this.props.isSelectable)
             return (
                     <CheckButton key="Select"
-                onClick={this.onSelect}
-                visibility={this.checkButtonVisibility()}/>
+                index={this.props.index}
+                isSelected={this.props.isSelected}
+                onClick={this.props.onToggleSelected}
+                parentHover={this.state.hover}/>
             );
         return (<div/>);
     }
@@ -167,7 +151,6 @@ class Image extends Component {
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
             style={this.thumbnailStyle()} />
-
                 </div>
                 </div>
         )
