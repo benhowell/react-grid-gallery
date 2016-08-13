@@ -1,5 +1,11 @@
 # react-grid-gallery
 
+### v0.1.4 / 2016-08-13
+
+* Added support for disabling image selection (optional)
+* Updated options documentation
+
+
 ### v0.1.3 / 2016-08-13
 
 * Added support for disabling image selection (optional)
