@@ -5,38 +5,18 @@ class CheckButton extends Component {
         super(props);
 
         this.state = {
-            isSelected: this.props.isSelected,
-            visibility: this.props.visibility,
-            hover: this.props.hover,
-            onClick: this.props.onClick
+            hover: this.props.hover
         };
 
-        this.toggleIsSelected = this.toggleIsSelected.bind(this);
         this.fill = this.fill.bind(this);
+        this.svgBackgroundState = this.svgBackgroundState.bind(this);
+        this.visibility = this.visibility.bind(this);
         this.onMouseOver = this.onMouseOver.bind(this);
         this.onMouseOut = this.onMouseOut.bind(this);
     }
 
-    componentWillReceiveProps (np) {
-        if(!this.state.isSelected)
-            this.setState({visibility: np.visibility});
-    }
-
-    componentWillUpdate (np, ns) {
-        if(ns.isSelected != this.state.isSelected){
-            this.props.onClick(ns.isSelected);
-        }
-    }
-
-    componentDidUpdate (oProps, nProps) {
-    }
-
-    toggleIsSelected () {
-        this.setState({isSelected: !this.state.isSelected});
-    }
-
     fill () {
-        if (this.state.isSelected)
+        if (this.props.isSelected)
             return "#4285f4";
         else if (this.state.hover)
             return "rgba(255, 255, 255, 1)";
@@ -44,11 +24,16 @@ class CheckButton extends Component {
     }
 
     svgBackgroundState () {
-        if (this.state.isSelected)
+        if (this.props.isSelected)
             return "block";
         return "none";
     }
 
+    visibility () {
+        if(this.props.isSelected || this.props.parentHover)
+            return 'visible';
+        return 'hidden';
+    }
 
     onMouseOver () {
         this.setState({hover: true});
@@ -67,7 +52,7 @@ class CheckButton extends Component {
                 <div
             title="Select"
             style={{
-                visibility: this.state.visibility,
+                visibility: this.visibility(),
                 background: 'none',
                 width: '36px',
                 height: '36px',
@@ -76,7 +61,7 @@ class CheckButton extends Component {
                 cursor: 'pointer',
                 pointerEvents: 'visible'
             }}
-            onClick={this.toggleIsSelected}
+            onClick={(e) => this.props.onClick(this.props.index, e)}
             onMouseOver={this.onMouseOver}
             onMouseOut={this.onMouseOut}>
                 <svg
@@ -117,25 +102,21 @@ class CheckButton extends Component {
             cy="12.2"
             r="8.292">
                 </circle>
-
-
-
-
                 <path d="M0 0h24v24H0z" fill="none"/>
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                 </svg>
-
                 </div>
         )
     }
 }
 
-CheckButton.propTypes = {isSelected: React.PropTypes.bool,
-                         visibility: React.PropTypes.string,
-                         hover: React.PropTypes.bool,
-                         onClick: React.PropTypes.func};
+CheckButton.propTypes = {index: PropTypes.number,
+                         isSelected: PropTypes.bool,
+                         parentHover: PropTypes.string,
+                         hover: PropTypes.bool,
+                         onClick: PropTypes.func};
 CheckButton.defaultProps = {isSelected: false,
-                            visibility: 'hidden',
+                            parentHover: false,
                             hover: false};
 
 export default CheckButton;
