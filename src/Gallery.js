@@ -32,7 +32,10 @@ class Gallery extends Component {
     }
 
     componentWillUpdate (np, ns) {
-        console.log("selectedImages: " + ns.selectedImages);
+        if(this.state.selectedImages != ns.selectedImages){
+            if(this.props.onSelectedImagesChange)
+                this.props.onSelectedImagesChange(ns.selectedImages);
+        }
     }
 
     componentDidUpdate () {
@@ -269,6 +272,7 @@ Gallery.propTypes = {
             thumbnailHeight: PropTypes.number
         })
     ).isRequired,
+    onSelectedImagesChange: PropTypes.func,
     selectedImages: PropTypes.arrayOf(PropTypes.number),
     rowHeight: PropTypes.number,
     margin: PropTypes.number, // margin size for each image
