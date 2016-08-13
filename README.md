@@ -2,9 +2,9 @@
 
 Justified grid gallery component for [React](http://facebook.github.io/react/).
 
-## Demo & Examples
+## Live Demo & Examples
 
-Live demo: https://benhowell.github.io/react-grid-gallery/
+https://benhowell.github.io/react-grid-gallery/
 
 
 ## Quick start
@@ -51,32 +51,37 @@ export default class Example extends React.Component {
 
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
-src                     | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc.)
-thumbnail               | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc.)
-thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image
-thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image
+src                     | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc).
+thumbnail               | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc).
+thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image.
+thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image.
 caption                 | string        | undefined     | Optional. Image caption
-srcset 	                | array 	| undefined 	| Optional. Array of srcsets for lightbox
+srcset 	                | array 	| undefined 	| Optional. Array of srcsets for lightbox.
 
 
 ## Options
 
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
-images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above)
-enableImageSelection    | bool          | true          | Optional. Allow images to be selectable
-selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (Note: this selection is permanent if `enableImageSelection: false`
-onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array (only relevant if `enableImageSelection: true`)
-rowHeight               | number        | 180           | Optional. The height of each row in the gallery
-margin                  | number        | 2             | Optional. The margin around each image in the gallery
-backdropClosesModal	| bool          | false	        | Optional. Allow users to exit the lightbox by clicking the backdrop
-currentImage            | number        | 0             | Optional. The index of the image to display initially (only relevant when used in conjunction with `isOpen: true` property)
-customControls          | array         | undefined     | Optional. An array of elements to display as custom controls on the top of lightbox
-enableKeyboardInput     | bool          | true          | Optional. Supports keyboard input - <code>esc</code>, <code>arrow left</code>, and <code>arrow right</code>
-imageCountSeparator     | string        | ' of '        | Optional. Customize separator in the image count
-isOpen                  | bool          | false         | Optional. Whether or not the lightbox is displayed when gallery first rendered (can be used in conjunction with `currentImage` property, otherwise the first image will be diplayed)
-showCloseButton         | bool          | true          | Optional. Display a close "X" button in top right corner
-showImageCount          | bool          | true          | Optional. Display image index, e.g., "3 of 20"
+images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above).
+enableImageSelection    | bool          | true          | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying a non empty `selectedImages` array will result in those images being permanently selected. 
+selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (Note: this selection is permanent if `enableImageSelection: false`.
+onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array (only relevant if `enableImageSelection: true`). This function is only executable when `enableImageSelection: true`. 
+rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
+margin                  | number        | 2             | Optional. The margin around each image in the gallery.
+backdropClosesModal	| bool          | false	        | Optional. Allow users to exit the lightbox by clicking the backdrop.
+currentImage            | number        | 0             | Optional. The index of the image to display initially (only relevant when used in conjunction with `isOpen: true` property).
+customControls          | array         | undefined     | Optional. An array of elements to display as custom controls on the top of lightbox.
+enableKeyboardInput     | bool          | true          | Optional. Supports keyboard input - <code>esc</code>, <code>arrow left</code>, and <code>arrow right</code>.
+imageCountSeparator     | string        | ' of '        | Optional. Customize separator in the image count.
+isOpen                  | bool          | false         | Optional. Whether or not the lightbox is displayed when gallery first rendered (can be used in conjunction with `currentImage` property, otherwise the first image will be diplayed).
+showCloseButton         | bool          | true          | Optional. Display a close "X" button in top right corner.
+showImageCount          | bool          | true          | Optional. Display image index, e.g., "3 of 20".
+
+
+### General Notes
+
+As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonably pleasing.
 
 
 
