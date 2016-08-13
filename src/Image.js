@@ -110,6 +110,16 @@ class Image extends Component {
         };
     }
 
+    renderCheckButton () {
+        if(this.props.isSelectable)
+            return (
+                    <CheckButton key="Select"
+                onClick={this.onSelect}
+                visibility={this.checkButtonVisibility()}/>
+            );
+        return (<div/>);
+    }
+
     render () {
         return (
                 <div className="tile"
@@ -132,10 +142,7 @@ class Image extends Component {
                 position: "absolute",
                 height: "36px",
                 width: "100%"}}>
-
-                <CheckButton key="Select"
-            onClick={this.onSelect}
-            visibility={this.checkButtonVisibility()}/>
+                {this.renderCheckButton()}
                 </div>
 
                 <div className="tile-overlay"
@@ -171,10 +178,13 @@ Image.propTypes = {item: PropTypes.object,
                    index: PropTypes.number,
                    margin: PropTypes.number,
                    height: PropTypes.number,
+                   isSelectable: PropTypes.bool,
+                   isSelected: PropTypes.bool,
                    onClick: PropTypes.func,
                    onToggleSelected: PropTypes.func};
 
-Image.defaultProps = {isSelected: false,
+Image.defaultProps = {isSelectable: true,
+                      isSelected: false,
                       hover: false};
 
 export default Image;
