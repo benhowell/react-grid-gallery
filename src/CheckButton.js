@@ -9,10 +9,7 @@ class CheckButton extends Component {
         };
 
         this.fill = this.fill.bind(this);
-        this.svgBackgroundState = this.svgBackgroundState.bind(this);
         this.visibility = this.visibility.bind(this);
-        this.onMouseOver = this.onMouseOver.bind(this);
-        this.onMouseOut = this.onMouseOut.bind(this);
     }
 
     fill () {
@@ -23,29 +20,16 @@ class CheckButton extends Component {
         return "rgba(255, 255, 255, 0.7)";
     }
 
-    svgBackgroundState () {
-        if (this.props.isSelected)
-            return "block";
-        return "none";
-    }
-
     visibility () {
-        if(this.props.isSelected || this.props.parentHover)
+        if (this.props.isSelected ||
+            (this.props.isSelectable && this.props.parentHover))
             return 'visible';
         return 'hidden';
     }
 
-    onMouseOver () {
-        this.setState({hover: true});
-    }
-
-    onMouseOut () {
-        this.setState({hover: false});
-    }
-
     render () {
         let circleStyle = {
-            display: this.svgBackgroundState()
+            display: this.props.isSelected ? "block" : "none"
         };
 
         return (
@@ -61,9 +45,11 @@ class CheckButton extends Component {
                 cursor: 'pointer',
                 pointerEvents: 'visible'
             }}
-            onClick={(e) => this.props.onClick(this.props.index, e)}
-            onMouseOver={this.onMouseOver}
-            onMouseOut={this.onMouseOut}>
+            onClick={this.props.onClick ?
+                     (e) => this.props.onClick(this.props.index, e) : null
+            }
+            onMouseOver={(e) => this.setState({hover: true})}
+            onMouseOut={(e) => this.setState({hover: false})}>
                 <svg
             fill={this.fill()}
             height="24" viewBox="0 0 24 24"
@@ -111,11 +97,14 @@ class CheckButton extends Component {
 }
 
 CheckButton.propTypes = {index: PropTypes.number,
+                         isSelectable: PropTypes.bool,
                          isSelected: PropTypes.bool,
                          parentHover: PropTypes.string,
                          hover: PropTypes.bool,
                          onClick: PropTypes.func};
-CheckButton.defaultProps = {isSelected: false,
+
+CheckButton.defaultProps = {isSelectable: true,
+                            isSelected: false,
                             parentHover: false,
                             hover: false};
 
