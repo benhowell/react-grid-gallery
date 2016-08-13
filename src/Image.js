@@ -8,37 +8,6 @@ class Image extends Component {
         this.state = {
             hover: false
         };
-
-        this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.onMouseLeave = this.onMouseLeave.bind(this);
-    }
-
-    fill () {
-        if (this.props.isSelected)
-            return "#4285f4";
-        else if (this.state.hover)
-            return "rgba(255, 255, 255, 1)";
-        return "rgba(255, 255, 255, 0.7)";
-    }
-
-    onMouseEnter () {
-        this.setState({hover: true});
-    }
-
-    onMouseLeave () {
-        this.setState({hover: false});
-    }
-
-    checkButtonVisibility () {
-        if (this.state.hover)
-            return 'visible';
-        return 'hidden';
-     }
-
-    tileOverlayBackground () {
-        if (this.state.hover && !this.props.isSelected)
-            return 'linear-gradient(to bottom,rgba(0,0,0,0.26),transparent 56px,transparent)';
-        return 'none';
     }
 
     tileViewportStyle () {
@@ -93,23 +62,23 @@ class Image extends Component {
     }
 
     renderCheckButton () {
-        if(this.props.isSelectable)
-            return (
-                    <CheckButton key="Select"
-                index={this.props.index}
-                isSelected={this.props.isSelected}
-                onClick={this.props.onToggleSelected}
-                parentHover={this.state.hover}/>
-            );
-        return (<div/>);
+        return (
+                <CheckButton key="Select"
+            index={this.props.index}
+            isSelected={this.props.isSelected}
+            isSelectable={this.props.isSelectable}
+            onClick={this.props.isSelectable ?
+                     this.props.onToggleSelected : null}
+            parentHover={this.state.hover}/>
+        );
     }
 
     render () {
         return (
                 <div className="tile"
             key={"tile-"+this.props.index}
-            onMouseEnter={this.onMouseEnter}
-            onMouseLeave={this.onMouseLeave}
+            onMouseEnter={(e) => this.setState({hover: true})}
+            onMouseLeave={(e) => this.setState({hover: false})}
             style={{
                 margin: ""+this.props.margin+"px",
                 WebkitUserSelect: "none",
@@ -137,7 +106,8 @@ class Image extends Component {
                 position: "absolute",
                 height: "100%",
                 width: "100%",
-                background: this.tileOverlayBackground()}}>
+                background: (this.state.hover && !this.props.isSelected) ?
+                    'linear-gradient(to bottom,rgba(0,0,0,0.26),transparent 56px,transparent)' : 'none'}}>
                 </div>
 
                 <div className="tile-viewport"
