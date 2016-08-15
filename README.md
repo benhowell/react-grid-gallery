@@ -133,6 +133,10 @@ Read more about the srcset and sizes attributes here: [https://ericportis.com/po
 * If you don't know your `thumbnailWidth` and `thumbnailHeight` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
 
 
+### License
+React Grid Gallery is free to use for personal and commercial projects under the [MIT License](https://github.com/benhowell/react-grid-gallery/blob/master/LICENSE). Attribution is not required, but appreciated.
+
+
 ### Acknowledgements
 
  * Visual design inspired by [Google Photos](https://photos.google.com/).
