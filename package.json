@@ -1,10 +1,10 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.1.5",
-  "description": "Justified grid gallery component for React.js inspired by Google Photos and GPlusGallery.",
+  "version": "0.1.6",
+  "description": "Justified grid gallery component for React.js.",
   "main": "lib/Gallery.js",
   "dependencies": {
-    "react-images": "^0.4.10"
+    "react-images": "^0.4.11"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
