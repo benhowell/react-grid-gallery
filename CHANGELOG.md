@@ -1,5 +1,11 @@
 # react-grid-gallery
 
+### v0.1.6 / 2016-08-15
+
+* Bumped [react-images](https://github.com/jossmac/react-images/) to v0.4.11
+* Enabled preloadNextImage option from [react-images](https://github.com/jossmac/react-images/)
+
+
 ### v0.1.5 / 2016-08-13
 
 * Removed commentary and dead code
