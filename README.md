@@ -21,25 +21,25 @@ export default class Example extends React.Component {
         rowHeight: 240,
         margin: 2,
         images={[{
-            src: "https://c1.staticflickr.com/9/8834/27980317100_4122816a5c_o.png",
-            thumbnail: "https://c5.staticflickr.com/9/8834/27980317100_e87052d0b0_m.jpg",
-            caption: "Warnie",
-            thumbnailWidth: 240,
-            thumbnailHeight: 165
+            src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
+            thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
+            caption: "After Rain",
+            thumbnailWidth: 320,
+            thumbnailHeight: 174
           },
           {
-            src: "https://c5.staticflickr.com/8/7635/28157459892_28f5784891_o.jpg",
-            thumbnail: "https://c5.staticflickr.com/8/7635/28157459892_08d53d0a8d_m.jpg",
-            caption: "Servo",
-            thumbnailWidth: 240,
-            thumbnailHeight: 160
+            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
+            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
+            caption: "Boats",
+            thumbnailWidth: 320,
+            thumbnailHeight: 212
           },
           {
-            src: "https://c2.staticflickr.com/8/7515/28157459642_47f8e073ce_o.png",
-            thumbnail: "https://c3.staticflickr.com/8/7515/28157459642_506a1008f2_m.jpg",
-            caption: "Footy",
-            thumbnailWidth: 240,
-            thumbnailHeight: 207
+            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+            thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
+            caption: "Color Pencils",
+            thumbnailWidth: 320,
+            thumbnailHeight: 212
           }]}
       />
     );
