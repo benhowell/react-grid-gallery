@@ -71,6 +71,7 @@ rowHeight               | number        | 180           | Optional. The height o
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
 backdropClosesModal	| bool          | false	        | Optional. Allow users to exit the lightbox by clicking the backdrop.
 currentImage            | number        | 0             | Optional. The index of the image to display initially (only relevant when used in conjunction with `isOpen: true` property).
+preloadNextImage        | bool          | true          | Optional. Based on the direction the user is navigating, preload the next available image.
 customControls          | array         | undefined     | Optional. An array of elements to display as custom controls on the top of lightbox.
 enableKeyboardInput     | bool          | true          | Optional. Supports keyboard input - <code>esc</code>, <code>arrow left</code>, and <code>arrow right</code>.
 imageCountSeparator     | string        | ' of '        | Optional. Customize separator in the image count.
@@ -81,11 +82,13 @@ showImageCount          | bool          | true          | Optional. Display imag
 
 ### General Notes
 
-As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size applied when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonably pleasing.
+ * As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size applied when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonably pleasing.
 
-Gallery width is determined by the containing element.
+ * Gallery width is determined by the containing element.
 
+ * Image Options: `thumbnail` can point to the same resource as `src`, bearing in mind the resultant data size of the gallery and page load cost. Thumbnails of whatever size will be scaled to match `rowHeight`.
 
+* If you don't know your `thumbnailWidth` and `thumbnailHeight` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
 
 
 
