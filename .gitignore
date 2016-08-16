@@ -1,3 +1,4 @@
 node_modules
 require.js
 *.bundle.js
+examples/dist
