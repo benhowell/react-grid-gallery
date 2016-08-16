@@ -13,6 +13,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var gulpif = require('gulp-if');
 var runSequence = require('run-sequence');
+var clean = require('gulp-clean');
 
 var argv = require('yargs').argv;
 
@@ -21,10 +22,16 @@ gulp.task('default', function() {
     gulp.start('build');
 });
 
-
 gulp.task('build', function(callback) {
-    runSequence(['browserify', 'copy-css', 'copy-html'],
-                'deploy');
+    runSequence(
+        'clean',
+        ['browserify', 'copy-css', 'copy-html'],
+        'deploy');
+});
+
+gulp.task('clean', function () {
+    return gulp.src('./examples/dist', {read: false})
+        .pipe(clean());
 });
 
 gulp.task('deploy', function() {
