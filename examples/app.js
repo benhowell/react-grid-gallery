@@ -25,7 +25,7 @@ src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
 thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
 thumbnailWidth: 320,
 thumbnailHeight: 174,
-caption: "After Rain (Jeshu John - designerpics.com)"
+caption: "After Rain (Jeshu John - designerspics.com)"
 },
 
 {
@@ -33,7 +33,7 @@ src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
 thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
 thumbnailWidth: 320,
 thumbnailHeight: 212,
-caption: "Boats (Jeshu John - designerpics.com)"
+caption: "Boats (Jeshu John - designerspics.com)"
 },
 
 {
@@ -41,7 +41,7 @@ src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
 thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
 thumbnailWidth: 320,
 thumbnailHeight: 212,
-caption: "Color Pencils (Jeshu John - designerpics.com)"
+caption: "Color Pencils (Jeshu John - designerspics.com)"
 },
 
 {
@@ -65,7 +65,7 @@ src: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_b.jpg",
 thumbnail: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg",
 thumbnailWidth: 240,
 thumbnailHeight: 320,
-caption: "8H (gratispgraphy.com)"
+caption: "8H (gratisography.com)"
 },
 
 {
@@ -73,7 +73,7 @@ src: "https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_b.jpg",
 thumbnail: "https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_n.jpg",
 thumbnailWidth: 320,
 thumbnailHeight: 190,
-caption: "286H (gratispgraphy.com)"
+caption: "286H (gratisography.com)"
 },
 
 {
@@ -81,7 +81,7 @@ src: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg",
 thumbnail: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg",
 thumbnailWidth: 320,
 thumbnailHeight: 148,
-caption: "315H (gratispgraphy.com)"
+caption: "315H (gratisography.com)"
 },
 
 {
@@ -89,7 +89,7 @@ src: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg",
 thumbnail: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_n.jpg",
 thumbnailWidth: 320,
 thumbnailHeight: 213,
-caption: "201H (gratispgraphy.com)"
+caption: "201H (gratisography.com)"
 },
 
 {
