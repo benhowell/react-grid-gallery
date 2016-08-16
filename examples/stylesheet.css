@@ -61,7 +61,7 @@ a {
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; } }
+    padding: 20px; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
@@ -209,7 +209,7 @@ a {
 
 @media screen and (min-width: 64em) {
   .main-content {
-    max-width: 64rem;
+    max-width: 72rem;
     padding: 2rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem; } }
