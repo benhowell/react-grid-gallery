@@ -99,7 +99,7 @@ class CheckButton extends Component {
 CheckButton.propTypes = {index: PropTypes.number,
                          isSelectable: PropTypes.bool,
                          isSelected: PropTypes.bool,
-                         parentHover: PropTypes.string,
+                         parentHover: PropTypes.bool,
                          hover: PropTypes.bool,
                          onClick: PropTypes.func};
 
