@@ -15,26 +15,46 @@ var gulpif = require('gulp-if');
 var runSequence = require('run-sequence');
 var clean = require('gulp-clean');
 
+const babel = require('gulp-babel');
+
 var argv = require('yargs').argv;
 
 
 gulp.task('default', function() {
-    gulp.start('build-web');
+    gulp.start('build-all');
 });
 
-gulp.task('build-web', function(callback) {
+gulp.task('build-all', function() {
     runSequence(
-        'clean',
+        'clean-lib',
+        'build-lib',
+        'build-cljs-lib',
+        'clean-web',
         ['browserify', 'copy-css', 'copy-html'],
-        'deploy');
+        'deploy-web');
 });
 
-gulp.task('clean', function () {
+gulp.task('clean-lib', function () {
+    return gulp.src('./lib', {read: false})
+        .pipe(clean());
+});
+
+gulp.task('build-lib', function() {
+    return gulp.src(['src/**/*.js',
+                     '!./src/require.js',
+                     '!./src/react-grid-gallery.bundle.js'])
+        .pipe(babel({
+            presets: ['es2015', 'react']
+        }))
+        .pipe(gulp.dest('lib'));
+});
+
+gulp.task('clean-web', function () {
     return gulp.src('./examples/dist', {read: false})
         .pipe(clean());
 });
 
-gulp.task('deploy', function() {
+gulp.task('deploy-web', function() {
     return gulp.src('./examples/dist/**/*')
         .pipe(ghPages());
 });
@@ -49,14 +69,20 @@ gulp.task('copy-html', function () {
         .pipe(gulp.dest('./examples/dist/'));
 });
 
+//uncomment watchify + on update for continuous build
 gulp.task('browserify', function() {
-    var bundle = watchify(browserify('./examples/app.js', {
+    var bundle =
+            //watchify(
+        browserify('./examples/app.js', {
         extensions: ['.js', '.jsx'],
-    }));
+        })
+//)
+    ;
     bundle.transform(babelify, {'presets': ['es2015', 'react']});
-    bundle.on('update', function() {
-        rebundle(bundle);
-    });
+
+    //bundle.on('update', function() {
+    //    rebundle(bundle);
+    //});
 
     function rebundle(bundle) {
         return bundle.bundle()
@@ -68,6 +94,32 @@ gulp.task('browserify', function() {
             .pipe(buffer())
             .pipe(gulpif(argv.dev, beautify(), uglify()))
             .pipe(gulp.dest('examples/dist/js'));
+    }
+    return rebundle(bundle);
+});
+
+
+gulp.task('build-cljs-lib', function() {
+    var bundle = browserify('./src/require.js', {
+        extensions: ['.js', '.jsx'],
+    });
+    bundle.transform(babelify, {'presets': ['es2015', 'react']});
+    bundle.on('update', function() {
+        rebundle(bundle);
+    });
+
+    function rebundle(bundle) {
+        return bundle.bundle()
+            .on('error', function(error) {
+                console.log(error.stack, error.message);
+                this.emit('end');
+            })
+            .pipe(gulpif(argv.dev,
+                         source('react-grid-gallery.bundle.js'),
+                         source('react-grid-gallery.bundle.min.js')))
+            .pipe(buffer())
+            .pipe(gulpif(argv.dev, beautify(), uglify()))
+            .pipe(gulp.dest('lib'));
     }
     return rebundle(bundle);
 });
