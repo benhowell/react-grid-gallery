@@ -33,17 +33,17 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('copy-css', function () {
-    return gulp.src('./examples/src/**/*.css')
+    return gulp.src('./examples/**/*.css')
         .pipe(gulp.dest('./examples/dist/css'));
 });
 
 gulp.task('copy-html', function () {
-    return gulp.src('./examples/src/index.html')
+    return gulp.src('./examples/index.html')
         .pipe(gulp.dest('./examples/dist/'));
 });
 
 gulp.task('browserify', function() {
-    var bundle = watchify(browserify('./examples/src/app.js', {
+    var bundle = watchify(browserify('./examples/app.js', {
         extensions: ['.js', '.jsx'],
     }));
     bundle.transform(babelify, {'presets': ['es2015', 'react']});
