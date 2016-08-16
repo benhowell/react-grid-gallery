@@ -1,5 +1,11 @@
 # react-grid-gallery
 
+### v0.1.7 / 2016-08-16
+
+* Gulp task ensenble to clean/build/deploy lib, web (gh-pages) and hacked up cljs js lib 
+* Project page with examples, docs etc.
+* Updated options documentation
+
 ### v0.1.6 / 2016-08-15
 
 * Bumped [react-images](https://github.com/jossmac/react-images/) to v0.4.11
