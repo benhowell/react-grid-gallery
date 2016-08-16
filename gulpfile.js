@@ -19,10 +19,10 @@ var argv = require('yargs').argv;
 
 
 gulp.task('default', function() {
-    gulp.start('build');
+    gulp.start('build-web');
 });
 
-gulp.task('build', function(callback) {
+gulp.task('build-web', function(callback) {
     runSequence(
         'clean',
         ['browserify', 'copy-css', 'copy-html'],
@@ -64,9 +64,9 @@ gulp.task('browserify', function() {
                 console.log(error.stack, error.message);
                 this.emit('end');
             })
-            .pipe(gulpif(argv.production, source('bundle.min.js'), source('bundle.js')))
+            .pipe(gulpif(argv.dev, source('bundle.js'), source('bundle.min.js')))
             .pipe(buffer())
-            .pipe(gulpif(argv.production, uglify(), beautify()))
+            .pipe(gulpif(argv.dev, beautify(), uglify()))
             .pipe(gulp.dest('examples/dist/js'));
     }
     return rebundle(bundle);
