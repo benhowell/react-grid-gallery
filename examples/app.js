@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Gallery from '../../src/Gallery';
+import Gallery from '../src/Gallery';
 
 
 /**
@@ -18,7 +18,7 @@ function shuffleArray(array) {
     return array;
 }
 
-const IMAGES = 
+const IMAGES =
 [
 {
 src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
