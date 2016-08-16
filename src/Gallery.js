@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import Lightbox from 'react-images';
 import Image from './Image.js';
 
@@ -235,7 +236,7 @@ Gallery.propTypes = {
     margin: PropTypes.number,
     backdropClosesModal: PropTypes.bool,
     currentImage: PropTypes.number,
-    preloadNextImage: PropTypes.number,
+    preloadNextImage: PropTypes.bool,
     customControls: PropTypes.arrayOf(PropTypes.node),
     enableKeyboardInput: PropTypes.bool,
     imageCountSeparator: PropTypes.string,
@@ -243,7 +244,7 @@ Gallery.propTypes = {
     onClickImage: PropTypes.func,
     onClickNext: PropTypes.func,
     onClickPrev: PropTypes.func,
-    onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
     showCloseButton: PropTypes.bool,
     showImageCount: PropTypes.bool
 };
