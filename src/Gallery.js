@@ -44,7 +44,7 @@ class Gallery extends Component {
         }
     }
 
-    handleResize (event) {
+    handleResize () {
         this.setState({
             containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)
         });
@@ -225,8 +225,8 @@ Gallery.propTypes = {
             thumbnail: PropTypes.string.isRequired,
             srcset: PropTypes.array,
             caption: PropTypes.string,
-            thumbnailWidth: PropTypes.number,
-            thumbnailHeight: PropTypes.number
+            thumbnailWidth: PropTypes.number.isRequired,
+            thumbnailHeight: PropTypes.number.isRequired
         })
     ).isRequired,
     enableImageSelection: PropTypes.bool,
