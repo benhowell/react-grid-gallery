@@ -132,14 +132,14 @@
                             }
                         },
                         _react2.default.createElement(
-                            'div',
-                            null,
-                            _react2.default.createElement(
-                                'h4',
-                                null,
-                                'Selected images:',
-                                this.getSelected()
-                            )
+                            'div', {
+                                style: {
+                                    padding: "4px",
+                                    color: "#ccc"
+                                }
+                            },
+                            'Selected images:',
+                            this.getSelected()
                         ),
                         _react2.default.createElement(_Gallery2.default, {
                             images: this.state.images,
