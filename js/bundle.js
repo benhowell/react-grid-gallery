@@ -404,7 +404,7 @@
 
                 _this.state = {
                     images: _this.props.images,
-                    selected: []
+                    selected: [3, 7, 5]
                 };
                 return _this;
             }
