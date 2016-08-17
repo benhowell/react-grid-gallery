@@ -147,7 +147,7 @@
                             'div',
                             null,
                             'Selected images:',
-                            this.state.getSelected()
+                            this.getSelected()
                         ),
                         _react2.default.createElement(_Gallery2.default, {
                             images: this.shuffleArray(this.state.images),
