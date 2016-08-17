@@ -128,6 +128,7 @@
             }, {
                 key: 'getSelected',
                 value: function getSelected() {
+                    console.log("getSelected");
                     return this.state.selected.toString();
                 }
             }, {
