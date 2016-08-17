@@ -73,8 +73,10 @@ gulp.task('copy-html', function () {
 gulp.task('browserify', function() {
     var bundle =
             //watchify(
-        browserify('./examples/app.js', {
-        extensions: ['.js', '.jsx'],
+            browserify(['./examples/app.js',
+                        './examples/demo1.js',
+                        './examples/demo2.js'], {
+        extensions: ['.js', '.jsx']
         })
 //)
     ;
