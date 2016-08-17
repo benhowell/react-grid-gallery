@@ -121,7 +121,6 @@
             }, {
                 key: 'setSelected',
                 value: function setSelected(selectedImages) {
-                    console.log("setSelected");
                     this.setState({
                         selected: selectedImages
                     });
@@ -152,7 +151,7 @@
                         ),
                         _react2.default.createElement(_Gallery2.default, {
                             images: this.shuffleArray(this.state.images),
-                            onSelectedImagesChange: this.setSeleted
+                            onSelectedImagesChange: this.setSelected
                         })
                     );
                 }
