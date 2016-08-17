@@ -45,7 +45,7 @@ render(
             width: "100%",
             border: "1px solid #ddd",
             overflow: "auto"}}>
-        <Gallery images={shuffleArray(IMAGES)} />
+        <Gallery images={IMAGES} />
         </div>,
     document.getElementById('example-0')
 );
