@@ -118,7 +118,7 @@ gulp.task('build-cljs-lib', function() {
                          source('react-grid-gallery.bundle.js'),
                          source('react-grid-gallery.bundle.min.js')))
             .pipe(buffer())
-            .pipe(gulpif(argv.dev, beautify(), uglify()))
+            //.pipe(gulpif(argv.dev, beautify(), uglify()))
             .pipe(gulp.dest('lib'));
     }
     return rebundle(bundle);
