@@ -23,22 +23,7 @@ class App extends React.Component {
     }
 
     render () {
-        return (
-                <div style={{
-                    display: "block",
-                    minHeight: "1px",
-                    width: "100%",
-                    border: "1px solid #ddd",
-                    overflow: "auto"}}>
-                <div style={{
-                    padding: "4px",
-                    color: "#777"
-                }}>Selected images: {this.getSelected()}</div>
-                <Gallery
-            images={this.state.images}
-            onSelectedImagesChange={this.setSelected}/>
-                </div>
-        );
+        return (<Gallery images={this.state.images}/>);
     }
 }
 
@@ -83,7 +68,6 @@ App.defaultProps = {
 };
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
 ```
 
 ## Image Options
