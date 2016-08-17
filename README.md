@@ -2,7 +2,7 @@
 
 Justified gallery component for [React.js](http://facebook.github.io/react/).
 
-No careful image curation, no specific ordering and no tricks, just beautifully justified images.
+No curation, no ordering and no tricks, just beautifully justified images.
 
 ## Live Demo & Examples
 
