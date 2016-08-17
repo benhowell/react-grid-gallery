@@ -413,7 +413,9 @@
                             }
                         },
                         _react2.default.createElement(_Gallery2.default, {
-                            images: this.state.images
+                            images: this.state.images,
+                            enableImageSelection: false,
+                            selectedImages: this.state.selected
                         })
                     );
                 }
