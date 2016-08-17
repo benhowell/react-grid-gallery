@@ -36,46 +36,69 @@
 <a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick start</h2>
 
 
+
+
+
+
 <div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
-<span class="pl-k">import</span> { <span class="pl-smi">render</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-dom<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">ReactDOM</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-dom<span class="pl-pds">'</span></span>;
 <span class="pl-k">import</span> <span class="pl-smi">Gallery</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-grid-gallery<span class="pl-pds">'</span></span>;
 
-<span class="pl-k">const</span> <span class="pl-c1">IMAGES</span> <span class="pl-k">=</span>
-[{
-        src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg<span class="pl-pds">"</span></span>,
-        thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg<span class="pl-pds">"</span></span>,
-        thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
-        thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">174</span>,
-        caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>After Rain (Jeshu John - designerspics.com)<span class="pl-pds">"</span></span>
-},
-{
-        src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg<span class="pl-pds">"</span></span>,
-        thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg<span class="pl-pds">"</span></span>,
-        thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
-        thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">212</span>,
-        caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Boats (Jeshu John - designerspics.com)<span class="pl-pds">"</span></span>
-},
+<span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">extends</span> <span class="pl-e">React</span>.<span class="pl-smi">Component</span> {
+    <span class="pl-en">constructor</span>(<span class="pl-smi">props</span>){
+        <span class="pl-v">super</span>(props);
 
-{
-        src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg<span class="pl-pds">"</span></span>,
-        thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg<span class="pl-pds">"</span></span>,
-        thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
-        thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">212</span>
-        <span class="pl-c">//look ma, no caption!</span>
-}]
+        <span class="pl-v">this</span>.<span class="pl-smi">state</span> <span class="pl-k">=</span> {
+            images<span class="pl-k">:</span> <span class="pl-v">this</span>.<span class="pl-smi">props</span>.<span class="pl-c1">images</span>,
+        };
+    }
 
-<span class="pl-en">render</span>(
-        <span class="pl-k">&lt;</span>div style<span class="pl-k">=</span>{{
-            display<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>block<span class="pl-pds">"</span></span>,
-            minHeight<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1px<span class="pl-pds">"</span></span>,
-            width<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>,
-            border<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1px solid #ddd<span class="pl-pds">"</span></span>,
-            overflow<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}}<span class="pl-k">&gt;</span>
-        <span class="pl-k">&lt;</span>Gallery images<span class="pl-k">=</span>{<span class="pl-c1">IMAGES</span>} <span class="pl-k">/</span><span class="pl-k">&gt;</span>
-        <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>,
-    <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>example-0<span class="pl-pds">'</span></span>)
-);</pre></div>
+    <span class="pl-en">render</span> () {
+        <span class="pl-k">return</span> (<span class="pl-k">&lt;</span>Gallery images<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-c1">images</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>);
+    }
+}
 
+<span class="pl-smi">App</span>.<span class="pl-smi">propTypes</span> <span class="pl-k">=</span> {
+    images<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-en">arrayOf</span>(
+        <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-c1">shape</span>({
+            src<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>.<span class="pl-smi">isRequired</span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>.<span class="pl-smi">isRequired</span>,
+            srcset<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">array</span>,
+            caption<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>.<span class="pl-smi">isRequired</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>.<span class="pl-smi">isRequired</span>
+        })
+    ).<span class="pl-smi">isRequired</span>
+};
+
+<span class="pl-smi">App</span>.<span class="pl-smi">defaultProps</span> <span class="pl-k">=</span> {
+    images<span class="pl-k">:</span> [
+        {
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">174</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>After Rain (Jeshu John - designerspics.com)<span class="pl-pds">"</span></span>
+        },
+        {
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">212</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Boats (Jeshu John - designerspics.com)<span class="pl-pds">"</span></span>
+        },
+        {
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">212</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Color Pencils (Jeshu John - designerspics.com)<span class="pl-pds">"</span></span>
+        }
+
+    ]
+};
+
+<span class="pl-smi">ReactDOM</span>.<span class="pl-en">render</span>(<span class="pl-k">&lt;</span>App <span class="pl-k">/</span><span class="pl-k">&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>app<span class="pl-pds">'</span></span>));</pre></div>
 
 <h2>
 <a id="image-options" class="anchor" href="#image-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Image Options</h2>
