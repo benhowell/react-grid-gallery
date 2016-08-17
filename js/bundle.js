@@ -121,6 +121,7 @@
             }, {
                 key: 'setSelected',
                 value: function setSelected(selectedImages) {
+                    console.log("setSelected");
                     this.setState({
                         selected: selectedImages
                     });
@@ -128,7 +129,6 @@
             }, {
                 key: 'getSelected',
                 value: function getSelected() {
-                    console.log("getSelected");
                     return this.state.selected.toString();
                 }
             }, {
