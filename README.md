@@ -8,68 +8,41 @@ No careful image selection, no specific ordering and no tricks, just beautifully
 
 https://benhowell.github.io/react-grid-gallery/
 
-## Quick start
+## (Very) Quick (and Dirty) start
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import Gallery from 'react-grid-gallery';
 
-class App extends React.Component {
-    constructor(props){
-        super(props);
+const IMAGES =
+[{
+        src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
+        thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
+        thumbnailWidth: 320,
+        thumbnailHeight: 174,
+        caption: "After Rain (Jeshu John - designerspics.com)"
+},
+{
+        src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
+        thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
+        thumbnailWidth: 320,
+        thumbnailHeight: 212,
+        caption: "Boats (Jeshu John - designerspics.com)"
+},
 
-        this.state = {
-            images: this.props.images,
-        };
-    }
+{
+        src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+        thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
+        thumbnailWidth: 320,
+        thumbnailHeight: 212
+        //look ma, no caption!
+}]
 
-    render () {
-        return (<Gallery images={this.state.images}/>);
-    }
-}
-
-App.propTypes = {
-    images: React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-            src: React.PropTypes.string.isRequired,
-            thumbnail: React.PropTypes.string.isRequired,
-            srcset: React.PropTypes.array,
-            caption: React.PropTypes.string,
-            thumbnailWidth: React.PropTypes.number.isRequired,
-            thumbnailHeight: React.PropTypes.number.isRequired
-        })
-    ).isRequired
-};
-
-App.defaultProps = {
-    images: [
-        {
-            src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 174,
-            caption: "After Rain (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 212,
-            caption: "Boats (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-            thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 212,
-            caption: "Color Pencils (Jeshu John - designerspics.com)"
-        }
-
-    ]
-};
-
-ReactDOM.render(<App />, document.getElementById('app'));
+render(
+        <Gallery images={IMAGES}/>,     
+        document.getElementById('example-0')
+);
 ```
 
 ## Image Options
