@@ -101,7 +101,6 @@
                     selected: []
                 };
 
-                _this.shuffleArray = _this.shuffleArray.bind(_this);
                 _this.setSelected = _this.setSelected.bind(_this);
                 _this.getSelected = _this.getSelected.bind(_this);
                 return _this;
@@ -161,7 +160,7 @@
         };
 
         App.defaultProps = {
-            images: [{
+            images: shuffleArray([{
                 src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
                 thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
                 thumbnailWidth: 320,
@@ -305,7 +304,7 @@
                 thumbnailWidth: 226,
                 thumbnailHeight: 320,
                 caption: "A photo by Matthew Wiebe. (unsplash.com)"
-            }]
+            }])
         };
 
         function shuffleArray(array) {
