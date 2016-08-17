@@ -103,6 +103,7 @@
 
                 _this.shuffleArray = _this.shuffleArray.bind(_this);
                 _this.setSelected = _this.setSelected.bind(_this);
+                _this.getSelected = _this.getSelected.bind(_this);
                 return _this;
             }
 
@@ -125,6 +126,11 @@
                     });
                 }
             }, {
+                key: 'getSelected',
+                value: function getSelected() {
+                    return this.state.selected.toString();
+                }
+            }, {
                 key: 'render',
                 value: function render() {
                     return _react2.default.createElement(
@@ -140,8 +146,8 @@
                         _react2.default.createElement(
                             'div',
                             null,
-                            'Selected images: ',
-                            this.state.selected
+                            'Selected images:',
+                            this.state.getSelected()
                         ),
                         _react2.default.createElement(_Gallery2.default, {
                             images: this.shuffleArray(this.state.images),
@@ -27399,7 +27405,6 @@
                     this.setState({
                         containerWidth: Math.floor(_reactDom2.default.findDOMNode(this).clientWidth)
                     });
-                    console.log("containerwidth: " + this.state.containerWidth);
                 }
             }, {
                 key: 'openLightbox',
