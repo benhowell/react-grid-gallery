@@ -1,54 +1,89 @@
 # React Grid Gallery
 
-Justified grid gallery component for [React](http://facebook.github.io/react/).
+Justified grid gallery component for [React.js](http://facebook.github.io/react/). No careful image selection, no specific ordering and no tricks, just beautifully justified images.
 
 ## Live Demo & Examples
 
 https://benhowell.github.io/react-grid-gallery/
 
-
 ## Quick start
 
 ```js
 import React from 'react';
-import { render } from 'react-dom';
-import Gallery from '../src/Gallery';
+import ReactDOM from 'react-dom';
+import Gallery from 'react-grid-gallery';
 
-const IMAGES =
-[{
-        src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-        thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 174,
-        caption: "After Rain (Jeshu John - designerspics.com)"
-},
-{
-        src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-        thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 212,
-        caption: "Boats (Jeshu John - designerspics.com)"
-},
+class App extends React.Component {
+    constructor(props){
+        super(props);
 
-{
-        src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-        thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 212
-        //look ma, no caption!
-}]
+        this.state = {
+            images: this.props.images,
+        };
+    }
 
-render(
-        <div style={{
-            display: "block",
-            minHeight: "1px",
-            width: "100%",
-            border: "1px solid #ddd",
-            overflow: "auto"}}>
-        <Gallery images={IMAGES} />
-        </div>,
-    document.getElementById('example-0')
-);
+    render () {
+        return (
+                <div style={{
+                    display: "block",
+                    minHeight: "1px",
+                    width: "100%",
+                    border: "1px solid #ddd",
+                    overflow: "auto"}}>
+                <div style={{
+                    padding: "4px",
+                    color: "#777"
+                }}>Selected images: {this.getSelected()}</div>
+                <Gallery
+            images={this.state.images}
+            onSelectedImagesChange={this.setSelected}/>
+                </div>
+        );
+    }
+}
+
+App.propTypes = {
+    images: React.PropTypes.arrayOf(
+        React.PropTypes.shape({
+            src: React.PropTypes.string.isRequired,
+            thumbnail: React.PropTypes.string.isRequired,
+            srcset: React.PropTypes.array,
+            caption: React.PropTypes.string,
+            thumbnailWidth: React.PropTypes.number.isRequired,
+            thumbnailHeight: React.PropTypes.number.isRequired
+        })
+    ).isRequired
+};
+
+App.defaultProps = {
+    images: [
+        {
+            src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
+            thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
+            thumbnailWidth: 320,
+            thumbnailHeight: 174,
+            caption: "After Rain (Jeshu John - designerspics.com)"
+        },
+        {
+            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
+            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
+            thumbnailWidth: 320,
+            thumbnailHeight: 212,
+            caption: "Boats (Jeshu John - designerspics.com)"
+        },
+        {
+            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+            thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
+            thumbnailWidth: 320,
+            thumbnailHeight: 212,
+            caption: "Color Pencils (Jeshu John - designerspics.com)"
+        }
+
+    ]
+};
+
+ReactDOM.render(<App />, document.getElementById('app'));
+
 ```
 
 ## Image Options
@@ -82,7 +117,6 @@ imageCountSeparator     | string        | ' of '        | Optional. Customize se
 isOpen                  | bool          | false         | Optional. Whether or not the lightbox is displayed when gallery first rendered (can be used in conjunction with `currentImage` property, otherwise the first image will be diplayed).
 showCloseButton         | bool          | true          | Optional. Display a close "X" button in top right corner.
 showImageCount          | bool          | true          | Optional. Display image index, e.g., "3 of 20".
-
 
 
 ### Using srcset:
