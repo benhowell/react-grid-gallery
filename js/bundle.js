@@ -164,7 +164,7 @@
         };
 
         Demo0.defaultProps = {
-            images: shuffleArray([{
+            images: window.shuffleArray([{
                 src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
                 thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
                 thumbnailWidth: 320,
@@ -434,7 +434,7 @@
         };
 
         Demo1.defaultProps = {
-            images: shuffleArray([{
+            images: window.shuffleArray([{
                 src: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_b.jpg",
                 thumbnail: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg",
                 thumbnailWidth: 240,
