@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Gallery from '../src/Gallery';
 
 
-class App extends React.Component {
+class Demo0 extends React.Component {
     constructor(props){
         super(props);
 
@@ -33,8 +33,8 @@ class App extends React.Component {
                     border: "1px solid #ddd",
                     overflow: "auto"}}>
                 <div style={{
-                    padding: "4px",
-                    color: "#777"
+                    padding: "2px",
+                    color: "#666"
                 }}>Selected images: {this.getSelected()}</div>
                 <Gallery
             images={this.state.images}
@@ -44,7 +44,7 @@ class App extends React.Component {
     }
 }
 
-App.propTypes = {
+Demo0.propTypes = {
     images: React.PropTypes.arrayOf(
         React.PropTypes.shape({
             src: React.PropTypes.string.isRequired,
@@ -57,7 +57,7 @@ App.propTypes = {
     ).isRequired
 };
 
-App.defaultProps = {
+Demo0.defaultProps = {
     images: shuffleArray([
         {
             src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
@@ -230,15 +230,4 @@ App.defaultProps = {
     ])
 };
 
-
-function shuffleArray (array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-    return array;
-}
-
-ReactDOM.render(<App />, document.getElementById('example-0'));
+ReactDOM.render(<Demo0 />, document.getElementById('demo0'));
