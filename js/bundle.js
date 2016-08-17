@@ -432,7 +432,7 @@
             return Demo1;
         }(_react2.default.Component);
 
-        Demo0.propTypes = {
+        Demo1.propTypes = {
             images: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.shape({
                 src: _react2.default.PropTypes.string.isRequired,
                 thumbnail: _react2.default.PropTypes.string.isRequired,
@@ -443,7 +443,7 @@
             })).isRequired
         };
 
-        Demo0.defaultProps = {
+        Demo1.defaultProps = {
             images: shuffleArray([{
                 src: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_b.jpg",
                 thumbnail: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg",
