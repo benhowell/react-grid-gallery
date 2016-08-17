@@ -88,13 +88,13 @@
             if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
         }
 
-        var App = function(_React$Component) {
-            _inherits(App, _React$Component);
+        var Demo0 = function(_React$Component) {
+            _inherits(Demo0, _React$Component);
 
-            function App(props) {
-                _classCallCheck(this, App);
+            function Demo0(props) {
+                _classCallCheck(this, Demo0);
 
-                var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+                var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Demo0).call(this, props));
 
                 _this.state = {
                     images: _this.props.images,
@@ -106,7 +106,7 @@
                 return _this;
             }
 
-            _createClass(App, [{
+            _createClass(Demo0, [{
                 key: 'setSelected',
                 value: function setSelected(selectedImages) {
                     this.setState({
@@ -134,11 +134,11 @@
                         _react2.default.createElement(
                             'div', {
                                 style: {
-                                    padding: "4px",
-                                    color: "#ccc"
+                                    padding: "2px",
+                                    color: "#666"
                                 }
                             },
-                            'Selected images:',
+                            'Selected images: ',
                             this.getSelected()
                         ),
                         _react2.default.createElement(_Gallery2.default, {
@@ -149,10 +149,10 @@
                 }
             }]);
 
-            return App;
+            return Demo0;
         }(_react2.default.Component);
 
-        App.propTypes = {
+        Demo0.propTypes = {
             images: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.shape({
                 src: _react2.default.PropTypes.string.isRequired,
                 thumbnail: _react2.default.PropTypes.string.isRequired,
@@ -163,7 +163,7 @@
             })).isRequired
         };
 
-        App.defaultProps = {
+        Demo0.defaultProps = {
             images: shuffleArray([{
                 src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
                 thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
@@ -321,7 +321,7 @@
             return array;
         }
 
-        _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('example-0'));
+        _reactDom2.default.render(_react2.default.createElement(Demo0, null), document.getElementById('example-0'));
 
     }, {
         "../src/Gallery": 224,
