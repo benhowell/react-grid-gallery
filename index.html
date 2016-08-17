@@ -33,12 +33,11 @@
 <div id="demo0"></div>
 
 <h2>
-<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick start</h2>
-
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick (and dirty) Start</h2>
 
 <pre><span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
 <span class="pl-k">import</span> { <span class="pl-smi">render</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-dom<span class="pl-pds">'</span></span>;
-<span class="pl-k">import</span> <span class="pl-smi">Gallery</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>../src/Gallery<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">Gallery</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-grid-gallery<span class="pl-pds">'</span></span>;
 
 <span class="pl-k">const</span> <span class="pl-c1">IMAGES</span> <span class="pl-k">=</span>
 [{
@@ -65,15 +64,8 @@
 }]
 
 <span class="pl-en">render</span>(
-        <span class="pl-k">&lt;</span>div style<span class="pl-k">=</span>{{
-            display<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>block<span class="pl-pds">"</span></span>,
-            minHeight<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1px<span class="pl-pds">"</span></span>,
-            width<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>,
-            border<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1px solid #ddd<span class="pl-pds">"</span></span>,
-            overflow<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}}<span class="pl-k">&gt;</span>
-        <span class="pl-k">&lt;</span>Gallery images<span class="pl-k">=</span>{<span class="pl-en">shuffleArray</span>(<span class="pl-c1">IMAGES</span>)} <span class="pl-k">/</span><span class="pl-k">&gt;</span>
-        <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>,
-    <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>example-0<span class="pl-pds">'</span></span>)
+        <span class="pl-k">&lt;</span>Gallery images<span class="pl-k">=</span>{<span class="pl-c1">IMAGES</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>,
+        <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>example-0<span class="pl-pds">'</span></span>)
 );</pre>
 
 
