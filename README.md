@@ -8,7 +8,7 @@ No careful image selection, no specific ordering and no tricks, just beautifully
 
 https://benhowell.github.io/react-grid-gallery/
 
-## (Very) Quick (and Dirty) start
+## (Very) Quick (and Dirty) Start
 
 ```js
 import React from 'react';
