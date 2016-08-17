@@ -8,7 +8,7 @@ No careful image selection, no specific ordering and no tricks, just beautifully
 
 https://benhowell.github.io/react-grid-gallery/
 
-## Quick (and Dirty) Start
+## Quick (and dirty) Start
 
 ```js
 import React from 'react';
@@ -80,7 +80,7 @@ showImageCount          | bool          | true          | Optional. Display imag
 
 ### Using srcset:
 
-```jsx
+```js
 images={[{
   src: 'http://example.com/example/img1.jpg',
   srcset: [
@@ -107,8 +107,100 @@ images={[{
   thumbnailWidth: 240,
   thumbnailHeight: 165
 }
+```
+
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Gallery from 'react-grid-gallery';
+
+
+class Demo0 extends React.Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            images: this.props.images,
+            selected: []
+        };
+
+        this.setSelected = this.setSelected.bind(this);
+        this.getSelected = this.getSelected.bind(this);
+    }
+
+    setSelected (selectedImages) {
+        this.setState({selected: selectedImages});
+    }
+
+    getSelected () {
+        return this.state.selected.toString();
+    }
+
+    render () {
+        return (
+                <div style={{
+                    display: "block",
+                    minHeight: "1px",
+                    width: "100%",
+                    border: "1px solid #ddd",
+                    overflow: "auto"}}>
+                <div style={{
+                    padding: "2px",
+                    color: "#666"
+                }}>Selected images: {this.getSelected()}</div>
+                <Gallery
+            images={this.state.images}
+            onSelectedImagesChange={this.setSelected}/>
+                </div>
+        );
+    }
+}
+
+Demo0.propTypes = {
+    images: React.PropTypes.arrayOf(
+        React.PropTypes.shape({
+            src: React.PropTypes.string.isRequired,
+            thumbnail: React.PropTypes.string.isRequired,
+            srcset: React.PropTypes.array,
+            caption: React.PropTypes.string,
+            thumbnailWidth: React.PropTypes.number.isRequired,
+            thumbnailHeight: React.PropTypes.number.isRequired
+        })
+    ).isRequired
+};
+
+Demo0.defaultProps = {
+    images: shuffleArray([
+        {
+            src: "https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_b.jpg",
+            thumbnail: "https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_n.jpg",
+            thumbnailWidth: 320,
+            thumbnailHeight: 213,
+            caption: "Man on BMX (Tom Eversley - isorepublic.com)"
+        },
+        {
+            src: "https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_b.jpg",
+            thumbnail: "https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_n.jpg",
+            thumbnailWidth: 320,
+            thumbnailHeight: 213,
+            caption: "Ropeman - Thailand (Tom Eversley - isorepublic.com)"
+        },
+        {
+            src: "https://c4.staticflickr.com/8/7476/28973628875_069e938525_b.jpg",
+            thumbnail: "https://c4.staticflickr.com/8/7476/28973628875_069e938525_n.jpg",
+            thumbnailWidth: 320,
+            thumbnailHeight: 213,
+            caption: "Time to Think (Tom Eversley - isorepublic.com)"
+        }
+    ])
+};
+
+ReactDOM.render(<Demo0 />, document.getElementById('demo0'));
 
 ```
+
+
 
 ### Notes on srcset Support
 
