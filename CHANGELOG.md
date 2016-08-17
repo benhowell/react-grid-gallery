@@ -1,5 +1,11 @@
 # react-grid-gallery
 
+### v0.1.8 / 2016-08-17
+
+* Handful of code samples and demos added to project page.
+* PropType bugs fixed on Gallery and Image
+
+
 ### v0.1.7 / 2016-08-16
 
 * Gulp task ensenble to clean/build/deploy lib, web (gh-pages) and hacked up cljs js lib 
