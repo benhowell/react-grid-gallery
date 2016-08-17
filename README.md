@@ -9,42 +9,46 @@ https://benhowell.github.io/react-grid-gallery/
 
 ## Quick start
 
-```jsx
+```js
 import React from 'react';
-import Gallery from 'react-grid-gallery';
+import { render } from 'react-dom';
+import Gallery from '../src/Gallery';
 
-export default class Example extends React.Component {
-  ...
-  render() {
-    return (
-      <Gallery
-        rowHeight: 240,
-        margin: 2,
-        images={[{
-            src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-            caption: "After Rain",
-            thumbnailWidth: 320,
-            thumbnailHeight: 174
-          },
-          {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-            caption: "Boats",
-            thumbnailWidth: 320,
-            thumbnailHeight: 212
-          },
-          {
-            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-            thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-            caption: "Color Pencils",
-            thumbnailWidth: 320,
-            thumbnailHeight: 212
-          }]}
-      />
-    );
-  }
-}
+const IMAGES =
+[{
+        src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
+        thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
+        thumbnailWidth: 320,
+        thumbnailHeight: 174,
+        caption: "After Rain (Jeshu John - designerspics.com)"
+},
+{
+        src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
+        thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
+        thumbnailWidth: 320,
+        thumbnailHeight: 212,
+        caption: "Boats (Jeshu John - designerspics.com)"
+},
+
+{
+        src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+        thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
+        thumbnailWidth: 320,
+        thumbnailHeight: 212
+        //look ma, no caption!
+}]
+
+render(
+        <div style={{
+            display: "block",
+            minHeight: "1px",
+            width: "100%",
+            border: "1px solid #ddd",
+            overflow: "auto"}}>
+        <Gallery images={shuffleArray(IMAGES)} />
+        </div>,
+    document.getElementById('example-0')
+);
 ```
 
 ## Image Options
