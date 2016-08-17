@@ -543,6 +543,103 @@
 
 
 
+<h2>Bonus Code Sample</h2>
+      <p>
+        This code produces the original demo at the top of the page.
+      </p>
+
+<pre><span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">ReactDOM</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-dom<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">Gallery</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-grid-gallery<span class="pl-pds">'</span></span>;
+
+
+<span class="pl-k">class</span> <span class="pl-en">Demo0</span> <span class="pl-k">extends</span> <span class="pl-e">React</span>.<span class="pl-smi">Component</span> {
+    <span class="pl-en">constructor</span>(<span class="pl-smi">props</span>){
+        <span class="pl-v">super</span>(props);
+
+        <span class="pl-v">this</span>.<span class="pl-smi">state</span> <span class="pl-k">=</span> {
+            images<span class="pl-k">:</span> <span class="pl-v">this</span>.<span class="pl-smi">props</span>.<span class="pl-c1">images</span>,
+            selected<span class="pl-k">:</span> []
+        };
+
+        <span class="pl-v">this</span>.<span class="pl-smi">setSelected</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">setSelected</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
+        <span class="pl-v">this</span>.<span class="pl-smi">getSelected</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">getSelected</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
+    }
+
+    <span class="pl-en">setSelected</span> (<span class="pl-smi">selectedImages</span>) {
+        <span class="pl-v">this</span>.<span class="pl-en">setState</span>({selected<span class="pl-k">:</span> selectedImages});
+    }
+
+    <span class="pl-en">getSelected</span> () {
+        <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-c1">selected</span>.<span class="pl-c1">toString</span>();
+    }
+
+    <span class="pl-en">render</span> () {
+        <span class="pl-k">return</span> (
+                <span class="pl-k">&lt;</span>div style<span class="pl-k">=</span>{{
+                    display<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>block<span class="pl-pds">"</span></span>,
+                    minHeight<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1px<span class="pl-pds">"</span></span>,
+                    width<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>,
+                    border<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1px solid #ddd<span class="pl-pds">"</span></span>,
+                    overflow<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}}<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>div style<span class="pl-k">=</span>{{
+                    padding<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>2px<span class="pl-pds">"</span></span>,
+                    color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>#666<span class="pl-pds">"</span></span>
+                }}<span class="pl-k">&gt;</span>Selected images<span class="pl-k">:</span> {<span class="pl-v">this</span>.<span class="pl-en">getSelected</span>()}<span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>Gallery
+            images<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-c1">images</span>}
+            onSelectedImagesChange<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">setSelected</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
+        );
+    }
+}
+
+<span class="pl-smi">Demo0</span>.<span class="pl-smi">propTypes</span> <span class="pl-k">=</span> {
+    images<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-en">arrayOf</span>(
+        <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-c1">shape</span>({
+            src<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>.<span class="pl-smi">isRequired</span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>.<span class="pl-smi">isRequired</span>,
+            srcset<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">array</span>,
+            caption<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>.<span class="pl-smi">isRequired</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>.<span class="pl-smi">isRequired</span>
+        })
+    ).<span class="pl-smi">isRequired</span>
+};
+
+<span class="pl-smi">Demo0</span>.<span class="pl-smi">defaultProps</span> <span class="pl-k">=</span> {
+    images<span class="pl-k">:</span> <span class="pl-en">shuffleArray</span>([
+        {
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">213</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Man on BMX (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+        },
+        {
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">213</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Ropeman - Thailand (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+        },
+        {
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/8/7476/28973628875_069e938525_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/8/7476/28973628875_069e938525_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">213</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Time to Think (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+        }
+    ])
+};
+
+<span class="pl-smi">ReactDOM</span>.<span class="pl-en">render</span>(<span class="pl-k">&lt;</span>Demo0 <span class="pl-k">/</span><span class="pl-k">&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>demo0<span class="pl-pds">'</span></span>));
+</pre>
+
+
+
+
+
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/benhowell/react-grid-gallery">React-grid-gallery</a> is maintained by <a href="https://github.com/benhowell">benhowell</a>.</span>
 
