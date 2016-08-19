@@ -1,6 +1,6 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Justified grid gallery component for React.js.",
   "main": "lib/Gallery.js",
   "dependencies": {
@@ -46,5 +46,5 @@
   "bugs": {
     "url": "https://github.com/benhowell/react-grid-gallery/issues"
   },
-  "homepage": "https://github.com/benhowell/react-grid-gallery#readme"
+  "homepage": "https://benhowell.github.io/react-grid-gallery/"
 }

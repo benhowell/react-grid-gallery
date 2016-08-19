@@ -1,10 +1,13 @@
 # react-grid-gallery
 
+### v0.1.9 / 2016-08-19
+
+* Removed darkening effect on thumbnail hover when `enableImageSelection: false`
+
 ### v0.1.8 / 2016-08-17
 
 * Handful of code samples and demos added to project page.
 * PropType bugs fixed on Gallery and Image
-
 
 ### v0.1.7 / 2016-08-16
 
@@ -16,7 +19,6 @@
 
 * Bumped [react-images](https://github.com/jossmac/react-images/) to v0.4.11
 * Enabled preloadNextImage option from [react-images](https://github.com/jossmac/react-images/)
-
 
 ### v0.1.5 / 2016-08-13
 
