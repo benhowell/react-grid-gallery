@@ -106,7 +106,9 @@ class Image extends Component {
                 position: "absolute",
                 height: "100%",
                 width: "100%",
-                background: (this.state.hover && !this.props.isSelected) ?
+                background: (this.state.hover
+                             && !this.props.isSelected
+                             && this.props.enableImageSelection) ?
                     'linear-gradient(to bottom,rgba(0,0,0,0.26),transparent 56px,transparent)' : 'none'}}>
                 </div>
 
