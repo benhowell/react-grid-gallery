@@ -8,7 +8,7 @@ No curation, no ordering and no tricks, just beautifully justified images.
 
 https://benhowell.github.io/react-grid-gallery/
 
-### Installation
+## Installation
 
 Using [npm](https://www.npmjs.com/):
 
