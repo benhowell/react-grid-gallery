@@ -12,7 +12,7 @@ https://benhowell.github.io/react-grid-gallery/
 
 Using [npm](https://www.npmjs.com/):
 
-    $ npm install --save react-grid-gallery
+    npm install --save react-grid-gallery
 
 ## Quick (and dirty) Start
 
