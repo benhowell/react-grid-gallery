@@ -1,5 +1,9 @@
 # react-grid-gallery
 
+### v0.1.11 / 2016-08-21
+
+* Fixed react-dom typo
+
 ### v0.1.10 / 2016-08-21
 
 * Added option to allow disabling of lightbox image display. `enableLightbox` (PropType.bool, default `true`)
