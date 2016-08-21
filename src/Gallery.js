@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import Lightbox from 'react-images';
 import Image from './Image.js';
 
@@ -99,6 +99,12 @@ class Gallery extends Component {
         }
     }
 
+    getOnClickThumbnailFunc () {
+        if(!this.props.onClickThumbnail && this.props.enableLightbox)
+            return this.openLightbox;
+        return this.props.onClickThumbnail;
+    }
+
     calculateCutOff (len, delta, items) {
         var cutoff = [];
         var cutsum = 0;
@@ -183,7 +189,7 @@ class Gallery extends Component {
                     isSelectable={this.props.enableImageSelection}
                     isSelected={(this.state.selectedImages.indexOf(idx) > -1) ?
                                 true : false}
-                    onClick={this.openLightbox}
+                    onClick={this.getOnClickThumbnailFunc()}
                     onToggleSelected={this.onToggleSelected}/>
                 );
                 idx++;
@@ -234,6 +240,8 @@ Gallery.propTypes = {
     onSelectedImagesChange: PropTypes.func,
     rowHeight: PropTypes.number,
     margin: PropTypes.number,
+    onClickThumbnail: PropTypes.func,
+    enableLightbox: PropTypes.bool,
     backdropClosesModal: PropTypes.bool,
     currentImage: PropTypes.number,
     preloadNextImage: PropTypes.bool,
@@ -254,6 +262,7 @@ Gallery.defaultProps = {
     selectedImages: [],
     rowHeight: 180,
     margin: 2,
+    enableLightbox: true,
     backdropClosesModal: false,
     currentImage: 0,
     preloadNextImage: true,
