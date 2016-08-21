@@ -7,6 +7,11 @@ No curation and no tricks, just beautifully justified images.
 ## Live Demo & Examples
 
 https://benhowell.github.io/react-grid-gallery/
+* [Main Demo](https://benhowell.github.io/react-grid-gallery/#demo)
+* [Pre-selected Images](https://benhowell.github.io/react-grid-gallery/#pre-selected-images)
+* [Permanently Selected Images](https://benhowell.github.io/react-grid-gallery/#permanently-selected-images)
+* [Plain Gallery](https://benhowell.github.io/react-grid-gallery/#plain-gallery)
+* [Main Demo Code](https://benhowell.github.io/react-grid-gallery/#code-sample)
 
 ## Installation
 
