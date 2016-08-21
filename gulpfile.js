@@ -17,8 +17,6 @@ var clean = require('gulp-clean');
 
 const babel = require('gulp-babel');
 
-var argv = require('yargs').argv;
-
 
 gulp.task('default', function() {
     gulp.start('build-all');
@@ -92,9 +90,9 @@ gulp.task('browserify', function() {
                 console.log(error.stack, error.message);
                 this.emit('end');
             })
-            .pipe(gulpif(argv.dev, source('bundle.js'), source('bundle.min.js')))
+            .pipe(gulpif((process.env.NODE_ENV == 'dev'), source('bundle.js'), source('bundle.min.js')))
             .pipe(buffer())
-            .pipe(gulpif(argv.dev, beautify(), uglify()))
+            .pipe(gulpif((process.env.NODE_ENV == 'dev'), beautify(), uglify()))
             .pipe(gulp.dest('examples/dist/js'));
     }
     return rebundle(bundle);
@@ -116,11 +114,11 @@ gulp.task('build-cljs-lib', function() {
                 console.log(error.stack, error.message);
                 this.emit('end');
             })
-            .pipe(gulpif(argv.dev,
+            .pipe(gulpif((process.env.NODE_ENV == 'dev'),
                          source('react-grid-gallery.bundle.js'),
                          source('react-grid-gallery.bundle.min.js')))
             .pipe(buffer())
-            //.pipe(gulpif(argv.dev, beautify(), uglify()))
+            .pipe(gulpif((process.env.NODE_ENV == 'production'), uglify()))
             .pipe(gulp.dest('lib'));
     }
     return rebundle(bundle);
