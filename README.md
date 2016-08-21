@@ -147,21 +147,4 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
 
 ### Acknowledgements
-
- * Visual design inspired by [Google Photos](https://photos.google.com/).
-
- * Thumbnail viewport implementation inspired by [GPlusGallery](http://fmaul.de/gallery-grid-example/) by Florian Maul.
-
- * Backend lightbox functionality via [React Images](https://github.com/jossmac/react-images) by [jossmac](https://github.com/jossmac).
-
- * Demo stock photos:
-   * [Jeshu John - designerspics.com](http://designerspics.com)
-   * [Gratisography](http://gratisography.com)
-   * [Tom Eversley - isorepublic.com](http://isorepublic.com)
-   * [Jan Vasek - jeshoots.com](http://jeshoots.com)
-   * [moveast.me](http://moveast.me)
-   * [贝莉儿 NG. - unsplash.com](http://unsplash.com)
-   * [Matthew Wiebe. - unsplash.com](unsplash.com)
-
-
-
+ * This is stolen from [react-photo-gallery](https://github.com/neptunian/react-photo-gallery)
