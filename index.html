@@ -574,20 +574,9 @@
         <span class="pl-en">super</span>(<span class="pl-smi">props</span>);
 
 <span class="pl-v">        this</span><span class="pl-k">.</span><span class="pl-smi">state</span> <span class="pl-k">=</span> {
-<span class="pl-c1">            <span class="pl-s">images</span>:</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">props</span><span class="pl-k">.</span><span class="pl-smi">images</span>,
-<span class="pl-c1">            <span class="pl-s">selected</span>:</span> []
+<span class="pl-c1">            <span class="pl-s">images</span>:</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">props</span><span class="pl-k">.</span><span class="pl-smi">images</span>
         };
 
-<span class="pl-v">        this</span><span class="pl-k">.</span><span class="pl-smi">setSelected</span><span class="pl-k"> =</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">setSelected</span><span class="pl-k">.</span><span class="pl-en">bind</span>(<span class="pl-v">this</span>);
-<span class="pl-v">        this</span><span class="pl-k">.</span><span class="pl-smi">getSelected</span><span class="pl-k"> =</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">getSelected</span><span class="pl-k">.</span><span class="pl-en">bind</span>(<span class="pl-v">this</span>);
-    }
-
-    <span class="pl-en">setSelected</span> (<span class="pl-smi">selectedImages</span>) {
-<span class="pl-v">        this</span><span class="pl-k">.</span><span class="pl-en">setState</span>({<span class="pl-c1"><span class="pl-s">selected</span>:</span><span class="pl-smi"> selectedImages</span>});
-    }
-
-    <span class="pl-en">getSelected</span> () {
-<span class="pl-k">        return</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">state</span><span class="pl-k">.</span><span class="pl-smi">selected</span><span class="pl-k">.</span><span class="pl-en">toString</span>();
     }
 
     <span class="pl-en">render</span> () {
@@ -600,8 +589,8 @@
 <span class="pl-s1"><span class="pl-c1">                    <span class="pl-s">overflow</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}</span><span class="pl-pse">}</span>&gt;
                 &lt;<span class="pl-ent"><span class="pl-c1">Gallery</span></span>
             <span class="pl-e">images</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1"><span class="pl-v">this</span><span class="pl-k">.</span><span class="pl-smi">state</span><span class="pl-k">.</span><span class="pl-smi">images</span></span><span class="pl-pse">}</span>
-            <span class="pl-e">onSelectedImagesChange</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1"><span class="pl-v">this</span><span class="pl-k">.</span><span class="pl-smi">setSelected</span></span><span class="pl-pse">}</span>
-            <span class="pl-e">enableLightbox</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1"><span class="pl-c1">false</span></span><span class="pl-pse">}</span>/&gt;
+            <span class="pl-e">enableLightbox</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1"><span class="pl-c1">false</span></span><span class="pl-pse">}</span>
+            <span class="pl-e">enableImageSelection</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1"><span class="pl-c1">false</span></span><span class="pl-pse">}</span>/&gt;
                 &lt;/<span class="pl-ent">div</span>&gt;
         );
     }
@@ -637,11 +626,11 @@
 <span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>37H (gratispgraphy.com)<span class="pl-pds">"</span></span>
         },
         {
-<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">320</span>,
-<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">148</span>,
-<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>315H (gratisography.com)<span class="pl-pds">"</span></span>
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8106/28941228886_86d1450016_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8106/28941228886_86d1450016_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">271</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>Orange Macro (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
         },
         {
 <span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg<span class="pl-pds">"</span></span>,
@@ -682,7 +671,6 @@
 };
 
 <span class="pl-smi">ReactDOM</span><span class="pl-k">.</span><span class="pl-en">render</span>(&lt;<span class="pl-ent"><span class="pl-c1">Demo3</span></span> /&gt;,<span class="pl-c1"> document</span><span class="pl-k">.</span><span class="pl-en">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>demo3<span class="pl-pds">'</span></span>));</pre>
-
 
 
 <h2>Bonus Code Sample</h2>
