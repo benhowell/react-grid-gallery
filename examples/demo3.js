@@ -8,20 +8,9 @@ class Demo3 extends React.Component {
         super(props);
 
         this.state = {
-            images: this.props.images,
-            selected: []
+            images: this.props.images
         };
 
-        this.setSelected = this.setSelected.bind(this);
-        this.getSelected = this.getSelected.bind(this);
-    }
-
-    setSelected (selectedImages) {
-        this.setState({selected: selectedImages});
-    }
-
-    getSelected () {
-        return this.state.selected.toString();
     }
 
     render () {
@@ -34,8 +23,8 @@ class Demo3 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            onSelectedImagesChange={this.setSelected}
-            enableLightbox={false}/>
+            enableLightbox={false}
+            enableImageSelection={false}/>
                 </div>
         );
     }
@@ -71,11 +60,11 @@ Demo3.defaultProps = {
             caption: "37H (gratispgraphy.com)"
         },
         {
-            src: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg",
-            thumbnail: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 148,
-            caption: "315H (gratisography.com)"
+            src: "https://c7.staticflickr.com/9/8106/28941228886_86d1450016_b.jpg",
+            thumbnail: "https://c7.staticflickr.com/9/8106/28941228886_86d1450016_n.jpg",
+            thumbnailWidth: 271,
+            thumbnailHeight: 320,
+            caption: "Orange Macro (Tom Eversley - isorepublic.com)"
         },
         {
             src: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg",
