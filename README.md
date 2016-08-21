@@ -2,7 +2,7 @@
 
 Justified gallery component for [React.js](http://facebook.github.io/react/).
 
-No curation, no ordering and no tricks, just beautifully justified images.
+No curation and no tricks, just beautifully justified images.
 
 ## Live Demo & Examples
 
@@ -63,7 +63,7 @@ caption                 | string        | undefined     | Optional. Image captio
 srcset 	                | array 	| undefined 	| Optional. Array of srcsets for lightbox.
 
 
-## General Options
+## Gallery Options
 
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
@@ -73,6 +73,14 @@ selectedImages          | array         | empty         | Optional. An array of 
 onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array. This function is only executable when `enableImageSelection: true`. 
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
+enableLightbox          | bool          | true          | Optional. Enable lightbox display of full size image when thumbnail clicked.
+onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Overrides openLightbox.
+
+
+## Lightbox Options
+
+Property	|	Type		|	Default		|	Description
+:-----------------------|:--------------|:--------------|:--------------------------------
 backdropClosesModal	| bool          | false	        | Optional. Allow users to exit the lightbox by clicking the backdrop.
 currentImage            | number        | 0             | Optional. The index of the image to display initially (only relevant when used in conjunction with `isOpen: true` property).
 preloadNextImage        | bool          | true          | Optional. Based on the direction the user is navigating, preload the next available image.
