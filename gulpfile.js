@@ -73,7 +73,8 @@ gulp.task('browserify', function() {
             //watchify(
             browserify(['./examples/app.js',
                         './examples/demo1.js',
-                        './examples/demo2.js'], {
+                        './examples/demo2.js',
+                        './examples/demo3.js'], {
         extensions: ['.js', '.jsx']
         })
 //)
