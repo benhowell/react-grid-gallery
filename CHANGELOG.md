@@ -1,5 +1,11 @@
 # react-grid-gallery
 
+### v0.1.10 / 2016-08-21
+
+* Added option to allow disabling of lightbox image display. `enableLightbox` (PropType.bool, default `true`)
+
+* Added option to allow passing in of function to execute on thumbnail click. `onClickThumbnail` (PropType.func, default `openLightbox`)
+
 ### v0.1.9 / 2016-08-19
 
 * Removed darkening effect on thumbnail hover when `enableImageSelection: false`
