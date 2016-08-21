@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-//import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import Lightbox from 'react-images';
 import Image from './Image.js';
 
