@@ -21,11 +21,13 @@
 
     <section class="main-content">
 
+      <p>No curation and no tricks, just beautifully justified images.</p>
+
 
 <h2>Demo</h2>
-      <p>
-        The demo below consists of a shuffled set of images with differing sizes and aspect ratios. Each page load shuffles the order and resizing the browser window will adjust the gallery layout seamlessly. No curation and no tricks, just beautifully justified images.
-      </p>
+<p>
+  The demo below consists of a shuffled set of images with differing sizes and aspect ratios. Each page load shuffles the order and resizing the browser window will adjust the gallery layout seamlessly.
+</p>
 
 <div id="demo0"></div>
 
@@ -557,6 +559,129 @@
 <span class="pl-smi">ReactDOM</span>.<span class="pl-en">render</span>(<span class="pl-k">&lt;</span>Demo2 <span class="pl-k">/</span><span class="pl-k">&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>demo2<span class="pl-pds">'</span></span>));
 </pre>
 
+
+<h2>Bonus Demo - Gallery with Lightbox Disabled</h2>
+
+<div id="demo3"></div>
+
+<pre><span class="pl-k">import</span><span class="pl-smi"> React</span><span class="pl-k"> from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span><span class="pl-smi"> ReactDOM</span><span class="pl-k"> from</span> <span class="pl-s"><span class="pl-pds">'</span>react-dom<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span><span class="pl-smi"> Gallery</span><span class="pl-k"> from</span> <span class="pl-s"><span class="pl-pds">'</span>../src/Gallery<span class="pl-pds">'</span></span>;
+
+
+<span class="pl-k">class</span> <span class="pl-en">Demo3</span> <span class="pl-k">extends</span> <span class="pl-en">React</span><span class="pl-k">.</span><span class="pl-smi">Component</span> {
+    <span class="pl-en">constructor</span>(<span class="pl-smi">props</span>){
+        <span class="pl-en">super</span>(<span class="pl-smi">props</span>);
+
+<span class="pl-v">        this</span><span class="pl-k">.</span><span class="pl-smi">state</span> <span class="pl-k">=</span> {
+<span class="pl-c1">            <span class="pl-s">images</span>:</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">props</span><span class="pl-k">.</span><span class="pl-smi">images</span>,
+<span class="pl-c1">            <span class="pl-s">selected</span>:</span> []
+        };
+
+<span class="pl-v">        this</span><span class="pl-k">.</span><span class="pl-smi">setSelected</span><span class="pl-k"> =</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">setSelected</span><span class="pl-k">.</span><span class="pl-en">bind</span>(<span class="pl-v">this</span>);
+<span class="pl-v">        this</span><span class="pl-k">.</span><span class="pl-smi">getSelected</span><span class="pl-k"> =</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">getSelected</span><span class="pl-k">.</span><span class="pl-en">bind</span>(<span class="pl-v">this</span>);
+    }
+
+    <span class="pl-en">setSelected</span> (<span class="pl-smi">selectedImages</span>) {
+<span class="pl-v">        this</span><span class="pl-k">.</span><span class="pl-en">setState</span>({<span class="pl-c1"><span class="pl-s">selected</span>:</span><span class="pl-smi"> selectedImages</span>});
+    }
+
+    <span class="pl-en">getSelected</span> () {
+<span class="pl-k">        return</span><span class="pl-v"> this</span><span class="pl-k">.</span><span class="pl-smi">state</span><span class="pl-k">.</span><span class="pl-smi">selected</span><span class="pl-k">.</span><span class="pl-en">toString</span>();
+    }
+
+    <span class="pl-en">render</span> () {
+<span class="pl-k">        return</span> (
+                &lt;<span class="pl-ent">div</span> <span class="pl-e">style</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1">{</span>
+<span class="pl-s1"><span class="pl-c1">                    <span class="pl-s">display</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>block<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1"><span class="pl-c1">                    <span class="pl-s">minHeight</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>1px<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1"><span class="pl-c1">                    <span class="pl-s">width</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1"><span class="pl-c1">                    <span class="pl-s">border</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>1px solid #ddd<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1"><span class="pl-c1">                    <span class="pl-s">overflow</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}</span><span class="pl-pse">}</span>&gt;
+                &lt;<span class="pl-ent"><span class="pl-c1">Gallery</span></span>
+            <span class="pl-e">images</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1"><span class="pl-v">this</span><span class="pl-k">.</span><span class="pl-smi">state</span><span class="pl-k">.</span><span class="pl-smi">images</span></span><span class="pl-pse">}</span>
+            <span class="pl-e">onSelectedImagesChange</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1"><span class="pl-v">this</span><span class="pl-k">.</span><span class="pl-smi">setSelected</span></span><span class="pl-pse">}</span>
+            <span class="pl-e">enableLightbox</span><span class="pl-k">=</span><span class="pl-pse">{</span><span class="pl-s1"><span class="pl-c1">false</span></span><span class="pl-pse">}</span>/&gt;
+                &lt;/<span class="pl-ent">div</span>&gt;
+        );
+    }
+}
+
+<span class="pl-smi">Demo3</span><span class="pl-k">.</span><span class="pl-smi">propTypes</span> <span class="pl-k">=</span> {
+<span class="pl-c1">    <span class="pl-s">images</span>:</span> <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span><span class="pl-k">.</span><span class="pl-en">arrayOf</span>(
+        <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span><span class="pl-k">.</span><span class="pl-en">shape</span>({
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span><span class="pl-k">.</span><span class="pl-smi">string</span><span class="pl-k">.</span><span class="pl-smi">isRequired</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span><span class="pl-k">.</span><span class="pl-smi">string</span><span class="pl-k">.</span><span class="pl-smi">isRequired</span>,
+<span class="pl-c1">            <span class="pl-s">srcset</span>:</span> <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span><span class="pl-k">.</span><span class="pl-smi">array</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span><span class="pl-k">.</span><span class="pl-smi">string</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span><span class="pl-k">.</span><span class="pl-smi">number</span><span class="pl-k">.</span><span class="pl-smi">isRequired</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span><span class="pl-k">.</span><span class="pl-smi">number</span><span class="pl-k">.</span><span class="pl-smi">isRequired</span>
+        })
+    )<span class="pl-k">.</span><span class="pl-smi">isRequired</span>
+};
+
+<span class="pl-smi">Demo3</span><span class="pl-k">.</span><span class="pl-smi">defaultProps</span> <span class="pl-k">=</span> {
+<span class="pl-c1">    <span class="pl-s">images</span>:</span> <span class="pl-en">shuffleArray</span>([
+        {
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">174</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>After Rain (Jeshu John - designerspics.com)<span class="pl-pds">"</span></span>
+        },
+        {
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8890/28897154101_a8f55be225_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8890/28897154101_a8f55be225_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">183</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>37H (gratispgraphy.com)<span class="pl-pds">"</span></span>
+        },
+        {
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">148</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>315H (gratisography.com)<span class="pl-pds">"</span></span>
+        },
+        {
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8342/28897193381_800db6419e_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">213</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>201H (gratisography.com)<span class="pl-pds">"</span></span>
+        },
+        {
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">213</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>Flower Interior Macro (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+        },
+        {
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">213</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>Man on BMX (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+        },
+        {
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c4.staticflickr.com/9/8578/28357117603_97a8233cf5_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">213</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>Ropeman - Thailand (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+        },
+        {
+<span class="pl-c1">            <span class="pl-s">src</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c1.staticflickr.com/9/8056/28354485944_148d6a5fc1_b.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnail</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c1.staticflickr.com/9/8056/28354485944_148d6a5fc1_n.jpg<span class="pl-pds">"</span></span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailWidth</span>:</span> <span class="pl-c1">257</span>,
+<span class="pl-c1">            <span class="pl-s">thumbnailHeight</span>:</span> <span class="pl-c1">320</span>,
+<span class="pl-c1">            <span class="pl-s">caption</span>:</span> <span class="pl-s"><span class="pl-pds">"</span>A photo by 贝莉儿 NG. (unsplash.com)<span class="pl-pds">"</span></span>
+        }
+    ])
+};
+
+<span class="pl-smi">ReactDOM</span><span class="pl-k">.</span><span class="pl-en">render</span>(&lt;<span class="pl-ent"><span class="pl-c1">Demo3</span></span> /&gt;,<span class="pl-c1"> document</span><span class="pl-k">.</span><span class="pl-en">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>demo3<span class="pl-pds">'</span></span>));</pre>
 
 
 
