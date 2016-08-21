@@ -24,7 +24,7 @@
 
 <h2>Demo</h2>
       <p>
-        The demo below consists of a shuffled set of images with differing sizes and aspect ratios. Each page load shuffles the order and resizing the browser window will adjust the gallery layout seamlessly. No curation, no ordering and no tricks, just beautifully justified images.
+        The demo below consists of a shuffled set of images with differing sizes and aspect ratios. Each page load shuffles the order and resizing the browser window will adjust the gallery layout seamlessly. No curation and no tricks, just beautifully justified images.
       </p>
 
 <div id="demo0"></div>
@@ -78,16 +78,19 @@
 <h2>
 <a id="image-options" class="anchor" href="#image-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Image Options</h2>
 
-<table>
-<thead>
+
+
+
+<h2><a id="user-content-image-options" class="anchor" href="#image-options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Image Options</h2>
+
+<table><thead>
 <tr>
 <th align="left">Property</th>
 <th align="left">Type</th>
 <th align="left">Default</th>
 <th align="left">Description</th>
 </tr>
-</thead>
-<tbody>
+</thead><tbody>
 <tr>
 <td align="left">src</td>
 <td align="left">string</td>
@@ -124,11 +127,163 @@
 <td align="left">undefined</td>
 <td align="left">Optional. Array of srcsets for lightbox.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
 <h2>
-<a id="general-options" class="anchor" href="#general-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>General Options</h2>
+<a id="gallery-options" class="anchor" href="#gallery-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gallery Options</h2>
+
+<table><thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">images</td>
+<td align="left">array</td>
+<td align="left">undefined</td>
+<td align="left">Required. An array of objects containing image properties (see Image Options above).</td>
+</tr>
+<tr>
+<td align="left">enableImageSelection</td>
+<td align="left">bool</td>
+<td align="left">true</td>
+<td align="left">Optional. Allow images to be selectable. Setting this option to <code>false</code> whilst supplying a non empty <code>selectedImages</code> array will result in those images being permanently selected.</td>
+</tr>
+<tr>
+<td align="left">selectedImages</td>
+<td align="left">array</td>
+<td align="left">empty</td>
+<td align="left">Optional. An array of image indicies to set as selected upon gallery creation (Note: this selection is permanent if <code>enableImageSelection: false</code>).</td>
+</tr>
+<tr>
+<td align="left">onSelectedImagesChange</td>
+<td align="left">func</td>
+<td align="left">undefined</td>
+<td align="left">Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array. This function is only executable when <code>enableImageSelection: true</code>.</td>
+</tr>
+<tr>
+<td align="left">rowHeight</td>
+<td align="left">number</td>
+<td align="left">180</td>
+<td align="left">Optional. The height of each row in the gallery.</td>
+</tr>
+<tr>
+<td align="left">margin</td>
+<td align="left">number</td>
+<td align="left">2</td>
+<td align="left">Optional. The margin around each image in the gallery.</td>
+</tr>
+<tr>
+<td align="left">enableLightbox</td>
+<td align="left">bool</td>
+<td align="left">true</td>
+<td align="left">Optional. Enable lightbox display of full size image when thumbnail clicked.</td>
+</tr>
+<tr>
+<td align="left">onClickThumbnail</td>
+<td align="left">func</td>
+<td align="left">openLightbox</td>
+<td align="left">Optional. Function to execute when gallery thumbnail clicked. Overrides openLightbox.</td>
+</tr>
+</tbody></table>
+
+
+<h2>
+<a id="lightbox-options" class="anchor" href="#lightbox-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lightbox Options</h2>
+
+<table><thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="left">backdropClosesModal</td>
+<td align="left">bool</td>
+<td align="left">false</td>
+<td align="left">Optional. Allow users to exit the lightbox by clicking the backdrop.</td>
+</tr>
+<tr>
+<td align="left">currentImage</td>
+<td align="left">number</td>
+<td align="left">0</td>
+<td align="left">Optional. The index of the image to display initially (only relevant when used in conjunction with <code>isOpen: true</code> property).</td>
+</tr>
+<tr>
+<td align="left">preloadNextImage</td>
+<td align="left">bool</td>
+<td align="left">true</td>
+<td align="left">Optional. Based on the direction the user is navigating, preload the next available image.</td>
+</tr>
+<tr>
+<td align="left">customControls</td>
+<td align="left">array</td>
+<td align="left">undefined</td>
+<td align="left">Optional. An array of elements to display as custom controls on the top of lightbox.</td>
+</tr>
+<tr>
+<td align="left">enableKeyboardInput</td>
+<td align="left">bool</td>
+<td align="left">true</td>
+<td align="left">Optional. Supports keyboard input - <code>esc</code>, <code>arrow left</code>, and <code>arrow right</code>.</td>
+</tr>
+<tr>
+<td align="left">imageCountSeparator</td>
+<td align="left">string</td>
+<td align="left">' of '</td>
+<td align="left">Optional. Customize separator in the image count.</td>
+</tr>
+<tr>
+<td align="left">isOpen</td>
+<td align="left">bool</td>
+<td align="left">false</td>
+<td align="left">Optional. Whether or not the lightbox is displayed when gallery first rendered (can be used in conjunction with <code>currentImage</code> property, otherwise the first image will be diplayed).</td>
+</tr>
+<tr>
+<td align="left">showCloseButton</td>
+<td align="left">bool</td>
+<td align="left">true</td>
+<td align="left">Optional. Display a close "X" button in top right corner.</td>
+</tr>
+<tr>
+<td align="left">showImageCount</td>
+<td align="left">bool</td>
+<td align="left">true</td>
+<td align="left">Optional. Display image index, e.g., "3 of 20".</td>
+</tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <table>
 <thead>
