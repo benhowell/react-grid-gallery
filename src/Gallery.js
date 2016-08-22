@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 import Lightbox from 'react-images';
 import Image from './Image.js';
 
@@ -38,7 +37,7 @@ class Gallery extends Component {
     }
 
     componentDidUpdate () {
-        if (ReactDOM.findDOMNode(this).clientWidth
+        if (this.refs.gallery.clientWidth
             !== this.state.containerWidth){
             this.handleResize();
         }
@@ -46,7 +45,8 @@ class Gallery extends Component {
 
     handleResize () {
         this.setState({
-            containerWidth: Math.floor(ReactDOM.findDOMNode(this).clientWidth)
+            containerWidth:
+            Math.floor(this.refs.gallery.clientWidth)
         });
     }
 
@@ -102,7 +102,9 @@ class Gallery extends Component {
     getOnClickThumbnailFunc () {
         if(!this.props.onClickThumbnail && this.props.enableLightbox)
             return this.openLightbox;
-        return this.props.onClickThumbnail;
+        if(this.props.onClickThumbnail)
+            return this.props.onClickThumbnail;
+        return null;
     }
 
     calculateCutOff (len, delta, items) {
@@ -200,7 +202,7 @@ class Gallery extends Component {
 
     render () {
         return (
-                <div id="Gallery">
+                <div id="Gallery" ref="gallery">
                 {this.renderGallery()}
                 <Lightbox
             images={this.props.images}
