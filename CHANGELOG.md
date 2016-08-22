@@ -1,12 +1,16 @@
 # react-grid-gallery
 
+### v0.1.14 / 2016-08-22
+
+`selectedImages` state set on `componentWillReceiveProps` allowing selections from outside component to trigger state update.
+
 ### v0.1.13 / 2016-08-22
 
-* Replaced legacy ref string with ref callback. Fixes unsupported stringy ref issue when using [react-grid-gallery](https://github.com/benhowell/react-grid-gallery) inside a [reagent](https://github.com/reagent-project/reagent) project :)
+* Replaced legacy `ref` string with `ref` callback. Fixes multiple react owner issue when using [react-grid-gallery](https://github.com/benhowell/react-grid-gallery) inside a [reagent](https://github.com/reagent-project/reagent) project :)
 
 ### v0.1.12 / 2016-08-22
 
-* Replaced ReactDOM.findDOMNode(this) with ref, removed react-dom deps
+* Replaced `ReactDOM.findDOMNode(this)` with ref, removed react-dom deps
 * Added conditional to ensure image onClick not fired when no function specified
 * Moved CheckButton styling (color, hoverColor, selectedColor) to props
 
