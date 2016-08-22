@@ -37,7 +37,7 @@ class Gallery extends Component {
     }
 
     componentDidUpdate () {
-        if (this.refs.gallery.clientWidth
+        if (this._gallery.clientWidth
             !== this.state.containerWidth){
             this.handleResize();
         }
@@ -46,7 +46,7 @@ class Gallery extends Component {
     handleResize () {
         this.setState({
             containerWidth:
-            Math.floor(this.refs.gallery.clientWidth)
+            Math.floor(this._gallery.clientWidth)
         });
     }
 
@@ -167,7 +167,7 @@ class Gallery extends Component {
         return items;
     }
 
-    renderGallery () {
+    renderImages () {
         if (!this.props.images) return;
         if (this.state.containerWidth == 0) return;
         var items = this.scaleThumbs(this.props.images.slice());
@@ -202,8 +202,8 @@ class Gallery extends Component {
 
     render () {
         return (
-                <div id="Gallery" ref="gallery">
-                {this.renderGallery()}
+                <div id="Gallery" ref={(c) => this._gallery = c}>
+                {this.renderImages()}
                 <Lightbox
             images={this.props.images}
             backdropClosesModal={this.props.backdropClosesModal}
