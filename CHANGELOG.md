@@ -2,7 +2,7 @@
 
 ### v0.1.14 / 2016-08-22
 
-`selectedImages` state set on `componentWillReceiveProps` allowing selections from outside component to trigger state update.
+* `selectedImages` state set on `componentWillReceiveProps` allowing selections from outside component to trigger state update.
 
 ### v0.1.13 / 2016-08-22
 
