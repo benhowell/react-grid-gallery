@@ -14,10 +14,10 @@ class CheckButton extends Component {
 
     fill () {
         if (this.props.isSelected)
-            return "#4285f4";
+            return this.props.selectedColor;
         else if (this.state.hover)
-            return "rgba(255, 255, 255, 1)";
-        return "rgba(255, 255, 255, 0.7)";
+            return this.props.hoverColor;
+        return this.props.color;
     }
 
     visibility () {
@@ -97,10 +97,13 @@ class CheckButton extends Component {
 }
 
 CheckButton.propTypes = {index: PropTypes.number,
+                         color: PropTypes.string,
                          isSelectable: PropTypes.bool,
                          isSelected: PropTypes.bool,
+                         selectedColor: PropTypes.string,
                          parentHover: PropTypes.bool,
                          hover: PropTypes.bool,
+                         hoverColor: PropTypes.string,
                          onClick: PropTypes.func};
 
 CheckButton.defaultProps = {isSelectable: true,
@@ -109,3 +112,4 @@ CheckButton.defaultProps = {isSelectable: true,
                             hover: false};
 
 export default CheckButton;
+//module.exports = CheckButton;
