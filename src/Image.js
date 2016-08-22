@@ -65,6 +65,9 @@ class Image extends Component {
         return (
                 <CheckButton key="Select"
             index={this.props.index}
+            color={"rgba(255, 255, 255, 0.7)"}
+            selectedColor={"#4285f4"}
+            hoverColor={"rgba(255, 255, 255, 1)"}
             isSelected={this.props.isSelected}
             isSelectable={this.props.isSelectable}
             onClick={this.props.isSelectable ?
@@ -117,8 +120,8 @@ class Image extends Component {
                 this.tileViewportStyle()
             }
             key={"tile-viewport-"+this.props.index}
-            onClick={(e) => this.props.onClick(this.props.index, e)}>
-
+            onClick={this.props.onClick ?
+                     (e) => this.props.onClick(this.props.index, e) : null}>
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
