@@ -1,5 +1,12 @@
 # react-grid-gallery
 
+### v0.1.12 / 2016-08-22
+
+* Replaced ReactDOM.findDOMNode(this) with ref, removed react-dom deps
+* Added conditional to ensure image onClick not fired when no function specified
+* Moved CheckButton styling (color, hoverColor, selectedColor) to props
+
+
 ### v0.1.11 / 2016-08-21
 
 * Fixed react-dom typo
