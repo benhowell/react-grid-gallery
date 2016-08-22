@@ -1,11 +1,14 @@
 # react-grid-gallery
 
+### v0.1.13 / 2016-08-22
+
+* Replaced legacy ref string with ref callback. Fixes unsupported stringy ref issue when using [react-grid-gallery](https://github.com/benhowell/react-grid-gallery) inside a [reagent](https://github.com/reagent-project/reagent) project :)
+
 ### v0.1.12 / 2016-08-22
 
 * Replaced ReactDOM.findDOMNode(this) with ref, removed react-dom deps
 * Added conditional to ensure image onClick not fired when no function specified
 * Moved CheckButton styling (color, hoverColor, selectedColor) to props
-
 
 ### v0.1.11 / 2016-08-21
 
