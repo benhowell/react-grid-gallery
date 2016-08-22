@@ -38,6 +38,7 @@ class CheckButton extends Component {
             style={{
                 visibility: this.visibility(),
                 background: 'none',
+                float: 'left',
                 width: '36px',
                 height: '36px',
                 border: 'none',
@@ -111,5 +112,4 @@ CheckButton.defaultProps = {isSelectable: true,
                             parentHover: false,
                             hover: false};
 
-export default CheckButton;
-//module.exports = CheckButton;
+module.exports = CheckButton;
