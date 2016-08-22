@@ -28148,9 +28148,9 @@
                                 className: 'tile-viewport',
                                 style: this.tileViewportStyle(),
                                 key: "tile-viewport-" + this.props.index,
-                                onClick: function onClick(e) {
+                                onClick: this.props.onClick ? function(e) {
                                     return _this2.props.onClick(_this2.props.index, e);
-                                }
+                                } : null
                             },
                             _react2.default.createElement('img', {
                                 key: "img-" + this.props.index,
