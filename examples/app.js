@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from '../src/Gallery';
-
+import CheckButton from '../src/CheckButton';
 
 class Demo0 extends React.Component {
     constructor(props){
@@ -9,36 +9,87 @@ class Demo0 extends React.Component {
 
         this.state = {
             images: this.props.images,
-            selected: []
+            selectedImages: [],
+            selectAllChecked: false
         };
 
-        this.setSelected = this.setSelected.bind(this);
-        this.getSelected = this.getSelected.bind(this);
+        this.setSelectedImages = this.setSelectedImages.bind(this);
+        this.getSelectedImages = this.getSelectedImages.bind(this);
+        this.onClickSelectAll = this.onClickSelectAll.bind(this);
     }
 
-    setSelected (selectedImages) {
-        this.setState({selected: selectedImages});
+    setSelectedImages (selectedImages) {
+        this.setState({
+            selectedImages: selectedImages
+        });
+
+        if(selectedImages.length < this.state.images.length){
+            this.setState({
+                selectAllChecked: false
+            });
+        }
+        else {
+            this.setState({
+                selectAllChecked: true
+            });
+        }
     }
 
-    getSelected () {
-        return this.state.selected.toString();
+    getSelectedImages () {
+        return this.state.selectedImages.toString();
+    }
+
+    onClickSelectAll () {
+        var selectAllChecked = !this.state.selectAllChecked;
+        this.setState({
+            selectAllChecked: selectAllChecked
+        });
+
+        if(selectAllChecked){
+            this.setState({
+                selectedImages: Array.from(Array(this.state.images.length).keys())
+            });
+        }
+        else {
+            this.setState({
+                selectedImages: []
+            });
+        }
     }
 
     render () {
         return (
+                <div>
+                <CheckButton
+            index={0}
+            isSelected={this.state.selectAllChecked}
+            onClick={this.onClickSelectAll}
+            parentHover={true}
+            color={"rgba(0,0,0,0.54)"}
+            selectedColor={"#4285f4"}
+            hoverColor={"rgba(0,0,0,0.54)"}/>
+                <div style={{
+                    height: "36px",
+                    display: "flex",
+                    alignItems: "center"
+                }}>
+                select all
+                </div>
+                <div style={{
+                    padding: "2px",
+                    color: "#666"
+                }}>Selected images: {this.getSelectedImages()}</div>
                 <div style={{
                     display: "block",
                     minHeight: "1px",
                     width: "100%",
                     border: "1px solid #ddd",
                     overflow: "auto"}}>
-                <div style={{
-                    padding: "2px",
-                    color: "#666"
-                }}>Selected images: {this.getSelected()}</div>
                 <Gallery
             images={this.state.images}
-            onSelectedImagesChange={this.setSelected}/>
+            selectedImages={this.state.selectedImages}
+            onSelectedImagesChange={this.setSelectedImages}/>
+                </div>
                 </div>
         );
     }
@@ -227,7 +278,7 @@ Demo0.defaultProps = {
             thumbnailHeight: 320,
             caption: "A photo by Matthew Wiebe. (unsplash.com)"
         }
-    ])
+    ]).splice(0,16)
 };
 
 ReactDOM.render(<Demo0 />, document.getElementById('demo0'));
