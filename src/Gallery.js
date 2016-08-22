@@ -29,8 +29,16 @@ class Gallery extends Component {
         window.addEventListener('resize', this.handleResize);
     }
 
+    componentWillReceiveProps (np) {
+        if(this.state.selectedImages != np.selectedImages){
+            this.setState({
+                selectedImages: np.selectedImages
+            });
+        }
+    }
+
     componentWillUpdate (np, ns) {
-        if(this.state.selectedImages != ns.selectedImages){
+        if(np.selectedImages != ns.selectedImages){
             if(this.props.onSelectedImagesChange)
                 this.props.onSelectedImagesChange(ns.selectedImages);
         }
