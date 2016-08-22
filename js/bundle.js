@@ -27759,7 +27759,7 @@
                 value: function getOnClickThumbnailFunc() {
                     if (!this.props.onClickThumbnail && this.props.enableLightbox) return this.openLightbox;
                     if (this.props.onClickThumbnail) return this.props.onClickThumbnail;
-                    return false;
+                    return null;
                 }
             }, {
                 key: 'calculateCutOff',
