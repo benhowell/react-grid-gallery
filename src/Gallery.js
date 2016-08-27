@@ -45,6 +45,7 @@ class Gallery extends Component {
     }
 
     componentDidUpdate () {
+        if (!this._gallery) return;
         if (this._gallery.clientWidth
             !== this.state.containerWidth){
             this.handleResize();
@@ -52,6 +53,7 @@ class Gallery extends Component {
     }
 
     handleResize () {
+        if (!this._gallery) return;
         this.setState({
             containerWidth:
             Math.floor(this._gallery.clientWidth)
