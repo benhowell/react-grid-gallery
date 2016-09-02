@@ -9,6 +9,7 @@ class Gallery extends Component {
         super(props);
 
         this.state = {
+            thumbnails: [],
             lightboxIsOpen: this.props.isOpen,
             selectedImages: this.props.selectedImages,
             currentImage: this.props.currentImage,
@@ -55,8 +56,8 @@ class Gallery extends Component {
     handleResize () {
         if (!this._gallery) return;
         this.setState({
-            containerWidth:
-            Math.floor(this._gallery.clientWidth)
+            containerWidth: Math.floor(this._gallery.clientWidth),
+            thumbnails: this.renderThumbs(this._gallery.clientWidth)
         });
     }
 
@@ -138,17 +139,17 @@ class Gallery extends Component {
         return cutoff;
     }
 
-    buildImageRow (items) {
+    buildImageRow (items, containerWidth) {
         var row = [];
         var len = 0;
         var imgMargin = 2 * this.props.margin;
-        while(items.length > 0 && len < this.state.containerWidth) {
+        while(items.length > 0 && len < containerWidth) {
             var item = items.shift();
             row.push(item);
             len += (item.scaletwidth + imgMargin);
         }
 
-        var delta = len - this.state.containerWidth;
+        var delta = len - containerWidth;
         if(row.length > 0 && delta > 0) {
             var cutoff = this.calculateCutOff(len, delta, row);
             for(var i in row) {
@@ -159,8 +160,8 @@ class Gallery extends Component {
             }
         }
         else {
-            for(var i in row) {
-                item = row[i];
+            for(var j in row) {
+                item = row[j];
                 item.marginLeft = 0;
                 item.vwidth = item.scaletwidth;
             }
@@ -177,9 +178,10 @@ class Gallery extends Component {
 
 
 
-    renderImages () {
-        if (!this.props.images) return;
-        if (this.state.containerWidth == 0) return;
+    renderThumbs (containerWidth) {
+        if (!this.props.images) return [];
+        if (containerWidth == 0) return [];
+
         var items = this.props.images.slice();
         for (var t in items) {
             this.scaleThumb(items[t]);
@@ -188,36 +190,37 @@ class Gallery extends Component {
         var images = [];
         var rows = [];
         while(items.length > 0) {
-            rows.push(this.buildImageRow(items));
+            rows.push(this.buildImageRow(items, containerWidth));
         }
-
-        var idx = 0;
         for(var r in rows) {
             for(var i in rows[r]) {
                 var item = rows[r][i];
-                images.push(
-                        <Image
-                    key={"Image-"+idx}
-                    item={item}
-                    index={idx}
-                    margin={this.props.margin}
-                    height={this.props.rowHeight}
-                    isSelectable={this.props.enableImageSelection}
-                    isSelected={(this.state.selectedImages.indexOf(idx) > -1) ?
-                                true : false}
-                    onClick={this.getOnClickThumbnailFunc()}
-                    onToggleSelected={this.onToggleSelected}/>
-                );
-                idx++;
+                images.push(item);
             }
         }
         return images;
     }
 
     render () {
+        console.log("render");
+
+        var images = this.state.thumbnails.map((item, idx) => {
+            return <Image
+            key={"Image-"+idx}
+            item={item}
+            index={idx}
+            margin={this.props.margin}
+            height={this.props.rowHeight}
+            isSelectable={this.props.enableImageSelection}
+            isSelected={(this.state.selectedImages.indexOf(idx) > -1) ?
+                        true : false}
+            onClick={this.getOnClickThumbnailFunc()}
+            onToggleSelected={this.onToggleSelected}/>;
+        });
+
         return (
                 <div id="Gallery" ref={(c) => this._gallery = c}>
-                {this.renderImages()}
+                {images}
                 <Lightbox
             images={this.props.images}
             backdropClosesModal={this.props.backdropClosesModal}
