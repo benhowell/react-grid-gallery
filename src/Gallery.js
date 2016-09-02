@@ -9,6 +9,7 @@ class Gallery extends Component {
         super(props);
 
         this.state = {
+            images: this.props.images,
             thumbnails: [],
             lightboxIsOpen: this.props.isOpen,
             selectedImages: this.props.selectedImages,
@@ -34,6 +35,12 @@ class Gallery extends Component {
         if(this.state.selectedImages != np.selectedImages){
             this.setState({
                 selectedImages: np.selectedImages
+            });
+        }
+
+        if(this.state.images != np.images){
+            this.setState({
+                images: np.images
             });
         }
     }
@@ -173,16 +180,14 @@ class Gallery extends Component {
         item.scaletwidth =
             Math.floor(this.props.rowHeight
                        * (item.thumbnailWidth / item.thumbnailHeight));
-        return item;
     }
 
 
-
     renderThumbs (containerWidth) {
-        if (!this.props.images) return [];
+        if (!this.state.images) return [];
         if (containerWidth == 0) return [];
 
-        var items = this.props.images.slice();
+        var items = this.state.images.slice();
         for (var t in items) {
             this.scaleThumb(items[t]);
         }
