@@ -181,8 +181,8 @@ class Gallery extends Component {
         if (!this.props.images) return;
         if (this.state.containerWidth == 0) return;
         var items = this.props.images.slice();
-        for (var i in items) {
-            this.scaleThumb(items[i]);
+        for (var t in items) {
+            this.scaleThumb(items[t]);
         }
 
         var images = [];
