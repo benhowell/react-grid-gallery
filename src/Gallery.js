@@ -168,19 +168,23 @@ class Gallery extends Component {
         return row;
     }
 
-    scaleThumbs (items) {
-        for (var i in items) {
-            items[i].scaletwidth =
-                Math.floor(this.props.rowHeight * (items[i].thumbnailWidth
-                                                   / items[i].thumbnailHeight));
-        }
-        return items;
+    scaleThumb (item) {
+        item.scaletwidth =
+            Math.floor(this.props.rowHeight
+                       * (item.thumbnailWidth / item.thumbnailHeight));
+        return item;
     }
+
+
 
     renderImages () {
         if (!this.props.images) return;
         if (this.state.containerWidth == 0) return;
-        var items = this.scaleThumbs(this.props.images.slice());
+        var items = this.props.images.slice();
+        for (var i in items) {
+            this.scaleThumb(items[i]);
+        }
+
         var images = [];
         var rows = [];
         while(items.length > 0) {
