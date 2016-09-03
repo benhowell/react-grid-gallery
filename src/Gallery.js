@@ -164,13 +164,11 @@ class Gallery extends Component {
         return row;
     }
 
-
     setThumbScale (item) {
         item.scaletwidth =
             Math.floor(this.props.rowHeight
                        * (item.thumbnailWidth / item.thumbnailHeight));
     }
-
 
     renderThumbs (containerWidth) {
         if (!this.state.images) return [];
@@ -186,6 +184,7 @@ class Gallery extends Component {
         while(items.length > 0) {
             rows.push(this.buildImageRow(items, containerWidth));
         }
+
         for(var r in rows) {
             for(var i in rows[r]) {
                 var item = rows[r][i];
