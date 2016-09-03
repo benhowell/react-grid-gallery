@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import Lightbox from 'react-images';
 import Image from './Image.js';
 
-var update = require('react-addons-update');
-
 class Gallery extends Component {
     constructor (props) {
         super(props);
@@ -42,13 +40,6 @@ class Gallery extends Component {
             this.setState({
                 images: np.images
             });
-        }
-    }
-
-    componentWillUpdate (np, ns) {
-        if(np.selectedImages != ns.selectedImages){
-            if(this.props.onSelectedImagesChange)
-                this.props.onSelectedImagesChange(ns.selectedImages);
         }
     }
 
@@ -104,17 +95,14 @@ class Gallery extends Component {
     onToggleSelected (index, event) {
         event.preventDefault();
         var i = this.state.selectedImages.indexOf(index);
-        if(i == -1){
-            this.setState({selectedImages:
-                           update(this.state.selectedImages,
-                                  {$push: [index]})});
-        }
-        else {
-            this.setState({
-                selectedImages: update(this.state.selectedImages,
-                                       {$splice: [[i, 1]]})
-            });
-        }
+        var selectedImages = this.state.selectedImages.slice();
+        if(i == -1)
+            selectedImages.push(index);
+        else
+            selectedImages.splice(i,1);
+
+        if(this.props.onSelectedImagesChange)
+            this.props.onSelectedImagesChange(selectedImages);
     }
 
     getOnClickThumbnailFunc () {
@@ -176,7 +164,8 @@ class Gallery extends Component {
         return row;
     }
 
-    scaleThumb (item) {
+
+    setThumbScale (item) {
         item.scaletwidth =
             Math.floor(this.props.rowHeight
                        * (item.thumbnailWidth / item.thumbnailHeight));
@@ -189,7 +178,7 @@ class Gallery extends Component {
 
         var items = this.state.images.slice();
         for (var t in items) {
-            this.scaleThumb(items[t]);
+            this.setThumbScale(items[t]);
         }
 
         var images = [];
@@ -207,8 +196,6 @@ class Gallery extends Component {
     }
 
     render () {
-        console.log("render");
-
         var images = this.state.thumbnails.map((item, idx) => {
             return <Image
             key={"Image-"+idx}
