@@ -1,5 +1,17 @@
 # react-grid-gallery
 
+### v0.2.0 / 2016-09-03
+
+* Construction of thumbnail images and image rows removed from render. Thumbnails and rows now only rebuilt when container size changes.
+
+* `selectedImages` state now set via props change.
+
+* `onSelectedImagesChange` callback now called directly from `onToggleSelected` rather than `componentWillUpdate`. Perviously, a combination of setting `selectedImages` state and triggering `onSelectedImagesChange` when `componentWillUpdate` due to that state change caused a double render. 
+
+* Internal image access now via state instead of props.
+
+* Thumbnail generation now atomic function rather than whole array at once. 
+
 ### v0.1.14 / 2016-08-22
 
 * `selectedImages` state set on `componentWillReceiveProps` allowing selections from outside component to trigger state update.

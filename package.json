@@ -1,7 +1,7 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.1.14",
-  "description": "Justified gallery component for React.",
+  "version": "0.2.0",
+  "description": "Justified gallery component for ReactJS.",
   "main": "lib/Gallery.js",
   "dependencies": {
     "react-images": "^0.4.11"
@@ -20,9 +20,8 @@
     "gulp-gh-pages": "^0.5.4",
     "gulp-if": "^2.0.1",
     "gulp-uglify": "^2.0.0",
-    "react": "^15.3.0",
-    "react-addons-update": "^15.3.0",
-    "react-dom": "^15.3.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "run-sequence": "^1.2.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
@@ -38,6 +37,7 @@
     "lightbox",
     "images",
     "gallery",
+    "selectable",
     "justified"
   ],
   "author": "Ben Howell",
