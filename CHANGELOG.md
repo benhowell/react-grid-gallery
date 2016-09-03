@@ -12,6 +12,8 @@
 
 * Thumbnail generation now atomic function rather than whole array at once. 
 
+* * *
+
 ### v0.1.14 / 2016-08-22
 
 * `selectedImages` state set on `componentWillReceiveProps` allowing selections from outside component to trigger state update.
