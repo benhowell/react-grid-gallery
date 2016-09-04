@@ -6,7 +6,7 @@
 
 * `selectedImages` state now set via props change.
 
-* `onSelectedImagesChange` callback now called directly from `onToggleSelected` rather than `componentWillUpdate`. Perviously, a combination of setting `selectedImages` state and triggering `onSelectedImagesChange` when `componentWillUpdate` due to that state change caused a double render. 
+* `onSelectedImagesChange` callback now called directly from `onToggleSelected`. Previously, a combination of setting `selectedImages` state and triggering `onSelectedImagesChange` inside `componentWillUpdate` caused a double render.
 
 * Internal image access now via state instead of props.
 
