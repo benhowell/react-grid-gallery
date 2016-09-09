@@ -9,8 +9,17 @@ class Demo1 extends React.Component {
 
         this.state = {
             images: this.props.images,
-            selected: [3,7,5]
+            selectedImages: [3,7,5]
         };
+
+        this.setSelectedImages = this.setSelectedImages.bind(this);
+
+    }
+
+    setSelectedImages (selectedImages) {
+        this.setState({
+            selectedImages: selectedImages
+        });
     }
 
     render () {
@@ -23,7 +32,8 @@ class Demo1 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            selectedImages={this.state.selected}/>
+            selectedImages={this.state.selectedImages}
+            onSelectedImagesChange={this.setSelectedImages}/>
                 </div>
         );
     }
