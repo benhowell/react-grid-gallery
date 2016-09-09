@@ -334,122 +334,122 @@
 
 <div id="demo1"></div>
 <br>
-<pre><span class="pl-k">import</span><span class="pl-smi"> React from</span> '<span class="pl-smi">react</span>';
-<span class="pl-smi">import ReactDOM from</span> '<span class="pl-smi">react</span>-<span class="pl-smi">dom</span>';
-<span class="pl-smi">import Gallery from</span> '../<span class="pl-smi">src</span>/<span class="pl-smi">Gallery</span>';
+<pre><span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">ReactDOM</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-dom<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">Gallery</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>../src/Gallery<span class="pl-pds">'</span></span>;
 
 
-<span class="pl-smi">class Demo1 extends</span> <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">Component</span> {
-<span class="pl-smi">    constructor</span>(<span class="pl-smi">props</span>){
-<span class="pl-smi">        super</span>(<span class="pl-smi">props</span>);
+<span class="pl-k">class</span> <span class="pl-en">Demo1</span> <span class="pl-k">extends</span> <span class="pl-e">React</span>.<span class="pl-smi">Component</span> {
+    <span class="pl-en">constructor</span>(<span class="pl-smi">props</span>){
+        <span class="pl-v">super</span>(props);
 
-<span class="pl-smi">        this</span>.<span class="pl-smi">state</span> = {
-<span class="pl-smi">            images</span>:<span class="pl-smi"> this</span>.<span class="pl-smi">props</span>.<span class="pl-smi">images</span>,
-<span class="pl-smi">            selectedImages</span>: [3,7,5]
+        <span class="pl-v">this</span>.<span class="pl-smi">state</span> <span class="pl-k">=</span> {
+            images<span class="pl-k">:</span> <span class="pl-v">this</span>.<span class="pl-smi">props</span>.<span class="pl-c1">images</span>,
+            selectedImages<span class="pl-k">:</span> [<span class="pl-c1">3</span>,<span class="pl-c1">7</span>,<span class="pl-c1">5</span>]
         };
 
-<span class="pl-smi">        this</span>.<span class="pl-smi">setSelectedImages</span> =<span class="pl-smi"> this</span>.<span class="pl-smi">setSelectedImages</span>.<span class="pl-smi">bind</span>(<span class="pl-smi">this</span>);
+        <span class="pl-v">this</span>.<span class="pl-smi">setSelectedImages</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">setSelectedImages</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
 
     }
 
-<span class="pl-smi">    setSelectedImages</span> (<span class="pl-smi">selectedImages</span>) {
-<span class="pl-smi">        this</span>.<span class="pl-smi">setState</span>({
-<span class="pl-smi">            selectedImages</span>:<span class="pl-smi"> selectedImages</span>
+    <span class="pl-en">setSelectedImages</span> (<span class="pl-smi">selectedImages</span>) {
+        <span class="pl-v">this</span>.<span class="pl-en">setState</span>({
+            selectedImages<span class="pl-k">:</span> selectedImages
         });
     }
 
-<span class="pl-smi">    render</span> () {
-<span class="pl-smi">        return</span> (
-                &lt;<span class="pl-smi">div style</span>={{
-<span class="pl-smi">                    display</span>: <span class="pl-s"><span class="pl-pds">"</span>block<span class="pl-pds">"</span></span>,
-<span class="pl-smi">                    minHeight</span>: <span class="pl-s"><span class="pl-pds">"</span>1px<span class="pl-pds">"</span></span>,
-<span class="pl-smi">                    width</span>: <span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>,
-<span class="pl-smi">                    border</span>: <span class="pl-s"><span class="pl-pds">"</span>1px solid #ddd<span class="pl-pds">"</span></span>,
-<span class="pl-smi">                    overflow</span>: <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}}&gt;
-                &lt;<span class="pl-smi">Gallery</span>
-<span class="pl-smi">            images</span>={<span class="pl-smi">this</span>.<span class="pl-smi">state</span>.<span class="pl-smi">images</span>}
-<span class="pl-smi">            selectedImages</span>={<span class="pl-smi">this</span>.<span class="pl-smi">state</span>.<span class="pl-smi">selectedImages</span>}
-<span class="pl-smi">            onSelectedImagesChange</span>={<span class="pl-smi">this</span>.<span class="pl-smi">setSelectedImages</span>}/&gt;
-                &lt;/<span class="pl-smi">div</span>&gt;
+    <span class="pl-en">render</span> () {
+        <span class="pl-k">return</span> (
+                <span class="pl-k">&lt;</span>div style<span class="pl-k">=</span>{{
+                    display<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>block<span class="pl-pds">"</span></span>,
+                    minHeight<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1px<span class="pl-pds">"</span></span>,
+                    width<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>,
+                    border<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1px solid #ddd<span class="pl-pds">"</span></span>,
+                    overflow<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}}<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>Gallery
+            images<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-c1">images</span>}
+            selectedImages<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-smi">selectedImages</span>}
+            onSelectedImagesChange<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">setSelectedImages</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
         );
     }
 }
 
-<span class="pl-smi">Demo1</span><span class="pl-k">.</span><span class="pl-smi">propTypes</span> = {
-<span class="pl-smi">    images</span>: <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span>.<span class="pl-smi">arrayOf</span>(
-        <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span>.<span class="pl-smi">shape</span>({
-<span class="pl-smi">            src</span>: <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>.<span class="pl-smi">isRequired</span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>.<span class="pl-smi">isRequired</span>,
-<span class="pl-smi">            srcset</span>: <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span>.<span class="pl-smi">array</span>,
-<span class="pl-smi">            caption</span>: <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>,
-<span class="pl-smi">            thumbnailWidth</span>: <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>.<span class="pl-smi">isRequired</span>,
-<span class="pl-smi">            thumbnailHeight</span>: <span class="pl-smi">React</span><span class="pl-k">.</span><span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>.<span class="pl-smi">isRequired</span>
+<span class="pl-smi">Demo1</span>.<span class="pl-smi">propTypes</span> <span class="pl-k">=</span> {
+    images<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-en">arrayOf</span>(
+        <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-c1">shape</span>({
+            src<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>.<span class="pl-smi">isRequired</span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>.<span class="pl-smi">isRequired</span>,
+            srcset<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">array</span>,
+            caption<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">string</span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>.<span class="pl-smi">isRequired</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-smi">React</span>.<span class="pl-smi">PropTypes</span>.<span class="pl-smi">number</span>.<span class="pl-smi">isRequired</span>
         })
     ).<span class="pl-smi">isRequired</span>
 };
 
-<span class="pl-smi">Demo1</span><span class="pl-k">.</span><span class="pl-smi">defaultProps</span> = {
-<span class="pl-smi">    images</span>:<span class="pl-smi"> shuffleArray</span>([
+<span class="pl-smi">Demo1</span>.<span class="pl-smi">defaultProps</span> <span class="pl-k">=</span> {
+    images<span class="pl-k">:</span> <span class="pl-en">shuffleArray</span>([
         {
-<span class="pl-smi">            src</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnailWidth</span>: 240,
-<span class="pl-smi">            thumbnailHeight</span>: 320,
-<span class="pl-smi">            caption</span>: <span class="pl-s"><span class="pl-pds">"</span>8H (gratisography.com)<span class="pl-pds">"</span></span>
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">240</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>8H (gratisography.com)<span class="pl-pds">"</span></span>
         },
         {
-<span class="pl-smi">            src</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnailWidth</span>: 320,
-<span class="pl-smi">            thumbnailHeight</span>: 190,
-<span class="pl-smi">            caption</span>: <span class="pl-s"><span class="pl-pds">"</span>286H (gratisography.com)<span class="pl-pds">"</span></span>
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c3.staticflickr.com/9/8583/28354353794_9f2d08d8c0_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">190</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>286H (gratisography.com)<span class="pl-pds">"</span></span>
         },
         {
-<span class="pl-smi">            src</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnailWidth</span>: 320,
-<span class="pl-smi">            thumbnailHeight</span>: 148,
-<span class="pl-smi">            caption</span>: <span class="pl-s"><span class="pl-pds">"</span>315H (gratisography.com)<span class="pl-pds">"</span></span>
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8569/28941134686_d57273d933_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">148</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>315H (gratisography.com)<span class="pl-pds">"</span></span>
         },
         {
-<span class="pl-smi">            src</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8342/28897193381_800db6419e_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnailWidth</span>: 320,
-<span class="pl-smi">            thumbnailHeight</span>: 213,
-<span class="pl-smi">            caption</span>: <span class="pl-s"><span class="pl-pds">"</span>201H (gratisography.com)<span class="pl-pds">"</span></span>
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8342/28897193381_800db6419e_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8342/28897193381_800db6419e_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">213</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>201H (gratisography.com)<span class="pl-pds">"</span></span>
         },
         {
-<span class="pl-smi">            src</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8239/28897202241_1497bec71a_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8239/28897202241_1497bec71a_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnailWidth</span>: 248,
-<span class="pl-smi">            thumbnailHeight</span>: 320,
-<span class="pl-smi">            caption</span>: <span class="pl-s"><span class="pl-pds">"</span>Big Ben (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8239/28897202241_1497bec71a_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c2.staticflickr.com/9/8239/28897202241_1497bec71a_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">248</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Big Ben (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
         },
         {
-<span class="pl-smi">            src</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnailWidth</span>: 320,
-<span class="pl-smi">            thumbnailHeight</span>: 113,
-<span class="pl-smi">            caption</span>: <span class="pl-s"><span class="pl-pds">"</span>Red Zone - Paris (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">113</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Red Zone - Paris (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
         },
         {
-<span class="pl-smi">            src</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnailWidth</span>: 313,
-<span class="pl-smi">            thumbnailHeight</span>: 320,
-<span class="pl-smi">            caption</span>: <span class="pl-s"><span class="pl-pds">"</span>Wood Glass (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">313</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Wood Glass (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
         },
         {
-<span class="pl-smi">            src</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_b.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnail</span>: <span class="pl-s"><span class="pl-pds">"</span>https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg<span class="pl-pds">"</span></span>,
-<span class="pl-smi">            thumbnailWidth</span>: 320,
-<span class="pl-smi">            thumbnailHeight</span>: 213,
-<span class="pl-smi">            caption</span>: <span class="pl-s"><span class="pl-pds">"</span>Flower Interior Macro (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
+            src<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_b.jpg<span class="pl-pds">"</span></span>,
+            thumbnail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg<span class="pl-pds">"</span></span>,
+            thumbnailWidth<span class="pl-k">:</span> <span class="pl-c1">320</span>,
+            thumbnailHeight<span class="pl-k">:</span> <span class="pl-c1">213</span>,
+            caption<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Flower Interior Macro (Tom Eversley - isorepublic.com)<span class="pl-pds">"</span></span>
         }
     ])
 };
 
-<span class="pl-smi">ReactDOM</span><span class="pl-k">.</span><span class="pl-smi">render</span>(&lt;<span class="pl-smi">Demo1</span> /&gt;,<span class="pl-smi"> document</span>.<span class="pl-smi">getElementById</span>('<span class="pl-smi">demo1</span>'));</pre>
+<span class="pl-smi">ReactDOM</span>.<span class="pl-en">render</span>(<span class="pl-k">&lt;</span>Demo1 <span class="pl-k">/</span><span class="pl-k">&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>demo1<span class="pl-pds">'</span></span>));</pre>
 
 
 <h3><a id="permanently-selected-images" class="anchor" href="#permanently-selected-images" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Permanently Selected Images</h3>
