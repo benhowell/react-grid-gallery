@@ -38,7 +38,8 @@ class Gallery extends Component {
 
         if(this.state.images != np.images){
             this.setState({
-                images: np.images
+                images: np.images,
+                thumbnails: this.renderThumbs(this._gallery.clientWidth, np.images)
             });
         }
     }
@@ -170,16 +171,16 @@ class Gallery extends Component {
                        * (item.thumbnailWidth / item.thumbnailHeight));
     }
 
-    renderThumbs (containerWidth) {
-        if (!this.state.images) return [];
+    renderThumbs (containerWidth, images = this.state.images) {
+        if (!images) return [];
         if (containerWidth == 0) return [];
 
-        var items = this.state.images.slice();
+        var items = images.slice();
         for (var t in items) {
             this.setThumbScale(items[t]);
         }
 
-        var images = [];
+        var thumbs = [];
         var rows = [];
         while(items.length > 0) {
             rows.push(this.buildImageRow(items, containerWidth));
@@ -188,10 +189,10 @@ class Gallery extends Component {
         for(var r in rows) {
             for(var i in rows[r]) {
                 var item = rows[r][i];
-                images.push(item);
+                thumbs.push(item);
             }
         }
-        return images;
+        return thumbs;
     }
 
     render () {
