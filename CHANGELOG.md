@@ -1,5 +1,11 @@
 # react-grid-gallery
 
+### v0.2.1 / 2016-09-11
+
+* Fixes [Bug](https://github.com/benhowell/react-grid-gallery/pull/7) where updating an image caused wrong aspect due to thumb not resizing. Bug caused by using array index as react key rather than something unique to the image. Thanks to [cust0dian](https://github.com/cust0dian) for the [pull request](https://github.com/benhowell/react-grid-gallery/pull/7) which fixes this issue by assigning src attribute as key.
+
+* Fixes [bug](https://github.com/benhowell/react-grid-gallery/pull/6) where only thumbnails are updated when images props changes, meaning re-render doesn't happen until window is resized. Thanks again to [cust0dian](https://github.com/cust0dian) for the [pull request](https://github.com/benhowell/react-grid-gallery/pull/6) which fixes this issue.
+
 ### v0.2.0 / 2016-09-03
 
 * Construction of thumbnail images and image rows removed from render. Thumbnails and rows now only rebuilt when container size changes.
