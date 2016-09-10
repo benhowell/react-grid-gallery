@@ -39,7 +39,8 @@ class Gallery extends Component {
         if(this.state.images != np.images){
             this.setState({
                 images: np.images,
-                thumbnails: this.renderThumbs(this._gallery.clientWidth, np.images)
+                thumbnails: this.renderThumbs(this._gallery.clientWidth,
+                                              np.images)
             });
         }
     }
