@@ -1,8 +1,8 @@
 # React Grid Gallery
 
-Justified gallery component for [React.js](http://facebook.github.io/react/).
+Justified gallery component for [React](http://facebook.github.io/react/).
 
-No curation and no hacks, just beautifully justified images.
+Just beautifully justified images.
 
 ## Live Demo & Examples
 
