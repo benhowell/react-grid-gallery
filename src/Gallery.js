@@ -197,7 +197,7 @@ class Gallery extends Component {
     render () {
         var images = this.state.thumbnails.map((item, idx) => {
             return <Image
-            key={"Image-"+idx}
+            key={item.src}
             item={item}
             index={idx}
             margin={this.props.margin}
