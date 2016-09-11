@@ -1,5 +1,9 @@
 # react-grid-gallery
 
+### v0.2.2 / 2016-09-11
+
+* Fixes [bug](https://github.com/benhowell/react-grid-gallery/issues/8) on small edge case whereby duplicate images causes an error (two children cannot have the same key) and subsequently only the first of any repeated image src can be rendered.
+
 ### v0.2.1 / 2016-09-11
 
 * Fixes [Bug](https://github.com/benhowell/react-grid-gallery/pull/7) where updating an image caused wrong aspect due to thumb not resizing. Bug caused by using array index as react key rather than something unique to the image. Thanks to [cust0dian](https://github.com/cust0dian) for the [pull request](https://github.com/benhowell/react-grid-gallery/pull/7) which fixes this issue by assigning src attribute as key.
