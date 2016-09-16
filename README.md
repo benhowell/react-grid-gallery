@@ -2,9 +2,7 @@
 
 Justified gallery component for [React](http://facebook.github.io/react/).
 
-Just beautifully justified images.
-
-## Live Demo & Examples
+## Live Demo & Examples (NOTE: Demo and example apps are currently using v0.2.2)
 
 https://benhowell.github.io/react-grid-gallery/
 * [Main Demo](https://benhowell.github.io/react-grid-gallery/#demo)
@@ -64,8 +62,10 @@ src                     | string        | undefined     | Required. A string ref
 thumbnail               | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc).
 thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image.
 thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image.
+isSelected              | bool          | undefined     | Optional. The selected state of the image.
 caption                 | string        | undefined     | Optional. Image caption.
 srcset 	                | array 	| undefined 	| Optional. Array of srcsets for lightbox.
+
 
 
 ## Gallery Options
@@ -73,9 +73,9 @@ srcset 	                | array 	| undefined 	| Optional. Array of srcsets for l
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above).
-enableImageSelection    | bool          | true          | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying a non empty `selectedImages` array will result in those images being permanently selected. 
-selectedImages          | array         | empty         | Optional. An array of image indicies to set as selected upon gallery creation (Note: this selection is permanent if `enableImageSelection: false`).
-onSelectedImagesChange  | func          | undefined     | Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array. This function is only executable when `enableImageSelection: true`. 
+enableImageSelection    | bool          | true          | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying images with `isSelected: true` will result in those images being permanently selected.
+
+onImageSelected         | func          | undefined     | Optional. Function to execute when an image is selected. Optional arg: image (the selected image). This function is only executable when `enableImageSelection: true`. 
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
 enableLightbox          | bool          | true          | Optional. Enable lightbox display of full size image when thumbnail clicked.
@@ -153,6 +153,8 @@ React Grid Gallery is free to use for personal and commercial projects under the
  * Thumbnail viewport implementation inspired by [GPlusGallery](http://fmaul.de/gallery-grid-example/) by Florian Maul.
 
  * Backend lightbox functionality via [React Images](https://github.com/jossmac/react-images) by [jossmac](https://github.com/jossmac).
+
+ * [cust0dian](https://github.com/cust0dian) for critical bug fixes in [PR 6](https://github.com/benhowell/react-grid-gallery/pull/6) and [PR 7](https://github.com/benhowell/react-grid-gallery/pull/7).
 
  * Demo stock photos:
    * [Jeshu John - designerspics.com](http://designerspics.com)
