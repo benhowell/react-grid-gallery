@@ -229,7 +229,8 @@ Gallery.propTypes = {
             srcset: PropTypes.array,
             caption: PropTypes.string,
             thumbnailWidth: PropTypes.number.isRequired,
-            thumbnailHeight: PropTypes.number.isRequired
+            thumbnailHeight: PropTypes.number.isRequired,
+            isSelected: PropTypes.bool
         })
     ).isRequired,
     enableImageSelection: PropTypes.bool,
