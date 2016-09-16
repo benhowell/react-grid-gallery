@@ -1,5 +1,19 @@
 # react-grid-gallery
 
+### v0.2.3 / 2016-09-16
+
+## Breaking changes
+
+* Image selection state now handled within image object by optional boolean prop `isSelected`. This greatly reduces complexity both within and outside the component as the image itself carries it's selected state. Therefore `selectedImages` prop has been removed.
+
+* `onSelectedImagesChange` prop removed due to the changes outlined above.
+
+* Optional `onImageSelected` prop added. This prop takes a function and an optional image object as a parameter.
+
+* `isSelected` removed as first class prop on Image (now a prop on the image item passed in)
+
+* Image `onToggleSelected` renamed to `onImageSelected`.
+
 ### v0.2.2 / 2016-09-11
 
 * Fixes [bug](https://github.com/benhowell/react-grid-gallery/issues/8) on small edge case whereby duplicate images causes an error (two children cannot have the same key) and subsequently only the first of any repeated image src can be rendered.
