@@ -11,7 +11,7 @@ class Image extends Component {
     }
 
     tileViewportStyle () {
-        if (this.props.isSelected)
+        if (this.props.item.isSelected)
             return {
                 width: this.props.item.vwidth -32,
                 height: this.props.height -32,
@@ -26,7 +26,7 @@ class Image extends Component {
     }
 
     thumbnailStyle () {
-        if (this.props.isSelected){
+        if (this.props.item.isSelected){
             var ratio = (this.props.item.scaletwidth / this.props.height);
             var height = 0;
             var width = 0;
@@ -68,10 +68,10 @@ class Image extends Component {
             color={"rgba(255, 255, 255, 0.7)"}
             selectedColor={"#4285f4"}
             hoverColor={"rgba(255, 255, 255, 1)"}
-            isSelected={this.props.isSelected}
+            isSelected={this.props.item.isSelected}
             isSelectable={this.props.isSelectable}
             onClick={this.props.isSelectable ?
-                     this.props.onToggleSelected : null}
+                     this.props.onImageSelected : null}
             parentHover={this.state.hover}/>
         );
     }
@@ -110,7 +110,7 @@ class Image extends Component {
                 height: "100%",
                 width: "100%",
                 background: (this.state.hover
-                             && !this.props.isSelected
+                             && !this.props.item.isSelected
                              && this.props.isSelectable) ?
                     'linear-gradient(to bottom,rgba(0,0,0,0.26),transparent 56px,transparent)' : 'none'}}>
                 </div>
@@ -137,12 +137,10 @@ Image.propTypes = {item: PropTypes.object,
                    margin: PropTypes.number,
                    height: PropTypes.number,
                    isSelectable: PropTypes.bool,
-                   isSelected: PropTypes.bool,
                    onClick: PropTypes.func,
-                   onToggleSelected: PropTypes.func};
+                   onImageSelected: PropTypes.func};
 
 Image.defaultProps = {isSelectable: true,
-                      isSelected: false,
                       hover: false};
 
 export default Image;
