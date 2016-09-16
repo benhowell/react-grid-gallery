@@ -2,7 +2,7 @@
 
 ### v0.2.3 / 2016-09-16
 
-## Breaking changes
+### Breaking changes
 
 * Image selection state now handled within image object by optional boolean prop `isSelected`. This greatly reduces complexity both within and outside the component as the image itself carries it's selected state. Therefore `selectedImages` prop has been removed.
 
