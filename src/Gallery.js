@@ -10,7 +10,6 @@ class Gallery extends Component {
             images: this.props.images,
             thumbnails: [],
             lightboxIsOpen: this.props.isOpen,
-            selectedImages: this.props.selectedImages,
             currentImage: this.props.currentImage,
             containerWidth: 0
         };
@@ -21,7 +20,7 @@ class Gallery extends Component {
         this.gotoPrevious = this.gotoPrevious.bind(this);
         this.handleClickImage = this.handleClickImage.bind(this);
         this.openLightbox = this.openLightbox.bind(this);
-        this.onToggleSelected = this.onToggleSelected.bind(this);
+        this.onImageSelected = this.onImageSelected.bind(this);
     }
 
     componentDidMount () {
@@ -30,12 +29,6 @@ class Gallery extends Component {
     }
 
     componentWillReceiveProps (np) {
-        if(this.state.selectedImages != np.selectedImages){
-            this.setState({
-                selectedImages: np.selectedImages
-            });
-        }
-
         if(this.state.images != np.images){
             this.setState({
                 images: np.images,
@@ -94,17 +87,10 @@ class Gallery extends Component {
         this.gotoNext();
     }
 
-    onToggleSelected (index, event) {
+    onImageSelected (index, event) {
         event.preventDefault();
-        var i = this.state.selectedImages.indexOf(index);
-        var selectedImages = this.state.selectedImages.slice();
-        if(i == -1)
-            selectedImages.push(index);
-        else
-            selectedImages.splice(i,1);
-
-        if(this.props.onSelectedImagesChange)
-            this.props.onSelectedImagesChange(selectedImages);
+        if(this.props.onImageSelected)
+            this.props.onImageSelected(this.state.images[index]);
     }
 
     getOnClickThumbnailFunc () {
@@ -205,10 +191,9 @@ class Gallery extends Component {
             margin={this.props.margin}
             height={this.props.rowHeight}
             isSelectable={this.props.enableImageSelection}
-            isSelected={(this.state.selectedImages.indexOf(idx) > -1) ?
-                        true : false}
             onClick={this.getOnClickThumbnailFunc()}
-            onToggleSelected={this.onToggleSelected}/>;
+            onImageSelected={this.onImageSelected}
+                />;
         });
 
         return (
@@ -248,8 +233,7 @@ Gallery.propTypes = {
         })
     ).isRequired,
     enableImageSelection: PropTypes.bool,
-    selectedImages: PropTypes.arrayOf(PropTypes.number),
-    onSelectedImagesChange: PropTypes.func,
+    onImageSelected: PropTypes.func,
     rowHeight: PropTypes.number,
     margin: PropTypes.number,
     onClickThumbnail: PropTypes.func,
@@ -271,7 +255,6 @@ Gallery.propTypes = {
 
 Gallery.defaultProps = {
     enableImageSelection: true,
-    selectedImages: [],
     rowHeight: 180,
     margin: 2,
     enableLightbox: true,
