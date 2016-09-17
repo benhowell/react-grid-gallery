@@ -1,5 +1,9 @@
 # react-grid-gallery
 
+### v0.2.4 / 2016-09-17
+
+* `onImageSelected` prop function now takes two optional args, index (index of selected image in images array) and image (the selected image object).
+
 ### v0.2.3 / 2016-09-16
 
 ### Breaking changes
