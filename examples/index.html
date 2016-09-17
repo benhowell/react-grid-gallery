@@ -74,8 +74,7 @@
 );</pre></div>
 
 
-<h2>
-<a id="image-options" class="anchor" href="#image-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Image Options</h2>
+<h2><a id="user-content-image-options" class="anchor" href="#image-options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Image Options</h2>
 
 <table><thead>
 <tr>
@@ -110,6 +109,12 @@
 <td align="left">Required. Height of the thumbnail image.</td>
 </tr>
 <tr>
+<td align="left">isSelected</td>
+<td align="left">bool</td>
+<td align="left">undefined</td>
+<td align="left">Optional. The selected state of the image.</td>
+</tr>
+<tr>
 <td align="left">caption</td>
 <td align="left">string</td>
 <td align="left">undefined</td>
@@ -123,8 +128,7 @@
 </tr>
 </tbody></table>
 
-<h2>
-<a id="gallery-options" class="anchor" href="#gallery-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gallery Options</h2>
+<h2><a id="user-content-gallery-options" class="anchor" href="#gallery-options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gallery Options</h2>
 
 <table><thead>
 <tr>
@@ -144,19 +148,13 @@
 <td align="left">enableImageSelection</td>
 <td align="left">bool</td>
 <td align="left">true</td>
-<td align="left">Optional. Allow images to be selectable. Setting this option to <code>false</code> whilst supplying a non empty <code>selectedImages</code> array will result in those images being permanently selected.</td>
+<td align="left">Optional. Allow images to be selectable. Setting this option to <code>false</code> whilst supplying images with <code>isSelected: true</code> will result in those images being permanently selected.</td>
 </tr>
 <tr>
-<td align="left">selectedImages</td>
-<td align="left">array</td>
-<td align="left">empty</td>
-<td align="left">Optional. An array of image indicies to set as selected upon gallery creation (Note: this selection is permanent if <code>enableImageSelection: false</code>).</td>
-</tr>
-<tr>
-<td align="left">onSelectedImagesChange</td>
+<td align="left">onImageSelected</td>
 <td align="left">func</td>
 <td align="left">undefined</td>
-<td align="left">Optional. Function to execute when selectedImages array changes (i.e. image selection has been updated). Optional arg: selectedImages array. This function is only executable when <code>enableImageSelection: true</code>.</td>
+<td align="left">Optional. Function to execute when an image is selected. Optional arg: image (the selected image). This function is only executable when <code>enableImageSelection: true</code>.</td>
 </tr>
 <tr>
 <td align="left">rowHeight</td>
@@ -184,9 +182,7 @@
 </tr>
 </tbody></table>
 
-
-<h2>
-<a id="lightbox-options" class="anchor" href="#lightbox-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lightbox Options</h2>
+<h2><a id="user-content-lightbox-options" class="anchor" href="#lightbox-options" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lightbox Options</h2>
 
 <table><thead>
 <tr>
@@ -252,6 +248,7 @@
 </tr>
 </tbody></table>
 
+
 <h3>
 <a id="using-srcset" class="anchor" href="#using-srcset" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using srcset:</h3>
 
@@ -303,6 +300,8 @@
 
 <p>React Grid Gallery is free to use for personal and commercial projects under the <a href="https://github.com/benhowell/react-grid-gallery/blob/master/LICENSE">MIT License</a>. Attribution is not required, but appreciated.</p>
 
+
+
 <h3>
 <a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h3>
 
@@ -310,9 +309,9 @@
 <li><p>Visual design inspired by <a href="https://photos.google.com/">Google Photos</a>.</p></li>
 <li><p>Thumbnail viewport implementation inspired by <a href="http://fmaul.de/gallery-grid-example/">GPlusGallery</a> by Florian Maul.</p></li>
 <li><p>Backend lightbox functionality via <a href="https://github.com/jossmac/react-images">React Images</a> by <a href="https://github.com/jossmac">jossmac</a>.</p></li>
+<li><p><a href="https://github.com/cust0dian">cust0dian</a> for critical bug fixes in <a href="https://github.com/benhowell/react-grid-gallery/pull/6">PR 6</a> and <a href="https://github.com/benhowell/react-grid-gallery/pull/7">PR 7</a>.</p></li>
+<li><p>Demo stock photos:</p>
 
-
-<li><p>Demo stock photos</p>
 <ul>
 <li><a href="http://designerspics.com">Jeshu John - designerspics.com</a></li>
 <li><a href="http://gratisography.com">Gratisography</a></li>
