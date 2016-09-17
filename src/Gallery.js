@@ -90,7 +90,7 @@ class Gallery extends Component {
     onImageSelected (index, event) {
         event.preventDefault();
         if(this.props.onImageSelected)
-            this.props.onImageSelected(this.state.images[index]);
+            this.props.onImageSelected(index, this.state.images[index]);
     }
 
     getOnClickThumbnailFunc () {
