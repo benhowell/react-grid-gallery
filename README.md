@@ -2,7 +2,7 @@
 
 Justified gallery component for [React](http://facebook.github.io/react/).
 
-## Live Demo & Examples (NOTE: Demo and example apps are currently using v0.2.2)
+## Live Demo & Examples
 
 https://benhowell.github.io/react-grid-gallery/
 * [Main Demo](https://benhowell.github.io/react-grid-gallery/#demo)
