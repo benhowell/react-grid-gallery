@@ -8,8 +8,7 @@ class Demo2 extends React.Component {
         super(props);
 
         this.state = {
-            images: this.props.images,
-            selected: [2,0,6]
+            images: this.props.images
         };
     }
 
@@ -23,8 +22,7 @@ class Demo2 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            enableImageSelection={false}
-            selectedImages={this.state.selected}/>
+            enableImageSelection={false}/>
                 </div>
         );
     }
@@ -38,7 +36,8 @@ Demo2.propTypes = {
             srcset: React.PropTypes.array,
             caption: React.PropTypes.string,
             thumbnailWidth: React.PropTypes.number.isRequired,
-            thumbnailHeight: React.PropTypes.number.isRequired
+            thumbnailHeight: React.PropTypes.number.isRequired,
+            isSelected: React.PropTypes.bool
         })
     ).isRequired
 };
@@ -50,6 +49,7 @@ Demo2.defaultProps = {
             thumbnail: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg",
             thumbnailWidth: 240,
             thumbnailHeight: 320,
+            isSelected: true,
             caption: "8H (gratisography.com)"
         },
         {
@@ -64,6 +64,7 @@ Demo2.defaultProps = {
             thumbnail: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 148,
+            isSelected: true,
             caption: "315H (gratisography.com)"
         },
         {
@@ -92,6 +93,7 @@ Demo2.defaultProps = {
             thumbnail: "https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_n.jpg",
             thumbnailWidth: 313,
             thumbnailHeight: 320,
+            isSelected: true,
             caption: "Wood Glass (Tom Eversley - isorepublic.com)"
         },
         {

@@ -9,34 +9,53 @@ class Demo0 extends React.Component {
 
         this.state = {
             images: this.props.images,
-            selectedImages: [],
             selectAllChecked: false
         };
 
-        this.setSelectedImages = this.setSelectedImages.bind(this);
+        this.onImageSelected = this.onImageSelected.bind(this);
         this.getSelectedImages = this.getSelectedImages.bind(this);
         this.onClickSelectAll = this.onClickSelectAll.bind(this);
     }
 
-    setSelectedImages (selectedImages) {
+    allImagesSelected (images){
+        var f = images.filter(
+            function (img) {
+                return img.isSelected == true;
+            }
+        );
+        return f.length == images.length;
+    }
+
+    onImageSelected (index, image) {
+        var images = this.state.images.slice();
+        var img = images[index];
+        if(img.hasOwnProperty("isSelected"))
+            img.isSelected = !img.isSelected;
+        else
+            img.isSelected = true;
+
         this.setState({
-            selectedImages: selectedImages
+            images: images
         });
 
-        if(selectedImages.length < this.state.images.length){
+        if(this.allImagesSelected(images)){
             this.setState({
-                selectAllChecked: false
+                selectAllChecked: true
             });
         }
         else {
             this.setState({
-                selectAllChecked: true
+                selectAllChecked: false
             });
         }
     }
 
     getSelectedImages () {
-        return this.state.selectedImages.toString();
+        var selected = [];
+        for(var i = 0; i < this.state.images.length; i++)
+            if(this.state.images[i].isSelected == true)
+                selected.push(i);
+        return selected;
     }
 
     onClickSelectAll () {
@@ -45,16 +64,19 @@ class Demo0 extends React.Component {
             selectAllChecked: selectAllChecked
         });
 
+        var images = this.state.images.slice();
         if(selectAllChecked){
-            this.setState({
-                selectedImages: Array.from(Array(this.state.images.length).keys())
-            });
+            for(var i = 0; i < this.state.images.length; i++)
+                images[i].isSelected = true;
         }
         else {
-            this.setState({
-                selectedImages: []
-            });
+            for(var i = 0; i < this.state.images.length; i++)
+                images[i].isSelected = false;
+
         }
+        this.setState({
+            images: images
+        });
     }
 
     render () {
@@ -78,7 +100,7 @@ class Demo0 extends React.Component {
                 <div style={{
                     padding: "2px",
                     color: "#666"
-                }}>Selected images: {this.getSelectedImages()}</div>
+                }}>Selected images: {this.getSelectedImages().toString()}</div>
                 <div style={{
                     display: "block",
                     minHeight: "1px",
@@ -87,8 +109,7 @@ class Demo0 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            selectedImages={this.state.selectedImages}
-            onSelectedImagesChange={this.setSelectedImages}/>
+            onImageSelected={this.onImageSelected}/>
                 </div>
                 </div>
         );
@@ -103,7 +124,8 @@ Demo0.propTypes = {
             srcset: React.PropTypes.array,
             caption: React.PropTypes.string,
             thumbnailWidth: React.PropTypes.number.isRequired,
-            thumbnailHeight: React.PropTypes.number.isRequired
+            thumbnailHeight: React.PropTypes.number.isRequired,
+            isSelected: React.PropTypes.bool
         })
     ).isRequired
 };

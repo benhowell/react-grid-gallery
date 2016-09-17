@@ -8,17 +8,23 @@ class Demo1 extends React.Component {
         super(props);
 
         this.state = {
-            images: this.props.images,
-            selectedImages: [3,7,5]
+            images: this.props.images
         };
 
-        this.setSelectedImages = this.setSelectedImages.bind(this);
+        this.onImageSelected = this.onImageSelected.bind(this);
 
     }
 
-    setSelectedImages (selectedImages) {
+    onImageSelected (index, image) {
+        var images = this.state.images.slice();
+        var img = images[index];
+        if(img.hasOwnProperty("isSelected"))
+            img.isSelected = !img.isSelected;
+        else
+            img.isSelected = true;
+
         this.setState({
-            selectedImages: selectedImages
+            images: images
         });
     }
 
@@ -32,8 +38,7 @@ class Demo1 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            selectedImages={this.state.selectedImages}
-            onSelectedImagesChange={this.setSelectedImages}/>
+            onImageSelected={this.onImageSelected}/>
                 </div>
         );
     }
@@ -47,7 +52,8 @@ Demo1.propTypes = {
             srcset: React.PropTypes.array,
             caption: React.PropTypes.string,
             thumbnailWidth: React.PropTypes.number.isRequired,
-            thumbnailHeight: React.PropTypes.number.isRequired
+            thumbnailHeight: React.PropTypes.number.isRequired,
+            isSelected: React.PropTypes.bool
         })
     ).isRequired
 };
@@ -80,6 +86,7 @@ Demo1.defaultProps = {
             thumbnail: "https://c6.staticflickr.com/9/8342/28897193381_800db6419e_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 213,
+            isSelected: true,
             caption: "201H (gratisography.com)"
         },
         {
@@ -94,6 +101,7 @@ Demo1.defaultProps = {
             thumbnail: "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 113,
+            isSelected: true,
             caption: "Red Zone - Paris (Tom Eversley - isorepublic.com)"
         },
         {
@@ -108,6 +116,7 @@ Demo1.defaultProps = {
             thumbnail: "https://c8.staticflickr.com/9/8104/28973555735_ae7c208970_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 213,
+            isSelected: true,
             caption: "Flower Interior Macro (Tom Eversley - isorepublic.com)"
         }
     ])
