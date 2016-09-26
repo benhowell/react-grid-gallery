@@ -137,6 +137,7 @@ Demo0.defaultProps = {
             thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 174,
+            tags: [{value: "Nature", title: "Nature"}, {value: "Flora", title: "Flora"}],
             caption: "After Rain (Jeshu John - designerspics.com)"
         },
         {
@@ -172,6 +173,7 @@ Demo0.defaultProps = {
             thumbnail: "https://c5.staticflickr.com/9/8768/28941110956_b05ab588c1_n.jpg",
             thumbnailWidth: 240,
             thumbnailHeight: 320,
+            tags: [{value: "Nature", title: "Nature"}],
             caption: "8H (gratisography.com)"
         },
         {
@@ -186,6 +188,7 @@ Demo0.defaultProps = {
             thumbnail: "https://c7.staticflickr.com/9/8569/28941134686_d57273d933_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 148,
+            tags: [{value: "People", title: "People"}],
             caption: "315H (gratisography.com)"
         },
         {
@@ -207,6 +210,7 @@ Demo0.defaultProps = {
             thumbnail: "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 113,
+            tags: [{value: "People", title: "People"}],
             caption: "Red Zone - Paris (Tom Eversley - isorepublic.com)"
         },
         {
@@ -249,6 +253,7 @@ Demo0.defaultProps = {
             thumbnail: "https://c1.staticflickr.com/9/8330/28941240416_71d2a7af8e_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 213,
+            tags: [{value: "Nature", title: "Nature"}, {value: "People", title: "People"}],
             caption: "Surfer Sunset (Tom Eversley - isorepublic.com)"
         },
         {
@@ -256,6 +261,7 @@ Demo0.defaultProps = {
             thumbnail: "https://c1.staticflickr.com/9/8707/28868704912_cba5c6600e_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 213,
+            tags: [{value: "People", title: "People"}, {value: "Sport", title: "Sport"}],
             caption: "Man on BMX (Tom Eversley - isorepublic.com)"
         },
         {
@@ -277,6 +283,7 @@ Demo0.defaultProps = {
             thumbnail: "https://c6.staticflickr.com/9/8593/28357129133_f04c73bf1e_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 179,
+            tags: [{value: "Nature", title: "Nature"}, {value: "Fauna", title: "Fauna"}],
             caption: "Untitled (Jan Vasek - jeshoots.com)"
         },
         {
@@ -284,6 +291,7 @@ Demo0.defaultProps = {
             thumbnail: "https://c6.staticflickr.com/9/8893/28897116141_641b88e342_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 215,
+            tags: [{value: "People", title: "People"}],
             caption: "Untitled (moveast.me)"
         },
         {
