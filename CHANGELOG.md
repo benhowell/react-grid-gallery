@@ -1,5 +1,9 @@
 # react-grid-gallery
 
+### v0.2.5 / 2016-09-26
+
+* Added image tagging functionality. Optional `tags` prop takes an array of objects containing tag attributes. `value` prop is the text shown on the tag and `title` prop is the text shown when hovering over the tag. e.g. `tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}]`
+
 ### v0.2.4 / 2016-09-17
 
 * `onImageSelected` prop function now takes two optional args, index (index of selected image in images array) and image (the selected image object).
