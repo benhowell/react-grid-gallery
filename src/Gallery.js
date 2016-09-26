@@ -228,6 +228,12 @@ Gallery.propTypes = {
             thumbnail: PropTypes.string.isRequired,
             srcset: PropTypes.array,
             caption: PropTypes.string,
+            tags: PropTypes.arrayOf(
+                PropTypes.shape({
+                    value: PropTypes.string.isRequired,
+                    title: PropTypes.string.isRequired
+                })
+            ),
             thumbnailWidth: PropTypes.number.isRequired,
             thumbnailHeight: PropTypes.number.isRequired,
             isSelected: PropTypes.bool
