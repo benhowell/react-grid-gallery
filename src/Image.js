@@ -19,7 +19,7 @@ class Image extends Component {
                 overflow: "hidden"
             };
         return {
-            width: ""+this.props.item.vwidth+"px",
+            width: this.props.item.vwidth,
             height: this.props.height,
             overflow: "hidden"
         };
@@ -77,13 +77,25 @@ class Image extends Component {
     }
 
     render () {
+        var tags = (typeof this.props.item.tags === 'undefined') ? <noscript/> :
+                this.props.item.tags.map((tag) => {
+                    return <div title={tag.title}
+                    key={"tag-"+tag.value}
+                    style={{display: "inline-block",
+                            cursor: 'pointer',
+                            pointerEvents: 'visible',
+                            margin: "2px"}}>
+                        <span style={tagStyle}>{tag.value}</span>
+                        </div>;
+                });
+
         return (
                 <div className="tile"
             key={"tile-"+this.props.index}
             onMouseEnter={(e) => this.setState({hover: true})}
             onMouseLeave={(e) => this.setState({hover: false})}
             style={{
-                margin: ""+this.props.margin+"px",
+                margin: this.props.margin,
                 WebkitUserSelect: "none",
                 position: "relative",
                 float: "left",
@@ -100,6 +112,20 @@ class Image extends Component {
                 width: "100%"}}>
                 {this.renderCheckButton()}
                 </div>
+
+                <div className="tile-bottom-bar"
+            key={"tile-bottom-bar-"+this.props.index}
+            style={{
+                padding: "2px",
+                pointerEvents: "none",
+                position: "absolute",
+                minHeight: "0",
+                maxHeight: "160px",
+                width: "100%",
+                bottom: "0"
+            }}>
+                {tags}
+            </div>
 
                 <div className="tile-overlay"
             key={"tile-overlay-"+this.props.index}
@@ -119,7 +145,7 @@ class Image extends Component {
             style={
                 this.tileViewportStyle()
             }
-            key={"tile-viewport-"+this.props.index}
+                key={"tile-viewport-"+this.props.index}
             onClick={this.props.onClick ?
                      (e) => this.props.onClick(this.props.index, e) : null}>
                 <img
@@ -128,19 +154,37 @@ class Image extends Component {
             style={this.thumbnailStyle()} />
                 </div>
                 </div>
-        )
+        );
     }
-}
+};
 
-Image.propTypes = {item: PropTypes.object,
-                   index: PropTypes.number,
-                   margin: PropTypes.number,
-                   height: PropTypes.number,
-                   isSelectable: PropTypes.bool,
-                   onClick: PropTypes.func,
-                   onImageSelected: PropTypes.func};
+Image.propTypes = {
+    item: PropTypes.object,
+    index: PropTypes.number,
+    margin: PropTypes.number,
+    height: PropTypes.number,
+    isSelectable: PropTypes.bool,
+    onClick: PropTypes.func,
+    onImageSelected: PropTypes.func
+};
 
-Image.defaultProps = {isSelectable: true,
-                      hover: false};
+Image.defaultProps = {
+    isSelectable: true,
+    hover: false
+};
+
+const tagStyle = {
+    display: "inline",
+    padding: ".2em .6em .3em",
+    fontSize: "75%",
+    fontWeight: "600",
+    lineHeight: "1",
+    color: "yellow",
+    background: "rgba(0,0,0,0.65)",
+    textAlign: "center",
+    whiteSpace: "nowrap",
+    verticalAlign: "baseline",
+    borderRadius: ".25em"
+};
 
 export default Image;
