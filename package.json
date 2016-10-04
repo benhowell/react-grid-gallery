@@ -35,10 +35,12 @@
     "react",
     "react-component",
     "lightbox",
-    "images",
+    "image",
     "gallery",
     "selectable",
-    "justified"
+    "justified",
+    "tags",
+    "tagging"
   ],
   "author": "Ben Howell",
   "license": "MIT",
