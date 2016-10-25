@@ -98,40 +98,6 @@ showCloseButton         | bool          | true          | Optional. Display a cl
 showImageCount          | bool          | true          | Optional. Display image index, e.g., "3 of 20".
 
 
-### Using srcset:
-
-```jsx
-images={[{
-  src: 'http://example.com/example/img1.jpg',
-  srcset: [
-    'http://example.com/example/img1_1024.jpg 1024w',
-    'http://example.com/example/img1_800.jpg 800w',
-    'http://example.com/example/img1_500.jpg 500w',
-    'http://example.com/example/img1_320.jpg 320w',
-  ],
-  thumbnail: 'http://example.com/example/thumbnailImg1.jpg',
-  caption: "Image 1",
-  thumbnailWidth: 180,
-  thumbnailHeight: 320
-},
-{
-  src: 'http://example.com/example/img2.jpg',
-  srcset: [
-    'http://example.com/example/img2_1024.jpg 1024w',
-    'http://example.com/example/img2_800.jpg 800w',
-    'http://example.com/example/img2_500.jpg 500w',
-    'http://example.com/example/img2_320.jpg 320w',
-  ],
-  thumbnail: 'http://example.com/example/thumbnailImg2.jpg',
-  caption: "Image 2",
-  thumbnailWidth: 240,
-  thumbnailHeight: 165
-}
-```
-
-Read more about the srcset and sizes attributes here: [https://ericportis.com/posts/2014/srcset-sizes/](https://ericportis.com/posts/2014/srcset-sizes/).
-
-
 ### General Notes
 
  * As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size applied when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonable.
@@ -156,7 +122,6 @@ React Grid Gallery is free to use for personal and commercial projects under the
  * Backend lightbox functionality via [React Images](https://github.com/jossmac/react-images) by [jossmac](https://github.com/jossmac).
 
  * The following gallery functions were obtained from [jossmac](https://github.com/jossmac) from his demo for [React Images](https://github.com/jossmac/react-images) and as such are the copyright remains with him: handleResize, closeLightbox, gotoNext, gotoPrevious, handleClickImage, openLightbox.
-
 
  * [cust0dian](https://github.com/cust0dian) for critical bug fixes in [PR 6](https://github.com/benhowell/react-grid-gallery/pull/6) and [PR 7](https://github.com/benhowell/react-grid-gallery/pull/7).
 
