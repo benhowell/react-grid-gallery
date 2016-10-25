@@ -119,10 +119,10 @@ class Image extends Component {
                 padding: "2px",
                 pointerEvents: "none",
                 position: "absolute",
-                minHeight: "0",
+                minHeight: "0px",
                 maxHeight: "160px",
                 width: "100%",
-                bottom: "0"
+                bottom: "0px"
             }}>
                 {tags}
             </div>
