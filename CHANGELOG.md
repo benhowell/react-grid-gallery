@@ -1,5 +1,11 @@
 # react-grid-gallery
 
+### v0.2.6 / 2016-10-25
+
+* Added acknowledgements to docs.
+
+* Fixed [unitless style warning](https://github.com/benhowell/react-grid-gallery/pull/9). Thanks @szromek.
+
 ### v0.2.5 / 2016-09-26
 
 * Added image tagging functionality. Optional `tags` prop takes an array of objects containing tag attributes. `value` prop is the text shown on the tag and `title` prop is the text shown when hovering over the tag. e.g. `tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}]`
