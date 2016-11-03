@@ -71,7 +71,7 @@ class Image extends Component {
             isSelected={this.props.item.isSelected}
             isSelectable={this.props.isSelectable}
             onClick={this.props.isSelectable ?
-                     this.props.onImageSelected : null}
+                     this.props.onSelectImage : null}
             parentHover={this.state.hover}/>
         );
     }
@@ -165,7 +165,7 @@ Image.propTypes = {
     height: PropTypes.number,
     isSelectable: PropTypes.bool,
     onClick: PropTypes.func,
-    onImageSelected: PropTypes.func
+    onSelectImage: PropTypes.func
 };
 
 Image.defaultProps = {
