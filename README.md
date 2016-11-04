@@ -69,7 +69,6 @@ caption                 | string        | undefined     | Optional. Image captio
 srcset 	                | array 	| undefined 	| Optional. Array of srcsets for lightbox.
 
 
-
 ## Gallery Options
 
 Property	|	Type		|	Default		|	Description
@@ -83,7 +82,7 @@ enableLightbox          | bool          | true          | Optional. Enable light
 onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Overrides openLightbox.
 
 
-## Lightbox Options
+## Lightbox Options (NOTE: these options are passed inside the Gallery tag).
 
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
@@ -96,6 +95,9 @@ imageCountSeparator     | string        | ' of '        | Optional. Customize se
 isOpen                  | bool          | false         | Optional. Whether or not the lightbox is displayed when gallery first rendered (can be used in conjunction with `currentImage` property, otherwise the first image will be diplayed).
 showCloseButton         | bool          | true          | Optional. Display a close "X" button in top right corner.
 showImageCount          | bool          | true          | Optional. Display image index, e.g., "3 of 20".
+onClickImage            | func          | onClickImage  | Optional. Function to execute when lightbox image clicked. Overrides internal implementation of onClickImage.
+onClickPrev             | func          | onClickPrev   | Optional. Function to execute when lightbox left arrow clicked. Overrides internal implementation of onClickPrev.
+onClickNext             | func          | onClickNext   | Optional. Function to execute when lightbox right arrow clicked. Overrides internal implementation of onClickNext.
 
 
 ### General Notes
