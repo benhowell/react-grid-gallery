@@ -1,6 +1,6 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Justified gallery component for React.",
   "main": "lib/Gallery.js",
   "dependencies": {
@@ -36,7 +36,9 @@
     "react-component",
     "lightbox",
     "image",
+    "images",
     "gallery",
+    "select",
     "selectable",
     "justified",
     "tags",
