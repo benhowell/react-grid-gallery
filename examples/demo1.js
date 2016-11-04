@@ -11,11 +11,11 @@ class Demo1 extends React.Component {
             images: this.props.images
         };
 
-        this.onImageSelected = this.onImageSelected.bind(this);
+        this.onSelectImage = this.onSelectImage.bind(this);
 
     }
 
-    onImageSelected (index, image) {
+    onSelectImage (index, image) {
         var images = this.state.images.slice();
         var img = images[index];
         if(img.hasOwnProperty("isSelected"))
@@ -38,7 +38,7 @@ class Demo1 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            onImageSelected={this.onImageSelected}/>
+            onSelectImage={this.onSelectImage}/>
                 </div>
         );
     }
