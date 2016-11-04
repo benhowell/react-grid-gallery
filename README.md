@@ -82,7 +82,12 @@ enableLightbox          | bool          | true          | Optional. Enable light
 onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Overrides openLightbox.
 
 
-## Lightbox Options (NOTE: these options are passed inside the Gallery tag).
+## Lightbox Options
+NOTE: these options are passed inside the Gallery tag.
+e.g.
+```js
+<Gallery images={IMAGES} backdropClosesModal={true}/>
+```
 
 Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
