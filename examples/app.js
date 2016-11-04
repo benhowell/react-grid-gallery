@@ -12,7 +12,7 @@ class Demo0 extends React.Component {
             selectAllChecked: false
         };
 
-        this.onImageSelected = this.onImageSelected.bind(this);
+        this.onSelectImage = this.onSelectImage.bind(this);
         this.getSelectedImages = this.getSelectedImages.bind(this);
         this.onClickSelectAll = this.onClickSelectAll.bind(this);
     }
@@ -26,7 +26,7 @@ class Demo0 extends React.Component {
         return f.length == images.length;
     }
 
-    onImageSelected (index, image) {
+    onSelectImage (index, image) {
         var images = this.state.images.slice();
         var img = images[index];
         if(img.hasOwnProperty("isSelected"))
@@ -109,7 +109,7 @@ class Demo0 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            onImageSelected={this.onImageSelected}/>
+            onSelectImage={this.onSelectImage}/>
                 </div>
                 </div>
         );
