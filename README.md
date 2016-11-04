@@ -84,8 +84,8 @@ onClickThumbnail        | func          | openLightbox  | Optional. Function to 
 
 ## Lightbox Options
 NOTE: these options are passed inside the Gallery tag.
-e.g.
-```js
+
+e.g. ```js
 <Gallery images={IMAGES} backdropClosesModal={true}/>
 ```
 
