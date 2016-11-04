@@ -14,18 +14,18 @@ class Gallery extends Component {
             containerWidth: 0
         };
 
-        this.handleResize = this.handleResize.bind(this);
+        this.onResize = this.onResize.bind(this);
         this.closeLightbox = this.closeLightbox.bind(this);
         this.gotoNext = this.gotoNext.bind(this);
         this.gotoPrevious = this.gotoPrevious.bind(this);
-        this.handleClickImage = this.handleClickImage.bind(this);
+        this.onClickImage = this.onClickImage.bind(this);
         this.openLightbox = this.openLightbox.bind(this);
-        this.onImageSelected = this.onImageSelected.bind(this);
+        this.onSelectImage = this.onSelectImage.bind(this);
     }
 
     componentDidMount () {
-        this.handleResize();
-        window.addEventListener('resize', this.handleResize);
+        this.onResize();
+        window.addEventListener('resize', this.onResize);
     }
 
     componentWillReceiveProps (np) {
@@ -42,11 +42,11 @@ class Gallery extends Component {
         if (!this._gallery) return;
         if (this._gallery.clientWidth
             !== this.state.containerWidth){
-            this.handleResize();
+            this.onResize();
         }
     }
 
-    handleResize () {
+    onResize () {
         if (!this._gallery) return;
         this.setState({
             containerWidth: Math.floor(this._gallery.clientWidth),
@@ -81,24 +81,42 @@ class Gallery extends Component {
         });
     }
 
-    handleClickImage () {
+    onClickImage (index, image, event) {
         if (this.state.currentImage === this.props.images.length - 1)
             return;
         this.gotoNext();
     }
 
-    onImageSelected (index, event) {
+    onSelectImage (index, image, event) {
         event.preventDefault();
-        if(this.props.onImageSelected)
-            this.props.onImageSelected(index, this.state.images[index]);
+        if(this.props.onSelectImage)
+            this.props.onSelectImage(index, this.state.images[index], event);
     }
 
-    getOnClickThumbnailFunc () {
+    getOnClickThumbnailFn () {
         if(!this.props.onClickThumbnail && this.props.enableLightbox)
             return this.openLightbox;
         if(this.props.onClickThumbnail)
             return this.props.onClickThumbnail;
         return null;
+    }
+
+    getOnClickImageFn () {
+        if(this.props.onClickImage)
+            return this.props.onClickImage;
+        return this.onClickImage;
+    }
+
+    getOnClickPrevFn () {
+        if(this.props.onClickPrev)
+            return this.props.onClickPrev;
+        return this.gotoPrevious;
+    }
+
+    getOnClickNextFn () {
+        if(this.props.onClickNext)
+            return this.props.onClickNext;
+        return this.gotoNext;
     }
 
     calculateCutOff (len, delta, items) {
@@ -191,8 +209,8 @@ class Gallery extends Component {
             margin={this.props.margin}
             height={this.props.rowHeight}
             isSelectable={this.props.enableImageSelection}
-            onClick={this.getOnClickThumbnailFunc()}
-            onImageSelected={this.onImageSelected}
+            onClick={this.getOnClickThumbnailFn()}
+            onSelectImage={this.onSelectImage}
                 />;
         });
 
@@ -207,12 +225,12 @@ class Gallery extends Component {
             enableKeyboardInput={this.props.enableKeyboardInput}
             imageCountSeparator={this.props.imageCountSeparator}
             isOpen={this.state.lightboxIsOpen}
-            onClickImage={this.handleClickImage}
-            onClickNext={this.gotoNext}
-            onClickPrev={this.gotoPrevious}
-            onClose={this.closeLightbox}
+            onClickImage={this.getOnClickImageFn()}
+            onClickNext={this.getOnClickNextFn()}
+            onClickPrev={this.getOnClickPrevFn()}
             showCloseButton={this.props.showCloseButton}
             showImageCount={this.props.showImageCount}
+            onClose={this.closeLightbox}
                 />
                 </div>
         );
@@ -240,7 +258,7 @@ Gallery.propTypes = {
         })
     ).isRequired,
     enableImageSelection: PropTypes.bool,
-    onImageSelected: PropTypes.func,
+    onSelectImage: PropTypes.func,
     rowHeight: PropTypes.number,
     margin: PropTypes.number,
     onClickThumbnail: PropTypes.func,
