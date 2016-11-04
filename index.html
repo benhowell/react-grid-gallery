@@ -346,11 +346,11 @@
             images<span class="pl-k">:</span> <span class="pl-v">this</span>.<span class="pl-smi">props</span>.<span class="pl-c1">images</span>
         };
 
-        <span class="pl-v">this</span>.<span class="pl-smi">onImageSelected</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">onImageSelected</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
+        <span class="pl-v">this</span>.<span class="pl-smi">onSelectImage</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">onSelectImage</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
 
     }
 
-    <span class="pl-en">onImageSelected</span> (<span class="pl-smi">index</span>, <span class="pl-smi">image</span>) {
+    <span class="pl-en">onSelectImage</span> (<span class="pl-smi">index</span>, <span class="pl-smi">image</span>) {
         <span class="pl-k">var</span> images <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-c1">images</span>.<span class="pl-c1">slice</span>();
         <span class="pl-k">var</span> img <span class="pl-k">=</span> images[index];
         <span class="pl-k">if</span>(<span class="pl-smi">img</span>.<span class="pl-en">hasOwnProperty</span>(<span class="pl-s"><span class="pl-pds">"</span>isSelected<span class="pl-pds">"</span></span>))
@@ -373,7 +373,7 @@
                     overflow<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}}<span class="pl-k">&gt;</span>
                 <span class="pl-k">&lt;</span>Gallery
             images<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-c1">images</span>}
-            onImageSelected<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">onImageSelected</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>
+            onSelectImage<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">onSelectImage</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>
                 <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
         );
     }
@@ -719,7 +719,7 @@
             selectAllChecked<span class="pl-k">:</span> <span class="pl-c1">false</span>
         };
 
-        <span class="pl-v">this</span>.<span class="pl-smi">onImageSelected</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">onImageSelected</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
+        <span class="pl-v">this</span>.<span class="pl-smi">onSelectImage</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">onSelectImage</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
         <span class="pl-v">this</span>.<span class="pl-smi">getSelectedImages</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">getSelectedImages</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
         <span class="pl-v">this</span>.<span class="pl-smi">onClickSelectAll</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">onClickSelectAll</span>.<span class="pl-en">bind</span>(<span class="pl-v">this</span>);
     }
@@ -733,7 +733,7 @@
         <span class="pl-k">return</span> <span class="pl-smi">f</span>.<span class="pl-c1">length</span> <span class="pl-k">==</span> <span class="pl-smi">images</span>.<span class="pl-c1">length</span>;
     }
 
-    <span class="pl-en">onImageSelected</span> (<span class="pl-smi">index</span>, <span class="pl-smi">image</span>) {
+    <span class="pl-en">onSelectImage</span> (<span class="pl-smi">index</span>, <span class="pl-smi">image</span>) {
         <span class="pl-k">var</span> images <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-c1">images</span>.<span class="pl-c1">slice</span>();
         <span class="pl-k">var</span> img <span class="pl-k">=</span> images[index];
         <span class="pl-k">if</span>(<span class="pl-smi">img</span>.<span class="pl-en">hasOwnProperty</span>(<span class="pl-s"><span class="pl-pds">"</span>isSelected<span class="pl-pds">"</span></span>))
@@ -816,7 +816,7 @@
                     overflow<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>}}<span class="pl-k">&gt;</span>
                 <span class="pl-k">&lt;</span>Gallery
             images<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-c1">images</span>}
-            onImageSelected<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">onImageSelected</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>
+            onSelectImage<span class="pl-k">=</span>{<span class="pl-v">this</span>.<span class="pl-smi">onSelectImage</span>}<span class="pl-k">/</span><span class="pl-k">&gt;</span>
                 <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
                 <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
         );
