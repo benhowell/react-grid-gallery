@@ -4,7 +4,7 @@
 
 ### Breaking Changes
 
-* Consistant naming scheme implemented both internally and externally. External breaking change to the `onImageSelected` prop which has been renamed `onSelectImage`. All internal instances of `Func` refactored to `Fn`. `handleClickImage` refactored to `onClickImage`. `handleResize` refactored to `onResize`. 
+* Consistent naming scheme implemented both internally and externally. External breaking change to the `onImageSelected` prop which has been renamed `onSelectImage`. All internal instances of `Func` refactored to `Fn`. `handleClickImage` refactored to `onClickImage`. `handleResize` refactored to `onResize`. 
 
 The following changes in v0.2.7 allow react-grid-gallery to be used in an (optionally) stateless way. 
 
