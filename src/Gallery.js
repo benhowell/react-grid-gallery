@@ -81,16 +81,16 @@ class Gallery extends Component {
         });
     }
 
-    onClickImage (index, image, event) {
+    onClickImage () {
         if (this.state.currentImage === this.props.images.length - 1)
             return;
         this.gotoNext();
     }
 
-    onSelectImage (index, image, event) {
+    onSelectImage (index, event) {
         event.preventDefault();
         if(this.props.onSelectImage)
-            this.props.onSelectImage(index, this.state.images[index], event);
+            this.props.onSelectImage(index, this.state.images[index]);
     }
 
     getOnClickThumbnailFn () {
