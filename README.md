@@ -129,7 +129,7 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
  * Backend lightbox functionality via [React Images](https://github.com/jossmac/react-images) by [jossmac](https://github.com/jossmac).
 
- * The following gallery functions were obtained from [jossmac](https://github.com/jossmac) from his [React Images example](https://github.com/jossmac/react-images/blob/b85bd83ae651d0fd373bb495ac88670ee4dfadab/examples/src/components/Gallery.js) and as such the copyright remains with him: closeLightbox, gotoNext, gotoPrevious, handleClickImage, openLightbox.
+ * The following gallery functions were obtained from the [React Images example](https://github.com/jossmac/react-images/blob/b85bd83ae651d0fd373bb495ac88670ee4dfadab/examples/src/components/Gallery.js) demo: closeLightbox, gotoNext, gotoPrevious, handleClickImage, openLightbox.
 
  * [cust0dian](https://github.com/cust0dian) for critical bug fixes in [PR 6](https://github.com/benhowell/react-grid-gallery/pull/6) and [PR 7](https://github.com/benhowell/react-grid-gallery/pull/7).
 
