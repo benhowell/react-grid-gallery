@@ -1,5 +1,14 @@
 # react-grid-gallery
 
+### v0.2.8 / 2016-12-10
+
+* Updated documentation including correction of `onSelectImage` prop documentation.
+
+* More descriptive package keywords.
+
+* Grammatical tweaks.
+
+
 ### v0.2.7 / 2016-11-04
 
 ### Breaking Changes
