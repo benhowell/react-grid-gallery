@@ -211,8 +211,7 @@ class Gallery extends Component {
             isSelectable={this.props.enableImageSelection}
             onClick={this.getOnClickThumbnailFn()}
             onSelectImage={this.onSelectImage}
-                />;
-        });
+                />;});
 
         return (
                 <div id="Gallery" ref={(c) => this._gallery = c}>
