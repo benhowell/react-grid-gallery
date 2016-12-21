@@ -104,6 +104,7 @@ showImageCount          | bool          | true          | Optional. Display imag
 onClickImage            | func          | onClickImage  | Optional. Function to execute when lightbox image clicked. Overrides internal implementation of onClickImage.
 onClickPrev             | func          | onClickPrev   | Optional. Function to execute when lightbox left arrow clicked. Overrides internal implementation of onClickPrev.
 onClickNext             | func          | onClickNext   | Optional. Function to execute when lightbox right arrow clicked. Overrides internal implementation of onClickNext.
+lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of the lightbox carousel; defaults to 1024px
 
 
 ### General Notes
