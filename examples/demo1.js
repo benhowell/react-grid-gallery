@@ -38,7 +38,9 @@ class Demo1 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            onSelectImage={this.onSelectImage}/>
+            onSelectImage={this.onSelectImage}
+            lightboxWidth={1536}
+                />
                 </div>
         );
     }
@@ -97,8 +99,8 @@ Demo1.defaultProps = {
             caption: "Big Ben (Tom Eversley - isorepublic.com)"
         },
         {
-            src: "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_b.jpg",
-            thumbnail: "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_n.jpg",
+            src: "https://c1.staticflickr.com/9/8785/28687743710_870813dfde_h.jpg",
+            thumbnail: "https://c1.staticflickr.com/9/8785/28687743710_3580fcb5f0_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 113,
             isSelected: true,
