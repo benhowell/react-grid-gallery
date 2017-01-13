@@ -1,5 +1,9 @@
 # react-grid-gallery
 
+### v0.2.10 / 2017-01-13
+
+* Fixed bug in passing lightboxWidth prop
+
 ### v0.2.9 / 2016-12-21
 
 * Added prop to set maximum width of lightbox. Defaults to 1024px.
