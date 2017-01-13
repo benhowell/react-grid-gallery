@@ -1,5 +1,12 @@
 # react-grid-gallery
 
+### v0.3.0 / 2017-01-14
+
+* Fixed bug where lightboxWidth does not exceed 1024px
+
+* Bumped [react-images](https://github.com/jossmac/react-images) to 0.5.2
+
+
 ### v0.2.10 / 2017-01-13
 
 * Fixed bug in passing lightboxWidth prop

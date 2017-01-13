@@ -1,10 +1,10 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.2.10",
+  "version": "0.3.0",
   "description": "Justified gallery component for React.",
   "main": "lib/Gallery.js",
   "dependencies": {
-    "react-images": "^0.4.11"
+    "react-images": "^0.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
