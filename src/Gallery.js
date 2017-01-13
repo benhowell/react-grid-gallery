@@ -230,7 +230,7 @@ class Gallery extends Component {
             showCloseButton={this.props.showCloseButton}
             showImageCount={this.props.showImageCount}
             onClose={this.closeLightbox}
-            width={this.lightboxWidth}
+            width={this.props.lightboxWidth}
                 />
                 </div>
         );
