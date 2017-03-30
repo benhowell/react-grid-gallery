@@ -79,7 +79,7 @@ onSelectImage           | func          | undefined     | Optional. Function to 
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
 enableLightbox          | bool          | true          | Optional. Enable lightbox display of full size image when thumbnail clicked.
-onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Overrides openLightbox.
+onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Optional args: index (index of selected image in images array), event (the click event). Overrides openLightbox.
 
 
 ## Lightbox Options
