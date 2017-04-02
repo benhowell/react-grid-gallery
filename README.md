@@ -1,6 +1,6 @@
 # React Grid Gallery
 
-Justified image gallery component for [React](http://facebook.github.io/react/) based upon [React Images](https://github.com/jossmac/react-images) by [jossmac](https://github.com/jossmac).
+Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/) and based upon [React Images](https://github.com/jossmac/react-images).
 
 ## Live Demo & Examples
 
