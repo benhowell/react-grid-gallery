@@ -1,5 +1,14 @@
 # react-grid-gallery
 
+### v0.3.1 / 2017-04-04
+
+* Added lightboxWillOpen and lightBoxWillClose functionality [PR 20](https://github.com/benhowell/react-grid-gallery/pull/20). Thanks [ValYouW](https://github.com/ValYouW).
+
+* Updated documentation for onClickThumbnail fn [issue #19](https://github.com/benhowell/react-grid-gallery/issues/19)
+
+* Updated acknowledgements
+
+
 ### v0.3.0 / 2017-01-14
 
 * Fixed bug where lightboxWidth does not exceed 1024px
