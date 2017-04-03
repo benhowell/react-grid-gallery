@@ -80,7 +80,8 @@ rowHeight               | number        | 180           | Optional. The height o
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
 enableLightbox          | bool          | true          | Optional. Enable lightbox display of full size image when thumbnail clicked.
 onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Optional args: index (index of selected image in images array), event (the click event). Overrides openLightbox.
-
+lightboxWillOpen        | func          | undefined     | Optional. Function to be called before opening lightbox. Optional arg: index (index of selected image in images array).
+lightboxWillClose       | func          | undefined     | Optional. Function to be called before closing lightbox.
 
 ## Lightbox Options
 NOTE: these options are passed inside the Gallery tag.
