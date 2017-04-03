@@ -56,6 +56,10 @@ class Gallery extends Component {
 
     openLightbox (index, event) {
         event.preventDefault();
+        if (this.props.lightboxWillOpen) {
+            this.props.lightboxWillOpen(index);
+        }
+
         this.setState({
             currentImage: index,
             lightboxIsOpen: true
@@ -63,6 +67,10 @@ class Gallery extends Component {
     }
 
     closeLightbox () {
+        if (this.props.lightboxWillClose) {
+            this.props.lightboxWillClose();
+        }
+
         this.setState({
             currentImage: 0,
             lightboxIsOpen: false
@@ -262,6 +270,8 @@ Gallery.propTypes = {
     rowHeight: PropTypes.number,
     margin: PropTypes.number,
     onClickThumbnail: PropTypes.func,
+    lightboxWillOpen: PropTypes.func,
+    lightboxWillClose: PropTypes.func,
     enableLightbox: PropTypes.bool,
     backdropClosesModal: PropTypes.bool,
     currentImage: PropTypes.number,
