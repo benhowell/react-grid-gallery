@@ -188,6 +188,18 @@
 <td align="left">openLightbox</td>
 <td align="left">Optional. Function to execute when gallery thumbnail clicked. Optional args: index (index of selected image in images array), event (the click event). Overrides openLightbox.</td>
 </tr>
+<tr>
+<td align="left">lightboxWillOpen</td>
+<td align="left">func</td>
+<td align="left">undefined</td>
+<td align="left">Optional. Function to be called before opening lightbox. Optional arg: index (index of selected image in images array).</td>
+</tr>
+<tr>
+<td align="left">lightboxWillClose</td>
+<td align="left">func</td>
+<td align="left">undefined</td>
+<td align="left">Optional. Function to be called before closing lightbox.</td>
+</tr>
 </tbody></table>
 
 <h2><a id="user-content-lightbox-options" class="anchor" href="#lightbox-options" aria-hidden="true"></a>Lightbox Options</h2>
@@ -317,6 +329,10 @@
 <li><p>The following gallery functions were obtained from <a href="https://github.com/jossmac">jossmac</a> from his <a href="https://github.com/jossmac/react-images/blob/b85bd83ae651d0fd373bb495ac88670ee4dfadab/examples/src/components/Gallery.js">React Images example</a> and as such the copyright remains with him: closeLightbox, gotoNext, gotoPrevious, handleClickImage, openLightbox.</p></li>
 
 <li><p><a href="https://github.com/cust0dian">cust0dian</a> for critical bug fixes in <a href="https://github.com/benhowell/react-grid-gallery/pull/6">PR 6</a> and <a href="https://github.com/benhowell/react-grid-gallery/pull/7">PR 7</a>.</p></li>
+<li><p>Demo stock photos:</p>
+
+<li><p><a href="https://github.com/ValYouW">ValYouW</a> for lightboxWillOpen and lightBoxWillClose functionality: <a href="https://github.com/benhowell/react-grid-gallery/pull/20">PR 20</a>.</p></li>
+
 <li><p>Demo stock photos:</p>
 
 <ul>
