@@ -1,8 +1,13 @@
 # react-grid-gallery
 
+### v0.3.2 / 2017-04-07
+
+* Added `maxRows` functionality [issue #21](https://github.com/benhowell/react-grid-gallery/issues/21).
+
+
 ### v0.3.1 / 2017-04-04
 
-* Added lightboxWillOpen and lightBoxWillClose functionality [PR 20](https://github.com/benhowell/react-grid-gallery/pull/20). Thanks [ValYouW](https://github.com/ValYouW).
+* Added `lightboxWillOpen` and `lightBoxWillClose` functionality [PR 20](https://github.com/benhowell/react-grid-gallery/pull/20). Thanks [ValYouW](https://github.com/ValYouW).
 
 * Updated documentation for onClickThumbnail fn [issue #19](https://github.com/benhowell/react-grid-gallery/issues/19)
 
