@@ -202,7 +202,14 @@ class Gallery extends Component {
         for(var r in rows) {
             for(var i in rows[r]) {
                 var item = rows[r][i];
-                thumbs.push(item);
+                if(this.props.maxRows) {
+                    if(r < this.props.maxRows) {
+                        thumbs.push(item);
+                    }
+                }
+                else {
+                    thumbs.push(item);
+                }
             }
         }
         return thumbs;
@@ -268,6 +275,7 @@ Gallery.propTypes = {
     enableImageSelection: PropTypes.bool,
     onSelectImage: PropTypes.func,
     rowHeight: PropTypes.number,
+    maxRows: PropTypes.number,
     margin: PropTypes.number,
     onClickThumbnail: PropTypes.func,
     lightboxWillOpen: PropTypes.func,
