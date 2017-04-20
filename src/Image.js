@@ -89,6 +89,15 @@ class Image extends Component {
                         </div>;
                 });
 
+        var customOverlay = typeof this.props.item.customOverlay === 'undefined' ? <noscript/> :
+            <div style={{
+	            opacity: this.state.hover ? 1 : 0,
+	            position: "absolute",
+	            height: "100%",
+	            width: "100%"}}>
+                {this.props.item.customOverlay}
+            </div>;
+
         return (
                 <div className="tile"
             key={"tile-"+this.props.index}
@@ -126,6 +135,8 @@ class Image extends Component {
             }}>
                 {tags}
             </div>
+
+                {customOverlay}
 
                 <div className="tile-overlay"
             key={"tile-overlay-"+this.props.index}
@@ -165,7 +176,8 @@ Image.propTypes = {
     height: PropTypes.number,
     isSelectable: PropTypes.bool,
     onClick: PropTypes.func,
-    onSelectImage: PropTypes.func
+    onSelectImage: PropTypes.func,
+    customOverlay: PropTypes.element
 };
 
 Image.defaultProps = {
