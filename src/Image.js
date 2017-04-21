@@ -91,6 +91,7 @@ class Image extends Component {
 
         var customOverlay = typeof this.props.item.customOverlay === 'undefined' ? <noscript/> :
             <div style={{
+	            pointerEvents: "none",
 	            opacity: this.state.hover ? 1 : 0,
 	            position: "absolute",
 	            height: "100%",
