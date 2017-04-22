@@ -30,8 +30,7 @@ class Demo4 extends React.Component {
                             <div style={captionStyle}>
                             <div>{i.caption}</div>
                             {i.hasOwnProperty('tags') &&
-                             this.setCustomTags(i)
-                            }
+                             this.setCustomTags(i)}
                         </div>);
                     return i;
                 });
