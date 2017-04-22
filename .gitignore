@@ -3,4 +3,3 @@ require.js
 *.bundle.js
 examples/dist
 .publish
-.idea
