@@ -13,27 +13,30 @@ class Demo4 extends React.Component {
 
     render () {
         var captionStyle = {
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            maxHeight: '240px',
-            overflow: 'auto',
-            position: 'absolute',
-            bottom: '0',
-            width: '100%',
-            color: 'white',
-            padding: '3px',
-            fontSize: '0.8em'
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            maxHeight: "240px",
+            overflow: "auto",
+            position: "absolute",
+            bottom: "0",
+            width: "100%",
+            color: "white",
+            padding: "2px",
+            fontSize: "90%"
         };
 
-        var chipStyle = {
-            wordWrap: 'break-word',
-            display: 'inline-block',
-            backgroundColor: '#fff',
-            height: 'auto',
-            lineHeight: 'inherit',
-            padding: '2px',
-            borderRadius: '2px',
-            color: 'black',
-            margin: '2px'
+        var customTagStyle = {
+            wordWrap: "break-word",
+            display: "inline-block",
+            backgroundColor: "white",
+            height: "auto",
+            fontSize: "75%",
+            fontWeight: "600",
+            lineHeight: "1",
+            padding: ".2em .6em .3em",
+            borderRadius: ".25em",
+            color: "black",
+            verticalAlign: "baseline",
+            margin: "2px"
         };
 
         var images = this.state.images.map((i) => {
@@ -43,10 +46,9 @@ class Demo4 extends React.Component {
                     {i.tags ? i.tags.map((t) => {
                         return (
                                 <div key={t.value}
-                            style={chipStyle}>{t.title}</div>);}) : ''}
-                    </div>
+                            style={customTagStyle}>{t.title}</div>);}) : ''}
+                </div>
             );
-            i.tags = [];
             return i;
         });
         return (
