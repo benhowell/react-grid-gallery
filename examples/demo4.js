@@ -67,7 +67,7 @@ Demo4.propTypes = {
 const captionStyle = {
     backgroundColor: "rgba(0, 0, 0, 0.8)",
     maxHeight: "240px",
-    overflow: "auto",
+    overflow: "hidden",
     position: "absolute",
     bottom: "0",
     width: "100%",
