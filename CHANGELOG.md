@@ -1,5 +1,16 @@
 # react-grid-gallery
 
+### v0.3.3 / 2017-04-22
+
+* Added `customOverlay` functionality [PR 22](https://github.com/benhowell/react-grid-gallery/pull/22). Thanks [ValYouW](https://github.com/ValYouW).
+
+* Added demo to project page for `customOverlay`.
+
+* Updated documentation
+
+* Updated acknowledgements
+
+
 ### v0.3.2 / 2017-04-07
 
 * Added `maxRows` functionality [issue #21](https://github.com/benhowell/react-grid-gallery/issues/21).
