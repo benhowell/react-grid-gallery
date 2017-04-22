@@ -9,7 +9,7 @@ https://benhowell.github.io/react-grid-gallery/
 * [Pre-selected Images](https://benhowell.github.io/react-grid-gallery/#pre-selected-images)
 * [Permanently Selected Images](https://benhowell.github.io/react-grid-gallery/#permanently-selected-images)
 * [Simple Gallery](https://benhowell.github.io/react-grid-gallery/#simple-gallery)
-* [Main Demo Code](https://benhowell.github.io/react-grid-gallery/#code-sample)
+* [Custom Overlay](https://benhowell.github.io/react-grid-gallery/#custom-overlay)
 
 ## Installation
 
@@ -67,7 +67,7 @@ tags                    | array         | undefined     | Optional. An array of 
 isSelected              | bool          | undefined     | Optional. The selected state of the image.
 caption                 | string        | undefined     | Optional. Image caption.
 srcset 	                | array         | undefined 	| Optional. Array of srcsets for lightbox.
-customOverlay           | element       | undefined     | Optional. A custom element to be rendered as tile overlay when hovering.
+customOverlay           | element       | undefined     | Optional. A custom element to be rendered as a thumbnail overlay on hover.
 
 ## Gallery Options
 
@@ -136,7 +136,10 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
  * [cust0dian](https://github.com/cust0dian) for critical bug fixes in [PR 6](https://github.com/benhowell/react-grid-gallery/pull/6) and [PR 7](https://github.com/benhowell/react-grid-gallery/pull/7).
 
- * [ValYouW](https://github.com/ValYouW) for lightboxWillOpen and lightBoxWillClose functionality [PR 20](https://github.com/benhowell/react-grid-gallery/pull/20).
+ * [ValYouW](https://github.com/ValYouW) for lightboxWillOpen and lightBoxWillClose functionality [PR 20](https://github.com/benhowell/react-grid-gallery/pull/20) and customOverlay option: [PR 22](https://github.com/benhowell/react-grid-gallery/pull/22).
+
+
+
  
 
  * Demo stock photos:
