@@ -24,7 +24,6 @@ class Demo4 extends React.Component {
     }
 
     render () {
-        console.log("1");
         var images =
                 this.state.images.map((i) => {
                     i.customOverlay = (
