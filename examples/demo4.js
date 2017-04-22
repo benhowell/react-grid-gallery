@@ -11,46 +11,33 @@ class Demo4 extends React.Component {
         };
     }
 
+    setCustomTags (i) {
+        return (
+            i.tags.map((t) => {
+                return (<div
+                        key={t.value}
+                        style={customTagStyle}>
+                        {t.title}
+                        </div>);
+            })
+        );
+    }
+
     render () {
-        var captionStyle = {
-            backgroundColor: "rgba(0, 0, 0, 0.8)",
-            maxHeight: "240px",
-            overflow: "auto",
-            position: "absolute",
-            bottom: "0",
-            width: "100%",
-            color: "white",
-            padding: "2px",
-            fontSize: "90%"
-        };
+        console.log("1");
+        var images =
+                this.state.images.map((i) => {
+                    i.customOverlay = (
+                            <div style={captionStyle}>
+                            <div>{i.caption}</div>
+                            {i.hasOwnProperty('tags') &&
+                             this.setCustomTags(i)
+                            }
+                        </div>);
+                    return i;
+                });
 
-        var customTagStyle = {
-            wordWrap: "break-word",
-            display: "inline-block",
-            backgroundColor: "white",
-            height: "auto",
-            fontSize: "75%",
-            fontWeight: "600",
-            lineHeight: "1",
-            padding: ".2em .6em .3em",
-            borderRadius: ".25em",
-            color: "black",
-            verticalAlign: "baseline",
-            margin: "2px"
-        };
 
-        var images = this.state.images.map((i) => {
-            i.customOverlay = (
-                    <div style={captionStyle}>
-                    <div>{i.caption}</div>
-                    {i.tags ? i.tags.map((t) => {
-                        return (
-                                <div key={t.value}
-                            style={customTagStyle}>{t.title}</div>);}) : ''}
-                </div>
-            );
-            return i;
-        });
         return (
                 <div style={{
                     display: "block",
@@ -66,7 +53,6 @@ class Demo4 extends React.Component {
     }
 }
 
-
 Demo4.propTypes = {
     images: React.PropTypes.arrayOf(
         React.PropTypes.shape({
@@ -80,6 +66,32 @@ Demo4.propTypes = {
     ).isRequired
 };
 
+const captionStyle = {
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    maxHeight: "240px",
+    overflow: "auto",
+    position: "absolute",
+    bottom: "0",
+    width: "100%",
+    color: "white",
+    padding: "2px",
+    fontSize: "90%"
+};
+
+const customTagStyle = {
+    wordWrap: "break-word",
+    display: "inline-block",
+    backgroundColor: "white",
+    height: "auto",
+    fontSize: "75%",
+    fontWeight: "600",
+    lineHeight: "1",
+    padding: ".2em .6em .3em",
+    borderRadius: ".25em",
+    color: "black",
+    verticalAlign: "baseline",
+    margin: "2px"
+};
 
 Demo4.defaultProps = {
     images: shuffleArray([
@@ -150,6 +162,5 @@ Demo4.defaultProps = {
         }
     ])
 };
-
 
 ReactDOM.render(<Demo4 />, document.getElementById('demo4'));
