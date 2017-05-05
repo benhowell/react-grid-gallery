@@ -1,5 +1,12 @@
 # react-grid-gallery
 
+### v0.3.4 / 2017-05-05
+
+* Bumped to react 15.5.4
+
+* Refactored to use new prop-types package (React.PropTyes deprecated).
+
+
 ### v0.3.3 / 2017-04-22
 
 * Added `customOverlay` functionality [PR 22](https://github.com/benhowell/react-grid-gallery/pull/22). Thanks [ValYouW](https://github.com/ValYouW).
