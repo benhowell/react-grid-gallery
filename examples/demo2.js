@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from '../src/Gallery';
@@ -29,15 +30,15 @@ class Demo2 extends React.Component {
 }
 
 Demo2.propTypes = {
-    images: React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-            src: React.PropTypes.string.isRequired,
-            thumbnail: React.PropTypes.string.isRequired,
-            srcset: React.PropTypes.array,
-            caption: React.PropTypes.string,
-            thumbnailWidth: React.PropTypes.number.isRequired,
-            thumbnailHeight: React.PropTypes.number.isRequired,
-            isSelected: React.PropTypes.bool
+    images: PropTypes.arrayOf(
+        PropTypes.shape({
+            src: PropTypes.string.isRequired,
+            thumbnail: PropTypes.string.isRequired,
+            srcset: PropTypes.array,
+            caption: PropTypes.string,
+            thumbnailWidth: PropTypes.number.isRequired,
+            thumbnailHeight: PropTypes.number.isRequired,
+            isSelected: PropTypes.bool
         })
     ).isRequired
 };

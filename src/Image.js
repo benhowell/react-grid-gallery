@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import CheckButton from './CheckButton.js';
 
 class Image extends Component {
@@ -169,7 +170,7 @@ class Image extends Component {
                 </div>
         );
     }
-};
+}
 
 Image.propTypes = {
     item: PropTypes.object,
