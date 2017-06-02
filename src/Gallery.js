@@ -247,6 +247,7 @@ class Gallery extends Component {
             showImageCount={this.props.showImageCount}
             onClose={this.closeLightbox}
             width={this.props.lightboxWidth}
+            theme={this.props.theme}
                 />
                 </div>
         );
@@ -295,7 +296,8 @@ Gallery.propTypes = {
     onClose: PropTypes.func,
     showCloseButton: PropTypes.bool,
     showImageCount: PropTypes.bool,
-    lightboxWidth: PropTypes.number
+    lightboxWidth: PropTypes.number,
+    theme: PropTypes.object
 };
 
 Gallery.defaultProps = {
@@ -311,7 +313,8 @@ Gallery.defaultProps = {
     isOpen: false,
     showCloseButton: true,
     showImageCount: true,
-    lightboxWidth: 1024
+    lightboxWidth: 1024,
+    theme: {}
 };
 
 module.exports = Gallery;
