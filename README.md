@@ -106,6 +106,7 @@ showImageCount          | bool          | true          | Optional. Display imag
 onClickImage            | func          | onClickImage  | Optional. Function to execute when lightbox image clicked. Overrides internal implementation of onClickImage.
 onClickPrev             | func          | onClickPrev   | Optional. Function to execute when lightbox left arrow clicked. Overrides internal implementation of onClickPrev.
 onClickNext             | func          | onClickNext   | Optional. Function to execute when lightbox right arrow clicked. Overrides internal implementation of onClickNext.
+theme 	                | object 	| undefined 	        | Optional. Pass through styles to theme each component; `arrow`, `container`, etc.
 lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of the lightbox carousel; defaults to 1024px
 
 
@@ -138,7 +139,7 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
  * [ValYouW](https://github.com/ValYouW) for lightboxWillOpen and lightBoxWillClose functionality [PR 20](https://github.com/benhowell/react-grid-gallery/pull/20) and customOverlay option: [PR 22](https://github.com/benhowell/react-grid-gallery/pull/22).
 
-
+ * [danalloway](https://github.com/danalloway) for theme pass-through prop [PR 27](https://github.com/benhowell/react-grid-gallery/pull/27)
 
  
 
