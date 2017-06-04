@@ -1,5 +1,16 @@
 # react-grid-gallery
 
+### v0.3.5 / 2017-06-04
+
+* Refactored for react 16 (moved from PropTypes to prop-types package).
+
+* Bumped [react-images](https://github.com/jossmac/react-images) to 0.5.4 which has been refactored for react 16.
+
+* Added `theme` pass-though prop [PR 27](https://github.com/benhowell/react-grid-gallery/pull/27). Thanks [danalloway](https://github.com/danalloway).
+
+* Updated acknowledgements.
+
+
 ### v0.3.4 / 2017-05-05
 
 * Bumped to react 15.5.4
