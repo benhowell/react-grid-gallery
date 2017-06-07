@@ -17,6 +17,7 @@ class Gallery extends Component {
 
         this.onResize = this.onResize.bind(this);
         this.closeLightbox = this.closeLightbox.bind(this);
+        this.gotoImage = this.gotoImage.bind(this);
         this.gotoNext = this.gotoNext.bind(this);
         this.gotoPrevious = this.gotoPrevious.bind(this);
         this.onClickImage = this.onClickImage.bind(this);
@@ -102,11 +103,27 @@ class Gallery extends Component {
             this.props.onSelectImage(index, this.state.images[index]);
     }
 
+    gotoImage (index) {
+        this.setState({
+            currentImage: index
+        });
+    }
+
     getOnClickThumbnailFn () {
         if(!this.props.onClickThumbnail && this.props.enableLightbox)
             return this.openLightbox;
         if(this.props.onClickThumbnail)
             return this.props.onClickThumbnail;
+        return null;
+    }
+
+    getOnClickLightboxThumbnailFn () {
+        if(!this.props.onClickLightboxThumbnail
+           && this.props.showLightboxThumbnails)
+            return this.gotoImage;
+        if(this.props.onClickLightboxThumbnail
+           && this.props.showLightboxThumbnails)
+            return this.props.onClickLightboxThumbnail;
         return null;
     }
 
@@ -248,6 +265,8 @@ class Gallery extends Component {
             onClose={this.closeLightbox}
             width={this.props.lightboxWidth}
             theme={this.props.theme}
+            onClickThumbnail={this.getOnClickLightboxThumbnailFn()}
+            showThumbnails={this.props.showLightboxThumbnails}
                 />
                 </div>
         );
@@ -297,7 +316,9 @@ Gallery.propTypes = {
     showCloseButton: PropTypes.bool,
     showImageCount: PropTypes.bool,
     lightboxWidth: PropTypes.number,
-    theme: PropTypes.object
+    theme: PropTypes.object,
+    showLightboxThumbnails: PropTypes.bool,
+    onClickLightboxThumbnail: PropTypes.func
 };
 
 Gallery.defaultProps = {
@@ -314,7 +335,8 @@ Gallery.defaultProps = {
     showCloseButton: true,
     showImageCount: true,
     lightboxWidth: 1024,
-    theme: {}
+    theme: {},
+    showLightboxThumbnails: false
 };
 
 module.exports = Gallery;
