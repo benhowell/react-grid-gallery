@@ -1,5 +1,12 @@
 # react-grid-gallery
 
+### v0.3.6 / 2017-06-07
+
+* Added optional lightbox prop `showLightboxThumbnails` to display thumbnails beneath the Lightbox image.
+
+* Added optional lightbox prop `onClickLightboxThumbnail` as a fn to execute when lightbox thumbnail clicked. Overrides internal function: gotoImage.
+
+
 ### v0.3.5 / 2017-06-04
 
 * Refactored for react 16 (moved from PropTypes to prop-types package).
