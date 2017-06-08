@@ -110,7 +110,8 @@ class Demo0 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            onSelectImage={this.onSelectImage}/>
+            onSelectImage={this.onSelectImage}
+            showLightboxThumbnails={true}/>
                 </div>
                 </div>
         );
