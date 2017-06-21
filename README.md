@@ -114,6 +114,8 @@ lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of th
 
 ### General Notes
 
+ * [react-grid-gallery](https://github.com/benhowell/react-grid-gallery) is built for modern browsers and therefore IE support is limited to IE 11 and newer.
+ 
  * As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size applied when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonable.
 
  * Gallery width is determined by the containing element.
