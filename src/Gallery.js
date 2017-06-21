@@ -57,7 +57,9 @@ class Gallery extends Component {
     }
 
     openLightbox (index, event) {
-        event.preventDefault();
+        if (event) {
+            event.preventDefault();
+        }
         if (this.props.lightboxWillOpen) {
             this.props.lightboxWillOpen(index);
         }
