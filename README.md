@@ -106,9 +106,9 @@ showImageCount          | bool          | true          | Optional. Display imag
 onClickImage            | func          | onClickImage  | Optional. Function to execute when lightbox image clicked. Overrides internal implementation of onClickImage.
 onClickPrev             | func          | onClickPrev   | Optional. Function to execute when lightbox left arrow clicked. Overrides internal implementation of onClickPrev.
 onClickNext             | func          | onClickNext   | Optional. Function to execute when lightbox right arrow clicked. Overrides internal implementation of onClickNext.
+tagStyle 	        | object 	| tagStyle 	| Optional. Style to pass to tag elements. Overrides internal tag style.
 showLightboxThumbnails  | bool          | false         | Optional. Display thumbnails beneath the Lightbox image.
 onClickLightboxThumbnail | func         | gotoImage     | Optional. Function to execute when lightbox thumbnail clicked. Overrides internal function: gotoImage.
-theme 	                | object 	| undefined 	        | Optional. Pass through styles to theme each component; `arrow`, `container`, etc.
 lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of the lightbox carousel; defaults to 1024px.
 
 
