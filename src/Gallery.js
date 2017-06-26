@@ -244,6 +244,7 @@ class Gallery extends Component {
             isSelectable={this.props.enableImageSelection}
             onClick={this.getOnClickThumbnailFn()}
             onSelectImage={this.onSelectImage}
+            tagStyle={this.props.tagStyle}
                 />;});
 
         return (
@@ -316,9 +317,10 @@ Gallery.propTypes = {
     showCloseButton: PropTypes.bool,
     showImageCount: PropTypes.bool,
     lightboxWidth: PropTypes.number,
-    theme: PropTypes.object,
+    tileViewportStyle: PropTypes.func,
     showLightboxThumbnails: PropTypes.bool,
-    onClickLightboxThumbnail: PropTypes.func
+    onClickLightboxThumbnail: PropTypes.func,
+    tagStyle: PropTypes.object
 };
 
 Gallery.defaultProps = {
@@ -335,7 +337,6 @@ Gallery.defaultProps = {
     showCloseButton: true,
     showImageCount: true,
     lightboxWidth: 1024,
-    theme: {},
     showLightboxThumbnails: false
 };
 

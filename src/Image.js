@@ -26,6 +26,24 @@ class Image extends Component {
         };
     }
 
+    tagStyle () {
+        if (this.props.tagStyle)
+            return this.props.tagStyle;
+        return {
+            display: "inline",
+            padding: ".2em .6em .3em",
+            fontSize: "75%",
+            fontWeight: "600",
+            lineHeight: "1",
+            color: "yellow",
+            background: "rgba(0,0,0,0.65)",
+            textAlign: "center",
+            whiteSpace: "nowrap",
+            verticalAlign: "baseline",
+            borderRadius: ".25em"
+        };
+    }
+
     thumbnailStyle () {
         if (this.props.item.isSelected){
             var ratio = (this.props.item.scaletwidth / this.props.height);
@@ -78,6 +96,7 @@ class Image extends Component {
     }
 
     render () {
+        var self = this;
         var tags = (typeof this.props.item.tags === 'undefined') ? <noscript/> :
                 this.props.item.tags.map((tag) => {
                     return <div title={tag.title}
@@ -86,7 +105,7 @@ class Image extends Component {
                             cursor: 'pointer',
                             pointerEvents: 'visible',
                             margin: "2px"}}>
-                        <span style={tagStyle}>{tag.value}</span>
+                        <span style={self.tagStyle()}>{tag.value}</span>
                         </div>;
                 });
 
@@ -180,26 +199,14 @@ Image.propTypes = {
     isSelectable: PropTypes.bool,
     onClick: PropTypes.func,
     onSelectImage: PropTypes.func,
+    tileViewportStyle: PropTypes.func,
+    tagStyle: PropTypes.object,
     customOverlay: PropTypes.element
 };
 
 Image.defaultProps = {
     isSelectable: true,
     hover: false
-};
-
-const tagStyle = {
-    display: "inline",
-    padding: ".2em .6em .3em",
-    fontSize: "75%",
-    fontWeight: "600",
-    lineHeight: "1",
-    color: "yellow",
-    background: "rgba(0,0,0,0.65)",
-    textAlign: "center",
-    whiteSpace: "nowrap",
-    verticalAlign: "baseline",
-    borderRadius: ".25em"
 };
 
 export default Image;
