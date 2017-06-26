@@ -83,6 +83,7 @@ enableLightbox          | bool          | true          | Optional. Enable light
 onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Optional args: index (index of selected image in images array), event (the click event). Overrides openLightbox.
 lightboxWillOpen        | func          | undefined     | Optional. Function to be called before opening lightbox. Optional arg: index (index of selected image in images array).
 lightboxWillClose       | func          | undefined     | Optional. Function to be called before closing lightbox.
+tagStyle 	        | object 	| tagStyle 	| Optional. Style to pass to tag elements. Overrides internal tag style.
 
 ## Lightbox Options
 NOTE: these options are passed inside the Gallery tag.
@@ -106,7 +107,6 @@ showImageCount          | bool          | true          | Optional. Display imag
 onClickImage            | func          | onClickImage  | Optional. Function to execute when lightbox image clicked. Overrides internal implementation of onClickImage.
 onClickPrev             | func          | onClickPrev   | Optional. Function to execute when lightbox left arrow clicked. Overrides internal implementation of onClickPrev.
 onClickNext             | func          | onClickNext   | Optional. Function to execute when lightbox right arrow clicked. Overrides internal implementation of onClickNext.
-tagStyle 	        | object 	| tagStyle 	| Optional. Style to pass to tag elements. Overrides internal tag style.
 showLightboxThumbnails  | bool          | false         | Optional. Display thumbnails beneath the Lightbox image.
 onClickLightboxThumbnail | func         | gotoImage     | Optional. Function to execute when lightbox thumbnail clicked. Overrides internal function: gotoImage.
 lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of the lightbox carousel; defaults to 1024px.
