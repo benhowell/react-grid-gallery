@@ -126,6 +126,23 @@ lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of th
 
 * If you don't know your `thumbnailWidth` and `thumbnailHeight` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
 
+* User defined functions that allow access to `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) do not require you to pass `this` as a parameter. `this` will be defined at the time the function is called.
+
+e.g.
+```js
+//somewhere in your code...
+function myTileViewportStyleFn() {
+  if (this.props.item.isSelected)
+    return {
+           //some awesome style                   
+            };
+}
+
+//internally, within the react-grid-gallery component it will be called like so:
+myTileViewportStyleFn.call(this);
+
+```
+
 
 ### License
 React Grid Gallery is free to use for personal and commercial projects under the [MIT License](https://github.com/benhowell/react-grid-gallery/blob/master/LICENSE). Attribution is not required, but appreciated.
