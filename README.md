@@ -75,15 +75,17 @@ Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above).
 enableImageSelection    | bool          | true          | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying images with `isSelected: true` will result in those images being permanently selected.
-onSelectImage           | func          | undefined     | Optional. Function to execute when an image is selected. Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`. 
+onSelectImage           | func          | undefined     | Optional. Function to execute when an image is selected. Access to image using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`. 
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
 maxRows                 | number        | undefined     | Optional. The maximum number of rows to show in the gallery.
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
 enableLightbox          | bool          | true          | Optional. Enable lightbox display of full size image when thumbnail clicked.
-onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Optional args: index (index of selected image in images array), event (the click event). Overrides openLightbox.
-lightboxWillOpen        | func          | undefined     | Optional. Function to be called before opening lightbox. Optional arg: index (index of selected image in images array).
-lightboxWillClose       | func          | undefined     | Optional. Function to be called before closing lightbox.
+onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Allows access to thumbnail using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call). Optional args: index (index of selected image in images array), event (the click event). Overrides openLightbox.
+lightboxWillOpen        | func          | undefined     | Optional. Function to be called before opening lightbox. Allows access to gallery using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call). Optional arg: index (index of selected image in images array).
+lightboxWillClose       | func          | undefined     | Optional. Function to be called before closing lightbox. Allows access to gallery using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
 tagStyle 	        | object 	| tagStyle 	| Optional. Style to pass to tag elements. Overrides internal tag style.
+tileViewportStyle 	| func 	        | tileViewportStyle | Optional. Function to style the image tile viewport. Allows access to image tile viewport using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call). Overrides internal tileViewportStyle function.
+thumbnailStyle 	        | func 	        | thumbnailStyle | Optional. Function to style the image thumbnail. Allows access to thumbnail using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call). Overrides internal thumbnailStyle function.
 
 ## Lightbox Options
 NOTE: these options are passed inside the Gallery tag.
