@@ -11,21 +11,6 @@ class Image extends Component {
         };
     }
 
-    tileViewportStyle () {
-        if (this.props.item.isSelected)
-            return {
-                width: this.props.item.vwidth -32,
-                height: this.props.height -32,
-                margin: 16,
-                overflow: "hidden"
-            };
-        return {
-            width: this.props.item.vwidth,
-            height: this.props.height,
-            overflow: "hidden"
-        };
-    }
-
     tagStyle () {
         if (this.props.tagStyle)
             return this.props.tagStyle;
@@ -44,7 +29,26 @@ class Image extends Component {
         };
     }
 
+    tileViewportStyle () {
+        if (this.props.tileViewportStyle)
+            return this.props.tileViewportStyle.call(this);
+        if (this.props.item.isSelected)
+            return {
+                width: this.props.item.vwidth -32,
+                height: this.props.height -32,
+                margin: 16,
+                overflow: "hidden"
+            };
+        return {
+            width: this.props.item.vwidth,
+            height: this.props.height,
+            overflow: "hidden"
+        };
+    }
+
     thumbnailStyle () {
+        if (this.props.thumbnailStyle)
+            return this.props.thumbnailStyle.call(this);
         if (this.props.item.isSelected){
             var ratio = (this.props.item.scaletwidth / this.props.height);
             var height = 0;
@@ -96,7 +100,6 @@ class Image extends Component {
     }
 
     render () {
-        var self = this;
         var tags = (typeof this.props.item.tags === 'undefined') ? <noscript/> :
                 this.props.item.tags.map((tag) => {
                     return <div title={tag.title}
@@ -105,7 +108,7 @@ class Image extends Component {
                             cursor: 'pointer',
                             pointerEvents: 'visible',
                             margin: "2px"}}>
-                        <span style={self.tagStyle()}>{tag.value}</span>
+                        <span style={this.tagStyle()}>{tag.value}</span>
                         </div>;
                 });
 
@@ -175,12 +178,10 @@ class Image extends Component {
                 </div>
 
                 <div className="tile-viewport"
-            style={
-                this.tileViewportStyle()
-            }
+            style={this.tileViewportStyle()}
                 key={"tile-viewport-"+this.props.index}
             onClick={this.props.onClick ?
-                     (e) => this.props.onClick(this.props.index, e) : null}>
+                     (e) => this.props.onClick.call(this, this.props.index, e) : null}>
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
@@ -200,6 +201,7 @@ Image.propTypes = {
     onClick: PropTypes.func,
     onSelectImage: PropTypes.func,
     tileViewportStyle: PropTypes.func,
+    thumbnailStyle: PropTypes.func,
     tagStyle: PropTypes.object,
     customOverlay: PropTypes.element
 };
