@@ -61,7 +61,7 @@ class Gallery extends Component {
             event.preventDefault();
         }
         if (this.props.lightboxWillOpen) {
-            this.props.lightboxWillOpen(index);
+            this.props.lightboxWillOpen.call(this, index);
         }
 
         this.setState({
@@ -72,7 +72,7 @@ class Gallery extends Component {
 
     closeLightbox () {
         if (this.props.lightboxWillClose) {
-            this.props.lightboxWillClose();
+            this.props.lightboxWillClose.call(this);
         }
 
         this.setState({
@@ -102,7 +102,7 @@ class Gallery extends Component {
     onSelectImage (index, event) {
         event.preventDefault();
         if(this.props.onSelectImage)
-            this.props.onSelectImage(index, this.state.images[index]);
+            this.props.onSelectImage.call(this, index, this.state.images[index]);
     }
 
     gotoImage (index) {
@@ -247,6 +247,8 @@ class Gallery extends Component {
             onClick={this.getOnClickThumbnailFn()}
             onSelectImage={this.onSelectImage}
             tagStyle={this.props.tagStyle}
+            tileViewportStyle={this.props.tileViewportStyle}
+            thumbnailStyle={this.props.thumbnailStyle}
                 />;});
 
         return (
@@ -320,6 +322,7 @@ Gallery.propTypes = {
     showImageCount: PropTypes.bool,
     lightboxWidth: PropTypes.number,
     tileViewportStyle: PropTypes.func,
+    thumbnailStyle: PropTypes.func,
     showLightboxThumbnails: PropTypes.bool,
     onClickLightboxThumbnail: PropTypes.func,
     tagStyle: PropTypes.object
