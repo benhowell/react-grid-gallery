@@ -1,5 +1,25 @@
 # react-grid-gallery
 
+### v0.4.0 / 2017-06-29
+
+* Added optional `tileViewportStyle` prop as a function to determine style of tile viewport. This function leverages [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
+
+* Added optional `thumbnailStyle` prop as a function to determine style of each gallery thumbnail. This function leverages [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
+
+* Refactored implementation of `onSelectImage` prop. This function leverages [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
+
+* Refactored implementation of `onClickThumbnail` prop. This function leverages [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
+
+* Refactored implementation of `lightboxWillOpen` prop. This function leverages [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
+
+* Refactored implementation of `lightboxWillClose` prop. This function leverages [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
+
+
+### v0.3.7 / 2017-06-26
+
+* Added optional `tagStyle` prop to style thumbnail tags.
+
+
 ### v0.3.6 / 2017-06-07
 
 * Added optional lightbox prop `showLightboxThumbnails` to display thumbnails beneath the Lightbox image.
