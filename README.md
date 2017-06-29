@@ -75,7 +75,7 @@ Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above).
 enableImageSelection    | bool          | true          | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying images with `isSelected: true` will result in those images being permanently selected.
-onSelectImage           | func          | undefined     | Optional. Function to execute when an image is selected. Access to image using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`. 
+onSelectImage           | func          | undefined     | Optional. Function to execute when an image is selected. Access to image object using `this` (See [Programmers note](#Programmers-Note) for info about Function.prototype.call()). Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`. 
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
 maxRows                 | number        | undefined     | Optional. The maximum number of rows to show in the gallery.
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
@@ -125,6 +125,9 @@ lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of th
  * Image Options: `thumbnail` can point to the same resource as `src`, bearing in mind the resultant data size of the gallery and page load cost. Thumbnails of whatever size will be scaled to match `rowHeight`.
 
 * If you don't know your `thumbnailWidth` and `thumbnailHeight` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
+
+
+### Programmers Note
 
 * User defined functions that allow access to `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) do not require you to pass `this` as a parameter. `this` will be defined at the time the function is called.
 
