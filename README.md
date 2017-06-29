@@ -139,6 +139,9 @@ function myTileViewportStyleFn() {
             };
 }
 
+<Gallery images={IMAGES} tileViewportStyle={myTileViewportStyleFn}/>
+
+
 // internally, within the react-grid-gallery component it will be called like so:
 myTileViewportStyleFn.call(this); // this now refers to the image to be styled
 
