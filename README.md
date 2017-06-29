@@ -75,17 +75,17 @@ Property	|	Type		|	Default		|	Description
 :-----------------------|:--------------|:--------------|:--------------------------------
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above).
 enableImageSelection    | bool          | true          | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying images with `isSelected: true` will result in those images being permanently selected.
-onSelectImage           | func          | undefined     | Optional. Function to execute when an image is selected. Access to image object using `this` (See [Programmers note](#Programmers-Note) for info about Function.prototype.call()). Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`. 
+onSelectImage           | func          | undefined     | Optional. Function to execute when an image is selected. Access to image object using `this` (See [Programmers notes](#Programmers-notes) for info about Function.prototype.call()). Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`. 
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
 maxRows                 | number        | undefined     | Optional. The maximum number of rows to show in the gallery.
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
 enableLightbox          | bool          | true          | Optional. Enable lightbox display of full size image when thumbnail clicked.
-onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Allows access to thumbnail using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call). Optional args: index (index of selected image in images array), event (the click event). Overrides openLightbox.
-lightboxWillOpen        | func          | undefined     | Optional. Function to be called before opening lightbox. Allows access to gallery using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call). Optional arg: index (index of selected image in images array).
-lightboxWillClose       | func          | undefined     | Optional. Function to be called before closing lightbox. Allows access to gallery using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call).
+onClickThumbnail        | func          | openLightbox  | Optional. Function to execute when gallery thumbnail clicked. Allows access to thumbnail using `this` (See [Programmers notes](#Programmers-notes) for info about Function.prototype.call()). Optional args: index (index of selected image in images array), event (the click event). Overrides openLightbox.
+lightboxWillOpen        | func          | undefined     | Optional. Function to be called before opening lightbox. Allows access to gallery using `this` (See [Programmers notes](#Programmers-notes) for info about Function.prototype.call()). Optional arg: index (index of selected image in images array).
+lightboxWillClose       | func          | undefined     | Optional. Function to be called before closing lightbox. Allows access to gallery using `this` (See [Programmers notes](#Programmers-notes) for info about Function.prototype.call()).
 tagStyle 	        | object 	| tagStyle 	| Optional. Style to pass to tag elements. Overrides internal tag style.
-tileViewportStyle 	| func 	        | tileViewportStyle | Optional. Function to style the image tile viewport. Allows access to image tile viewport using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call). Overrides internal tileViewportStyle function.
-thumbnailStyle 	        | func 	        | thumbnailStyle | Optional. Function to style the image thumbnail. Allows access to thumbnail using `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call). Overrides internal thumbnailStyle function.
+tileViewportStyle 	| func 	        | tileViewportStyle | Optional. Function to style the image tile viewport. Allows access to image tile viewport using `this` (See [Programmers notes](#Programmers-notes) for info about Function.prototype.call()). Overrides internal tileViewportStyle function.
+thumbnailStyle 	        | func 	        | thumbnailStyle | Optional. Function to style the image thumbnail. Allows access to thumbnail using `this` (See [Programmers notes](#Programmers-notes) for info about Function.prototype.call()). Overrides internal thumbnailStyle function.
 
 ## Lightbox Options
 NOTE: these options are passed inside the Gallery tag.
@@ -124,27 +124,27 @@ lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of th
 
  * Image Options: `thumbnail` can point to the same resource as `src`, bearing in mind the resultant data size of the gallery and page load cost. Thumbnails of whatever size will be scaled to match `rowHeight`.
 
-* If you don't know your `thumbnailWidth` and `thumbnailHeight` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
 
-
-### Programmers Note
+### Programmers Notes
 
 * User defined functions that allow access to `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) do not require you to pass `this` as a parameter. `this` will be defined at the time the function is called.
 
 e.g.
 ```js
-//somewhere in your code...
+// somewhere in your code...
 function myTileViewportStyleFn() {
   if (this.props.item.isSelected)
     return {
-           //some awesome style                   
+           // something stylish...                   
             };
 }
 
-//internally, within the react-grid-gallery component it will be called like so:
-myTileViewportStyleFn.call(this);
+// internally, within the react-grid-gallery component it will be called like so:
+myTileViewportStyleFn.call(this); // this now refers to the image to be styled
 
 ```
+
+* If you don't know your `thumbnailWidth` and `thumbnailHeight` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
 
 
 ### License
