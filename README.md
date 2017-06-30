@@ -127,7 +127,7 @@ lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of th
 
 ### Programmers Notes
 
- * User defined functions that allow access to `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) do not require you to pass `this` as a parameter. `this` will be defined at the time the function is called.
+ * User defined functions that allow access to `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) do not require you to declare or pass `this` as a parameter. `this` will be defined at the time the function is called.
 
 e.g.
 ```js
