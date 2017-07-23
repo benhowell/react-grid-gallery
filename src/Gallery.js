@@ -252,7 +252,7 @@ class Gallery extends Component {
                 />;});
 
         return (
-                <div id="Gallery" ref={(c) => this._gallery = c}>
+                <div id={this.props.id} className="ReactGridGallery" ref={(c) => this._gallery = c}>
                 {images}
                 <Lightbox
             images={this.props.images}
@@ -298,6 +298,7 @@ Gallery.propTypes = {
             isSelected: PropTypes.bool
         })
     ).isRequired,
+    id: PropTypes.string,
     enableImageSelection: PropTypes.bool,
     onSelectImage: PropTypes.func,
     rowHeight: PropTypes.number,
@@ -329,6 +330,7 @@ Gallery.propTypes = {
 };
 
 Gallery.defaultProps = {
+    id: "ReactGridGallery",
     enableImageSelection: true,
     rowHeight: 180,
     margin: 2,
