@@ -171,6 +171,9 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
  * [danalloway](https://github.com/danalloway) for theme pass-through prop [PR 27](https://github.com/benhowell/react-grid-gallery/pull/27)
 
+ * [SimeonC](https://github.com/SimeonC) for _update thumbnails when maxRows changes_ [PR 35](https://github.com/benhowell/react-grid-gallery/pull/35) and _resize on scrollbar presence change_ [PR 40](https://github.com/benhowell/react-grid-gallery/pull/40)
+
+
  
 
  * Demo stock photos:
