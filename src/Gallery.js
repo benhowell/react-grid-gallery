@@ -27,7 +27,6 @@ class Gallery extends Component {
 
     componentDidMount () {
         this.onResize();
-        window.addEventListener('resize', this.onResize);
     }
 
     componentWillReceiveProps (np) {
@@ -250,9 +249,19 @@ class Gallery extends Component {
             tileViewportStyle={this.props.tileViewportStyle}
             thumbnailStyle={this.props.thumbnailStyle}
                 />;});
-
+        var resizeIframeStyles = {
+            height: 0,
+            margin: 0,
+            padding: 0,
+            overflow: "hidden",
+            borderWidth: 0,
+            position: "fixed",
+            backgroundColor: "transparent",
+            width: "100%"
+        };
         return (
                 <div id={this.props.id} className="ReactGridGallery" ref={(c) => this._gallery = c}>
+                    <iframe style={resizeIframeStyles} ref={(c) => c && c.contentWindow.addEventListener('resize', this.onResize) } />
                 {images}
                 <Lightbox
             images={this.props.images}
