@@ -1,5 +1,12 @@
 # react-grid-gallery
 
+### v0.4.3 / 2017-09-15
+
+* Fixed resize event not triggering on scroll bar presence change [PR 40](https://github.com/benhowell/react-grid-gallery/pull/40). Thanks [SimeonC](https://github.com/SimeonC).
+
+* Updated acknowledgements.
+
+
 ### v0.4.2 / 2017-07-23
 
 * Added optional `id` prop for the id attribute of the `<Gallery>` tag.
