@@ -304,7 +304,11 @@ Gallery.propTypes = {
             ),
             thumbnailWidth: PropTypes.number.isRequired,
             thumbnailHeight: PropTypes.number.isRequired,
-            isSelected: PropTypes.bool
+            isSelected: PropTypes.bool,
+            description: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.element
+            ])
         })
     ).isRequired,
     id: PropTypes.string,
