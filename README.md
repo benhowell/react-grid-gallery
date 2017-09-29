@@ -10,6 +10,7 @@ https://benhowell.github.io/react-grid-gallery/
 * [Permanently Selected Images](https://benhowell.github.io/react-grid-gallery/#permanently-selected-images)
 * [Simple Gallery](https://benhowell.github.io/react-grid-gallery/#simple-gallery)
 * [Custom Overlay](https://benhowell.github.io/react-grid-gallery/#custom-overlay)
+* [Thumbnail Captions](https://benhowell.github.io/react-grid-gallery/#thumbnail-caption)
 
 ## Installation
 
