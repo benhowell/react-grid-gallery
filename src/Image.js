@@ -179,7 +179,7 @@ class Image extends Component {
 
                 <div className="tile-viewport"
             style={this.tileViewportStyle()}
-                key={"tile-viewport-"+this.props.index}
+            key={"tile-viewport-"+this.props.index}
             onClick={this.props.onClick ?
                      (e) => this.props.onClick.call(this, this.props.index, e) : null}>
                 <img
@@ -187,18 +187,18 @@ class Image extends Component {
             src={this.props.item.thumbnail} title={this.props.item.caption}
             style={this.thumbnailStyle()} />
                 </div>
-           {this.props.item.description && (
-              <div className="tile-description"
-                   style={{
-                             background: "white",
-                             height: "100%",
-                             width: "100%",
-                             margin: 0
-                   }}>
-              {this.props.item.description}
-                </div>
-            )}
-                </div>
+                {this.props.item.thumbnailCaption && (
+                        <div className="tile-description"
+                    style={{
+                        background: "white",
+                        height: "100%",
+                        width: "100%",
+                        margin: 0
+                    }}>
+                        {this.props.item.thumbnailCaption}
+                    </div>
+                )}
+            </div>
         );
     }
 }

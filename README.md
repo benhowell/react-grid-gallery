@@ -68,7 +68,7 @@ isSelected              | bool          | undefined     | Optional. The selected
 caption                 | string        | undefined     | Optional. Image caption.
 srcset 	                | array         | undefined 	| Optional. Array of srcsets for lightbox.
 customOverlay           | element       | undefined     | Optional. A custom element to be rendered as a thumbnail overlay on hover.
-description             | string&#124;element| undefined     | Optional. A image description that is shown below image.
+thumbnailCaption        | string&#124;element| undefined     | Optional. A thumbnail caption shown below thumbnail.
 
 ## Gallery Options
 
@@ -173,6 +173,8 @@ React Grid Gallery is free to use for personal and commercial projects under the
  * [danalloway](https://github.com/danalloway) for theme pass-through prop [PR 27](https://github.com/benhowell/react-grid-gallery/pull/27)
 
  * [SimeonC](https://github.com/SimeonC) for _update thumbnails when maxRows changes_ [PR 35](https://github.com/benhowell/react-grid-gallery/pull/35) and _resize on scrollbar presence change_ [PR 40](https://github.com/benhowell/react-grid-gallery/pull/40)
+
+ * [jakub-tucek](https://github.com/jakub-tucek) for thumbnailCaption functionality [PR 42](https://github.com/benhowell/react-grid-gallery/pull/42)
 
 
  
