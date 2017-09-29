@@ -1,5 +1,14 @@
 # react-grid-gallery
 
+### v0.4.4 / 2017-09-29
+
+* Added optional thumbnailCaption functionality [PR 42](https://github.com/benhowell/react-grid-gallery/pull/42). Thanks [jakub-tucek](https://github.com/jakub-tucek).
+
+* Updated acknowledgements.
+
+* Updated documentation.
+
+
 ### v0.4.3 / 2017-09-15
 
 * Fixed resize event not triggering on scroll bar presence change [PR 40](https://github.com/benhowell/react-grid-gallery/pull/40). Thanks [SimeonC](https://github.com/SimeonC).
