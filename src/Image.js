@@ -187,6 +187,17 @@ class Image extends Component {
             src={this.props.item.thumbnail} title={this.props.item.caption}
             style={this.thumbnailStyle()} />
                 </div>
+           {this.props.item.description && (
+              <div className="tile-description"
+                   style={{
+                             background: "white",
+                             height: "100%",
+                             width: "100%",
+                             margin: 0
+                   }}>
+              {this.props.item.description}
+                </div>
+            )}
                 </div>
         );
     }
