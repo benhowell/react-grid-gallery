@@ -193,7 +193,8 @@ class Image extends Component {
                         background: "white",
                         height: "100%",
                         width: "100%",
-                        margin: 0
+                        margin: 0,
+                        userSelect: "text"
                     }}>
                         {this.props.item.thumbnailCaption}
                     </div>
