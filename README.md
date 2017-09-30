@@ -69,7 +69,7 @@ isSelected              | bool          | undefined     | Optional. The selected
 caption                 | string        | undefined     | Optional. Image caption.
 srcset 	                | array         | undefined 	| Optional. Array of srcsets for lightbox.
 customOverlay           | element       | undefined     | Optional. A custom element to be rendered as a thumbnail overlay on hover.
-thumbnailCaption        | string &#124; element | undefined     | Optional. A thumbnail caption shown below thumbnail.
+thumbnailCaption        | string&#124;element | undefined     | Optional. A thumbnail caption shown below thumbnail.
 
 ## Gallery Options
 
