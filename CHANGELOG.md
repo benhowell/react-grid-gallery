@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.4.5 / 2017-10-02
+
+* Added ability to select thumbnailCaption text [PR 43](https://github.com/benhowell/react-grid-gallery/pull/43). Thanks [jakub-tucek](https://github.com/jakub-tucek).
+
+
 ### v0.4.4 / 2017-09-29
 
 * Added optional thumbnailCaption functionality [PR 42](https://github.com/benhowell/react-grid-gallery/pull/42). Thanks [jakub-tucek](https://github.com/jakub-tucek).
