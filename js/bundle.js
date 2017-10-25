@@ -30470,14 +30470,16 @@
                 }
             }, {
                 key: 'componentDidUpdate',
-                value: function componentDidUpdate(pp, ps) {
-                    console.log("componentdidupdate");
-                    console.log(pp);
-                    console.log(ps);
+                value: function componentDidUpdate() {
                     if (!this._gallery) return;
                     if (this._gallery.clientWidth !== this.state.containerWidth) {
                         this.onResize();
                     }
+                }
+            }, {
+                key: 'onIframeResize',
+                value: function onIframeResize() {
+                    console.log("onIframeResize");
                 }
             }, {
                 key: 'onResize',
@@ -30711,7 +30713,7 @@
                         _react2.default.createElement('iframe', {
                             style: resizeIframeStyles,
                             ref: function ref(c) {
-                                return c && c.contentWindow.addEventListener('resize', _this2.onResize);
+                                return c && c.contentWindow.addEventListener('resize', _this2.onIframeResize);
                             }
                         }),
                         images,
