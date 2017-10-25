@@ -30471,6 +30471,7 @@
             }, {
                 key: 'componentDidUpdate',
                 value: function componentDidUpdate() {
+                    console.log("componentdidupdate");
                     if (!this._gallery) return;
                     if (this._gallery.clientWidth !== this.state.containerWidth) {
                         this.onResize();
@@ -30479,7 +30480,6 @@
             }, {
                 key: 'onResize',
                 value: function onResize() {
-                    console.log("resize");
                     if (!this._gallery) return;
                     this.setState({
                         containerWidth: Math.floor(this._gallery.clientWidth),
