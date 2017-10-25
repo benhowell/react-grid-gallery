@@ -30442,7 +30442,6 @@
                     containerWidth: 0
                 };
 
-                _this.onIframeResize = _this.onIframeResize.bind(_this);
                 _this.onResize = _this.onResize.bind(_this);
                 _this.closeLightbox = _this.closeLightbox.bind(_this);
                 _this.gotoImage = _this.gotoImage.bind(_this);
@@ -30457,11 +30456,13 @@
             _createClass(Gallery, [{
                 key: 'componentDidMount',
                 value: function componentDidMount() {
+                    console.log("did mount");
                     this.onResize();
                 }
             }, {
                 key: 'componentWillReceiveProps',
                 value: function componentWillReceiveProps(np) {
+                    console.log("will props");
                     if (this.state.images != np.images || this.props.maxRows != np.maxRows) {
                         this.setState({
                             images: np.images,
@@ -30472,19 +30473,16 @@
             }, {
                 key: 'componentDidUpdate',
                 value: function componentDidUpdate() {
+                    console.log("did update");
                     if (!this._gallery) return;
                     if (this._gallery.clientWidth !== this.state.containerWidth) {
                         this.onResize();
                     }
                 }
             }, {
-                key: 'onIframeResize',
-                value: function onIframeResize() {
-                    console.log("onIframeResize");
-                }
-            }, {
                 key: 'onResize',
                 value: function onResize() {
+                    console.log("resize");
                     if (!this._gallery) return;
                     this.setState({
                         containerWidth: Math.floor(this._gallery.clientWidth),
@@ -30714,7 +30712,7 @@
                         _react2.default.createElement('iframe', {
                             style: resizeIframeStyles,
                             ref: function ref(c) {
-                                return c && c.contentWindow.addEventListener('resize', _this2.onIframeResize);
+                                return c && c.contentWindow.addEventListener('resize', _this2.onResize);
                             }
                         }),
                         images,
