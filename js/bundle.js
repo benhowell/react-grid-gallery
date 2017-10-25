@@ -30470,7 +30470,10 @@
                 }
             }, {
                 key: 'componentDidUpdate',
-                value: function componentDidUpdate() {
+                value: function componentDidUpdate(pp, ps) {
+                    console.log("componentdidupdate");
+                    console.log(pp);
+                    console.log(ps);
                     if (!this._gallery) return;
                     if (this._gallery.clientWidth !== this.state.containerWidth) {
                         this.onResize();
