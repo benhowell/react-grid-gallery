@@ -30442,6 +30442,7 @@
                     containerWidth: 0
                 };
 
+                _this.onIframeResize = _this.onIframeResize.bind(_this);
                 _this.onResize = _this.onResize.bind(_this);
                 _this.closeLightbox = _this.closeLightbox.bind(_this);
                 _this.gotoImage = _this.gotoImage.bind(_this);
