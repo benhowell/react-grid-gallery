@@ -30463,6 +30463,7 @@
                 key: 'componentWillReceiveProps',
                 value: function componentWillReceiveProps(np) {
                     console.log("will props");
+                    console.log(np);
                     if (this.state.images != np.images || this.props.maxRows != np.maxRows) {
                         this.setState({
                             images: np.images,
