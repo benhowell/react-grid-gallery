@@ -156,7 +156,8 @@ class Image extends Component {
                 minHeight: "0px",
                 maxHeight: "160px",
                 width: "100%",
-                bottom: "0px"
+                bottom: "0px",
+                overflow: "hidden"
             }}>
                 {tags}
             </div>
