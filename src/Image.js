@@ -89,7 +89,8 @@ class Image extends Component {
                 <CheckButton key="Select"
             index={this.props.index}
             color={"rgba(255, 255, 255, 0.7)"}
-            selectedColor={"#4285f4"}
+            selectedColor={this.props.selectedIconColor ? 
+                           this.props.selectedIconColor : "#4285f4"}
             hoverColor={"rgba(255, 255, 255, 1)"}
             isSelected={this.props.item.isSelected}
             isSelectable={this.props.isSelectable}
