@@ -84,16 +84,6 @@ class Image extends Component {
         };
     }
 
-    contextMenu (e) {
-        if (this.props.disableContextMenu) {
-            e.preventDefault();
-            return false;    
-        } else {
-            return true;
-        }
-        
-    }
-
     renderCheckButton () {
         return (
                 <CheckButton key="Select"
@@ -197,7 +187,7 @@ class Image extends Component {
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
-            style={this.thumbnailStyle()} onContextMenu={this.contextMenu} />
+            style={this.thumbnailStyle()} onContextMenu={this.props.onContextMenu} />
                 </div>
                 {this.props.item.thumbnailCaption && (
                         <div className="tile-description"
@@ -231,7 +221,7 @@ Image.propTypes = {
     thumbnailStyle: PropTypes.func,
     tagStyle: PropTypes.object,
     customOverlay: PropTypes.element,
-    disableContextMenu: PropTypes.bool
+    onContextMenu: PropTypes.func
 };
 
 Image.defaultProps = {
