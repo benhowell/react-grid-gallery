@@ -187,7 +187,7 @@ class Image extends Component {
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
-            style={this.thumbnailStyle()} />
+            style={this.thumbnailStyle()} oncontextmenu={this.props.disableContextMenu ? 'return false' : null} />
                 </div>
                 {this.props.item.thumbnailCaption && (
                         <div className="tile-description"
@@ -220,7 +220,8 @@ Image.propTypes = {
     tileViewportStyle: PropTypes.func,
     thumbnailStyle: PropTypes.func,
     tagStyle: PropTypes.object,
-    customOverlay: PropTypes.element
+    customOverlay: PropTypes.element,
+    disableContextMenu: PropTypes.bool
 };
 
 Image.defaultProps = {

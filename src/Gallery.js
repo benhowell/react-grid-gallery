@@ -281,6 +281,7 @@ class Gallery extends Component {
             width={this.props.lightboxWidth}
             theme={this.props.theme}
             onClickThumbnail={this.getOnClickLightboxThumbnailFn()}
+            disableContextMenu={this.props.disableContextMenu}
             showThumbnails={this.props.showLightboxThumbnails}
                 />
                 </div>
@@ -340,7 +341,8 @@ Gallery.propTypes = {
     thumbnailStyle: PropTypes.func,
     showLightboxThumbnails: PropTypes.bool,
     onClickLightboxThumbnail: PropTypes.func,
-    tagStyle: PropTypes.object
+    tagStyle: PropTypes.object,
+    disableContextMenu: PropTypes.bool,
 };
 
 Gallery.defaultProps = {
@@ -358,7 +360,8 @@ Gallery.defaultProps = {
     showCloseButton: true,
     showImageCount: true,
     lightboxWidth: 1024,
-    showLightboxThumbnails: false
+    showLightboxThumbnails: false,
+    disableContextMenu: false,
 };
 
 module.exports = Gallery;
