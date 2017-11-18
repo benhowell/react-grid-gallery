@@ -89,7 +89,8 @@ class Image extends Component {
                 <CheckButton key="Select"
             index={this.props.index}
             color={"rgba(255, 255, 255, 0.7)"}
-            selectedColor={"#4285f4"}
+            selectedColor={this.props.selectedIconColor ? 
+                           this.props.selectedIconColor : "#4285f4"}
             hoverColor={"rgba(255, 255, 255, 1)"}
             isSelected={this.props.item.isSelected}
             isSelectable={this.props.isSelectable}
@@ -186,7 +187,7 @@ class Image extends Component {
                 <img
             key={"img-"+this.props.index}
             src={this.props.item.thumbnail} title={this.props.item.caption}
-            style={this.thumbnailStyle()} />
+            style={this.thumbnailStyle()} onContextMenu={this.props.onContextMenu} />
                 </div>
                 {this.props.item.thumbnailCaption && (
                         <div className="tile-description"
@@ -219,7 +220,8 @@ Image.propTypes = {
     tileViewportStyle: PropTypes.func,
     thumbnailStyle: PropTypes.func,
     tagStyle: PropTypes.object,
-    customOverlay: PropTypes.element
+    customOverlay: PropTypes.element,
+    onContextMenu: PropTypes.func
 };
 
 Image.defaultProps = {

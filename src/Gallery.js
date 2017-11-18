@@ -245,8 +245,11 @@ class Gallery extends Component {
             isSelectable={this.props.enableImageSelection}
             onClick={this.getOnClickThumbnailFn()}
             onSelectImage={this.onSelectImage}
+            onContextMenu={this.props.onContextMenu}
             tagStyle={this.props.tagStyle}
             tileViewportStyle={this.props.tileViewportStyle}
+            selectedIconColor={this.props.selectedIconColor}
+
             thumbnailStyle={this.props.thumbnailStyle}
                 />;});
         var resizeIframeStyles = {
@@ -339,7 +342,8 @@ Gallery.propTypes = {
     thumbnailStyle: PropTypes.func,
     showLightboxThumbnails: PropTypes.bool,
     onClickLightboxThumbnail: PropTypes.func,
-    tagStyle: PropTypes.object
+    tagStyle: PropTypes.object,
+    onContextMenu: PropTypes.func,
 };
 
 Gallery.defaultProps = {
@@ -357,7 +361,7 @@ Gallery.defaultProps = {
     showCloseButton: true,
     showImageCount: true,
     lightboxWidth: 1024,
-    showLightboxThumbnails: false
+    showLightboxThumbnails: false,
 };
 
 module.exports = Gallery;
