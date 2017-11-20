@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.4.7 / 2017-11-20
+
+* Added className to custom overlay.
+
+
 ### v0.4.6 / 2017-10-02
 
 * Added vendor specific prefixes to userSelect styling.
