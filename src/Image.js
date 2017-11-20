@@ -114,14 +114,16 @@ class Image extends Component {
 
         var customOverlay = (typeof this.props.item.customOverlay === 'undefined')
                 ? <noscript/> :
-                <div style={{
-                    pointerEvents: "none",
-                    opacity: this.state.hover ? 1 : 0,
-                    position: "absolute",
-                    height: "100%",
-                    width: "100%"}}>
-                {this.props.item.customOverlay}
-            </div>;
+                <div className="custom-overlay"
+        key={"custom-overlay-"+this.props.index}
+        style={{
+            pointerEvents: "none",
+            opacity: this.state.hover ? 1 : 0,
+            position: "absolute",
+            height: "100%",
+            width: "100%"}}>
+            {this.props.item.customOverlay}
+        </div>;
 
         return (
                 <div className="tile"
