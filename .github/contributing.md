@@ -11,7 +11,7 @@ Please start the title of your issue report with "Feature request:". If any of t
 ## Pull requests
 Pull requests of all kinds are welcome. To ensure a smooth integration process, please follow the guidelines below:
 * Before making any radical changes, new features or major re-writes, please open an issue request first to discuss the changes with the maintainers.
-* Please ensure all examples in the example directory work correctly with your new changes.
+* Please ensure all examples in the `example` directory work correctly with your new changes.
 * If adding new functionality, please include a demo in the `examples` directory.
 * Only commit source, example and README files with your pull request. If your changes require extra libs/dependencies then please discuss this first with the maintainers by creating an issue request.
 * New functionality requires documentation be added to the README file.
