@@ -153,6 +153,10 @@ myTileViewportStyleFn.call(this); // this now refers to the image to be styled
  * If you don't know your `thumbnailWidth` and `thumbnailHeight` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
 
 
+### Contributing
+All contributions to [react-grid-gallery](https://github.com/benhowell/react-grid-gallery) are very welcome. Feature requests, issue reports and pull requests are greatly appreciated. Please follow the [contribution guidelines](https://github.com/benhowell/react-grid-gallery/blob/master/.github/contributing.md)
+
+
 ### License
 React Grid Gallery is free to use for personal and commercial projects under the [MIT License](https://github.com/benhowell/react-grid-gallery/blob/master/LICENSE). Attribution is not required, but appreciated.
 
