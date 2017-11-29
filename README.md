@@ -67,7 +67,7 @@ thumbnailHeight         | number        | undefined     | Required. Height of th
 tags                    | array         | undefined     | Optional. An array of objects containing tag attributes (value and title). e.g. `{value: "foo", title: "bar"}`
 isSelected              | bool          | undefined     | Optional. The selected state of the image.
 caption                 | string        | undefined     | Optional. Image caption.
-srcset 	                | array         | undefined 	| Optional. Array of srcsets for lightbox.
+srcSet 	                | array         | undefined 	| Optional. Array of srcSets for lightbox.
 customOverlay           | element       | undefined     | Optional. A custom element to be rendered as a thumbnail overlay on hover.
 thumbnailCaption        | string&#124;element | undefined     | Optional. A thumbnail caption shown below thumbnail.
 
