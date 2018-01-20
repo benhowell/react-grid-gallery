@@ -61,6 +61,18 @@ class Image extends Component {
             case 8:
                 rotationTransformValue = "rotate(270deg)";
                 break;
+            case 2:
+                rotationTransformValue = "rotateY(180deg)";
+                break;
+            case 4:
+                rotationTransformValue = "rotate(180deg) rotateY(180deg)";
+                break;
+            case 5:
+                rotationTransformValue = "rotate(270deg) rotateY(180deg)";
+                break;
+            case 7:
+                rotationTransformValue = "rotate(90deg) rotateY(180deg)";
+                break;
         }
         if (this.props.item.isSelected){
             var ratio = (this.props.item.scaletwidth / this.props.height);
