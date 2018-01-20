@@ -1,6 +1,6 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Justified gallery component for React.",
   "main": "lib/Gallery.js",
   "dependencies": {
@@ -46,6 +46,7 @@
     "justified",
     "tags",
     "tagging",
+    "EXIF",
     "image gallery",
     "photo gallery"
   ],
