@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.4.8
+
+* Added image rotation/transformation functionality based upon EXIF orientation passed in the image `orientation` prop [PR 67](https://github.com/benhowell/react-grid-gallery/pull/67). Thanks [mis94](https://github.com/mis94).
+
+
 ### v0.4.7 / 2017-11-20
 
 * Added className to custom overlay.

@@ -70,7 +70,7 @@ caption                 | string        | undefined     | Optional. Image captio
 srcSet 	                | array         | undefined 	| Optional. Array of srcSets for lightbox.
 customOverlay           | element       | undefined     | Optional. A custom element to be rendered as a thumbnail overlay on hover.
 thumbnailCaption        | string&#124;element | undefined     | Optional. A thumbnail caption shown below thumbnail.
-orientation          | number        | undefined     | Optional. Orientation of the image. Many newer digital cameras (both dSLR and Point & Shoot digicams) have a built-in orientation sensor. The output of this sensor is used to set the EXIF orientation flag in the image file's metatdata to reflect the positioning of the camera with respect to the ground.
+orientation             | number        | undefined     | Optional. Orientation of the image. Many newer digital cameras (both dSLR and Point & Shoot digicams) have a built-in orientation sensor. The output of this sensor is used to set the EXIF orientation flag in the image file's metatdata to reflect the positioning of the camera with respect to the ground (See [EXIF Orientation Page](http://jpegclub.org/exif_orientation.html) for more info). 
 
 ## Gallery Options
 
@@ -181,6 +181,8 @@ React Grid Gallery is free to use for personal and commercial projects under the
  * [SimeonC](https://github.com/SimeonC) for _update thumbnails when maxRows changes_ [PR 35](https://github.com/benhowell/react-grid-gallery/pull/35) and _resize on scrollbar presence change_ [PR 40](https://github.com/benhowell/react-grid-gallery/pull/40)
 
  * [jakub-tucek](https://github.com/jakub-tucek) for thumbnailCaption functionality [PR 42](https://github.com/benhowell/react-grid-gallery/pull/42)
+
+ * [mis94](https://github.com/mis94) for EXIF image rotation and functionality [PR 67](https://github.com/benhowell/react-grid-gallery/pull/67)
 
 
  
