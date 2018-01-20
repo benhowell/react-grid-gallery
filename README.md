@@ -182,7 +182,7 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
  * [jakub-tucek](https://github.com/jakub-tucek) for thumbnailCaption functionality [PR 42](https://github.com/benhowell/react-grid-gallery/pull/42)
 
- * [mis94](https://github.com/mis94) for EXIF image rotation and functionality [PR 67](https://github.com/benhowell/react-grid-gallery/pull/67)
+ * [mis94](https://github.com/mis94) for EXIF image rotation functionality [PR 67](https://github.com/benhowell/react-grid-gallery/pull/67)
 
 
  
