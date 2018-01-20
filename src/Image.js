@@ -49,6 +49,31 @@ class Image extends Component {
     thumbnailStyle () {
         if (this.props.thumbnailStyle)
             return this.props.thumbnailStyle.call(this);
+            
+        var rotationTransformValue = undefined;
+        switch (this.props.item.orientation) {
+            case 3:
+                rotationTransformValue = "rotate(180deg)";
+                break;
+            case 6:
+                rotationTransformValue = "rotate(90deg)";
+                break;
+            case 8:
+                rotationTransformValue = "rotate(270deg)";
+                break;
+            case 2:
+                rotationTransformValue = "rotateY(180deg)";
+                break;
+            case 4:
+                rotationTransformValue = "rotate(180deg) rotateY(180deg)";
+                break;
+            case 5:
+                rotationTransformValue = "rotate(270deg) rotateY(180deg)";
+                break;
+            case 7:
+                rotationTransformValue = "rotate(90deg) rotateY(180deg)";
+                break;
+        }
         if (this.props.item.isSelected){
             var ratio = (this.props.item.scaletwidth / this.props.height);
             var height = 0;
@@ -72,7 +97,8 @@ class Image extends Component {
                 width: width,
                 height: height,
                 marginLeft: marginLeft,
-                marginTop: marginTop
+                marginTop: marginTop,
+                transform: rotationTransformValue
             };
         }
         return {
@@ -80,7 +106,8 @@ class Image extends Component {
             width: this.props.item.scaletwidth,
             height: this.props.height,
             marginLeft: this.props.item.marginLeft,
-            marginTop: 0
+            marginTop: 0,
+            transform: rotationTransformValue
         };
     }
 

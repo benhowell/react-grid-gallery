@@ -70,6 +70,7 @@ caption                 | string        | undefined     | Optional. Image captio
 srcSet 	                | array         | undefined 	| Optional. Array of srcSets for lightbox.
 customOverlay           | element       | undefined     | Optional. A custom element to be rendered as a thumbnail overlay on hover.
 thumbnailCaption        | string&#124;element | undefined     | Optional. A thumbnail caption shown below thumbnail.
+orientation          | number        | undefined     | Optional. Orientation of the image. Many newer digital cameras (both dSLR and Point & Shoot digicams) have a built-in orientation sensor. The output of this sensor is used to set the EXIF orientation flag in the image file's metatdata to reflect the positioning of the camera with respect to the ground.
 
 ## Gallery Options
 
