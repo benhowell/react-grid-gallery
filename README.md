@@ -51,7 +51,7 @@ const IMAGES =
 }]
 
 render(
-        <Gallery images={IMAGES}/>,     
+        <Gallery images={IMAGES}/>,
         document.getElementById('example-0')
 );
 ```
@@ -70,7 +70,7 @@ caption                 | string        | undefined     | Optional. Image captio
 srcSet 	                | array         | undefined 	| Optional. Array of srcSets for lightbox.
 customOverlay           | element       | undefined     | Optional. A custom element to be rendered as a thumbnail overlay on hover.
 thumbnailCaption        | string&#124;element | undefined     | Optional. A thumbnail caption shown below thumbnail.
-orientation             | number        | undefined     | Optional. Orientation of the image. Many newer digital cameras (both dSLR and Point & Shoot digicams) have a built-in orientation sensor. The output of this sensor is used to set the EXIF orientation flag in the image file's metatdata to reflect the positioning of the camera with respect to the ground (See [EXIF Orientation Page](http://jpegclub.org/exif_orientation.html) for more info). 
+orientation             | number        | undefined     | Optional. Orientation of the image. Many newer digital cameras (both dSLR and Point & Shoot digicams) have a built-in orientation sensor. The output of this sensor is used to set the EXIF orientation flag in the image file's metatdata to reflect the positioning of the camera with respect to the ground (See [EXIF Orientation Page](http://jpegclub.org/exif_orientation.html) for more info).
 
 ## Gallery Options
 
@@ -79,7 +79,7 @@ Property	|	Type		|	Default		|	Description
 images                  | array         | undefined     | Required. An array of objects containing image properties (see Image Options above).
 id                      | string        | "ReactGridGallery" | Optional. `id` attribute for `<Gallery>` tag. This prop may be useful for those who wish to discriminate between multiple galleries.
 enableImageSelection    | bool          | true          | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying images with `isSelected: true` will result in those images being permanently selected.
-onSelectImage           | func          | undefined     | Optional. Function to execute when an image is selected. Allows access to image object using `this` (See [Programmers notes](#programmers-notes) for more info about implicit `this`). Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`. 
+onSelectImage           | func          | undefined     | Optional. Function to execute when an image is selected. Allows access to image object using `this` (See [Programmers notes](#programmers-notes) for more info about implicit `this`). Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`.
 rowHeight               | number        | 180           | Optional. The height of each row in the gallery.
 maxRows                 | number        | undefined     | Optional. The maximum number of rows to show in the gallery.
 margin                  | number        | 2             | Optional. The margin around each image in the gallery.
@@ -121,10 +121,10 @@ lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of th
 ### General Notes
 
  * [react-grid-gallery](https://github.com/benhowell/react-grid-gallery) is built for modern browsers and therefore IE support is limited to IE 11 and newer.
- 
+
  * As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size applied when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonable.
 
- * Gallery width is determined by the containing element.
+ * Gallery width is determined by the containing element. Therefore your containing element must have a width!
 
  * Image Options: `thumbnail` can point to the same resource as `src`, bearing in mind the resultant data size of the gallery and page load cost. Thumbnails of whatever size will be scaled to match `rowHeight`.
 
@@ -139,7 +139,7 @@ e.g.
 function myTileViewportStyleFn() {
   if (this.props.item.isSelected)
     return {
-           // something stylish...                   
+           // something stylish...
             };
 }
 
@@ -185,7 +185,7 @@ React Grid Gallery is free to use for personal and commercial projects under the
  * [mis94](https://github.com/mis94) for EXIF image rotation functionality [PR 67](https://github.com/benhowell/react-grid-gallery/pull/67)
 
 
- 
+
 
  * Demo stock photos:
    * [Jeshu John - designerspics.com](http://designerspics.com)
@@ -195,4 +195,3 @@ React Grid Gallery is free to use for personal and commercial projects under the
    * [moveast.me](http://moveast.me)
    * [贝莉儿 NG. - unsplash.com](http://unsplash.com)
    * [Matthew Wiebe. - unsplash.com](unsplash.com)
-
