@@ -293,6 +293,7 @@ Gallery.propTypes = {
     images: PropTypes.arrayOf(
         PropTypes.shape({
             src: PropTypes.string.isRequired,
+            alt: PropTypes.string,
             thumbnail: PropTypes.string.isRequired,
             srcset: PropTypes.array,
             caption: PropTypes.string,

@@ -49,7 +49,7 @@ class Image extends Component {
     thumbnailStyle () {
         if (this.props.thumbnailStyle)
             return this.props.thumbnailStyle.call(this);
-            
+
         var rotationTransformValue = undefined;
         switch (this.props.item.orientation) {
             case 3:
@@ -127,6 +127,7 @@ class Image extends Component {
     }
 
     render () {
+        var alt = this.props.item.alt ? this.props.item.alt : "";
         var tags = (typeof this.props.item.tags === 'undefined') ? <noscript/> :
                 this.props.item.tags.map((tag) => {
                     return <div title={tag.title}
@@ -214,7 +215,9 @@ class Image extends Component {
                      (e) => this.props.onClick.call(this, this.props.index, e) : null}>
                 <img
             key={"img-"+this.props.index}
-            src={this.props.item.thumbnail} title={this.props.item.caption}
+            src={this.props.item.thumbnail}
+            alt={alt}
+            title={this.props.item.caption}
             style={this.thumbnailStyle()} />
                 </div>
                 {this.props.item.thumbnailCaption && (
