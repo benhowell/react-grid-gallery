@@ -64,6 +64,7 @@ src                     | string        | undefined     | Required. A string ref
 thumbnail               | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc).
 thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image.
 thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image.
+alt                     | string        | undefined     | Optional. Image alt attribute.
 tags                    | array         | undefined     | Optional. An array of objects containing tag attributes (value and title). e.g. `{value: "foo", title: "bar"}`
 isSelected              | bool          | undefined     | Optional. The selected state of the image.
 caption                 | string        | undefined     | Optional. Image caption.

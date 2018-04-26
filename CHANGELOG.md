@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.4.9 / 2018-04-27
+
+* Added optional alt tag to image props (defaults to empty string).
+
+
 ### v0.4.8
 
 * Added image rotation/transformation functionality based upon EXIF orientation passed in the image `orientation` prop [PR 67](https://github.com/benhowell/react-grid-gallery/pull/67). Thanks [mis94](https://github.com/mis94).
@@ -151,9 +156,9 @@
 
 ### Breaking Changes
 
-* Consistent naming scheme implemented both internally and externally. External breaking change to the `onImageSelected` prop which has been renamed `onSelectImage`. All internal instances of `Func` refactored to `Fn`. `handleClickImage` refactored to `onClickImage`. `handleResize` refactored to `onResize`. 
+* Consistent naming scheme implemented both internally and externally. External breaking change to the `onImageSelected` prop which has been renamed `onSelectImage`. All internal instances of `Func` refactored to `Fn`. `handleClickImage` refactored to `onClickImage`. `handleResize` refactored to `onResize`.
 
-The following changes in v0.2.7 allow react-grid-gallery to be used in an (optionally) stateless way. 
+The following changes in v0.2.7 allow react-grid-gallery to be used in an (optionally) stateless way.
 
 * Added optional prop `onClickImage`. This prop takes a function and is triggered when a lightbox displayed image is clicked. Supplying this prop will override the default `onClickImage` function.
 
@@ -212,7 +217,7 @@ The following changes in v0.2.7 allow react-grid-gallery to be used in an (optio
 
 * Internal image access now via state instead of props.
 
-* Thumbnail generation now atomic function rather than whole array at once. 
+* Thumbnail generation now atomic function rather than whole array at once.
 
 * * *
 
@@ -251,7 +256,7 @@ The following changes in v0.2.7 allow react-grid-gallery to be used in an (optio
 
 ### v0.1.7 / 2016-08-16
 
-* Gulp task ensenble to clean/build/deploy lib, web (gh-pages) and hacked up cljs js lib 
+* Gulp task ensenble to clean/build/deploy lib, web (gh-pages) and hacked up cljs js lib
 * Project page with examples, docs etc.
 * Updated options documentation
 
@@ -291,7 +296,7 @@ The following changes in v0.2.7 allow react-grid-gallery to be used in an (optio
 ### v0.1.0 / 2016-08-11
 
 * Simplified thumbnail viewport
-* Fixed aspect bug on shrinkage effect on thumbnail selection 
+* Fixed aspect bug on shrinkage effect on thumbnail selection
 
 * * *
 
