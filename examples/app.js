@@ -202,6 +202,7 @@ Demo0.defaultProps = {
         },
         {
             src: "https://c2.staticflickr.com/9/8239/28897202241_1497bec71a_b.jpg",
+            alt: "Big Ben - London",
             thumbnail: "https://c2.staticflickr.com/9/8239/28897202241_1497bec71a_n.jpg",
             thumbnailWidth: 248,
             thumbnailHeight: 320,
@@ -209,6 +210,7 @@ Demo0.defaultProps = {
         },
         {
             src: "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_b.jpg",
+            alt: "Red Zone - Paris",
             thumbnail: "https://c7.staticflickr.com/9/8785/28687743710_3580fcb5f0_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 113,
@@ -217,6 +219,7 @@ Demo0.defaultProps = {
         },
         {
             src: "https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_b.jpg",
+            alt: "Wood Glass",
             thumbnail: "https://c6.staticflickr.com/9/8520/28357073053_cafcb3da6f_n.jpg",
             thumbnailWidth: 313,
             thumbnailHeight: 320,
@@ -238,6 +241,7 @@ Demo0.defaultProps = {
         },
         {
             src: "https://c2.staticflickr.com/8/7577/28973580825_d8f541ba3f_b.jpg",
+            alt: "Cosmos Flower",
             thumbnail: "https://c2.staticflickr.com/8/7577/28973580825_d8f541ba3f_n.jpg",
             thumbnailWidth: 320,
             thumbnailHeight: 213,
