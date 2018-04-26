@@ -31130,7 +31130,7 @@
                             _react2.default.createElement('img', {
                                 key: "img-" + this.props.index,
                                 src: this.props.item.thumbnail,
-                                alt: this.props.item.alt ? this.props.item.alt : "",
+                                alt: typeof this.props.item.alt === 'undefined' ? "" : this.props.item.alt,
                                 title: this.props.item.caption,
                                 style: this.thumbnailStyle()
                             })
