@@ -5,7 +5,7 @@
 * Added optional alt tag to image props (defaults to empty string).
 
 
-### v0.4.8
+### v0.4.8 / 2018-01-20
 
 * Added image rotation/transformation functionality based upon EXIF orientation passed in the image `orientation` prop [PR 67](https://github.com/benhowell/react-grid-gallery/pull/67). Thanks [mis94](https://github.com/mis94).
 
