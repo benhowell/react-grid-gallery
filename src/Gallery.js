@@ -260,8 +260,11 @@ class Gallery extends Component {
             width: "100%"
         };
         return (
-                <div id={this.props.id} className="ReactGridGallery" ref={(c) => this._gallery = c}>
-                    <iframe style={resizeIframeStyles} ref={(c) => c && c.contentWindow && c.contentWindow.addEventListener('resize', this.onResize) } />
+                <div id={this.props.id}
+            className="ReactGridGallery"
+            ref={(c) => this._gallery = c}>
+                <iframe style={resizeIframeStyles}
+            ref={(c) => c && c.contentWindow && c.contentWindow.addEventListener('resize', this.onResize) } />
                 {images}
                 <Lightbox
             images={this.props.images}
