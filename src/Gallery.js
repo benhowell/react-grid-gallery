@@ -270,6 +270,7 @@ class Gallery extends Component {
             images={this.props.images}
             backdropClosesModal={this.props.backdropClosesModal}
             currentImage={this.state.currentImage}
+	    preloadNextImage={this.props.preloadNextImage}
             customControls={this.props.customControls}
             enableKeyboardInput={this.props.enableKeyboardInput}
             imageCountSeparator={this.props.imageCountSeparator}
