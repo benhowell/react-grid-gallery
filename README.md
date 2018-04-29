@@ -187,6 +187,8 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
  * [forforf](https://github.com/forforf) for contentWindow check [PR 77](https://github.com/benhowell/react-grid-gallery/pull/77)
 
+* [ScottMRafferty](https://github.com/ScottMRafferty) for preloadNextImage not propagating to Lightbox fix [PR 78](https://github.com/benhowell/react-grid-gallery/pull/78)
+
 
 
  * Demo stock photos:

@@ -1,6 +1,11 @@
 # react-grid-gallery
 
-### v0.4.10 /2018-04-29
+### v0.4.11 / 2018-04-29
+
+* Fixed bug: propagate preloadNextImage to Lightbox [PR 78](https://github.com/benhowell/react-grid-gallery/pull/78). Thanks [ScottMRafferty](https://github.com/ScottMRafferty).
+
+
+### v0.4.10 / 2018-04-29
 
 * Add contentWindow check [PR 77](https://github.com/benhowell/react-grid-gallery/pull/77). Thanks [forforf](https://github.com/forforf).
 
