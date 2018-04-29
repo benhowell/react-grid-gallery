@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.4.10 /2018-04-29
+
+* Add contentWindow check [PR 77](https://github.com/benhowell/react-grid-gallery/pull/77). Thanks [forforf](https://github.com/forforf).
+
+
 ### v0.4.9 / 2018-04-27
 
 * Added optional alt tag to image props (defaults to empty string).

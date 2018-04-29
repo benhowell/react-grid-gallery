@@ -125,7 +125,7 @@ lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of th
 
  * As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size applied when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonable.
 
- * Gallery width is determined by the containing element. Therefore your containing element must have a width (%, em, px, whatever) **_before_** the gallery is loaded! 
+ * Gallery width is determined by the containing element. Therefore your containing element must have a width (%, em, px, whatever) **_before_** the gallery is loaded!
 
  * Image Options: `thumbnail` can point to the same resource as `src`, bearing in mind the resultant data size of the gallery and page load cost. Thumbnails of whatever size will be scaled to match `rowHeight`.
 
@@ -185,6 +185,7 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
  * [mis94](https://github.com/mis94) for EXIF image rotation functionality [PR 67](https://github.com/benhowell/react-grid-gallery/pull/67)
 
+ * [forforf](https://github.com/forforf) for contentWindow check [PR 77](https://github.com/benhowell/react-grid-gallery/pull/77)
 
 
 
