@@ -264,7 +264,8 @@ class Gallery extends Component {
             className="ReactGridGallery"
             ref={(c) => this._gallery = c}>
                 <iframe style={resizeIframeStyles}
-            ref={(c) => c && c.contentWindow && c.contentWindow.addEventListener('resize', this.onResize) } />
+            ref={(c) => c && c.contentWindow
+                 && c.contentWindow.addEventListener('resize', this.onResize) } />
                 {images}
                 <Lightbox
             images={this.props.images}
