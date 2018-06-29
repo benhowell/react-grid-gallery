@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.5.1 / 2018-06-29
+
+* Moved prop-types dependency from dev dependencies to dependencies
+
+
 ### v0.5.0 / 2018-06-26
 
 * Bumped [react-images](https://github.com/jossmac/react-images) to 0.5.16 to address [issue #83](https://github.com/benhowell/react-grid-gallery/issues/83). See https://github.com/jossmac/react-images/pull/172 for details.
