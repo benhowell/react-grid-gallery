@@ -114,6 +114,7 @@ showImageCount          | bool          | true          | Optional. Display imag
 onClickImage            | func          | onClickImage  | Optional. Function to execute when lightbox image clicked. Overrides internal implementation of onClickImage.
 onClickPrev             | func          | onClickPrev   | Optional. Function to execute when lightbox left arrow clicked. Overrides internal implementation of onClickPrev.
 onClickNext             | func          | onClickNext   | Optional. Function to execute when lightbox right arrow clicked. Overrides internal implementation of onClickNext.
+currentImageWillChange  | func          | undefined     | Optional. Function to execute before lightbox image change. Useful for tracking current image shown in lightbox. Allows access to gallery object using `this` (See [Programmers notes])
 showLightboxThumbnails  | bool          | false         | Optional. Display thumbnails beneath the Lightbox image.
 onClickLightboxThumbnail | func         | gotoImage     | Optional. Function to execute when lightbox thumbnail clicked. Overrides internal function: gotoImage.
 lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of the lightbox carousel; defaults to 1024px.
