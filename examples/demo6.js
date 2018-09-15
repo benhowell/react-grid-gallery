@@ -40,8 +40,8 @@ class Demo6 extends React.Component {
                 border: "1px solid #ddd",
                 overflow: "auto"}}>
                 <div style={{
-                        padding: "2px",
-                        color: "#666"
+                     padding: "2px",
+                     color: "#666"
                     }}>Current image: {this.state.currentImage}</div>
                 <Gallery
                     images={this.state.images}
