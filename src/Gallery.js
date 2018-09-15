@@ -62,6 +62,9 @@ class Gallery extends Component {
         if (this.props.lightboxWillOpen) {
             this.props.lightboxWillOpen.call(this, index);
         }
+        if (this.props.currentImageWillChange) {
+            this.props.currentImageWillChange.call(this, index);
+        }
 
         this.setState({
             currentImage: index,
@@ -73,6 +76,9 @@ class Gallery extends Component {
         if (this.props.lightboxWillClose) {
             this.props.lightboxWillClose.call(this);
         }
+        if (this.props.currentImageWillChange) {
+            this.props.currentImageWillChange.call(this, 0);
+        }
 
         this.setState({
             currentImage: 0,
@@ -81,12 +87,18 @@ class Gallery extends Component {
     }
 
     gotoPrevious () {
+        if (this.props.currentImageWillChange) {
+            this.props.currentImageWillChange.call(this, this.state.currentImage - 1);
+        }
         this.setState({
             currentImage: this.state.currentImage - 1
         });
     }
 
     gotoNext () {
+        if (this.props.currentImageWillChange) {
+            this.props.currentImageWillChange.call(this, this.state.currentImage + 1);
+        }
         this.setState({
             currentImage: this.state.currentImage + 1
         });
@@ -105,6 +117,9 @@ class Gallery extends Component {
     }
 
     gotoImage (index) {
+        if (this.props.currentImageWillChange) {
+            this.props.currentImageWillChange.call(this, index);
+        }
         this.setState({
             currentImage: index
         });
@@ -331,6 +346,7 @@ Gallery.propTypes = {
     currentImage: PropTypes.number,
     preloadNextImage: PropTypes.bool,
     customControls: PropTypes.arrayOf(PropTypes.node),
+    currentImageWillChange: PropTypes.func,
     enableKeyboardInput: PropTypes.bool,
     imageCountSeparator: PropTypes.string,
     isOpen: PropTypes.bool,
