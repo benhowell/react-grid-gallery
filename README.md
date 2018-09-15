@@ -11,6 +11,8 @@ https://benhowell.github.io/react-grid-gallery/
 * [Simple Gallery](https://benhowell.github.io/react-grid-gallery/#simple-gallery)
 * [Custom Overlay](https://benhowell.github.io/react-grid-gallery/#custom-overlay)
 * [Thumbnail Captions](https://benhowell.github.io/react-grid-gallery/#thumbnail-caption)
+* [Custom Lightbox Controls](https://benhowell.github.io/react-grid-gallery/#custom-controls)
+
 
 ## Installation
 
@@ -190,7 +192,7 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
 * [ScottMRafferty](https://github.com/ScottMRafferty) for preloadNextImage not propagating to Lightbox fix [PR 78](https://github.com/benhowell/react-grid-gallery/pull/78)
 
-
+* [Approximator](https://github.com/approximator) for currentImageWillChange (Function to execute before lightbox image change) [PR 97](https://github.com/benhowell/react-grid-gallery/pull/97).
 
  * Demo stock photos:
    * [Jeshu John - designerspics.com](http://designerspics.com)

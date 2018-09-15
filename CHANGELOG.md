@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.5.2 / 2018-09-15
+
+* Added currentImageWillChange [PR 97](https://github.com/benhowell/react-grid-gallery/pull/97). Function to execute before lightbox image change. Useful for tracking current image shown in lightbox. Thanks [Approximator](https://github.com/approximator).
+
+
 ### v0.5.1 / 2018-06-29
 
 * Moved prop-types dependency from dev dependencies to dependencies
