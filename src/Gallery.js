@@ -313,6 +313,7 @@ Gallery.propTypes = {
     images: PropTypes.arrayOf(
         PropTypes.shape({
             src: PropTypes.string.isRequired,
+            nano: PropTypes.string,
             alt: PropTypes.string,
             thumbnail: PropTypes.string.isRequired,
             srcset: PropTypes.array,
