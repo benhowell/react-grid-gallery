@@ -66,6 +66,7 @@ src                     | string        | undefined     | Required. A string ref
 thumbnail               | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc).
 thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image.
 thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image.
+nano                    | string:base64 | undefined     | Optional. Thumbnail Base64 image will be injected to background under the main image, that is waiting for a loading. This is super helpful and fancy if you receive base64 images 4x4 pixels from the server-side response.
 alt                     | string        | ""            | Optional. Image alt attribute.
 tags                    | array         | undefined     | Optional. An array of objects containing tag attributes (value and title). e.g. `{value: "foo", title: "bar"}`
 isSelected              | bool          | undefined     | Optional. The selected state of the image.
