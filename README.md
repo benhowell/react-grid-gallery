@@ -66,7 +66,7 @@ src                     | string        | undefined     | Required. A string ref
 thumbnail               | string        | undefined     | Required. A string referring to any valid image resource (file, url, etc).
 thumbnailWidth          | number        | undefined     | Required. Width of the thumbnail image.
 thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image.
-nano                    | string:base64 | undefined     | Optional. Thumbnail Base64 image will be injected to background under the main image, that is waiting for a loading. This is super helpful and fancy if you receive base64 images 4x4 pixels from the server-side response.
+nano                    | string:base64 | undefined     | Optional. Thumbnail Base64 image will be injected to background under the main image. This provides a base64, 4x4 generated image whilst the image is beong loaded.
 alt                     | string        | ""            | Optional. Image alt attribute.
 tags                    | array         | undefined     | Optional. An array of objects containing tag attributes (value and title). e.g. `{value: "foo", title: "bar"}`
 isSelected              | bool          | undefined     | Optional. The selected state of the image.
@@ -194,6 +194,8 @@ React Grid Gallery is free to use for personal and commercial projects under the
 * [ScottMRafferty](https://github.com/ScottMRafferty) for preloadNextImage not propagating to Lightbox fix [PR 78](https://github.com/benhowell/react-grid-gallery/pull/78)
 
 * [Approximator](https://github.com/approximator) for currentImageWillChange (Function to execute before lightbox image change) [PR 97](https://github.com/benhowell/react-grid-gallery/pull/97).
+
+* [Vadimuz](https://github.com/vadimuz) for nano image props and functionality [PR 101](https://github.com/benhowell/react-grid-gallery/pull/101).
 
  * Demo stock photos:
    * [Jeshu John - designerspics.com](http://designerspics.com)
