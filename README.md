@@ -94,6 +94,7 @@ lightboxWillClose       | func          | undefined     | Optional. Function to 
 tagStyle 	        | object 	| tagStyle 	| Optional. Style to pass to tag elements. Overrides internal tag style.
 tileViewportStyle 	| func 	        | tileViewportStyle | Optional. Function to style the image tile viewport. Allows access to image object using `this` (See [Programmers notes](#programmers-notes) for more info about implicit `this`). Overrides internal tileViewportStyle function.
 thumbnailStyle 	        | func 	        | thumbnailStyle | Optional. Function to style the image thumbnail. Allows access to image object using `this` (See [Programmers notes](#programmers-notes) for more info about implicit `this`). Overrides internal thumbnailStyle function.
+thumbnailImageComponent | React component | undefined   | Optional. Substitute in a React component that would get passed `imageProps` (the props that would have been passed to the `<img>` tag) and `item` (the original item in `images`) to be used to render thumbnails; useful for lazy loading.
 
 ## Lightbox Options
 NOTE: these options are passed inside the Gallery tag.
