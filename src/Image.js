@@ -34,7 +34,7 @@ class Image extends Component {
             return this.props.tileViewportStyle.call(this);
         var nanoBase64Backgorund = {}
         if(this.props.item.nano) {
-            nanoBase64Backgorund = { 
+            nanoBase64Backgorund = {
                 background: `url(${this.props.item.nano})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center'
@@ -161,6 +161,16 @@ class Image extends Component {
             {this.props.item.customOverlay}
         </div>;
 
+        var thumbnailProps = {
+            key: "img-"+this.props.index,
+            src: this.props.item.thumbnail,
+            alt: alt,
+            title: this.props.item.caption,
+            style: this.thumbnailStyle(),
+        };
+
+        var ThumbnailImageComponent = this.props.thumbnailImageComponent;
+
         return (
                 <div className="tile"
             key={"tile-"+this.props.index}
@@ -221,12 +231,9 @@ class Image extends Component {
             key={"tile-viewport-"+this.props.index}
             onClick={this.props.onClick ?
                      (e) => this.props.onClick.call(this, this.props.index, e) : null}>
-                <img
-            key={"img-"+this.props.index}
-            src={this.props.item.thumbnail}
-            alt={alt}
-            title={this.props.item.caption}
-            style={this.thumbnailStyle()} />
+                {ThumbnailImageComponent ?
+                    <ThumbnailImageComponent {...this.props} imageProps={thumbnailProps} /> :
+                    <img {...thumbnailProps} />}
                 </div>
                 {this.props.item.thumbnailCaption && (
                         <div className="tile-description"
@@ -259,7 +266,8 @@ Image.propTypes = {
     tileViewportStyle: PropTypes.func,
     thumbnailStyle: PropTypes.func,
     tagStyle: PropTypes.object,
-    customOverlay: PropTypes.element
+    customOverlay: PropTypes.element,
+    thumbnailImageComponent: PropTypes.func
 };
 
 Image.defaultProps = {
