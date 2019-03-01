@@ -30,6 +30,9 @@ class Gallery extends Component {
     }
 
     componentWillReceiveProps (np) {
+        if (this.state.currentImage > np.images.length - 1) {
+            this.setState({currentImage: np.images.length - 1});
+        }
         if(this.state.images != np.images || this.props.maxRows != np.maxRows){
             this.setState({
                 images: np.images,
