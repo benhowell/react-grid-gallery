@@ -30,6 +30,9 @@ class Gallery extends Component {
     }
 
     componentWillReceiveProps (np) {
+        if (this.state.currentImage > np.images.length - 1) {
+            this.setState({currentImage: np.images.length - 1});
+        }
         if(this.state.images != np.images || this.props.maxRows != np.maxRows){
             this.setState({
                 images: np.images,
@@ -263,6 +266,7 @@ class Gallery extends Component {
             tagStyle={this.props.tagStyle}
             tileViewportStyle={this.props.tileViewportStyle}
             thumbnailStyle={this.props.thumbnailStyle}
+            thumbnailImageComponent={this.props.thumbnailImageComponent}
                 />;});
         var resizeIframeStyles = {
             height: 0,
@@ -362,7 +366,8 @@ Gallery.propTypes = {
     thumbnailStyle: PropTypes.func,
     showLightboxThumbnails: PropTypes.bool,
     onClickLightboxThumbnail: PropTypes.func,
-    tagStyle: PropTypes.object
+    tagStyle: PropTypes.object,
+    thumbnailImageComponent: PropTypes.func
 };
 
 Gallery.defaultProps = {
@@ -380,7 +385,7 @@ Gallery.defaultProps = {
     showCloseButton: true,
     showImageCount: true,
     lightboxWidth: 1024,
-    showLightboxThumbnails: false
+    showLightboxThumbnails: false,
 };
 
 module.exports = Gallery;
