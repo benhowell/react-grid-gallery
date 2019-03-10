@@ -2,6 +2,8 @@
 
 Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/) and based upon [React Images](https://github.com/jossmac/react-images).
 
+
+
 ## Live Demo & Examples
 
 https://benhowell.github.io/react-grid-gallery/
@@ -197,6 +199,11 @@ React Grid Gallery is free to use for personal and commercial projects under the
 * [Approximator](https://github.com/approximator) for currentImageWillChange (Function to execute before lightbox image change) [PR 97](https://github.com/benhowell/react-grid-gallery/pull/97).
 
 * [Vadimuz](https://github.com/vadimuz) for nano image props and functionality [PR 101](https://github.com/benhowell/react-grid-gallery/pull/101).
+
+* [pxpeterxu](https://github.com/pxpeterxu) for adding functionality to inject a custom thumbnail image component (for lazy-loading) [PR 104](https://github.com/benhowell/react-grid-gallery/pull/104).
+
+* [lryta](https://github.com/lryta) for fixing crash when this.props.images.length - 1 < this.state.currentImage [PR #111](https://github.com/benhowell/react-grid-gallery/pull/111).
+
 
  * Demo stock photos:
    * [Jeshu John - designerspics.com](http://designerspics.com)

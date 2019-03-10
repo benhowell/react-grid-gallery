@@ -2,7 +2,7 @@
 
 ### v0.5.4 / 2019-03-10
 
-* CSS class names are prefoxed with ReactGridGallery_
+* CSS class names are prefixed with ReactGridGallery_
 * Add way to inject a custom thumbnail image component (for lazy-loading) [PR 104](https://github.com/benhowell/react-grid-gallery/pull/104). Thanks [pxpeterxu](https://github.com/pxpeterxu).
 * Fix crash when this.props.images.length - 1 < this.state.currentImage [PR #111](https://github.com/benhowell/react-grid-gallery/pull/111). Thanks [lryta](https://github.com/lryta).
 
