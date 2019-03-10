@@ -1,5 +1,12 @@
 # react-grid-gallery
 
+### v0.5.4 / 2019-03-10
+
+* CSS class names are prefoxed with ReactGridGallery_
+* Add way to inject a custom thumbnail image component (for lazy-loading) [PR 104](https://github.com/benhowell/react-grid-gallery/pull/104). Thanks [pxpeterxu](https://github.com/pxpeterxu).
+* Fix crash when this.props.images.length - 1 < this.state.currentImage [PR #111](https://github.com/benhowell/react-grid-gallery/pull/111). Thanks [lryta](https://github.com/lryta).
+
+
 ### v0.5.3 / 2018-09-30
 
 * Added `nano` prop and functionality for base64 4x4 image placeholders [PR 101](https://github.com/benhowell/react-grid-gallery/pull/101). Thanks [Vadimuz](https://github.com/vadimuz).
