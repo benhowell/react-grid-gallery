@@ -5,7 +5,6 @@ var ghPages = require('gulp-gh-pages');
 
 var babelify = require('babelify');
 var browserify = require('browserify');
-var watchify = require('watchify');
 var uglify = require('gulp-uglify');
 var beautify = require('gulp-beautify');
 
@@ -26,7 +25,7 @@ gulp.task('build-all', function() {
     runSequence(
         'clean-lib',
         'build-lib',
-        'build-cljs-lib',
+        /*'build-cljs-lib',*/
         'clean-web',
         ['browserify', 'copy-css', 'copy-html'],
         'deploy-web');
@@ -70,7 +69,7 @@ gulp.task('copy-html', function () {
 //uncomment watchify + on update for continuous build
 gulp.task('browserify', function() {
     var bundle =
-            //watchify(
+           
             browserify(['./examples/app.js',
                         './examples/demo1.js',
                         './examples/demo2.js',
@@ -80,7 +79,7 @@ gulp.task('browserify', function() {
                         './examples/demo6.js'], {
         extensions: ['.js', '.jsx']
         })
-//)
+
     ;
     bundle.transform(babelify, {'presets': ['es2015', 'react']});
 

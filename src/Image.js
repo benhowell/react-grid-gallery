@@ -150,7 +150,7 @@ class Image extends Component {
 
         var customOverlay = (typeof this.props.item.customOverlay === 'undefined')
                 ? <noscript/> :
-                <div className="custom-overlay"
+            <div className="ReactGridGallery_custom-overlay"
         key={"custom-overlay-"+this.props.index}
         style={{
             pointerEvents: "none",
@@ -172,7 +172,7 @@ class Image extends Component {
         var ThumbnailImageComponent = this.props.thumbnailImageComponent;
 
         return (
-                <div className="tile"
+                <div className="ReactGridGallery_tile"
             key={"tile-"+this.props.index}
             onMouseEnter={(e) => this.setState({hover: true})}
             onMouseLeave={(e) => this.setState({hover: false})}
@@ -184,7 +184,7 @@ class Image extends Component {
                 background: "#eee",
                 padding: "0px"}}>
 
-                <div className="tile-icon-bar"
+                <div className="ReactGridGallery_tile-icon-bar"
             key={"tile-icon-bar-"+this.props.index}
             style={{
                 pointerEvents: "none",
@@ -195,7 +195,7 @@ class Image extends Component {
                 {this.renderCheckButton()}
                 </div>
 
-                <div className="tile-bottom-bar"
+                <div className="ReactGridGallery_tile-bottom-bar"
             key={"tile-bottom-bar-"+this.props.index}
             style={{
                 padding: "2px",
@@ -212,7 +212,7 @@ class Image extends Component {
 
                 {customOverlay}
 
-                <div className="tile-overlay"
+                <div className="ReactGridGallery_tile-overlay"
             key={"tile-overlay-"+this.props.index}
             style={{
                 pointerEvents: "none",
@@ -226,7 +226,7 @@ class Image extends Component {
                     'linear-gradient(to bottom,rgba(0,0,0,0.26),transparent 56px,transparent)' : 'none'}}>
                 </div>
 
-                <div className="tile-viewport"
+                <div className="ReactGridGallery_tile-viewport"
             style={this.tileViewportStyle()}
             key={"tile-viewport-"+this.props.index}
             onClick={this.props.onClick ?
@@ -236,7 +236,7 @@ class Image extends Component {
                     <img {...thumbnailProps} />}
                 </div>
                 {this.props.item.thumbnailCaption && (
-                        <div className="tile-description"
+                        <div className="ReactGridGallery_tile-description"
                     style={{
                         background: "white",
                         height: "100%",
