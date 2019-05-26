@@ -305,7 +305,7 @@ class Gallery extends Component {
             theme={this.props.theme}
             onClickThumbnail={this.getOnClickLightboxThumbnailFn()}
             showThumbnails={this.props.showLightboxThumbnails}
-		...this.props.lightBoxProps
+		{...this.props.lightBoxProps}
                 />
                 </div>
         );
