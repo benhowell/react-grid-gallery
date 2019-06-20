@@ -124,6 +124,7 @@ currentImageWillChange  | func          | undefined     | Optional. Function to 
 showLightboxThumbnails  | bool          | false         | Optional. Display thumbnails beneath the Lightbox image.
 onClickLightboxThumbnail | func         | gotoImage     | Optional. Function to execute when lightbox thumbnail clicked. Overrides internal function: gotoImage.
 lightboxWidth 	        | number 	| 1024 	        | Optional. Maximum width of the lightbox carousel; defaults to 1024px.
+lightBoxProps 	        | object 	| undefined 	        | Optional. Object to pass props directly to LightBox.
 
 
 ### General Notes
