@@ -206,6 +206,8 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
 * [lryta](https://github.com/lryta) for fixing crash when this.props.images.length - 1 < this.state.currentImage [PR #111](https://github.com/benhowell/react-grid-gallery/pull/111).
 
+* [jimishf](https://github.com/JimishF) for lightBoxProps option to assign any prop directly to lightbox [PR #121](https://github.com/benhowell/react-grid-gallery/pull/121).
+
 
  * Demo stock photos:
    * [Jeshu John - designerspics.com](http://designerspics.com)

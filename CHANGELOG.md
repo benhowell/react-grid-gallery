@@ -1,5 +1,10 @@
 # react-grid-gallery
 
+### v0.5.5 / 2019-06-20
+
+* Added new lightBoxProps option to assign any prop directly to lightbox [PR #121](https://github.com/benhowell/react-grid-gallery/pull/121). Thanks [jimishf](https://github.com/JimishF).
+
+
 ### v0.5.4 / 2019-03-10
 
 * CSS class names are prefixed with ReactGridGallery_
