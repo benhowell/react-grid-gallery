@@ -2,7 +2,8 @@
 
 Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/) and based upon [React Images](https://github.com/jossmac/react-images).
 
-
+### Note:
+> As of the release of  [v0.5.4](https://github.com/benhowell/react-grid-gallery/releases/tag/v0.5.4) (2019-03-10) I will no longer be actively adding features and aggressively maintaining [react-grid-gallery](https://github.com/benhowell/react-grid-gallery). My online behavioral experiment platform [Psychstudio](https://www.psychstudio.com/) consumes all of my time and I am no longer capable of giving react-grid-gallery the attention it needs. A big thanks to [everyone who has contributed](https://github.com/benhowell/react-grid-gallery/blob/master/README.md#acknowledgements) over the last 4 years and thanks to everyone who has downloaded react-grid-gallery (hopefully it has been useful to you).
 
 ## Live Demo & Examples
 
