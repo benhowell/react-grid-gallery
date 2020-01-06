@@ -64,7 +64,10 @@ Demo6.propTypes = {
             src: PropTypes.string.isRequired,
             thumbnail: PropTypes.string.isRequired,
             srcset: PropTypes.array,
-            caption: PropTypes.string,
+            caption: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.element
+            ]),
             thumbnailWidth: PropTypes.number.isRequired,
             thumbnailHeight: PropTypes.number.isRequired
         })
