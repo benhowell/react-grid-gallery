@@ -138,8 +138,9 @@ class Image extends Component {
         var alt = this.props.item.alt ? this.props.item.alt : "";
         var tags = (typeof this.props.item.tags === 'undefined') ? <noscript/> :
                 this.props.item.tags.map((tag) => {
+                    const key = tag.key || (typeof tag.value === 'string' && tag.value);
                     return <div title={tag.title}
-                    key={"tag-"+tag.value}
+                    key={"tag-"+key}
                     style={{display: "inline-block",
                             cursor: 'pointer',
                             pointerEvents: 'visible',
@@ -165,7 +166,7 @@ class Image extends Component {
             key: "img-"+this.props.index,
             src: this.props.item.thumbnail,
             alt: alt,
-            title: this.props.item.caption,
+            title: typeof this.props.item.caption === 'string' && this.props.item.caption,
             style: this.thumbnailStyle(),
         };
 

@@ -322,11 +322,18 @@ Gallery.propTypes = {
             alt: PropTypes.string,
             thumbnail: PropTypes.string.isRequired,
             srcset: PropTypes.array,
-            caption: PropTypes.string,
+            caption: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.element
+            ]),
             tags: PropTypes.arrayOf(
                 PropTypes.shape({
-                    value: PropTypes.string.isRequired,
-                    title: PropTypes.string.isRequired
+                    value: PropTypes.oneOfType([
+                        PropTypes.string,
+                        PropTypes.element
+                    ]).isRequired,
+                    title: PropTypes.string.isRequired,
+                    key: PropTypes.string
                 })
             ),
             thumbnailWidth: PropTypes.number.isRequired,
