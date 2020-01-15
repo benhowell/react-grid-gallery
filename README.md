@@ -71,9 +71,9 @@ thumbnailWidth          | number        | undefined     | Required. Width of the
 thumbnailHeight         | number        | undefined     | Required. Height of the thumbnail image.
 nano                    | string:base64 | undefined     | Optional. Thumbnail Base64 image will be injected to background under the main image. This provides a base64, 4x4 generated image whilst the image is beong loaded.
 alt                     | string        | ""            | Optional. Image alt attribute.
-tags                    | array         | undefined     | Optional. An array of objects containing tag attributes (value and title). e.g. `{value: "foo", title: "bar"}`
+tags                    | array         | undefined     | Optional. An array of objects containing tag attributes (value, title and key if value is element). e.g. `{value: "foo", title: "bar"}` or `{value: <a href={tag.url}>{tag.name}</a>, title: tag.title, key: tag.key}`
 isSelected              | bool          | undefined     | Optional. The selected state of the image.
-caption                 | string        | undefined     | Optional. Image caption.
+caption                 | string&#124;element | undefined     | Optional. Image caption.
 srcSet 	                | array         | undefined 	| Optional. Array of srcSets for lightbox.
 customOverlay           | element       | undefined     | Optional. A custom element to be rendered as a thumbnail overlay on hover.
 thumbnailCaption        | string&#124;element | undefined     | Optional. A thumbnail caption shown below thumbnail.
