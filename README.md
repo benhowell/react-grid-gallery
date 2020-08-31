@@ -2,7 +2,7 @@
 
 Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/) and based upon [React Images](https://github.com/jossmac/react-images).
 
-### Maintainers wanted:
+### :mega: Maintainers wanted :mega:
 > As react-grid-gallery continues to gain popularity, I'd like to put out a call for maintainers. As this component still provides value to a lot of users (around half a million downloads from NPM as of August 2020) it requires maintainers to at least take care of issues and pull requsts. If you're getting value from using this package or if you're just interested in becoming a maintainer, please let me know.
 
 ### Note:
