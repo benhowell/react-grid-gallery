@@ -278,6 +278,31 @@ class Gallery extends Component {
             backgroundColor: "transparent",
             width: "100%"
         };
+
+        var LightBoxComponent = this.props.lightBoxComponent;
+
+        var lightBoxProps = {
+            images: this.props.images,
+            backdropClosesModal: this.props.backdropClosesModal,
+            currentImage: this.state.currentImage,
+            preloadNextImage: this.props.preloadNextImage,
+            customControls: this.props.customControls,
+            enableKeyboardInput: this.props.enableKeyboardInput,
+            imageCountSeparator: this.props.imageCountSeparator,
+            isOpen: this.state.lightboxIsOpen,
+            onClickImage: this.getOnClickImageFn(),
+            onClickNext: this.getOnClickNextFn(),
+            onClickPrev: this.getOnClickPrevFn(),
+            showCloseButton: this.props.showCloseButton,
+            showImageCount: this.props.showImageCount,
+            onClose: this.closeLightbox,
+            width: this.props.lightboxWidth,
+            theme: this.props.theme,
+            onClickThumbnail: this.getOnClickLightboxThumbnailFn(),
+            showThumbnails: this.props.showLightboxThumbnails,
+            ...this.props.lightBoxProps
+        };
+
         return (
                 <div id={this.props.id}
             className="ReactGridGallery"
@@ -286,27 +311,12 @@ class Gallery extends Component {
             ref={(c) => c && c.contentWindow
                  && c.contentWindow.addEventListener('resize', this.onResize) } />
                 {images}
-                <Lightbox
-            images={this.props.images}
-            backdropClosesModal={this.props.backdropClosesModal}
-            currentImage={this.state.currentImage}
-	    preloadNextImage={this.props.preloadNextImage}
-            customControls={this.props.customControls}
-            enableKeyboardInput={this.props.enableKeyboardInput}
-            imageCountSeparator={this.props.imageCountSeparator}
-            isOpen={this.state.lightboxIsOpen}
-            onClickImage={this.getOnClickImageFn()}
-            onClickNext={this.getOnClickNextFn()}
-            onClickPrev={this.getOnClickPrevFn()}
-            showCloseButton={this.props.showCloseButton}
-            showImageCount={this.props.showImageCount}
-            onClose={this.closeLightbox}
-            width={this.props.lightboxWidth}
-            theme={this.props.theme}
-            onClickThumbnail={this.getOnClickLightboxThumbnailFn()}
-            showThumbnails={this.props.showLightboxThumbnails}
-		{...this.props.lightBoxProps}
-                />
+                {
+                    typeof LightBoxComponent === 'undefined'
+                        ? <Lightbox {...lightBoxProps} />
+                        : <LightBoxComponent {...lightBoxProps} />
+                }
+
                 </div>
         );
     }
@@ -377,6 +387,7 @@ Gallery.propTypes = {
     tagStyle: PropTypes.object,
     thumbnailImageComponent: PropTypes.func,
     lightBoxProps : PropTypes.object,
+    lightBoxComponent: PropTypes.func
 };
 
 Gallery.defaultProps = {
