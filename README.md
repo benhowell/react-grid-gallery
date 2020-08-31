@@ -3,10 +3,10 @@
 Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/) and based upon [React Images](https://github.com/jossmac/react-images).
 
 ### Maintainers wanted:
-> As react-grid-gallery continues to gain popularity, I'd like to put out a call for maintainers. If you're interested in maintaining react-grid-gallery, please let me know.
+> As react-grid-gallery continues to gain popularity, I'd like to put out a call for maintainers. As this component still provides value to a lot of users (around half a million downloads from NPM as of August 2020) it requires maintainers to at least take care of issues and pull requsts. If you're getting value from using this package or if you're just interested in becoming a maintainer, please let me know.
 
 ### Note:
-> As of the release of  [v0.5.4](https://github.com/benhowell/react-grid-gallery/releases/tag/v0.5.4) (2019-03-10) I will no longer be actively adding features and aggressively maintaining [react-grid-gallery](https://github.com/benhowell/react-grid-gallery). My online behavioral experiment platform [Psychstudio](https://www.psychstudio.com/) consumes all of my time and I am no longer capable of giving react-grid-gallery the attention it needs. A big thanks to [everyone who has contributed](https://github.com/benhowell/react-grid-gallery/blob/master/README.md#acknowledgements) over the last 4 years and thanks to everyone who has downloaded react-grid-gallery (hopefully it has been useful to you). I may apply pull requests and such from time to time.
+> As of the release of  [v0.5.4](https://github.com/benhowell/react-grid-gallery/releases/tag/v0.5.4) (2019-03-10) I will no longer be actively adding features and maintaining [react-grid-gallery](https://github.com/benhowell/react-grid-gallery). My online behavioral experiment platform [Psychstudio](https://www.psychstudio.com/) consumes all of my time and I am no longer capable of giving react-grid-gallery the attention it needs. A big thanks to [everyone who has contributed](https://github.com/benhowell/react-grid-gallery/blob/master/README.md#acknowledgements) over the last 5 years and thanks to everyone who has downloaded react-grid-gallery (hopefully it has been useful to you).
 
 ## Live Demo & Examples
 
