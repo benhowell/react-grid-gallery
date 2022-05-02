@@ -182,7 +182,7 @@ class Image extends Component {
                 WebkitUserSelect: "none",
                 position: "relative",
                 float: "left",
-                background: "#eee",
+                background: "transparent",
                 padding: "0px"}}>
 
                 <div className="ReactGridGallery_tile-icon-bar"
