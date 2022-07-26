@@ -168,12 +168,14 @@ class Image extends Component {
             alt: alt,
             title: typeof this.props.item.caption === 'string' ? this.props.item.caption : null,
             style: this.thumbnailStyle(),
+            'data-testid': "grid-gallery-item_thumbnail"
         };
 
         var ThumbnailImageComponent = this.props.thumbnailImageComponent;
 
         return (
                 <div className="ReactGridGallery_tile"
+            data-testid="grid-gallery-item"
             key={"tile-"+this.props.index}
             onMouseEnter={(e) => this.setState({hover: true})}
             onMouseLeave={(e) => this.setState({hover: false})}
@@ -228,6 +230,7 @@ class Image extends Component {
                 </div>
 
                 <div className="ReactGridGallery_tile-viewport"
+            data-testid="grid-gallery-item_viewport"
             style={this.tileViewportStyle()}
             key={"tile-viewport-"+this.props.index}
             onClick={this.props.onClick ?

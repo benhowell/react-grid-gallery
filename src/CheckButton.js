@@ -35,6 +35,7 @@ class CheckButton extends Component {
 
         return (
                 <div
+            data-testid="grid-gallery-item_check-button"
             title="Select"
             style={{
                 visibility: this.visibility(),
