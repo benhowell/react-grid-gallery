@@ -1,128 +1,59 @@
-'use strict';
+"use strict";
 
-var gulp = require('gulp');
-var ghPages = require('gulp-gh-pages');
+const glob = require("glob");
+const babelify = require("babelify");
+const browserify = require("browserify");
+const { series, src, dest, watch } = require("gulp");
 
-var babelify = require('babelify');
-var browserify = require('browserify');
-var uglify = require('gulp-uglify');
-var beautify = require('gulp-beautify');
+const ghPages = require("gulp-gh-pages");
+const uglify = require("gulp-uglify");
+const beautify = require("gulp-beautify");
+const gulpif = require("gulp-if");
+const clean = require("gulp-clean");
+const babel = require("gulp-babel");
+const source = require("vinyl-source-stream");
+const buffer = require("vinyl-buffer");
 
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var gulpif = require('gulp-if');
-var runSequence = require('run-sequence');
-var clean = require('gulp-clean');
+const cleanLib = () =>
+  src("./lib", { read: false, allowEmpty: true }).pipe(clean());
 
-const babel = require('gulp-babel');
+const buildLib = () => src("src/**/*.js").pipe(babel()).pipe(dest("lib"));
 
+const cleanWeb = () =>
+  src("./examples/dist", { read: false, allowEmpty: true }).pipe(clean());
 
-gulp.task('default', function() {
-    gulp.start('build-all');
-});
+const deployWeb = () => src("./examples/dist/**/*").pipe(ghPages());
 
-gulp.task('build-all', function() {
-    runSequence(
-        'clean-lib',
-        'build-lib',
-        /*'build-cljs-lib',*/
-        'clean-web',
-        ['browserify', 'copy-css', 'copy-html'],
-        'deploy-web');
-});
+const copyCSS = () =>
+  src("./examples/**/*.css").pipe(dest("./examples/dist/css"));
 
-gulp.task('clean-lib', function () {
-    return gulp.src('./lib', {read: false})
-        .pipe(clean());
-});
+const copyHTML = () =>
+  src("./examples/index.html").pipe(dest("./examples/dist/"));
 
-gulp.task('build-lib', function() {
-    return gulp.src(['src/**/*.js',
-                     '!./src/require.js',
-                     '!./src/react-grid-gallery.bundle.js'])
-        .pipe(babel({
-            presets: ['es2015', 'react']
-        }))
-        .pipe(gulp.dest('lib'));
-});
+const buildExamples = () => {
+  const isDevEnv = process.env.NODE_ENV === "dev";
+  return browserify(glob.sync("./examples/+(app|demo*).js"))
+    .transform(babelify)
+    .bundle()
+    .on("error", (error) => {
+      console.log(error.stack, error.message);
+      this.emit("end");
+    })
+    .pipe(gulpif(isDevEnv, source("bundle.js"), source("bundle.min.js")))
+    .pipe(buffer())
+    .pipe(gulpif(isDevEnv, beautify({}), uglify()))
+    .pipe(dest("./examples/dist/js"));
+};
 
-gulp.task('clean-web', function () {
-    return gulp.src('./examples/dist', {read: false})
-        .pipe(clean());
-});
+const buildSite = series(cleanWeb, buildExamples, copyCSS, copyHTML);
 
-gulp.task('deploy-web', function() {
-    return gulp.src('./examples/dist/**/*')
-        .pipe(ghPages());
-});
+const buildAll = series(cleanLib, buildLib, buildSite);
 
-gulp.task('copy-css', function () {
-    return gulp.src('./examples/**/*.css')
-        .pipe(gulp.dest('./examples/dist/css'));
-});
+const buildAndDeploy = series(buildAll, deployWeb);
 
-gulp.task('copy-html', function () {
-    return gulp.src('./examples/index.html')
-        .pipe(gulp.dest('./examples/dist/'));
-});
+const watchAndBuildAll = () =>
+  watch("./src/*.js", { ignoreInitial: false }, buildAll);
 
-//uncomment watchify + on update for continuous build
-gulp.task('browserify', function() {
-    var bundle =
-           
-            browserify(['./examples/app.js',
-                        './examples/demo1.js',
-                        './examples/demo2.js',
-                        './examples/demo3.js',
-                        './examples/demo4.js',
-                        './examples/demo5.js',
-                        './examples/demo6.js'], {
-        extensions: ['.js', '.jsx']
-        })
-
-    ;
-    bundle.transform(babelify, {'presets': ['es2015', 'react']});
-
-    //bundle.on('update', function() {
-    //    rebundle(bundle);
-    //});
-
-    function rebundle(bundle) {
-        return bundle.bundle()
-            .on('error', function(error) {
-                console.log(error.stack, error.message);
-                this.emit('end');
-            })
-            .pipe(gulpif((process.env.NODE_ENV == 'dev'), source('bundle.js'), source('bundle.min.js')))
-            .pipe(buffer())
-            .pipe(gulpif((process.env.NODE_ENV == 'dev'), beautify(), uglify()))
-            .pipe(gulp.dest('examples/dist/js'));
-    }
-    return rebundle(bundle);
-});
-
-
-gulp.task('build-cljs-lib', function() {
-    var bundle = browserify('./src/require.js', {
-        extensions: ['.js', '.jsx'],
-    });
-    bundle.transform(babelify, {'presets': ['es2015', 'react']});
-    bundle.on('update', function() {
-        rebundle(bundle);
-    });
-
-    function rebundle(bundle) {
-        return bundle.bundle()
-            .on('error', function(error) {
-                console.log(error.stack, error.message);
-                this.emit('end');
-            })
-            .pipe(gulpif((process.env.NODE_ENV == 'dev'),
-                         source('react-grid-gallery.bundle.js'),
-                         source('react-grid-gallery.bundle.min.js')))
-            .pipe(buffer())
-            .pipe(gulpif((process.env.NODE_ENV == 'production'), uglify()))
-            .pipe(gulp.dest('lib'));
-    }
-    return rebundle(bundle);
-});
+exports.default = buildAll;
+exports.buildAndDeploy = buildAndDeploy;
+exports.watch = watchAndBuildAll;
