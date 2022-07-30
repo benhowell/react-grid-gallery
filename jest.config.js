@@ -1,3 +1,5 @@
 module.exports = {
-    testEnvironment: 'jsdom',
-}
+  testEnvironment: "jsdom",
+  preset: "jest-puppeteer",
+  testPathIgnorePatterns: [".publish"],
+};
