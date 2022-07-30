@@ -30,24 +30,46 @@ const copyCSS = () =>
 const copyHTML = () =>
   src("./examples/index.html").pipe(dest("./examples/dist/"));
 
-const buildExamples = () => {
+const createBrowserifyBundle = (browserifyParams, bundleName, destDir) => {
   const isDevEnv = process.env.NODE_ENV === "dev";
-  return browserify(glob.sync("./examples/+(app|demo*).js"))
+
+  return browserify
+    .apply(this, browserifyParams)
     .transform(babelify)
     .bundle()
     .on("error", (error) => {
       console.log(error.stack, error.message);
       this.emit("end");
     })
-    .pipe(gulpif(isDevEnv, source("bundle.js"), source("bundle.min.js")))
+    .pipe(
+      gulpif(
+        isDevEnv,
+        source(`${bundleName}.js`),
+        source(`${bundleName}.min.js`)
+      )
+    )
     .pipe(buffer())
     .pipe(gulpif(isDevEnv, beautify({}), uglify()))
-    .pipe(dest("./examples/dist/js"));
+    .pipe(dest(destDir));
 };
+
+const buildExamples = () =>
+  createBrowserifyBundle(
+    [glob.sync("./examples/+(app|demo*).js")],
+    "bundle",
+    "./examples/dist/js"
+  );
+
+const buildStandalone = () =>
+  createBrowserifyBundle(
+    ["./src/Gallery.js", { standalone: "Gallery" }],
+    "react-grid-gallery",
+    "./dist"
+  );
 
 const buildSite = series(cleanWeb, buildExamples, copyCSS, copyHTML);
 
-const buildAll = series(cleanLib, buildLib, buildSite);
+const buildAll = series(cleanLib, buildLib, buildStandalone, buildSite);
 
 const buildAndDeploy = series(buildAll, deployWeb);
 
@@ -57,3 +79,4 @@ const watchAndBuildAll = () =>
 exports.default = buildAll;
 exports.buildAndDeploy = buildAndDeploy;
 exports.watch = watchAndBuildAll;
+exports.buildStandalone = buildStandalone;
