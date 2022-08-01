@@ -2,5 +2,7 @@ node_modules
 require.js
 *.bundle.js
 examples/dist
+dist/
 .publish
 .DS_Store
+.idea
