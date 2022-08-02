@@ -11,8 +11,11 @@
     "test:unit": "jest --testPathIgnorePatterns=\\.e2e\\.test\\.js",
     "test:e2e": "jest --testPathPattern=\\.e2e\\.test\\.js"
   },
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0 || ^17.0.0"
+  },
   "dependencies": {
-    "prop-types": "^15.5.8",
+    "prop-types": "^15.8.1",
     "react-images": "^0.5.16"
   },
   "devDependencies": {
@@ -37,8 +40,8 @@
     "jest-image-snapshot": "^5.1.0",
     "jest-puppeteer": "^6.1.1",
     "puppeteer": "^15.5.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
