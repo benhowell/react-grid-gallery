@@ -23,7 +23,7 @@ const tags2 = [
 
 const getGalleryBrowserBuildPath = () => {
   try {
-    return require.resolve("./../dist/react-grid-gallery.min.js");
+    return require.resolve("./../dist/react-grid-gallery.umd.js");
   } catch (error) {
     if (error.code === "MODULE_NOT_FOUND") {
       console.error(

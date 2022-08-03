@@ -398,4 +398,4 @@ Gallery.defaultProps = {
     lightBoxProps : {},
 };
 
-module.exports = Gallery;
+export default Gallery;
