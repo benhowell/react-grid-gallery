@@ -24,10 +24,13 @@ const image2 = {
 
 const getItems = () => screen.getAllByTestId("grid-gallery-item");
 const getItem = () => screen.getByTestId("grid-gallery-item");
-const getItemThumbnail = () => screen.getByTestId("grid-gallery-item_thumbnail");
+const getItemThumbnail = () =>
+  screen.getByTestId("grid-gallery-item_thumbnail");
 const getItemViewport = () => screen.getByTestId("grid-gallery-item_viewport");
-const getItemCheckButton = () => screen.getByTestId("grid-gallery-item_check-button");
-const getLightboxImage = () => within(document.querySelector("#lightboxBackdrop")).getByRole("img");
+const getItemCheckButton = () =>
+  screen.getByTestId("grid-gallery-item_check-button");
+const getLightboxImage = () =>
+  within(document.querySelector("#lightboxBackdrop")).getByRole("img");
 
 describe("Gallery Component", () => {
   beforeEach(() => {
@@ -37,8 +40,9 @@ describe("Gallery Component", () => {
     Object.defineProperty(Element.prototype, "clientWidth", { value: 400 });
 
     // simulate image load event to test react-images loaded state
-    global.Image = class {
+    global.Image = class Image extends Image {
       constructor() {
+        super();
         setTimeout(() => this.onload && this.onload(), 100);
       }
     };
@@ -82,9 +86,16 @@ describe("Gallery Component", () => {
   });
 
   it("should render element with custom properties provided via thumbnailImageComponent prop", () => {
-    const thumbnailImageComponent = (props) => <img {...props.imageProps} className="lazyload" />;
+    const thumbnailImageComponent = (props) => (
+      <img {...props.imageProps} className="lazyload" />
+    );
 
-    render(<Gallery images={[image1]} thumbnailImageComponent={thumbnailImageComponent} />);
+    render(
+      <Gallery
+        images={[image1]}
+        thumbnailImageComponent={thumbnailImageComponent}
+      />
+    );
 
     expect(getItemThumbnail()).toHaveClass("lazyload");
   });
@@ -100,14 +111,19 @@ describe("Gallery Component", () => {
   it("should set styles provided via tileViewportStyle prop on viewport element", () => {
     const tileViewportStyle = { background: "black", opacity: 0.42 };
 
-    render(<Gallery images={[image1]} tileViewportStyle={() => tileViewportStyle} />);
+    render(
+      <Gallery images={[image1]} tileViewportStyle={() => tileViewportStyle} />
+    );
 
     expect(getItemViewport()).toHaveStyle(tileViewportStyle);
   });
 
   it("should set styles provided via tagStyle prop on tag element", () => {
     const tagStyle = { background: "black", opacity: 0.42 };
-    const image = { ...image1, tags: [{ value: "Vegetable", title: "Vegetable" }] };
+    const image = {
+      ...image1,
+      tags: [{ value: "Vegetable", title: "Vegetable" }],
+    };
 
     render(<Gallery images={[image]} tagStyle={tagStyle} />);
 
@@ -231,7 +247,9 @@ describe("Gallery Component", () => {
       render(<Gallery images={[image1]} enableLightbox={false} />);
       fireEvent.click(getItemThumbnail());
 
-      expect(document.querySelector("#lightboxBackdrop")).not.toBeInTheDocument();
+      expect(
+        document.querySelector("#lightboxBackdrop")
+      ).not.toBeInTheDocument();
     });
 
     it("should set Lightbox image src attribute based on src prop", () => {
@@ -242,16 +260,20 @@ describe("Gallery Component", () => {
     });
 
     it("should set Lightbox image srcset attribute based on srcSet prop", () => {
-      const srcSet = `https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/320px-Apples.jpg 320w,
-             https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/480px-Apples.jpg 480w,
-             https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/800px-Apples.jpg 800w
-      `;
+      const srcSet = [
+        "/320px-Apples.jpg 320w",
+        "/480px-Apples.jpg 480w",
+        "/800px-Apples.jpg 800w",
+      ];
       const image = { ...image1, srcSet };
 
       render(<Gallery images={[image]} />);
       fireEvent.click(getItemThumbnail());
 
-      expect(getLightboxImage()).toHaveAttribute("srcset", srcSet);
+      expect(getLightboxImage()).toHaveAttribute(
+        "srcset",
+        "/320px-Apples.jpg 320w,/480px-Apples.jpg 480w,/800px-Apples.jpg 800w"
+      );
     });
 
     it("should render caption on Lightbox based on caption prop", async () => {
@@ -268,7 +290,9 @@ describe("Gallery Component", () => {
     it("should call lightboxWillOpen after Lightbox was opened", () => {
       const handleLightboxWillOpen = jest.fn();
 
-      render(<Gallery images={[image1]} lightboxWillOpen={handleLightboxWillOpen} />);
+      render(
+        <Gallery images={[image1]} lightboxWillOpen={handleLightboxWillOpen} />
+      );
       fireEvent.click(getItemThumbnail());
 
       expect(handleLightboxWillOpen.mock.calls).toEqual([[0]]);
@@ -277,7 +301,12 @@ describe("Gallery Component", () => {
     it("should call lightboxWillClose after Lightbox was closed", () => {
       const handleLightboxWillClose = jest.fn();
 
-      render(<Gallery images={[image1]} lightboxWillClose={handleLightboxWillClose} />);
+      render(
+        <Gallery
+          images={[image1]}
+          lightboxWillClose={handleLightboxWillClose}
+        />
+      );
       fireEvent.click(getItemThumbnail());
       fireEvent.keyDown(document, {
         key: "Escape",
@@ -290,7 +319,10 @@ describe("Gallery Component", () => {
     });
 
     it("should pass props directly to ReactImagesLightbox component", () => {
-      const reactImagesSpy = jest.spyOn(ReactImagesLightbox.prototype, "render");
+      const reactImagesSpy = jest.spyOn(
+        ReactImagesLightbox.prototype,
+        "render"
+      );
       const onClickImage = jest.fn();
       const onClickPrev = jest.fn();
 
@@ -333,13 +365,17 @@ describe("Gallery Component", () => {
     it("should call onClickThumbnail with index and event arguments passed", () => {
       const handleClickThumbnail = jest.fn();
 
-      render(<Gallery images={[image1]} onClickThumbnail={handleClickThumbnail} />);
+      render(
+        <Gallery images={[image1]} onClickThumbnail={handleClickThumbnail} />
+      );
       fireEvent.click(getItemThumbnail());
 
       const expectSyntheticMouseEvent = expect.objectContaining({
-        constructor: expect.objectContaining({ name: "SyntheticMouseEvent" }),
+        constructor: expect.objectContaining({ name: "SyntheticBaseEvent" }),
       });
-      expect(handleClickThumbnail.mock.calls).toEqual([[0, expectSyntheticMouseEvent]]);
+      expect(handleClickThumbnail.mock.calls).toEqual([
+        [0, expectSyntheticMouseEvent],
+      ]);
     });
   });
 
@@ -376,11 +412,17 @@ describe("Gallery Component", () => {
       const handleSelectImage = jest.fn();
 
       render(
-        <Gallery images={[image1]} enableImageSelection={true} onSelectImage={handleSelectImage} />
+        <Gallery
+          images={[image1]}
+          enableImageSelection={true}
+          onSelectImage={handleSelectImage}
+        />
       );
       fireEvent.click(getItemCheckButton());
 
-      expect(handleSelectImage.mock.calls).toEqual([[0, expect.objectContaining(image1)]]);
+      expect(handleSelectImage.mock.calls).toEqual([
+        [0, expect.objectContaining(image1)],
+      ]);
     });
   });
 });
