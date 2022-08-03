@@ -3,6 +3,7 @@ require.js
 *.bundle.js
 examples/dist
 dist/
+lib/
 .publish
 .DS_Store
 .idea
