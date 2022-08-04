@@ -370,12 +370,11 @@ describe("Gallery Component", () => {
       );
       fireEvent.click(getItemThumbnail());
 
-      const expectSyntheticMouseEvent = expect.objectContaining({
-        constructor: expect.objectContaining({ name: "SyntheticBaseEvent" }),
-      });
-      expect(handleClickThumbnail.mock.calls).toEqual([
-        [0, expectSyntheticMouseEvent],
-      ]);
+      expect(handleClickThumbnail).toBeCalledTimes(1);
+      const [arg1, arg2] = handleClickThumbnail.mock.calls[0];
+      expect(arg1).toEqual(0);
+      expect(arg2.target).toBeDefined();
+      expect(arg2.altKey).toBeDefined();
     });
   });
 
