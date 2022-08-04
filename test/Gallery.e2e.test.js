@@ -69,6 +69,12 @@ describe("Gallery is visually correct", () => {
     page.setViewport({ width: 800, height: 600 });
   });
 
+  it("on react16", async () => {
+    await renderGallery({ images }, { reactVersion: 16 });
+
+    expect(await page.screenshot()).toMatchImageSnapshot();
+  });
+
   it("on react17", async () => {
     await renderGallery({ images }, { reactVersion: 17 });
 
