@@ -13,12 +13,9 @@ const bluePixel =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO0jfr3HwAFBwKW6YMOIwAAAABJRU5ErkJggg==";
 
 const tags1 = [
-  { value: "Nature", title: "Nature" },
-  { value: "People", title: "People" },
-];
-const tags2 = [
-  { value: "People", title: "People" },
-  { value: "Sport", title: "Sport" },
+  // avoid using any symbols because of the difference in font rendering on the local OS and CI ubuntu
+  { value: "     ", title: "     " },
+  { value: "     ", title: "     " },
 ];
 
 const getGalleryBrowserBuildPath = () => {
@@ -66,7 +63,7 @@ const renderGallery = async (props, options = {}) => {
 
 describe("Gallery is visually correct", () => {
   beforeEach(() => {
-    page.setViewport({ width: 800, height: 600 });
+    page.setViewport({ width: 800, height: 800 });
   });
 
   it("on react16", async () => {
@@ -89,7 +86,7 @@ describe("Gallery is visually correct", () => {
 
   it("after viewport resize", async () => {
     const sizes = [
-      [320, 569],
+      [320, 570],
       [360, 640],
       [480, 854],
       [960, 540],
@@ -158,7 +155,7 @@ describe("Gallery is visually correct", () => {
   it("when images have tags", async () => {
     const imagesWithTags = images.map((i, index) => ({
       ...i,
-      tags: index % 2 ? tags1 : tags2,
+      tags: index % 2 ? tags1 : [],
     }));
 
     await renderGallery({ images: imagesWithTags });
@@ -169,13 +166,12 @@ describe("Gallery is visually correct", () => {
   it("when images have tags and tagStyle prop passed", async () => {
     const imagesWithTags = images.map((i, index) => ({
       ...i,
-      tags: index % 2 ? tags1 : tags2,
+      tags: index % 2 ? tags1 : [],
     }));
     const tagStyle = {
       background: "white",
-      border: "2px solid black",
-      color: "black",
       padding: 10,
+      opacity: 1,
     };
 
     await renderGallery({ images: imagesWithTags, tagStyle });
