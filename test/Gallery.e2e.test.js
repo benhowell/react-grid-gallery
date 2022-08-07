@@ -34,6 +34,7 @@ const getGalleryBrowserBuildPath = () => {
 const renderGallery = async (props, options = {}) => {
   const reactVersion = options.reactVersion || 18;
   const timeout = options.timeout || 10000;
+  const styles = options.styles || "";
 
   await page.setContent('<html><div id="root"></div></html>');
   const reactScript = `https://unpkg.com/react@${reactVersion}/umd/react.development.js`;
@@ -41,6 +42,9 @@ const renderGallery = async (props, options = {}) => {
   const reactDOMScript = `https://unpkg.com/react-dom@${reactVersion}/umd/react-dom.development.js`;
   await page.addScriptTag({ url: reactDOMScript });
   await page.addScriptTag({ path: getGalleryBrowserBuildPath() });
+  if (styles) {
+    await page.addStyleTag({ content: styles });
+  }
 
   const latestReactRender = (props) => {
     const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -175,6 +179,14 @@ describe("Gallery is visually correct", () => {
     };
 
     await renderGallery({ images: imagesWithTags, tagStyle });
+
+    expect(await page.screenshot()).toMatchImageSnapshot();
+  });
+
+  it("when container width is decimal", async () => {
+    const styles = "#root { width: 474.7px }";
+
+    await renderGallery({ images }, { styles });
 
     expect(await page.screenshot()).toMatchImageSnapshot();
   });
