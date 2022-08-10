@@ -66,8 +66,8 @@ const renderGallery = async (props, options = {}) => {
 };
 
 describe("Gallery is visually correct", () => {
-  beforeEach(() => {
-    page.setViewport({ width: 800, height: 800 });
+  beforeEach(async () => {
+    await page.setViewport({ width: 800, height: 800 });
   });
 
   it("on react16", async () => {

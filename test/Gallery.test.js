@@ -38,7 +38,7 @@ describe("Gallery Component", () => {
 
     // define clientWidth for gallery root element
     Object.defineProperty(Element.prototype, "clientWidth", { value: 400 });
-
+    Element.prototype.getBoundingClientRect = jest.fn(() => ({ width: 400 }));
     // simulate image load event to test react-images loaded state
     global.Image = class Image extends Image {
       constructor() {
