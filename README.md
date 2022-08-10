@@ -3,7 +3,9 @@
 Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/) and based upon [React Images](https://github.com/jossmac/react-images).
 
 ### :mega: Maintainers wanted :mega:
-> As react-grid-gallery continues to gain popularity and provide value to many users (around half a million downloads from NPM as of August 2020) it requires maintainers to at least take care of issues and pull requsts. If you're getting value from using this component or if you're just interested in becoming a maintainer, please let me know.
+> As react-grid-gallery continues to gain popularity and provide value to many users (over a million downloads from NPM alone) it requires maintainers to take care of issues and pull requsts, and to progress the software. If you're getting value from using this component or if you're just interested in becoming a maintainer, please let me know.
+
+> A very big thankyou to [Isaev Igor (@itoldya)](https://github.com/itoldya) for taking on a substantial amount of work in smoothing out some (of the many) rough edges, and for bringing react-grid-gallery up to date. I really appreciate the care taken. Check out his site at [picryl.com](https://picryl.com/search) (a great example of react-grid-gallery in use).
 
 ### Note:
 > As of the release of  [v0.5.4](https://github.com/benhowell/react-grid-gallery/releases/tag/v0.5.4) (2019-03-10) I will no longer be actively adding features and maintaining [react-grid-gallery](https://github.com/benhowell/react-grid-gallery). My online behavioral experiment platform [Psychstudio](https://www.psychstudio.com/) consumes all of my time and I am no longer capable of giving react-grid-gallery the attention it needs. A big thanks to [everyone who has contributed](https://github.com/benhowell/react-grid-gallery/blob/master/README.md#acknowledgements) over the last 5 years and thanks to everyone who has downloaded react-grid-gallery (hopefully it has been useful to you).
