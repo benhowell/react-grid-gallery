@@ -44,7 +44,7 @@ class Gallery extends Component {
 
     componentDidUpdate () {
         if (!this._gallery) return;
-        if (this._gallery.clientWidth
+        if (this.getContainerWidth()
             !== this.state.containerWidth){
             this.onResize();
         }
@@ -52,10 +52,19 @@ class Gallery extends Component {
 
     onResize () {
         if (!this._gallery) return;
+        const containerWidth = this.getContainerWidth();
         this.setState({
-            containerWidth: Math.floor(this._gallery.clientWidth),
-            thumbnails: this.renderThumbs(this._gallery.clientWidth)
+            containerWidth,
+            thumbnails: this.renderThumbs(containerWidth)
         });
+    }
+
+    getContainerWidth() {
+        let width = this._gallery.clientWidth;
+        try {
+            width = this._gallery.getBoundingClientRect().width;
+        } catch (err) {}
+        return Math.floor(width);
     }
 
     openLightbox (index, event) {
