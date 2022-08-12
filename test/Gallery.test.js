@@ -130,6 +130,16 @@ describe("Gallery Component", () => {
     expect(screen.getByText("Vegetable")).toHaveStyle(tagStyle);
   });
 
+  it("should render all passed images after rerender", () => {
+    const { rerender } = render(<Gallery images={[image1]} />);
+
+    expect(getItems().length).toEqual(1);
+
+    rerender(<Gallery images={[image1, image2]} />);
+
+    expect(getItems().length).toEqual(2);
+  });
+
   describe("Image Options", () => {
     it("should set thumbnail image src attribute based on thumbnail prop", () => {
       render(<Gallery images={[image1]} />);

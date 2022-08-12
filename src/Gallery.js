@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Lightbox from 'react-images';
 import Image from './Image.js';
+import renderThumbs from "./renderThumbs";
 
 class Gallery extends Component {
     constructor (props) {
         super(props);
 
         this.state = {
-            images: this.props.images,
-            thumbnails: [],
             lightboxIsOpen: this.props.isOpen,
             currentImage: this.props.currentImage,
             containerWidth: 0
@@ -33,13 +32,6 @@ class Gallery extends Component {
         if (this.state.currentImage > np.images.length - 1) {
             this.setState({currentImage: np.images.length - 1});
         }
-        if(this.state.images != np.images || this.props.maxRows != np.maxRows){
-            this.setState({
-                images: np.images,
-                thumbnails: this.renderThumbs(this._gallery.clientWidth,
-                                              np.images)
-            });
-        }
     }
 
     componentDidUpdate () {
@@ -53,10 +45,7 @@ class Gallery extends Component {
     onResize () {
         if (!this._gallery) return;
         const containerWidth = this.getContainerWidth();
-        this.setState({
-            containerWidth,
-            thumbnails: this.renderThumbs(containerWidth)
-        });
+        this.setState({ containerWidth });
     }
 
     getContainerWidth() {
@@ -125,7 +114,7 @@ class Gallery extends Component {
     onSelectImage (index, event) {
         event.preventDefault();
         if(this.props.onSelectImage)
-            this.props.onSelectImage.call(this, index, this.state.images[index]);
+            this.props.onSelectImage.call(this, index, this.props.images[index]);
     }
 
     gotoImage (index) {
@@ -173,96 +162,11 @@ class Gallery extends Component {
         return this.gotoNext;
     }
 
-    calculateCutOff (len, delta, items) {
-        var cutoff = [];
-        var cutsum = 0;
-        for(var i in items) {
-            var item = items[i];
-            var fractOfLen = item.scaletwidth / len;
-            cutoff[i] = Math.floor(fractOfLen * delta);
-            cutsum += cutoff[i];
-        }
-
-        var stillToCutOff = delta - cutsum;
-        while(stillToCutOff > 0) {
-            for(i in cutoff) {
-                cutoff[i]++;
-                stillToCutOff--;
-                if (stillToCutOff < 0) break;
-            }
-        }
-        return cutoff;
-    }
-
-    buildImageRow (items, containerWidth) {
-        var row = [];
-        var len = 0;
-        var imgMargin = 2 * this.props.margin;
-        while(items.length > 0 && len < containerWidth) {
-            var item = items.shift();
-            row.push(item);
-            len += (item.scaletwidth + imgMargin);
-        }
-
-        var delta = len - containerWidth;
-        if(row.length > 0 && delta > 0) {
-            var cutoff = this.calculateCutOff(len, delta, row);
-            for(var i in row) {
-                var pixelsToRemove = cutoff[i];
-                item = row[i];
-                item.marginLeft = -Math.abs(Math.floor(pixelsToRemove / 2));
-                item.vwidth = item.scaletwidth - pixelsToRemove;
-            }
-        }
-        else {
-            for(var j in row) {
-                item = row[j];
-                item.marginLeft = 0;
-                item.vwidth = item.scaletwidth;
-            }
-        }
-        return row;
-    }
-
-    setThumbScale (item) {
-        item.scaletwidth =
-            Math.floor(this.props.rowHeight
-                       * (item.thumbnailWidth / item.thumbnailHeight));
-    }
-
-    renderThumbs (containerWidth, images = this.state.images) {
-        if (!images) return [];
-        if (containerWidth == 0) return [];
-
-        var items = images.slice();
-        for (var t in items) {
-            this.setThumbScale(items[t]);
-        }
-
-        var thumbs = [];
-        var rows = [];
-        while(items.length > 0) {
-            rows.push(this.buildImageRow(items, containerWidth));
-        }
-
-        for(var r in rows) {
-            for(var i in rows[r]) {
-                var item = rows[r][i];
-                if(this.props.maxRows) {
-                    if(r < this.props.maxRows) {
-                        thumbs.push(item);
-                    }
-                }
-                else {
-                    thumbs.push(item);
-                }
-            }
-        }
-        return thumbs;
-    }
-
     render () {
-        var images = this.state.thumbnails.map((item, idx) => {
+        const { maxRows, rowHeight, margin } = this.props
+        const { containerWidth } = this.state
+        const thumbnails = renderThumbs(this.props.images, { containerWidth, maxRows, rowHeight, margin })
+        var images = thumbnails.map((item, idx) => {
             return <Image
             key={"Image-"+idx+"-"+item.src}
             item={item}
