@@ -4,6 +4,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
+import copy from "rollup-plugin-copy";
 import pkg from "./package.json";
 
 const isWatchMode = process.env.ROLLUP_WATCH;
@@ -53,6 +54,22 @@ export default [
       { file: pkg.main, format: "cjs", exports: "default" },
       { file: pkg.module, format: "es", exports: "default" },
     ],
-    plugins: [babel({ babelHelpers: "bundled" })],
+    plugins: [
+      babel({ babelHelpers: "bundled" }),
+      copy({
+        targets: [
+          {
+            src: "./index.d.ts",
+            dest: "./dist",
+            rename: `${pkg.name}.cjs.d.ts`,
+          },
+          {
+            src: "./index.d.ts",
+            dest: "./dist",
+            rename: `${pkg.name}.esm.d.ts`,
+          },
+        ],
+      }),
+    ],
   },
 ];
