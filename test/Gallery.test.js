@@ -386,6 +386,17 @@ describe("Gallery Component", () => {
       expect(arg2.target).toBeDefined();
       expect(arg2.altKey).toBeDefined();
     });
+
+    it("should switch lightbox image when current image is no longer present", () => {
+      const { rerender } = render(<Gallery images={[image1, image2]} />);
+      const [, secondItem] = screen.getAllByTestId(
+        "grid-gallery-item_thumbnail"
+      );
+      fireEvent.click(secondItem);
+      rerender(<Gallery images={[image1]} />);
+
+      expect(getLightboxImage()).toHaveAttribute("src", image1.src);
+    });
   });
 
   describe("Selection", () => {
