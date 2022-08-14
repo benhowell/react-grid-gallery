@@ -28,12 +28,6 @@ class Gallery extends Component {
         this.onResize();
     }
 
-    componentWillReceiveProps (np) {
-        if (this.state.currentImage > np.images.length - 1) {
-            this.setState({currentImage: np.images.length - 1});
-        }
-    }
-
     componentDidUpdate () {
         if (!this._gallery) return;
         if (this.getContainerWidth()
@@ -54,6 +48,10 @@ class Gallery extends Component {
             width = this._gallery.getBoundingClientRect().width;
         } catch (err) {}
         return Math.floor(width);
+    }
+
+    getCurrentImageIndex() {
+        return Math.min(this.state.currentImage, this.props.images.length - 1)
     }
 
     openLightbox (index, event) {
@@ -89,19 +87,19 @@ class Gallery extends Component {
 
     gotoPrevious () {
         if (this.props.currentImageWillChange) {
-            this.props.currentImageWillChange.call(this, this.state.currentImage - 1);
+            this.props.currentImageWillChange.call(this, this.getCurrentImageIndex() - 1);
         }
         this.setState({
-            currentImage: this.state.currentImage - 1
+            currentImage: this.getCurrentImageIndex() - 1
         });
     }
 
     gotoNext () {
         if (this.props.currentImageWillChange) {
-            this.props.currentImageWillChange.call(this, this.state.currentImage + 1);
+            this.props.currentImageWillChange.call(this, this.getCurrentImageIndex() + 1);
         }
         this.setState({
-            currentImage: this.state.currentImage + 1
+            currentImage: this.getCurrentImageIndex() + 1
         });
     }
 
@@ -202,7 +200,7 @@ class Gallery extends Component {
                 <Lightbox
             images={this.props.images}
             backdropClosesModal={this.props.backdropClosesModal}
-            currentImage={this.state.currentImage}
+            currentImage={this.getCurrentImageIndex()}
 	    preloadNextImage={this.props.preloadNextImage}
             customControls={this.props.customControls}
             enableKeyboardInput={this.props.enableKeyboardInput}
