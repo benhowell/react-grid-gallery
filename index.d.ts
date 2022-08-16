@@ -62,6 +62,7 @@ declare module "react-grid-gallery" {
     rowHeight?: number;
     maxRows?: number;
     margin?: number;
+    defaultContainerWidth?: number;
     enableLightbox?: boolean;
     onClickThumbnail?: (
       index: number,

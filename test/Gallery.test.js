@@ -1,6 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import { render, fireEvent, screen, within } from "@testing-library/react";
+import { renderToString } from "react-dom/server";
 import ReactImagesLightbox from "react-images";
 import Gallery from "../src/Gallery";
 
@@ -31,6 +32,11 @@ const getItemCheckButton = () =>
   screen.getByTestId("grid-gallery-item_check-button");
 const getLightboxImage = () =>
   within(document.querySelector("#lightboxBackdrop")).getByRole("img");
+
+// emulating server-side rendering
+// https://github.com/testing-library/react-testing-library/issues/561#issuecomment-1189796200
+const renderStatic = (element) =>
+  render(<div dangerouslySetInnerHTML={{ __html: renderToString(element) }} />);
 
 describe("Gallery Component", () => {
   beforeEach(() => {
@@ -136,6 +142,14 @@ describe("Gallery Component", () => {
     expect(getItems().length).toEqual(1);
 
     rerender(<Gallery images={[image1, image2]} />);
+
+    expect(getItems().length).toEqual(2);
+  });
+
+  it("should render thumbnails on server-side when defaultContainerWidth prop is passed", () => {
+    renderStatic(
+      <Gallery images={[image1, image2]} defaultContainerWidth={400} />
+    );
 
     expect(getItems().length).toEqual(2);
   });
