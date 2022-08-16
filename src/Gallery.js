@@ -11,7 +11,7 @@ class Gallery extends Component {
         this.state = {
             lightboxIsOpen: this.props.isOpen,
             currentImage: this.props.currentImage,
-            containerWidth: 0
+            containerWidth: this.props.defaultContainerWidth,
         };
 
         this.onResize = this.onResize.bind(this);
@@ -262,6 +262,7 @@ Gallery.propTypes = {
     rowHeight: PropTypes.number,
     maxRows: PropTypes.number,
     margin: PropTypes.number,
+    defaultContainerWidth: PropTypes.number,
     onClickThumbnail: PropTypes.func,
     lightboxWillOpen: PropTypes.func,
     lightboxWillClose: PropTypes.func,
@@ -295,6 +296,7 @@ Gallery.defaultProps = {
     enableImageSelection: true,
     rowHeight: 180,
     margin: 2,
+    defaultContainerWidth : 0,
     enableLightbox: true,
     backdropClosesModal: false,
     currentImage: 0,
