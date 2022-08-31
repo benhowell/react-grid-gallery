@@ -48,7 +48,6 @@ declare module "react-grid-gallery" {
     tags?: ReactGridGalleryImageTag[];
     isSelected?: boolean;
     caption?: React.ReactNode;
-    srcSet?: string[];
     customOverlay?: React.ReactNode;
     thumbnailCaption?: React.ReactNode;
     orientation?: number;
@@ -63,37 +62,14 @@ declare module "react-grid-gallery" {
     maxRows?: number;
     margin?: number;
     defaultContainerWidth?: number;
-    enableLightbox?: boolean;
     onClickThumbnail?: (
       index: number,
       event: React.MouseEvent<HTMLElement>
     ) => void;
-    lightboxWillOpen?: (index: number) => void;
-    lightboxWillClose?: () => void;
     tagStyle?: React.CSSProperties;
     tileViewportStyle?: () => React.CSSProperties;
     thumbnailStyle?: () => React.CSSProperties;
     thumbnailImageComponent?: React.ComponentType<ReactGridGalleryThumbnailImageComponentProps>;
-
-    backdropClosesModal?: boolean;
-    currentImage?: number;
-    preloadNextImage?: boolean;
-    customControls?: React.ReactNode[];
-    enableKeyboardInput?: boolean;
-    imageCountSeparator?: string;
-    isOpen?: boolean;
-    showCloseButton?: boolean;
-    showImageCount?: boolean;
-    onClickImage?: (event: React.MouseEvent<HTMLElement>) => void;
-    onClickPrev?: () => void;
-    onClickNext?: () => void;
-
-    currentImageWillChange?: (index: number) => void;
-    showLightboxThumbnails?: boolean;
-
-    onClickLightboxThumbnail?: (index: number) => void;
-    lightboxWidth?: number;
-    lightBoxProps?: any;
   }
 
   class ReactGridGallery extends React.Component<ReactGridGalleryProps> {}

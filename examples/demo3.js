@@ -24,7 +24,6 @@ class Demo3 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            enableLightbox={false}
             enableImageSelection={false}/>
                 </div>
         );
@@ -36,7 +35,6 @@ Demo3.propTypes = {
         PropTypes.shape({
             src: PropTypes.string.isRequired,
             thumbnail: PropTypes.string.isRequired,
-            srcset: PropTypes.array,
             caption: PropTypes.oneOfType([
                 PropTypes.string,
                 PropTypes.element

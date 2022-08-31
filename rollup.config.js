@@ -44,12 +44,12 @@ export default [
       exports: "default",
     },
     preserveModules: true,
-    external: ["prop-types", "react", "react-images"],
+    external: ["prop-types", "react"],
     plugins: [babel({ babelHelpers: "inline" })],
   },
   {
     input: "src/Gallery.js",
-    external: ["prop-types", "react", "react-images"],
+    external: ["prop-types", "react"],
     output: [
       { file: pkg.main, format: "cjs", exports: "default" },
       { file: pkg.module, format: "es", exports: "default" },

@@ -34,7 +34,6 @@ Demo2.propTypes = {
         PropTypes.shape({
             src: PropTypes.string.isRequired,
             thumbnail: PropTypes.string.isRequired,
-            srcset: PropTypes.array,
             caption: PropTypes.oneOfType([
                 PropTypes.string,
                 PropTypes.element

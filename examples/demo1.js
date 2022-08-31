@@ -40,7 +40,6 @@ class Demo1 extends React.Component {
                 <Gallery
             images={this.state.images}
             onSelectImage={this.onSelectImage}
-            lightboxWidth={1536}
                 />
                 </div>
         );
@@ -52,7 +51,6 @@ Demo1.propTypes = {
         PropTypes.shape({
             src: PropTypes.string.isRequired,
             thumbnail: PropTypes.string.isRequired,
-            srcset: PropTypes.array,
             caption: PropTypes.oneOfType([
                 PropTypes.string,
                 PropTypes.element

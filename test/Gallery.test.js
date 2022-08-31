@@ -2,10 +2,7 @@ import React from "react";
 import "@testing-library/jest-dom";
 import { render, fireEvent, screen, within } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
-import ReactImagesLightbox from "react-images";
 import Gallery from "../src/Gallery";
-
-jest.mock("aphrodite/lib/inject");
 
 const image1 = {
   src: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Apples.jpg",
@@ -30,8 +27,6 @@ const getItemThumbnail = () =>
 const getItemViewport = () => screen.getByTestId("grid-gallery-item_viewport");
 const getItemCheckButton = () =>
   screen.getByTestId("grid-gallery-item_check-button");
-const getLightboxImage = () =>
-  within(document.querySelector("#lightboxBackdrop")).getByRole("img");
 
 // emulating server-side rendering
 // https://github.com/testing-library/react-testing-library/issues/561#issuecomment-1189796200
@@ -45,13 +40,6 @@ describe("Gallery Component", () => {
     // define clientWidth for gallery root element
     Object.defineProperty(Element.prototype, "clientWidth", { value: 400 });
     Element.prototype.getBoundingClientRect = jest.fn(() => ({ width: 400 }));
-    // simulate image load event to test react-images loaded state
-    global.Image = class Image extends Image {
-      constructor() {
-        super();
-        setTimeout(() => this.onload && this.onload(), 100);
-      }
-    };
   });
 
   it("should assign default id value", () => {
@@ -256,160 +244,6 @@ describe("Gallery Component", () => {
       render(<Gallery images={[image]} />);
 
       expect(getItemThumbnail()).toHaveStyle(`transform: rotate(180deg)`);
-    });
-  });
-
-  describe("Lightbox", () => {
-    it("should open Lightbox after click on gallery item", () => {
-      render(<Gallery images={[image1]} />);
-      fireEvent.click(getItemThumbnail());
-
-      expect(getLightboxImage()).toBeInTheDocument();
-    });
-
-    it("should not open Lightbox after click on gallery item when lightbox isn't enabled", () => {
-      render(<Gallery images={[image1]} enableLightbox={false} />);
-      fireEvent.click(getItemThumbnail());
-
-      expect(
-        document.querySelector("#lightboxBackdrop")
-      ).not.toBeInTheDocument();
-    });
-
-    it("should set Lightbox image src attribute based on src prop", () => {
-      render(<Gallery images={[image1]} />);
-      fireEvent.click(getItemThumbnail());
-
-      expect(getLightboxImage()).toHaveAttribute("src", image1.src);
-    });
-
-    it("should set Lightbox image srcset attribute based on srcSet prop", () => {
-      const srcSet = [
-        "/320px-Apples.jpg 320w",
-        "/480px-Apples.jpg 480w",
-        "/800px-Apples.jpg 800w",
-      ];
-      const image = { ...image1, srcSet };
-
-      render(<Gallery images={[image]} />);
-      fireEvent.click(getItemThumbnail());
-
-      expect(getLightboxImage()).toHaveAttribute(
-        "srcset",
-        "/320px-Apples.jpg 320w,/480px-Apples.jpg 480w,/800px-Apples.jpg 800w"
-      );
-    });
-
-    it("should render caption on Lightbox based on caption prop", async () => {
-      const caption = <i>Apples</i>;
-      const image = { ...image1, caption };
-
-      render(<Gallery images={[image]} />);
-      fireEvent.click(getItemThumbnail());
-
-      const captionElement = await screen.findByText("Apples");
-      expect(captionElement).toBeInTheDocument();
-    });
-
-    it("should call lightboxWillOpen after Lightbox was opened", () => {
-      const handleLightboxWillOpen = jest.fn();
-
-      render(
-        <Gallery images={[image1]} lightboxWillOpen={handleLightboxWillOpen} />
-      );
-      fireEvent.click(getItemThumbnail());
-
-      expect(handleLightboxWillOpen.mock.calls).toEqual([[0]]);
-    });
-
-    it("should call lightboxWillClose after Lightbox was closed", () => {
-      const handleLightboxWillClose = jest.fn();
-
-      render(
-        <Gallery
-          images={[image1]}
-          lightboxWillClose={handleLightboxWillClose}
-        />
-      );
-      fireEvent.click(getItemThumbnail());
-      fireEvent.keyDown(document, {
-        key: "Escape",
-        code: "Escape",
-        keyCode: 27,
-        charCode: 27,
-      });
-
-      expect(handleLightboxWillClose.mock.calls.length).toEqual(1);
-    });
-
-    it("should pass props directly to ReactImagesLightbox component", () => {
-      const reactImagesSpy = jest.spyOn(
-        ReactImagesLightbox.prototype,
-        "render"
-      );
-      const onClickImage = jest.fn();
-      const onClickPrev = jest.fn();
-
-      render(
-        <Gallery
-          images={[image1, image2]}
-          backdropClosesModal={true}
-          currentImage={1}
-          preloadNextImage={false}
-          enableKeyboardInput={false}
-          imageCountSeparator=" - "
-          isOpen={true}
-          showCloseButton={false}
-          showImageCount={false}
-          onClickImage={onClickImage}
-          onClickPrev={onClickPrev}
-          lightBoxProps={{ testCustomProp: "foo" }}
-          lightboxWidth={420}
-        />
-      );
-
-      expect(reactImagesSpy.mock.contexts[0].props).toEqual(
-        expect.objectContaining({
-          backdropClosesModal: true,
-          currentImage: 1,
-          preloadNextImage: false,
-          enableKeyboardInput: false,
-          imageCountSeparator: " - ",
-          isOpen: true,
-          showCloseButton: false,
-          showImageCount: false,
-          onClickImage,
-          onClickPrev,
-          testCustomProp: "foo",
-          width: 420,
-        })
-      );
-    });
-
-    it("should call onClickThumbnail with index and event arguments passed", () => {
-      const handleClickThumbnail = jest.fn();
-
-      render(
-        <Gallery images={[image1]} onClickThumbnail={handleClickThumbnail} />
-      );
-      fireEvent.click(getItemThumbnail());
-
-      expect(handleClickThumbnail).toBeCalledTimes(1);
-      const [arg1, arg2] = handleClickThumbnail.mock.calls[0];
-      expect(arg1).toEqual(0);
-      expect(arg2.target).toBeDefined();
-      expect(arg2.altKey).toBeDefined();
-    });
-
-    it("should switch lightbox image when current image is no longer present", () => {
-      const { rerender } = render(<Gallery images={[image1, image2]} />);
-      const [, secondItem] = screen.getAllByTestId(
-        "grid-gallery-item_thumbnail"
-      );
-      fireEvent.click(secondItem);
-      rerender(<Gallery images={[image1]} />);
-
-      expect(getLightboxImage()).toHaveAttribute("src", image1.src);
     });
   });
 

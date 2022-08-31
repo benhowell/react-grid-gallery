@@ -110,8 +110,7 @@ class Demo0 extends React.Component {
                     overflow: "auto"}}>
                 <Gallery
             images={this.state.images}
-            onSelectImage={this.onSelectImage}
-            showLightboxThumbnails={true}/>
+            onSelectImage={this.onSelectImage}/>
                 </div>
                 </div>
         );
@@ -123,7 +122,6 @@ Demo0.propTypes = {
         PropTypes.shape({
             src: PropTypes.string.isRequired,
             thumbnail: PropTypes.string.isRequired,
-            srcset: PropTypes.array,
             caption: PropTypes.oneOfType([
                 PropTypes.string,
                 PropTypes.element
