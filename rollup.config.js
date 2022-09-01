@@ -41,7 +41,7 @@ export default [
       dir: "lib",
       format: "cjs",
       sourcemap: true,
-      exports: "default",
+      exports: "auto",
     },
     preserveModules: true,
     external: ["prop-types", "react"],
@@ -51,8 +51,8 @@ export default [
     input: "src/Gallery.js",
     external: ["prop-types", "react"],
     output: [
-      { file: pkg.main, format: "cjs", exports: "default" },
-      { file: pkg.module, format: "es", exports: "default" },
+      { file: pkg.main, format: "cjs", exports: "auto" },
+      { file: pkg.module, format: "es", exports: "auto" },
     ],
     plugins: [
       babel({ babelHelpers: "bundled" }),

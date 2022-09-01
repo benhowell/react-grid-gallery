@@ -84,12 +84,10 @@ class Demo0 extends React.Component {
         return (
                 <div>
                 <CheckButton
-            index={0}
             isSelected={this.state.selectAllChecked}
+            isVisible
             onClick={this.onClickSelectAll}
-            parentHover={true}
             color={"rgba(0,0,0,0.54)"}
-            selectedColor={"#4285f4"}
             hoverColor={"rgba(0,0,0,0.54)"}/>
                 <div style={{
                     height: "36px",
