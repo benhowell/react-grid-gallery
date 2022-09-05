@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import "@testing-library/jest-dom";
 import { render, fireEvent, screen } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
-import Gallery from "../src/Gallery";
+import { Gallery } from "../src/Gallery";
 import { ThumbnailImageProps } from "../src/types";
 
 const image1 = {

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { useRef, useCallback, useEffect, CSSProperties } from "react";
 
 const objectStyles: CSSProperties = {
@@ -13,7 +12,7 @@ const objectStyles: CSSProperties = {
 };
 
 // based on https://stackblitz.com/edit/react-element-resize-listener?file=ElementResizeListener.tsx
-const ResizeListener = ({
+export const ResizeListener = ({
   onResize,
 }: {
   onResize: () => void;
@@ -58,9 +57,3 @@ const ResizeListener = ({
     />
   );
 };
-
-ResizeListener.propTypes = {
-  onResize: PropTypes.func,
-};
-
-export default ResizeListener;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import Image from "./Image";
-import ResizeListener from "./ResizeListener";
+import { Image } from "./Image";
+import { ResizeListener } from "./ResizeListener";
 import { buildLayoutFlat } from "./buildLayout";
 import { GalleryProps, EventHandler } from "./types";
 
-const Gallery = (props: GalleryProps): JSX.Element => {
+export const Gallery = (props: GalleryProps): JSX.Element => {
   const galleryRef = useRef(null);
 
   const { maxRows, rowHeight, margin, enableImageSelection } = props;
@@ -73,5 +73,3 @@ Gallery.defaultProps = {
   onClickThumbnail: () => {},
   onSelectImage: () => {},
 };
-
-export default Gallery;

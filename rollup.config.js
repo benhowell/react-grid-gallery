@@ -41,7 +41,7 @@ export default [
       dir: "lib",
       format: "cjs",
       sourcemap: true,
-      exports: "auto",
+      exports: "named",
     },
     preserveModules: true,
     external: ["prop-types", "react"],
@@ -51,8 +51,8 @@ export default [
     input: "src/Gallery.tsx",
     external: ["prop-types", "react"],
     output: [
-      { file: pkg.main, format: "cjs", exports: "auto" },
-      { file: pkg.module, format: "es", exports: "auto" },
+      { file: pkg.main, format: "cjs", exports: "named" },
+      { file: pkg.module, format: "es", exports: "named" },
     ],
     plugins: [
       typescript({}),

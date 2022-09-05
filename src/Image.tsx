@@ -1,9 +1,9 @@
 import React, { useState, MouseEvent } from "react";
-import CheckButton from "./CheckButton";
-import * as styles from "./styles";
+import { CheckButton } from "./CheckButton";
 import { ImageProps } from "./types";
+import * as styles from "./styles";
 
-const Image = (props: ImageProps): JSX.Element => {
+export const Image = (props: ImageProps): JSX.Element => {
   const { item, thumbnailImageComponent: ThumbnailImageComponent } = props;
 
   const [hover, setHover] = useState(false);
@@ -109,5 +109,3 @@ const Image = (props: ImageProps): JSX.Element => {
 Image.defaultProps = {
   isSelectable: true,
 };
-
-export default Image;

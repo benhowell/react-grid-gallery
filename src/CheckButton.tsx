@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as styles from "./styles";
 import { CheckButtonProps } from "./types";
 
-const CheckButton = (props: CheckButtonProps): JSX.Element => {
+export const CheckButton = (props: CheckButtonProps): JSX.Element => {
   const { isSelected, isVisible, onClick } = props;
   const { selectedColor, hoverColor, color } = props;
 
@@ -65,5 +65,3 @@ CheckButton.defaultProps = {
   selectedColor: "#4285F4FF",
   hoverColor: "#FFFFFFFF",
 };
-
-export default CheckButton;
