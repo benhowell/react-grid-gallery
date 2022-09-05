@@ -1,17 +1,17 @@
 import commonjs from "@rollup/plugin-commonjs";
-import babel from "@rollup/plugin-babel";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
 import copy from "rollup-plugin-copy";
+import typescript from "rollup-plugin-typescript2";
 import pkg from "./package.json";
 
 const isWatchMode = process.env.ROLLUP_WATCH;
 
 export default [
   {
-    input: "src/Gallery.js",
+    input: "src/Gallery.tsx",
     output: {
       name: "Gallery",
       file: pkg.browser,
@@ -25,7 +25,7 @@ export default [
     plugins: [
       nodeResolve({ browser: true }),
       commonjs({ include: /node_modules/ }), // https://github.com/rollup/plugins/issues/805#issuecomment-779902868
-      babel({ babelHelpers: "bundled" }),
+      typescript({}),
       replace({
         "process.env.NODE_ENV": JSON.stringify("production"),
         preventAssignment: true,
@@ -36,7 +36,7 @@ export default [
     ],
   },
   {
-    input: ["src/Gallery.js", "src/CheckButton.js", "src/Image.js"],
+    input: ["src/Gallery.tsx", "src/CheckButton.tsx", "src/Image.tsx"],
     output: {
       dir: "lib",
       format: "cjs",
@@ -45,17 +45,17 @@ export default [
     },
     preserveModules: true,
     external: ["prop-types", "react"],
-    plugins: [babel({ babelHelpers: "inline" })],
+    plugins: [typescript({})],
   },
   {
-    input: "src/Gallery.js",
+    input: "src/Gallery.tsx",
     external: ["prop-types", "react"],
     output: [
       { file: pkg.main, format: "cjs", exports: "auto" },
       { file: pkg.module, format: "es", exports: "auto" },
     ],
     plugins: [
-      babel({ babelHelpers: "bundled" }),
+      typescript({}),
       copy({
         targets: [
           {

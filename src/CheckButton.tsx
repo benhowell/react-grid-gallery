@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
 import React, { useState } from "react";
 import * as styles from "./styles";
+import { CheckButtonProps } from "./types";
 
-const CheckButton = (props) => {
+const CheckButton = (props: CheckButtonProps): JSX.Element => {
   const { isSelected, isVisible, onClick } = props;
   const { selectedColor, hoverColor, color } = props;
 
@@ -56,15 +56,6 @@ const CheckButton = (props) => {
       </svg>
     </div>
   );
-};
-
-CheckButton.propTypes = {
-  isSelected: PropTypes.bool,
-  isVisible: PropTypes.bool,
-  onClick: PropTypes.func,
-  color: PropTypes.string,
-  selectedColor: PropTypes.string,
-  hoverColor: PropTypes.string,
 };
 
 CheckButton.defaultProps = {

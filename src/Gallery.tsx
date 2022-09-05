@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "./Image";
 import ResizeListener from "./ResizeListener";
 import renderThumbs from "./renderThumbs";
+import { GalleryProps, EventHandler } from "./types";
 
-const Gallery = (props) => {
+const Gallery = (props: GalleryProps): JSX.Element => {
   const galleryRef = useRef(null);
 
   const { maxRows, rowHeight, margin, enableImageSelection } = props;
@@ -34,7 +34,7 @@ const Gallery = (props) => {
     margin,
   });
 
-  const handleSelectImage = (index, event) => {
+  const handleSelectImage: EventHandler = (index, event) => {
     event.preventDefault();
     props.onSelectImage(index, images[index]);
   };
@@ -63,45 +63,6 @@ const Gallery = (props) => {
 };
 
 Gallery.displayName = "Gallery";
-
-Gallery.propTypes = {
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      nano: PropTypes.string,
-      alt: PropTypes.string,
-      thumbnail: PropTypes.string.isRequired,
-      caption: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-      tags: PropTypes.arrayOf(
-        PropTypes.shape({
-          value: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-            .isRequired,
-          title: PropTypes.string.isRequired,
-          key: PropTypes.string,
-        })
-      ),
-      thumbnailWidth: PropTypes.number.isRequired,
-      thumbnailHeight: PropTypes.number.isRequired,
-      isSelected: PropTypes.bool,
-      thumbnailCaption: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.element,
-      ]),
-    })
-  ).isRequired,
-  id: PropTypes.string,
-  enableImageSelection: PropTypes.bool,
-  onSelectImage: PropTypes.func,
-  rowHeight: PropTypes.number,
-  maxRows: PropTypes.number,
-  margin: PropTypes.number,
-  defaultContainerWidth: PropTypes.number,
-  onClickThumbnail: PropTypes.func,
-  tileViewportStyle: PropTypes.func,
-  thumbnailStyle: PropTypes.func,
-  tagStyle: PropTypes.object,
-  thumbnailImageComponent: PropTypes.func,
-};
 
 Gallery.defaultProps = {
   id: "ReactGridGallery",

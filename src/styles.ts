@@ -1,4 +1,7 @@
-const rotationTransformMap = {
+import { CSSProperties } from "react";
+import { ImageExtended } from "./types";
+
+const rotationTransformMap: Record<number, string> = {
   3: "rotate(180deg)",
   2: "rotateY(180deg)",
   4: "rotate(180deg) rotateY(180deg)",
@@ -10,7 +13,13 @@ const rotationTransformMap = {
 
 const SELECTION_MARGIN = 16;
 
-export const thumbnail = ({ item, rowHeight }) => {
+export const thumbnail = ({
+  item,
+  rowHeight,
+}: {
+  item: ImageExtended;
+  rowHeight: number;
+}): CSSProperties => {
   const rotationTransformValue = rotationTransformMap[item.orientation];
 
   const style = {
@@ -48,8 +57,14 @@ export const thumbnail = ({ item, rowHeight }) => {
   return style;
 };
 
-export const tileViewport = ({ item, rowHeight }) => {
-  const styles = {
+export const tileViewport = ({
+  item,
+  rowHeight,
+}: {
+  item: ImageExtended;
+  rowHeight: number;
+}): CSSProperties => {
+  const styles: CSSProperties = {
     width: item.vwidth,
     height: rowHeight,
     overflow: "hidden",
@@ -67,7 +82,11 @@ export const tileViewport = ({ item, rowHeight }) => {
   return styles;
 };
 
-export const customOverlay = ({ hover }) => ({
+export const customOverlay = ({
+  hover,
+}: {
+  hover: boolean;
+}): CSSProperties => ({
   pointerEvents: "none",
   opacity: hover ? 1 : 0,
   position: "absolute",
@@ -75,7 +94,7 @@ export const customOverlay = ({ hover }) => ({
   width: "100%",
 });
 
-export const galleryItem = ({ margin }) => ({
+export const galleryItem = ({ margin }: { margin: number }): CSSProperties => ({
   margin,
   WebkitUserSelect: "none",
   position: "relative",
@@ -84,7 +103,11 @@ export const galleryItem = ({ margin }) => ({
   padding: "0px",
 });
 
-export const tileOverlay = ({ showOverlay }) => ({
+export const tileOverlay = ({
+  showOverlay,
+}: {
+  showOverlay: boolean;
+}): CSSProperties => ({
   pointerEvents: "none",
   opacity: 1,
   position: "absolute",
@@ -95,7 +118,7 @@ export const tileOverlay = ({ showOverlay }) => ({
     : "none",
 });
 
-export const tileIconBar = {
+export const tileIconBar: CSSProperties = {
   pointerEvents: "none",
   opacity: 1,
   position: "absolute",
@@ -103,7 +126,7 @@ export const tileIconBar = {
   width: "100%",
 };
 
-export const tileDescription = {
+export const tileDescription: CSSProperties = {
   background: "white",
   height: "100%",
   width: "100%",
@@ -114,7 +137,7 @@ export const tileDescription = {
   overflow: "hidden",
 };
 
-export const bottomBar = {
+export const bottomBar: CSSProperties = {
   padding: "2px",
   pointerEvents: "none",
   position: "absolute",
@@ -125,14 +148,14 @@ export const bottomBar = {
   overflow: "hidden",
 };
 
-export const tagItemBlock = {
+export const tagItemBlock: CSSProperties = {
   display: "inline-block",
   cursor: "pointer",
   pointerEvents: "visible",
   margin: "2px",
 };
 
-export const tagItem = {
+export const tagItem: CSSProperties = {
   display: "inline",
   padding: ".2em .6em .3em",
   fontSize: "75%",
@@ -146,7 +169,11 @@ export const tagItem = {
   borderRadius: ".25em",
 };
 
-export const checkButton = ({ isVisible }) => ({
+export const checkButton = ({
+  isVisible,
+}: {
+  isVisible: boolean;
+}): CSSProperties => ({
   visibility: isVisible ? "visible" : "hidden",
   background: "none",
   float: "left",

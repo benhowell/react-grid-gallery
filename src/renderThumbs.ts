@@ -1,5 +1,11 @@
-const calculateCutOff = (len, delta, items) => {
-  const cutoff = [];
+import { ImageExtended, Image } from "./types";
+
+const calculateCutOff = (
+  len: number,
+  delta: number,
+  items: ImageExtended[]
+) => {
+  const cutoff: number[] = [];
   let cutsum = 0;
   for (var i in items) {
     const item = items[i];
@@ -19,12 +25,15 @@ const calculateCutOff = (len, delta, items) => {
   return cutoff;
 };
 
-const buildImageRow = (data, { containerWidth, margin }) => {
-  const row = [];
+const buildImageRow = (
+  data: { items: ImageExtended[] },
+  { containerWidth, margin }: { containerWidth: number; margin: number }
+) => {
+  const row: ImageExtended[] = [];
   let len = 0;
   const imgMargin = 2 * margin;
   while (data.items.length > 0 && len < containerWidth) {
-    var item = data.items.shift();
+    var item = data.items.shift() as ImageExtended;
     row.push(item);
     len += item.scaletwidth + imgMargin;
   }
@@ -48,9 +57,16 @@ const buildImageRow = (data, { containerWidth, margin }) => {
   return row;
 };
 
+export interface RenderThumbsParams {
+  containerWidth: number;
+  maxRows?: number;
+  rowHeight?: number;
+  margin?: number;
+}
+
 const renderThumbs = (
-  images,
-  { containerWidth, maxRows, rowHeight, margin }
+  images: Image[],
+  { containerWidth, maxRows, rowHeight, margin }: RenderThumbsParams
 ) => {
   rowHeight = typeof rowHeight === "undefined" ? 180 : rowHeight;
   margin = typeof margin === "undefined" ? 2 : margin;
@@ -77,7 +93,7 @@ const renderThumbs = (
     for (const i in rows[r]) {
       const item = { ...rows[r][i], rowIndex: parseInt(r) };
       if (maxRows) {
-        if (r < maxRows) {
+        if (parseInt(r) < maxRows) {
           thumbs.push(item);
         }
       } else {

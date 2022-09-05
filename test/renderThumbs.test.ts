@@ -1,10 +1,14 @@
-import renderThumbs from "./../src/renderThumbs";
+import renderThumbs, { RenderThumbsParams } from "../src/renderThumbs";
+import { Image } from "../src/types";
 
-const image100x100 = { thumbnailWidth: 100, thumbnailHeight: 100 };
+const image100x100 = {
+  thumbnailWidth: 100,
+  thumbnailHeight: 100,
+} as Image;
 
 describe("renderThumbs", () => {
   it("should return empty array when images param not passed", () => {
-    const images = undefined;
+    const images = undefined as [];
     const options = { containerWidth: 1000 };
 
     const result = renderThumbs(images, options);
@@ -14,7 +18,7 @@ describe("renderThumbs", () => {
 
   it("should return empty array when containerWidth isn't defined", () => {
     const images = [image100x100];
-    const options = {};
+    const options = {} as RenderThumbsParams;
 
     const result = renderThumbs(images, options);
 

@@ -1,6 +1,9 @@
 import { thumbnail, tileViewport } from "../src/styles";
+import { ImageExtended } from "../src/types";
 
-const baseItem = {
+const baseItem: ImageExtended = {
+  src: "",
+  thumbnail: "",
   isSelected: false,
   thumbnailWidth: 100,
   thumbnailHeight: 100,

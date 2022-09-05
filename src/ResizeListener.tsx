@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import React, { useRef, useCallback, useEffect } from "react";
+import React, { useRef, useCallback, useEffect, CSSProperties } from "react";
 
-const objectStyles = {
+const objectStyles: CSSProperties = {
   position: "absolute",
   top: 0,
   left: 0,
@@ -13,14 +13,18 @@ const objectStyles = {
 };
 
 // based on https://stackblitz.com/edit/react-element-resize-listener?file=ElementResizeListener.tsx
-const ResizeListener = ({ onResize }) => {
+const ResizeListener = ({
+  onResize,
+}: {
+  onResize: () => void;
+}): JSX.Element => {
   const objectRef = useRef(null);
   const onResizeRef = useRef(onResize);
 
   onResizeRef.current = onResize;
 
-  const _onResize = useCallback((e) => {
-    onResizeRef.current(e);
+  const _onResize = useCallback(() => {
+    onResizeRef.current();
   }, []);
 
   const handleLoad = useCallback(() => {

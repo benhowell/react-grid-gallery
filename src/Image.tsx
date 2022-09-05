@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, MouseEvent } from "react";
 import CheckButton from "./CheckButton";
 import * as styles from "./styles";
+import { ImageProps } from "./types";
 
-const Image = (props) => {
+const Image = (props: ImageProps): JSX.Element => {
   const { item, thumbnailImageComponent: ThumbnailImageComponent } = props;
 
   const [hover, setHover] = useState(false);
@@ -19,7 +19,7 @@ const Image = (props) => {
       : styles.thumbnail({ item, rowHeight: props.height }),
   };
 
-  const handleCheckButtonClick = (event) => {
+  const handleCheckButtonClick = (event: MouseEvent<HTMLElement>) => {
     if (!props.isSelectable) {
       return;
     }
@@ -30,8 +30,8 @@ const Image = (props) => {
     <div
       className="ReactGridGallery_tile"
       data-testid="grid-gallery-item"
-      onMouseEnter={(e) => setHover(true)}
-      onMouseLeave={(e) => setHover(false)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       style={styles.galleryItem({ margin: props.margin })}
     >
       <div
@@ -104,21 +104,6 @@ const Image = (props) => {
       )}
     </div>
   );
-};
-
-Image.propTypes = {
-  item: PropTypes.object,
-  index: PropTypes.number,
-  margin: PropTypes.number,
-  height: PropTypes.number,
-  isSelectable: PropTypes.bool,
-  onClick: PropTypes.func,
-  onSelectImage: PropTypes.func,
-  tileViewportStyle: PropTypes.func,
-  thumbnailStyle: PropTypes.func,
-  tagStyle: PropTypes.object,
-  customOverlay: PropTypes.element,
-  thumbnailImageComponent: PropTypes.func,
 };
 
 Image.defaultProps = {

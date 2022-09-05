@@ -1,8 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "@testing-library/jest-dom";
-import { render, fireEvent, screen, within } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
 import Gallery from "../src/Gallery";
+import { ThumbnailImageProps } from "../src/types";
 
 const image1 = {
   src: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Apples.jpg",
@@ -30,7 +31,7 @@ const getItemCheckButton = () =>
 
 // emulating server-side rendering
 // https://github.com/testing-library/react-testing-library/issues/561#issuecomment-1189796200
-const renderStatic = (element) =>
+const renderStatic = (element: ReactElement) =>
   render(<div dangerouslySetInnerHTML={{ __html: renderToString(element) }} />);
 
 describe("Gallery Component", () => {
@@ -39,6 +40,7 @@ describe("Gallery Component", () => {
 
     // define clientWidth for gallery root element
     Object.defineProperty(Element.prototype, "clientWidth", { value: 400 });
+    // @ts-ignore
     Element.prototype.getBoundingClientRect = jest.fn(() => ({ width: 400 }));
   });
 
@@ -80,7 +82,7 @@ describe("Gallery Component", () => {
   });
 
   it("should render element with custom properties provided via thumbnailImageComponent prop", () => {
-    const thumbnailImageComponent = (props) => (
+    const thumbnailImageComponent = (props: ThumbnailImageProps) => (
       <img {...props.imageProps} className="lazyload" />
     );
 

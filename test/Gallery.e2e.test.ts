@@ -1,8 +1,12 @@
 /**
  * @jest-environment puppeteer
  */
+// @ts-ignore
+declare var Gallery, ReactDOM, React;
+
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 expect.extend({ toMatchImageSnapshot });
+import { GalleryProps } from "../src/types";
 import images from "./images.json";
 
 const transparentPixel =
@@ -31,7 +35,10 @@ const getGalleryBrowserBuildPath = () => {
   }
 };
 
-const renderGallery = async (props, options = {}) => {
+const renderGallery = async (
+  props: GalleryProps,
+  options: { reactVersion?: number; timeout?: number; styles?: string } = {}
+) => {
   const reactVersion = options.reactVersion || 18;
   const timeout = options.timeout || 10000;
   const styles = options.styles || "";
@@ -46,12 +53,12 @@ const renderGallery = async (props, options = {}) => {
     await page.addStyleTag({ content: styles });
   }
 
-  const latestReactRender = (props) => {
+  const latestReactRender = (props: GalleryProps) => {
     const root = ReactDOM.createRoot(document.getElementById("root"));
     root.render(React.createElement(Gallery, props, null));
   };
 
-  const previousReactRender = (props) => {
+  const previousReactRender = (props: GalleryProps) => {
     const root = document.getElementById("root");
     ReactDOM.render(React.createElement(Gallery, props, null), root);
   };
