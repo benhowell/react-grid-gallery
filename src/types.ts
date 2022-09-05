@@ -22,11 +22,20 @@ export interface Image {
 }
 
 export interface ImageExtended extends Image {
-  scaletwidth?: number;
-  marginLeft?: number;
-  vwidth?: number;
-  rowIndex?: number;
+  scaledWidth: number;
+  scaledHeight: number;
+  viewportWidth: number;
+  marginLeft: number;
 }
+
+export interface BuildLayoutOptions {
+  containerWidth: number;
+  maxRows?: number;
+  rowHeight?: number;
+  margin?: number;
+}
+
+export type ImageExtendedRow = ImageExtended[];
 
 export type EventHandler = (
   index: number,
@@ -34,7 +43,7 @@ export type EventHandler = (
 ) => void;
 
 export interface ImageProps {
-  item: Image;
+  item: ImageExtended;
   index: number;
   margin: number;
   height: number;

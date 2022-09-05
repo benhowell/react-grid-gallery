@@ -13,35 +13,29 @@ const rotationTransformMap: Record<number, string> = {
 
 const SELECTION_MARGIN = 16;
 
-export const thumbnail = ({
-  item,
-  rowHeight,
-}: {
-  item: ImageExtended;
-  rowHeight: number;
-}): CSSProperties => {
+export const thumbnail = ({ item }: { item: ImageExtended }): CSSProperties => {
   const rotationTransformValue = rotationTransformMap[item.orientation];
 
   const style = {
     cursor: "pointer",
-    width: item.scaletwidth,
-    height: rowHeight,
+    width: item.scaledWidth,
+    height: item.scaledHeight,
     marginLeft: item.marginLeft,
     marginTop: 0,
     transform: rotationTransformValue,
   };
 
   if (item.isSelected) {
-    const ratio = item.scaletwidth / rowHeight;
-    const viewportHeight = rowHeight - SELECTION_MARGIN * 2;
-    const viewportWidth = item.vwidth - SELECTION_MARGIN * 2;
+    const ratio = item.scaledWidth / item.scaledHeight;
+    const viewportHeight = item.scaledHeight - SELECTION_MARGIN * 2;
+    const viewportWidth = item.viewportWidth - SELECTION_MARGIN * 2;
 
     let height, width;
-    if (item.scaletwidth > rowHeight) {
-      width = item.scaletwidth - SELECTION_MARGIN * 2;
+    if (item.scaledWidth > item.scaledHeight) {
+      width = item.scaledWidth - SELECTION_MARGIN * 2;
       height = Math.floor(width / ratio);
     } else {
-      height = rowHeight - SELECTION_MARGIN * 2;
+      height = item.scaledHeight - SELECTION_MARGIN * 2;
       width = Math.floor(height * ratio);
     }
 
@@ -59,14 +53,12 @@ export const thumbnail = ({
 
 export const tileViewport = ({
   item,
-  rowHeight,
 }: {
   item: ImageExtended;
-  rowHeight: number;
 }): CSSProperties => {
   const styles: CSSProperties = {
-    width: item.vwidth,
-    height: rowHeight,
+    width: item.viewportWidth,
+    height: item.scaledHeight,
     overflow: "hidden",
   };
   if (item.nano) {
@@ -75,8 +67,8 @@ export const tileViewport = ({
     styles.backgroundPosition = "center center";
   }
   if (item.isSelected) {
-    styles.width = item.vwidth - SELECTION_MARGIN * 2;
-    styles.height = rowHeight - SELECTION_MARGIN * 2;
+    styles.width = item.viewportWidth - SELECTION_MARGIN * 2;
+    styles.height = item.scaledHeight - SELECTION_MARGIN * 2;
     styles.margin = SELECTION_MARGIN;
   }
   return styles;

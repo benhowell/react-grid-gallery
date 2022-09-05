@@ -7,26 +7,24 @@ const baseItem: ImageExtended = {
   isSelected: false,
   thumbnailWidth: 100,
   thumbnailHeight: 100,
-  scaletwidth: 100,
+  scaledWidth: 100,
+  scaledHeight: 100,
   marginLeft: 0,
-  vwidth: 100,
-  rowIndex: 0,
+  viewportWidth: 100,
 };
-
-const rowHeight = 100;
 
 describe("styles", () => {
   describe("thumbnail", () => {
     it("should add transform property based on item.orientation", () => {
       const item = { ...baseItem, orientation: 3 };
 
-      const result = thumbnail({ item, rowHeight });
+      const result = thumbnail({ item });
 
       expect(result.transform).toEqual("rotate(180deg)");
     });
 
     it("should return styles when image is not selected", () => {
-      const result = thumbnail({ item: baseItem, rowHeight });
+      const result = thumbnail({ item: baseItem });
 
       expect(result).toEqual({
         cursor: "pointer",
@@ -40,12 +38,12 @@ describe("styles", () => {
     it("should return styles when image is horizontal and selected", () => {
       const item = {
         ...baseItem,
-        scaletwidth: 200,
-        vwidth: 200,
+        scaledWidth: 200,
+        viewportWidth: 200,
         isSelected: true,
       };
 
-      const result = thumbnail({ item, rowHeight });
+      const result = thumbnail({ item });
 
       expect(result).toEqual({
         cursor: "pointer",
@@ -59,12 +57,12 @@ describe("styles", () => {
     it("should return styles when image is vertical and selected", () => {
       const item = {
         ...baseItem,
-        scaletwidth: 50,
-        vwidth: 50,
+        scaledWidth: 50,
+        viewportWidth: 50,
         isSelected: true,
       };
 
-      const result = thumbnail({ item, rowHeight });
+      const result = thumbnail({ item });
 
       expect(result).toEqual({
         cursor: "pointer",
@@ -80,7 +78,7 @@ describe("styles", () => {
     it("should add background properties based on item.nano", () => {
       const item = { ...baseItem, nano: "data:image/png;base64" };
 
-      const result = tileViewport({ item, rowHeight });
+      const result = tileViewport({ item });
 
       expect(result).toEqual(
         expect.objectContaining({
@@ -92,7 +90,7 @@ describe("styles", () => {
     });
 
     it("should return styles when item is not selected", () => {
-      const result = tileViewport({ item: baseItem, rowHeight });
+      const result = tileViewport({ item: baseItem });
 
       expect(result).toEqual({
         height: 100,
@@ -104,7 +102,7 @@ describe("styles", () => {
     it("should return styles when item is selected", () => {
       const item = { ...baseItem, isSelected: true };
 
-      const result = tileViewport({ item, rowHeight });
+      const result = tileViewport({ item });
 
       expect(result).toEqual({
         height: 68,

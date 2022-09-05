@@ -16,7 +16,7 @@ const Image = (props: ImageProps): JSX.Element => {
     title: typeof item.caption === "string" ? item.caption : null,
     style: props.thumbnailStyle
       ? props.thumbnailStyle()
-      : styles.thumbnail({ item, rowHeight: props.height }),
+      : styles.thumbnail({ item }),
   };
 
   const handleCheckButtonClick = (event: MouseEvent<HTMLElement>) => {
@@ -84,7 +84,7 @@ const Image = (props: ImageProps): JSX.Element => {
         style={
           props.tileViewportStyle
             ? props.tileViewportStyle()
-            : styles.tileViewport({ item, rowHeight: props.height })
+            : styles.tileViewport({ item })
         }
         onClick={props.onClick ? (e) => props.onClick(props.index, e) : null}
       >

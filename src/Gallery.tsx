@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "./Image";
 import ResizeListener from "./ResizeListener";
-import renderThumbs from "./renderThumbs";
+import { buildLayoutFlat } from "./buildLayout";
 import { GalleryProps, EventHandler } from "./types";
 
 const Gallery = (props: GalleryProps): JSX.Element => {
@@ -27,7 +27,7 @@ const Gallery = (props: GalleryProps): JSX.Element => {
     handleResize();
   }, []);
 
-  const thumbnails = renderThumbs(images, {
+  const thumbnails = buildLayoutFlat(images, {
     containerWidth,
     maxRows,
     rowHeight,
