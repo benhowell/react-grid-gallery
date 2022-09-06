@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from "react";
+import { useState, MouseEvent } from "react";
 import { CheckButton } from "./CheckButton";
 import { ImageProps } from "./types";
 import * as styles from "./styles";

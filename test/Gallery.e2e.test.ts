@@ -2,12 +2,12 @@
  * @jest-environment puppeteer
  */
 // @ts-ignore
-declare var Gallery, ReactDOM, React;
+declare var ReactGridGallery, ReactDOM, React;
 
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 expect.extend({ toMatchImageSnapshot });
-import { GalleryProps } from "../src/types";
-import images from "./images.json";
+import { GalleryProps } from "../src";
+import { images } from "./images";
 
 const transparentPixel =
   "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
@@ -55,12 +55,15 @@ const renderGallery = async (
 
   const latestReactRender = (props: GalleryProps) => {
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(React.createElement(Gallery, props, null));
+    root.render(React.createElement(ReactGridGallery.Gallery, props, null));
   };
 
   const previousReactRender = (props: GalleryProps) => {
     const root = document.getElementById("root");
-    ReactDOM.render(React.createElement(Gallery, props, null), root);
+    ReactDOM.render(
+      React.createElement(ReactGridGallery.Gallery, props, null),
+      root
+    );
   };
 
   const renderFunction =

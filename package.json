@@ -2,17 +2,26 @@
   "name": "react-grid-gallery",
   "version": "0.5.6",
   "description": "Justified gallery component for React.",
+  "types": "dist/react-grid-gallery.d.ts",
   "main": "dist/react-grid-gallery.cjs.js",
   "module": "dist/react-grid-gallery.esm.js",
   "browser": "dist/react-grid-gallery.umd.js",
   "files": [
     "dist",
-    "lib",
     "src"
   ],
+  "exports": {
+    "types": "./dist/react-grid-gallery.d.ts",
+    "browser": "./dist/react-grid-gallery.umd.js",
+    "import": "./dist/react-grid-gallery.esm.js",
+    "require": "./dist/react-grid-gallery.cjs.js"
+  },
+  "sideEffects": false,
   "scripts": {
-    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "rollup:build": "rollup -c",
     "watch": "rollup -c -w",
+    "build": "npm run clean && npm run rollup:build",
     "build:examples": "rollup -c rollup.config.examples.js",
     "watch:examples": "rollup -c rollup.config.examples.js -w",
     "test": "jest",
@@ -20,10 +29,7 @@
     "test:e2e": "jest --testPathPattern=\\.e2e\\.test\\.js"
   },
   "peerDependencies": {
-    "react": ">=15.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.8.1"
+    "react": ">=16.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
@@ -47,10 +53,11 @@
     "puppeteer": "^17.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.79.0",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-serve": "^2.0.1",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript2": "^0.33.0",
     "typescript": "^4.8.2"
   },

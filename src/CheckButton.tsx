@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import * as styles from "./styles";
 import { CheckButtonProps } from "./types";
 

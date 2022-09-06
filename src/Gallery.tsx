@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Image } from "./Image";
 import { ResizeListener } from "./ResizeListener";
 import { buildLayoutFlat } from "./buildLayout";
