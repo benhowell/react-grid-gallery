@@ -46,7 +46,7 @@ export const Gallery = <T extends ImageInterface>(
       <ResizeListener onResize={handleResize} />
       {thumbnails.map((item, index) => (
         <Image
-          key={index}
+          key={item.key || index}
           item={item}
           index={index}
           margin={margin}

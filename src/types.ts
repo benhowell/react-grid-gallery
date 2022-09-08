@@ -7,6 +7,7 @@ export interface ImageTag {
 }
 
 export interface Image {
+  key?: string | number;
   src: string;
   thumbnail: string;
   thumbnailWidth: number;
