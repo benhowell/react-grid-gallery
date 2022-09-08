@@ -22,8 +22,6 @@
     "rollup:build": "rollup -c",
     "watch": "rollup -c -w",
     "build": "npm run clean && npm run rollup:build",
-    "build:examples": "rollup -c rollup.config.examples.js",
-    "watch:examples": "rollup -c rollup.config.examples.js -w",
     "test": "jest",
     "test:unit": "jest --testPathIgnorePatterns=\\.e2e\\.test\\.js",
     "test:e2e": "jest --testPathPattern=\\.e2e\\.test\\.js"
