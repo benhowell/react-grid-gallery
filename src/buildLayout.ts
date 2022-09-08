@@ -41,9 +41,7 @@ const getRow = <T extends Image = Image>(
   let totalRowWidth = 0;
   while (items.length > 0 && totalRowWidth < containerWidth) {
     const item = items.shift();
-    const scaledWidth = Math.floor(
-      rowHeight * (item.thumbnailWidth / item.thumbnailHeight)
-    );
+    const scaledWidth = Math.floor(rowHeight * (item.width / item.height));
     const extendedItem: ImageExtended<T> = {
       ...item,
       scaledHeight: rowHeight,

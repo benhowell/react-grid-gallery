@@ -3,10 +3,9 @@ import { ImageExtended } from "../src";
 
 const baseItem: ImageExtended = {
   src: "",
-  thumbnail: "",
   isSelected: false,
-  thumbnailWidth: 100,
-  thumbnailHeight: 100,
+  width: 100,
+  height: 100,
   scaledWidth: 100,
   scaledHeight: 100,
   marginLeft: 0,

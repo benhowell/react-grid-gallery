@@ -9,9 +9,8 @@ export interface ImageTag {
 export interface Image {
   key?: string | number;
   src: string;
-  thumbnail: string;
-  thumbnailWidth: number;
-  thumbnailHeight: number;
+  width: number;
+  height: number;
   nano?: string;
   alt?: string;
   tags?: ImageTag[];

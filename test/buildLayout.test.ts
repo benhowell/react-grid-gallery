@@ -7,9 +7,8 @@ import {
 
 const image100x100 = {
   src: "",
-  thumbnail: "",
-  thumbnailWidth: 100,
-  thumbnailHeight: 100,
+  width: 100,
+  height: 100,
 };
 
 describe("buildLayout", () => {
@@ -56,9 +55,8 @@ describe("buildLayout", () => {
     const image: MyImage = {
       customAttr: "imageId",
       src: "",
-      thumbnail: "",
-      thumbnailWidth: 100,
-      thumbnailHeight: 100,
+      width: 100,
+      height: 100,
     };
     const options = { containerWidth: 100 };
 

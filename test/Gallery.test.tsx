@@ -6,19 +6,15 @@ import { Gallery } from "../src/Gallery";
 import { ThumbnailImageProps } from "../src/types";
 
 const image1 = {
-  src: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Apples.jpg",
-  thumbnail:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/320px-Apples.jpg",
-  thumbnailWidth: 320,
-  thumbnailHeight: 480,
+  src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/320px-Apples.jpg",
+  width: 320,
+  height: 480,
 };
 
 const image2 = {
-  src: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Bananas.jpg",
-  thumbnail:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/320px-Bananas.jpg",
-  thumbnailWidth: 320,
-  thumbnailHeight: 213,
+  src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/320px-Bananas.jpg",
+  width: 320,
+  height: 213,
 };
 
 const getItems = () => screen.getAllByTestId("grid-gallery-item");
@@ -145,10 +141,10 @@ describe("Gallery Component", () => {
   });
 
   describe("Image Options", () => {
-    it("should set thumbnail image src attribute based on thumbnail prop", () => {
+    it("should set thumbnail image src attribute based on src prop", () => {
       render(<Gallery images={[image1]} />);
 
-      expect(getItemThumbnail()).toHaveAttribute("src", image1.thumbnail);
+      expect(getItemThumbnail()).toHaveAttribute("src", image1.src);
     });
 
     it("should set thumbnail image alt attribute based on alt prop", () => {

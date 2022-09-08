@@ -146,7 +146,7 @@ describe("Gallery is visually correct", () => {
   it("when images are transparent", async () => {
     const transparentImages = images.map((i) => ({
       ...i,
-      thumbnail: transparentPixel,
+      src: transparentPixel,
     }));
 
     await renderGallery({ images: transparentImages });
@@ -157,7 +157,7 @@ describe("Gallery is visually correct", () => {
   it("when nano prop passed", async () => {
     const imagesWithNano = images.map((i, index) => ({
       ...i,
-      thumbnail: transparentPixel,
+      src: transparentPixel,
       nano: index % 2 ? redPixel : bluePixel,
     }));
 

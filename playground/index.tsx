@@ -3,19 +3,15 @@ import * as ReactDOM from "react-dom";
 import { Gallery } from "../src";
 
 const image1 = {
-  src: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Apples.jpg",
-  thumbnail:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/320px-Apples.jpg",
-  thumbnailWidth: 320,
-  thumbnailHeight: 480,
+  src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Apples.jpg/320px-Apples.jpg",
+  width: 320,
+  height: 480,
 };
 
 const image2 = {
-  src: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Bananas.jpg",
-  thumbnail:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/320px-Bananas.jpg",
-  thumbnailWidth: 320,
-  thumbnailHeight: 213,
+  src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/320px-Bananas.jpg",
+  width: 320,
+  height: 213,
 };
 
 const images = [image1, image2];

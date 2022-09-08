@@ -33,26 +33,23 @@ import Gallery from 'react-grid-gallery';
 const IMAGES =
 [{
         src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-        thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 174,
+        width: 320,
+        height: 174,
         isSelected: true,
         caption: "After Rain (Jeshu John - designerspics.com)"
 },
 {
         src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-        thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 212,
+        width: 320,
+        height: 212,
         tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}],
         caption: "Boats (Jeshu John - designerspics.com)"
 },
 
 {
         src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-        thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-        thumbnailWidth: 320,
-        thumbnailHeight: 212
+        width: 320,
+        height: 212
 }]
 
 render(
@@ -66,9 +63,8 @@ render(
 | Property         | Type                | Default   | Description                                                                                                                                                                                                                                                                                                                                                                                            |
 |:-----------------|:--------------------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | src              | string              | undefined | Required. A string referring to any valid image resource (file, url, etc).                                                                                                                                                                                                                                                                                                                             |
-| thumbnail        | string              | undefined | Required. A string referring to any valid image resource (file, url, etc).                                                                                                                                                                                                                                                                                                                             |
-| thumbnailWidth   | number              | undefined | Required. Width of the thumbnail image.                                                                                                                                                                                                                                                                                                                                                                |
-| thumbnailHeight  | number              | undefined | Required. Height of the thumbnail image.                                                                                                                                                                                                                                                                                                                                                               |
+| width            | number              | undefined | Required. Width of the image.                                                                                                                                                                                                                                                                                                                                                                          |
+| height           | number              | undefined | Required. Height of the image.                                                                                                                                                                                                                                                                                                                                                                         |
 | nano             | string:base64       | undefined | Optional. Thumbnail Base64 image will be injected to background under the main image. This provides a base64, 4x4 generated image whilst the image is beong loaded.                                                                                                                                                                                                                                    |
 | alt              | string              | ""        | Optional. Image alt attribute.                                                                                                                                                                                                                                                                                                                                                                         |
 | tags             | array               | undefined | Optional. An array of objects containing tag attributes (value, title and key if value is element). e.g. `{value: "foo", title: "bar"}` or `{value: <a href={tag.url}>{tag.name}</a>, title: tag.title, key: tag.key}`                                                                                                                                                                                 |
@@ -105,8 +101,6 @@ render(
 
  * Gallery width is determined by the containing element. Therefore your containing element must have a width (%, em, px, whatever) **_before_** the gallery is loaded!
 
- * Image Options: `thumbnail` can point to the same resource as `src`, bearing in mind the resultant data size of the gallery and page load cost. Thumbnails of whatever size will be scaled to match `rowHeight`.
-
 
 ### Programmers Notes
 
@@ -130,7 +124,7 @@ myTileViewportStyleFn.call(this); // this now refers to the image to be styled
 
 ```
 
- * If you don't know your `thumbnailWidth` and `thumbnailHeight` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
+ * If you don't know your `width` and `height` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
 
 
 ### Contributing

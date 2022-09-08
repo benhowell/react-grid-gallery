@@ -15,7 +15,7 @@ export const Image = <T extends ImageExtended>(
   const thumbnailProps = {
     key: props.index,
     "data-testid": "grid-gallery-item_thumbnail",
-    src: item.thumbnail,
+    src: item.src,
     alt: item.alt ? item.alt : "",
     title: typeof item.caption === "string" ? item.caption : null,
     style: getStyle(props.thumbnailStyle, styles.thumbnail, styleContext),
