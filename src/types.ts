@@ -43,6 +43,18 @@ export type EventHandler = (
   event: MouseEvent<HTMLElement>
 ) => void;
 
+export type StyleFunctionContext<T extends Image = Image> = {
+  item: T;
+};
+
+export type StyleFunction<T extends Image = Image> = (
+  context: StyleFunctionContext
+) => CSSProperties;
+
+export type StyleProp<T extends Image = Image> =
+  | CSSProperties
+  | StyleFunction<T>;
+
 export interface ImageProps<T extends ImageExtended = ImageExtended> {
   item: T;
   index: number;
@@ -51,9 +63,9 @@ export interface ImageProps<T extends ImageExtended = ImageExtended> {
   isSelectable: boolean;
   onClick: EventHandler;
   onSelectImage: EventHandler;
-  tileViewportStyle: () => CSSProperties;
-  thumbnailStyle: () => CSSProperties;
-  tagStyle: CSSProperties;
+  tileViewportStyle: StyleProp<T>;
+  thumbnailStyle: StyleProp<T>;
+  tagStyle: StyleProp<T>;
   thumbnailImageComponent: ComponentType<ThumbnailImageProps>;
 }
 
@@ -80,9 +92,9 @@ export interface GalleryProps<T extends Image = Image> {
   margin?: number;
   defaultContainerWidth?: number;
   onClickThumbnail?: EventHandler;
-  tagStyle?: CSSProperties;
-  tileViewportStyle?: () => CSSProperties;
-  thumbnailStyle?: () => CSSProperties;
+  tileViewportStyle?: StyleProp<T>;
+  thumbnailStyle?: StyleProp<T>;
+  tagStyle?: StyleProp<T>;
   thumbnailImageComponent?: ComponentType<ThumbnailImageProps>;
 }
 

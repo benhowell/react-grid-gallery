@@ -1,5 +1,24 @@
 import { CSSProperties } from "react";
-import { ImageExtended } from "./types";
+import {
+  ImageExtended,
+  StyleFunction,
+  StyleFunctionContext,
+  StyleProp,
+} from "./types";
+
+export const getStyle = (
+  styleProp: StyleProp | undefined,
+  fallback: StyleFunction,
+  context: StyleFunctionContext
+): CSSProperties => {
+  if (typeof styleProp === "function") {
+    return styleProp(context);
+  }
+  if (typeof styleProp === "object") {
+    return styleProp;
+  }
+  return fallback(context);
+};
 
 const rotationTransformMap: Record<number, string> = {
   3: "rotate(180deg)",
@@ -148,7 +167,7 @@ export const tagItemBlock: CSSProperties = {
   margin: "2px",
 };
 
-export const tagItem: CSSProperties = {
+export const tagItem = (): CSSProperties => ({
   display: "inline",
   padding: ".2em .6em .3em",
   fontSize: "75%",
@@ -160,7 +179,7 @@ export const tagItem: CSSProperties = {
   whiteSpace: "nowrap",
   verticalAlign: "baseline",
   borderRadius: ".25em",
-};
+});
 
 export const checkButton = ({
   isVisible,

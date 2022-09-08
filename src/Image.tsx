@@ -2,11 +2,13 @@ import { useState, MouseEvent } from "react";
 import { CheckButton } from "./CheckButton";
 import { ImageExtended, ImageProps } from "./types";
 import * as styles from "./styles";
+import { getStyle } from "./styles";
 
 export const Image = <T extends ImageExtended>(
   props: ImageProps<T>
 ): JSX.Element => {
   const { item, thumbnailImageComponent: ThumbnailImageComponent } = props;
+  const styleContext = { item };
 
   const [hover, setHover] = useState(false);
 
@@ -16,9 +18,7 @@ export const Image = <T extends ImageExtended>(
     src: item.thumbnail,
     alt: item.alt ? item.alt : "",
     title: typeof item.caption === "string" ? item.caption : null,
-    style: props.thumbnailStyle
-      ? props.thumbnailStyle()
-      : styles.thumbnail({ item }),
+    style: getStyle(props.thumbnailStyle, styles.thumbnail, styleContext),
   };
 
   const handleCheckButtonClick = (event: MouseEvent<HTMLElement>) => {
@@ -58,7 +58,11 @@ export const Image = <T extends ImageExtended>(
               title={tag.title}
               style={styles.tagItemBlock}
             >
-              <span style={props.tagStyle || styles.tagItem}>{tag.value}</span>
+              <span
+                style={getStyle(props.tagStyle, styles.tagItem, styleContext)}
+              >
+                {tag.value}
+              </span>
             </div>
           ))}
         </div>
@@ -83,11 +87,11 @@ export const Image = <T extends ImageExtended>(
       <div
         className="ReactGridGallery_tile-viewport"
         data-testid="grid-gallery-item_viewport"
-        style={
-          props.tileViewportStyle
-            ? props.tileViewportStyle()
-            : styles.tileViewport({ item })
-        }
+        style={getStyle(
+          props.tileViewportStyle,
+          styles.tileViewport,
+          styleContext
+        )}
         onClick={props.onClick ? (e) => props.onClick(props.index, e) : null}
       >
         {ThumbnailImageComponent ? (

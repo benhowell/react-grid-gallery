@@ -1,5 +1,5 @@
-import { thumbnail, tileViewport } from "../src/styles";
-import { ImageExtended } from "../src/types";
+import { thumbnail, tileViewport, getStyle } from "../src/styles";
+import { ImageExtended } from "../src";
 
 const baseItem: ImageExtended = {
   src: "",
@@ -113,6 +113,34 @@ describe("styles", () => {
         overflow: "hidden",
         width: 68,
       });
+    });
+  });
+
+  describe("getStyle", () => {
+    it("should return styles provided by style prop function", () => {
+      const styleProp = () => ({ display: "flex" });
+      const fallback = () => ({ display: "none" });
+
+      const style = getStyle(styleProp, fallback, { item: baseItem });
+
+      expect(style).toEqual({ display: "flex" });
+    });
+
+    it("should return styles provided by style prop object", () => {
+      const styleProp = { display: "flex" };
+      const fallback = () => ({ display: "none" });
+
+      const style = getStyle(styleProp, fallback, { item: baseItem });
+
+      expect(style).toEqual({ display: "flex" });
+    });
+
+    it("should return styles provided by style fallback function", () => {
+      const fallback = () => ({ display: "none" });
+
+      const style = getStyle(undefined, fallback, { item: baseItem });
+
+      expect(style).toEqual({ display: "none" });
     });
   });
 });
