@@ -18,6 +18,7 @@ export const thumbnail = ({ item }: { item: ImageExtended }): CSSProperties => {
 
   const style = {
     cursor: "pointer",
+    maxWidth: "none",
     width: item.scaledWidth,
     height: item.scaledHeight,
     marginLeft: item.marginLeft,

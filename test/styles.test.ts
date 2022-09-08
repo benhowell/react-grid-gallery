@@ -28,6 +28,7 @@ describe("styles", () => {
 
       expect(result).toEqual({
         cursor: "pointer",
+        maxWidth: "none",
         height: 100,
         marginLeft: 0,
         marginTop: 0,
@@ -47,6 +48,7 @@ describe("styles", () => {
 
       expect(result).toEqual({
         cursor: "pointer",
+        maxWidth: "none",
         height: 84,
         marginLeft: 0,
         marginTop: -8,
@@ -66,6 +68,7 @@ describe("styles", () => {
 
       expect(result).toEqual({
         cursor: "pointer",
+        maxWidth: "none",
         height: 68,
         marginLeft: -8,
         marginTop: 0,
