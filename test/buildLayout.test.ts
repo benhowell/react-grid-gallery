@@ -1,10 +1,16 @@
-import { buildLayout, buildLayoutFlat } from "../src/buildLayout";
-import { Image, BuildLayoutOptions } from "../src/types";
+import {
+  buildLayout,
+  buildLayoutFlat,
+  BuildLayoutOptions,
+  Image,
+} from "../src";
 
 const image100x100 = {
+  src: "",
+  thumbnail: "",
   thumbnailWidth: 100,
   thumbnailHeight: 100,
-} as Image;
+};
 
 describe("buildLayout", () => {
   it("should return empty array when images param not passed", () => {
@@ -41,6 +47,24 @@ describe("buildLayout", () => {
     const rows = buildLayout(images, options);
 
     expect(rows).not.toBe(images);
+  });
+
+  it("should return custom image attributes", () => {
+    interface MyImage extends Image {
+      customAttr: string;
+    }
+    const image: MyImage = {
+      customAttr: "imageId",
+      src: "",
+      thumbnail: "",
+      thumbnailWidth: 100,
+      thumbnailHeight: 100,
+    };
+    const options = { containerWidth: 100 };
+
+    const rows = buildLayout<MyImage>([image], options);
+
+    expect(rows[0][0].customAttr).toBe("imageId");
   });
 
   it("should limit number of items when maxRows param passed", () => {

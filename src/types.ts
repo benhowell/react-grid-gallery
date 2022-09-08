@@ -21,12 +21,12 @@ export interface Image {
   orientation?: number;
 }
 
-export interface ImageExtended extends Image {
+export type ImageExtended<T extends Image = Image> = T & {
   scaledWidth: number;
   scaledHeight: number;
   viewportWidth: number;
   marginLeft: number;
-}
+};
 
 export interface BuildLayoutOptions {
   containerWidth: number;
@@ -35,15 +35,15 @@ export interface BuildLayoutOptions {
   margin?: number;
 }
 
-export type ImageExtendedRow = ImageExtended[];
+export type ImageExtendedRow<T extends Image = Image> = ImageExtended<T>[];
 
 export type EventHandler = (
   index: number,
   event: MouseEvent<HTMLElement>
 ) => void;
 
-export interface ImageProps {
-  item: ImageExtended;
+export interface ImageProps<T extends ImageExtended = ImageExtended> {
+  item: T;
   index: number;
   margin: number;
   height: number;
@@ -64,15 +64,16 @@ export interface ThumbnailImageComponentImageProps {
   style: CSSProperties;
 }
 
-export type ThumbnailImageProps = ImageProps & {
-  imageProps: ThumbnailImageComponentImageProps;
-};
+export type ThumbnailImageProps<T extends ImageExtended = ImageExtended> =
+  ImageProps<T> & {
+    imageProps: ThumbnailImageComponentImageProps;
+  };
 
-export interface GalleryProps {
-  images: Image[];
+export interface GalleryProps<T extends Image = Image> {
+  images: T[];
   id?: string;
   enableImageSelection?: boolean;
-  onSelectImage?: (index: number, image: Image) => void;
+  onSelectImage?: (index: number, image: T) => void;
   rowHeight?: number;
   maxRows?: number;
   margin?: number;

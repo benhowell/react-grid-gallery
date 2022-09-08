@@ -2,9 +2,11 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Image } from "./Image";
 import { ResizeListener } from "./ResizeListener";
 import { buildLayoutFlat } from "./buildLayout";
-import { GalleryProps, EventHandler } from "./types";
+import { Image as ImageInterface, GalleryProps, EventHandler } from "./types";
 
-export const Gallery = (props: GalleryProps): JSX.Element => {
+export const Gallery = <T extends ImageInterface>(
+  props: GalleryProps<T>
+): JSX.Element => {
   const galleryRef = useRef(null);
 
   const { maxRows, rowHeight, margin, enableImageSelection } = props;

@@ -5,8 +5,8 @@ import {
   ImageExtendedRow,
 } from "./types";
 
-const calculateCutOff = (
-  items: ImageExtended[],
+const calculateCutOff = <T extends ImageExtended = ImageExtended>(
+  items: T[],
   totalRowWidth: number,
   protrudingWidth: number
 ) => {
@@ -30,11 +30,11 @@ const calculateCutOff = (
   return cutOff;
 };
 
-const getRow = (
-  images: Image[],
+const getRow = <T extends Image = Image>(
+  images: T[],
   { containerWidth, rowHeight, margin }: BuildLayoutOptions
-): [ImageExtendedRow, Image[]] => {
-  const row: ImageExtendedRow = [];
+): [ImageExtendedRow<T>, T[]] => {
+  const row: ImageExtendedRow<T> = [];
   const imgMargin = 2 * margin;
   const items = [...images];
 
@@ -44,7 +44,7 @@ const getRow = (
     const scaledWidth = Math.floor(
       rowHeight * (item.thumbnailWidth / item.thumbnailHeight)
     );
-    const extendedItem: ImageExtended = {
+    const extendedItem: ImageExtended<T> = {
       ...item,
       scaledHeight: rowHeight,
       scaledWidth,
@@ -69,11 +69,11 @@ const getRow = (
   return [row, items];
 };
 
-const getRows = (
-  images: Image[],
+const getRows = <T extends Image = Image>(
+  images: T[],
   options: BuildLayoutOptions,
-  rows: ImageExtendedRow[] = []
-): ImageExtendedRow[] => {
+  rows: ImageExtendedRow<T>[] = []
+): ImageExtendedRow<T>[] => {
   const [row, imagesLeft] = getRow(images, options);
   const nextRows = [...rows, row];
 
@@ -86,10 +86,10 @@ const getRows = (
   return nextRows;
 };
 
-export const buildLayout = (
-  images: Image[],
+export const buildLayout = <T extends Image = Image>(
+  images: T[],
   { containerWidth, maxRows, rowHeight, margin }: BuildLayoutOptions
-): ImageExtendedRow[] => {
+): ImageExtendedRow<T>[] => {
   rowHeight = typeof rowHeight === "undefined" ? 180 : rowHeight;
   margin = typeof margin === "undefined" ? 2 : margin;
 
@@ -100,10 +100,10 @@ export const buildLayout = (
   return getRows(images, options);
 };
 
-export const buildLayoutFlat = (
-  images: Image[],
+export const buildLayoutFlat = <T extends Image = Image>(
+  images: T[],
   options: BuildLayoutOptions
-): ImageExtendedRow => {
+): ImageExtendedRow<T> => {
   const rows = buildLayout(images, options);
   return [].concat.apply([], rows);
 };
