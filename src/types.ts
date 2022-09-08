@@ -1,13 +1,15 @@
 import { MouseEvent, CSSProperties, ReactNode, ComponentType } from "react";
 
+type Key = string | number;
+
 export interface ImageTag {
   value: ReactNode;
   title: string;
-  key?: string;
+  key?: Key;
 }
 
 export interface Image {
-  key?: string | number;
+  key?: Key;
   src: string;
   width: number;
   height: number;
