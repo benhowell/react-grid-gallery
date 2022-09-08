@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, MouseEvent } from "react";
 import { Image } from "./Image";
 import { ResizeListener } from "./ResizeListener";
 import { buildLayoutFlat } from "./buildLayout";
-import { Image as ImageInterface, GalleryProps, EventHandler } from "./types";
+import { Image as ImageInterface, GalleryProps } from "./types";
 
 export const Gallery = <T extends ImageInterface>(
   props: GalleryProps<T>
@@ -29,16 +29,20 @@ export const Gallery = <T extends ImageInterface>(
     handleResize();
   }, []);
 
-  const thumbnails = buildLayoutFlat(images, {
+  const thumbnails = buildLayoutFlat<T>(images, {
     containerWidth,
     maxRows,
     rowHeight,
     margin,
   });
 
-  const handleSelectImage: EventHandler = (index, event) => {
+  const handleSelect = (index: number, event: MouseEvent<HTMLElement>) => {
     event.preventDefault();
-    props.onSelectImage(index, images[index]);
+    props.onSelect(index, images[index], event);
+  };
+
+  const handleClick = (index: number, event: MouseEvent<HTMLElement>) => {
+    props.onClick(index, images[index], event);
   };
 
   return (
@@ -52,8 +56,8 @@ export const Gallery = <T extends ImageInterface>(
           margin={margin}
           height={rowHeight}
           isSelectable={enableImageSelection}
-          onClick={props.onClickThumbnail}
-          onSelectImage={handleSelectImage}
+          onClick={handleClick}
+          onSelect={handleSelect}
           tagStyle={props.tagStyle}
           tileViewportStyle={props.tileViewportStyle}
           thumbnailStyle={props.thumbnailStyle}
@@ -72,6 +76,6 @@ Gallery.defaultProps = {
   rowHeight: 180,
   margin: 2,
   defaultContainerWidth: 0,
-  onClickThumbnail: () => {},
-  onSelectImage: () => {},
+  onClick: () => {},
+  onSelect: () => {},
 };

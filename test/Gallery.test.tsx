@@ -278,21 +278,20 @@ describe("Gallery Component", () => {
       expect(getItemCheckButton()).not.toBeVisible();
     });
 
-    it("should call onSelectImage with index and image object arguments passed", () => {
-      const handleSelectImage = jest.fn();
+    it("should call onSelect with index and image object arguments passed", () => {
+      const handleSelect = jest.fn();
 
       render(
         <Gallery
           images={[image1]}
           enableImageSelection={true}
-          onSelectImage={handleSelectImage}
+          onSelect={handleSelect}
         />
       );
       fireEvent.click(getItemCheckButton());
 
-      expect(handleSelectImage.mock.calls).toEqual([
-        [0, expect.objectContaining(image1)],
-      ]);
+      expect(handleSelect.mock.calls[0][0]).toEqual(0);
+      expect(handleSelect.mock.calls[0][1]).toEqual(image1);
     });
   });
 });

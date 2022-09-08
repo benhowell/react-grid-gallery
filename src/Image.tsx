@@ -25,7 +25,11 @@ export const Image = <T extends ImageExtended>(
     if (!props.isSelectable) {
       return;
     }
-    props.onSelectImage(props.index, event);
+    props.onSelect(props.index, event);
+  };
+
+  const handleViewportClick = (event: MouseEvent<HTMLElement>) => {
+    props.onClick(props.index, event);
   };
 
   return (
@@ -92,7 +96,7 @@ export const Image = <T extends ImageExtended>(
           styles.tileViewport,
           styleContext
         )}
-        onClick={props.onClick ? (e) => props.onClick(props.index, e) : null}
+        onClick={handleViewportClick}
       >
         {ThumbnailImageComponent ? (
           <ThumbnailImageComponent {...props} imageProps={thumbnailProps} />

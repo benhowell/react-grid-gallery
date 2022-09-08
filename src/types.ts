@@ -38,8 +38,9 @@ export interface BuildLayoutOptions {
 
 export type ImageExtendedRow<T extends Image = Image> = ImageExtended<T>[];
 
-export type EventHandler = (
+export type EventHandler<T extends Image = Image> = (
   index: number,
+  item: T,
   event: MouseEvent<HTMLElement>
 ) => void;
 
@@ -61,8 +62,8 @@ export interface ImageProps<T extends ImageExtended = ImageExtended> {
   margin: number;
   height: number;
   isSelectable: boolean;
-  onClick: EventHandler;
-  onSelectImage: EventHandler;
+  onClick: (index: number, event: MouseEvent<HTMLElement>) => void;
+  onSelect: (index: number, event: MouseEvent<HTMLElement>) => void;
   tileViewportStyle: StyleProp<T>;
   thumbnailStyle: StyleProp<T>;
   tagStyle: StyleProp<T>;
@@ -86,12 +87,12 @@ export interface GalleryProps<T extends Image = Image> {
   images: T[];
   id?: string;
   enableImageSelection?: boolean;
-  onSelectImage?: (index: number, image: T) => void;
+  onSelect?: EventHandler<T>;
   rowHeight?: number;
   maxRows?: number;
   margin?: number;
   defaultContainerWidth?: number;
-  onClickThumbnail?: EventHandler;
+  onClick?: EventHandler<T>;
   tileViewportStyle?: StyleProp<T>;
   thumbnailStyle?: StyleProp<T>;
   tagStyle?: StyleProp<T>;
