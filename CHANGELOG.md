@@ -1,4 +1,12 @@
-# react-grid-gallery
+# CHANGELOG
+
+The most recent changelog is available on the [releases page](https://github.com/benhowell/react-grid-gallery/releases).
+
+### v0.5.6 / 2022-08-23
+
+* Fixed grid breakdown when container width is decimal [#170](https://github.com/benhowell/react-grid-gallery/pull/170), closes [#84](https://github.com/benhowell/react-grid-gallery/issues/84)
+* TypeScript declaration file added [#173](https://github.com/benhowell/react-grid-gallery/pull/173), closes [#145](https://github.com/benhowell/react-grid-gallery/issues/145)
+* Added defaultContainerWidth option for SSR rendering support [#175](https://github.com/benhowell/react-grid-gallery/pull/175)
 
 ### v0.5.5 / 2019-06-20
 
