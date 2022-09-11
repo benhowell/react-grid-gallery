@@ -1,10 +1,10 @@
 # React Grid Gallery
 
-Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/) ~~and based upon React Images~~.
+Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/).
 
-### :soon: First major release is coming
+### :tada: v1.0.0 is out!
 
-Read [this discussion](https://github.com/benhowell/react-grid-gallery/discussions/179) for more information and [this pull request](https://github.com/benhowell/react-grid-gallery/pull/183) for tracking progress! 
+There are breaking changes with v0.5.x, check out the [migration guide](https://github.com/benhowell/react-grid-gallery/UPGRADE_GUIDE.md) to learn more. Documentation for v0.5.x is [here](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6).
 
 ## Live Demo & Examples
 
@@ -21,76 +21,77 @@ https://benhowell.github.io/react-grid-gallery/
 
 Using [npm](https://www.npmjs.com/):
 
-    npm install --save react-grid-gallery
+```shell
+npm install --save react-grid-gallery
+```
 
-## Quick (and dirty) Start
+## Quick Start
 
 ```jsx
-import React from 'react';
-import { render } from 'react-dom';
-import Gallery from 'react-grid-gallery';
+import { Gallery } from "react-grid-gallery";
 
-const IMAGES =
-[{
-        src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-        width: 320,
-        height: 174,
-        isSelected: true,
-        caption: "After Rain (Jeshu John - designerspics.com)"
-},
-{
-        src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-        width: 320,
-        height: 212,
-        tags: [{value: "Ocean", title: "Ocean"}, {value: "People", title: "People"}],
-        caption: "Boats (Jeshu John - designerspics.com)"
-},
+const images = [
+   {
+      src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
+      width: 320,
+      height: 174,
+      isSelected: true,
+      caption: "After Rain (Jeshu John - designerspics.com)",
+   },
+   {
+      src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
+      width: 320,
+      height: 212,
+      tags: [
+         { value: "Ocean", title: "Ocean" },
+         { value: "People", title: "People" },
+      ],
+      alt: "Boats (Jeshu John - designerspics.com)",
+   },
 
-{
-        src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-        width: 320,
-        height: 212
-}]
+   {
+      src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+      width: 320,
+      height: 212,
+   },
+];
 
-render(
-        <Gallery images={IMAGES}/>,
-        document.getElementById('example-0')
-);
+<Gallery images={images} />
 ```
 
 ## Image Options
 
-| Property         | Type                | Default   | Description                                                                                                                                                                                                                                                                                                                                                                                            |
-|:-----------------|:--------------------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| src              | string              | undefined | Required. A string referring to any valid image resource (file, url, etc).                                                                                                                                                                                                                                                                                                                             |
-| width            | number              | undefined | Required. Width of the image.                                                                                                                                                                                                                                                                                                                                                                          |
-| height           | number              | undefined | Required. Height of the image.                                                                                                                                                                                                                                                                                                                                                                         |
-| nano             | string:base64       | undefined | Optional. Thumbnail Base64 image will be injected to background under the main image. This provides a base64, 4x4 generated image whilst the image is beong loaded.                                                                                                                                                                                                                                    |
-| alt              | string              | ""        | Optional. Image alt attribute.                                                                                                                                                                                                                                                                                                                                                                         |
-| tags             | array               | undefined | Optional. An array of objects containing tag attributes (value, title and key if value is element). e.g. `{value: "foo", title: "bar"}` or `{value: <a href={tag.url}>{tag.name}</a>, title: tag.title, key: tag.key}`                                                                                                                                                                                 |
-| isSelected       | bool                | undefined | Optional. The selected state of the image.                                                                                                                                                                                                                                                                                                                                                             |
-| caption          | string&#124;element | undefined | Optional. Image caption.                                                                                                                                                                                                                                                                                                                                                                               |
-| customOverlay    | element             | undefined | Optional. A custom element to be rendered as a thumbnail overlay on hover.                                                                                                                                                                                                                                                                                                                             |
-| thumbnailCaption | string&#124;element | undefined | Optional. A thumbnail caption shown below thumbnail.                                                                                                                                                                                                                                                                                                                                                   |
-| orientation      | number              | undefined | Optional. Orientation of the image. Many newer digital cameras (both dSLR and Point & Shoot digicams) have a built-in orientation sensor. The output of this sensor is used to set the EXIF orientation flag in the image file's metatdata to reflect the positioning of the camera with respect to the ground (See [EXIF Orientation Page](http://jpegclub.org/exif_orientation.html) for more info). |
+| Property         | Type                    | Default   | Description                                                                                                                                                                                                                                                                                                                                                                                            |
+|:-----------------|:------------------------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| src              | string                  | undefined | Required. A string referring to any valid image resource (file, url, etc).                                                                                                                                                                                                                                                                                                                             |
+| width            | number                  | undefined | Required. Width of the image.                                                                                                                                                                                                                                                                                                                                                                          |
+| height           | number                  | undefined | Required. Height of the image.                                                                                                                                                                                                                                                                                                                                                                         |
+| nano             | string:base64           | undefined | Optional. Thumbnail Base64 image will be injected to background under the main image. This provides a base64, 4x4 generated image whilst the image is being loaded.                                                                                                                                                                                                                                    |
+| alt              | string                  | ""        | Optional. Image alt attribute.                                                                                                                                                                                                                                                                                                                                                                         |
+| tags             | array                   | undefined | Optional. An array of objects containing tag attributes (value, title and key if value is element). e.g. `{value: "foo", title: "bar"}` or `{value: <a href={tag.url}>{tag.name}</a>, title: tag.title, key: tag.key}`                                                                                                                                                                                 |
+| isSelected       | bool                    | undefined | Optional. The selected state of the image.                                                                                                                                                                                                                                                                                                                                                             |
+| caption          | string &#124; ReactNode | undefined | Optional. Image caption.                                                                                                                                                                                                                                                                                                                                                                               |
+| customOverlay    | element                 | undefined | Optional. A custom element to be rendered as a thumbnail overlay on hover.                                                                                                                                                                                                                                                                                                                             |
+| thumbnailCaption | string &#124; ReactNode | undefined | Optional. A thumbnail caption shown below thumbnail.                                                                                                                                                                                                                                                                                                                                                   |
+| orientation      | number                  | undefined | Optional. Orientation of the image. Many newer digital cameras (both dSLR and Point & Shoot digicams) have a built-in orientation sensor. The output of this sensor is used to set the EXIF orientation flag in the image file's metatdata to reflect the positioning of the camera with respect to the ground (See [EXIF Orientation Page](http://jpegclub.org/exif_orientation.html) for more info). |
 
 ## Gallery Options
 
-| Property                | Type               | Default            | Description                                                                                                                                                                                                                                                                                                                                            |
-|:------------------------|:-------------------|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| images                  | array              | undefined          | Required. An array of objects containing image properties (see Image Options above).                                                                                                                                                                                                                                                                   |
-| id                      | string             | "ReactGridGallery" | Optional. `id` attribute for `<Gallery>` tag. This prop may be useful for those who wish to discriminate between multiple galleries.                                                                                                                                                                                                                   |
-| enableImageSelection    | bool               | true               | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying images with `isSelected: true` will result in those images being permanently selected.                                                                                                                                                                        |
-| onSelect                | func               | undefined          | Optional. Function to execute when an image is selected. Allows access to image object using `this` (See [Programmers notes](#programmers-notes) for more info about implicit `this`). Optional args: index (index of selected image in images array), image (the selected image). This function is only executable when `enableImageSelection: true`. |
-| rowHeight               | number             | 180                | Optional. The height of each row in the gallery.                                                                                                                                                                                                                                                                                                       |
-| maxRows                 | number             | undefined          | Optional. The maximum number of rows to show in the gallery.                                                                                                                                                                                                                                                                                           |
-| margin                  | number             | 2                  | Optional. The margin around each image in the gallery.                                                                                                                                                                                                                                                                                                 |
-| onClick                 | func               | undefined          | Optional. Function to execute when gallery thumbnail clicked. Allows access to image object using `this` (See [Programmers notes](#programmers-notes) for more info about implicit `this`). Optional args: index (index of selected image in images array), event (the click event).                                                                   |
-| tagStyle                | func &#124; object | tagStyle           | Optional. Style to pass to tag elements. Overrides internal tag style.                                                                                                                                                                                                                                                                                 |
-| tileViewportStyle       | func &#124; object | tileViewportStyle  | Optional. Function to style the image tile viewport. Allows access to image object using `this` (See [Programmers notes](#programmers-notes) for more info about implicit `this`). Overrides internal tileViewportStyle function.                                                                                                                      |
-| thumbnailStyle          | func &#124; object | thumbnailStyle     | Optional. Function to style the image thumbnail. Allows access to image object using `this` (See [Programmers notes](#programmers-notes) for more info about implicit `this`). Overrides internal thumbnailStyle function.                                                                                                                             |
-| thumbnailImageComponent | React component    | undefined          | Optional. Substitute in a React component that would get passed `imageProps` (the props that would have been passed to the `<img>` tag) and `item` (the original item in `images`) to be used to render thumbnails; useful for lazy loading.                                                                                                           |
-| defaultContainerWidth   | number             | 0                  | Optional. Set default width for the container. This option is useful during server-side rendering when we want to generate an initial markup before we can detect the actual container width.                                                                                                                                                          |
+| Property                | Type                      | Default            | Description                                                                                                                                                                                                                                  |
+|:------------------------|:--------------------------|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| images                  | array                     | undefined          | Required. An array of objects containing image properties (see Image Options above).                                                                                                                                                         |
+| id                      | string                    | "ReactGridGallery" | Optional. `id` attribute for `<Gallery>` tag. This prop may be useful for those who wish to discriminate between multiple galleries.                                                                                                         |
+| enableImageSelection    | bool                      | true               | Optional. Allow images to be selectable. Setting this option to `false` whilst supplying images with `isSelected: true` will result in those images being permanently selected.                                                              |
+| onSelect                | func                      | undefined          | Optional. Function to execute when an image is selected. Optional args: `index` (index of selected image in images array), `image` (the selected image), `event`. This function is only executable when `enableImageSelection: true`.        |
+| rowHeight               | number                    | 180                | Optional. The height of each row in the gallery.                                                                                                                                                                                             |
+| maxRows                 | number                    | undefined          | Optional. The maximum number of rows to show in the gallery.                                                                                                                                                                                 |
+| margin                  | number                    | 2                  | Optional. The margin around each image in the gallery.                                                                                                                                                                                       |
+| onClick                 | func                      | undefined          | Optional. Function to execute when gallery image clicked. Optional args: `index` (index of selected image in images array), `image` (the clicked image), event (the click event).                                                            |
+| tagStyle                | func &#124; CSSProperties | tagStyle           | Optional. Style or function that returns style to pass to tag elements. Optional args: `item` (the image item in `images`). Overrides internal tag style.                                                                                    |
+| tileViewportStyle       | func &#124; CSSProperties | tileViewportStyle  | Optional. Style or function to style the image tile viewport. Optional args: `item` (the image item in `images`). Overrides internal tileViewportStyle function.                                                                             |
+| thumbnailStyle          | func &#124; CSSProperties | thumbnailStyle     | Optional. Style or function to style the image thumbnail. Optional args: `item` (the image item in `images`). Overrides internal thumbnailStyle function.                                                                                    |
+| thumbnailImageComponent | React component           | undefined          | Optional. Substitute in a React component that would get passed `imageProps` (the props that would have been passed to the `<img>` tag) and `item` (the original item in `images`) to be used to render thumbnails; useful for lazy loading. |
+| defaultContainerWidth   | number                    | 0                  | Optional. Set default width for the container. This option is useful during server-side rendering when we want to generate an initial markup before we can detect the actual container width.                                                |
 
 
 ### General Notes
@@ -100,29 +101,6 @@ render(
  * As the inspiration for this component comes from [Google Photos](https://photos.google.com/), very small thumbnails may not be the most aesthetically pleasing due to the border size applied when selected. A sensible rowHeight default of 180px has been chosen, but rowHeights down to 100px are still reasonable.
 
  * Gallery width is determined by the containing element. Therefore your containing element must have a width (%, em, px, whatever) **_before_** the gallery is loaded!
-
-
-### Programmers Notes
-
- * User defined functions that allow access to `this` via [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) do not require you to declare or pass `this` as a parameter. `this` will be defined at the time the function is called.
-
-e.g.
-```js
-// somewhere in your code...
-function myTileViewportStyleFn() {
-  if (this.props.item.isSelected)
-    return {
-           // something stylish...
-            };
-}
-
-<Gallery images={IMAGES} tileViewportStyle={myTileViewportStyleFn}/>
-
-
-// internally, within the react-grid-gallery component it will be called like so:
-myTileViewportStyleFn.call(this); // this now refers to the image to be styled
-
-```
 
  * If you don't know your `width` and `height` values, you can find these out using any number of [javascript hacks](http://stackoverflow.com/a/1944298), bearing in mind the load penalty associated with these methods.
 
