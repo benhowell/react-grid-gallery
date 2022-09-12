@@ -18,6 +18,7 @@
   },
   "sideEffects": false,
   "scripts": {
+    "prepublishOnly": "npm run build",
     "clean": "rimraf dist",
     "rollup:build": "rollup -c",
     "watch": "rollup -c -w",
