@@ -1,0 +1,8 @@
+{
+  "selection": "Image Selection",
+  "custom-overlay": "Custom Overlay",
+  "captions": "Thumbnail Captions",
+  "custom-image-component": "Custom Image Component",
+  "with-react-image-lightbox": "Lightbox integration [react-image-lightbox]",
+  "with-yet-another-react-lightbox": "Lightbox integration [yet-another-react-lightbox]"
+}
