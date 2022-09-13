@@ -1,6 +1,6 @@
 {
   "name": "react-grid-gallery",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Justified gallery component for React.",
   "types": "dist/react-grid-gallery.d.ts",
   "main": "dist/react-grid-gallery.cjs.js",
