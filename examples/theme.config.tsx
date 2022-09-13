@@ -45,6 +45,16 @@ export default {
         name="og:title"
         content="React Grid Gallery: justified gallery component for React"
       />
+      <link
+        rel="icon"
+        type="image/png"
+        href="https://benhowell.github.io/react-grid-gallery/favicon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href="https://benhowell.github.io/react-grid-gallery/favicon.png"
+      />
     </>
   ),
 };
