@@ -7,3 +7,4 @@ lib/
 .publish
 .DS_Store
 .idea
+.cache

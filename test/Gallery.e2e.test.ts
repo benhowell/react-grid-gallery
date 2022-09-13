@@ -1,9 +1,13 @@
 /**
  * @jest-environment puppeteer
  */
+// @ts-ignore
+declare var ReactGridGallery, ReactDOM, React;
+
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 expect.extend({ toMatchImageSnapshot });
-import images from "./images.json";
+import { GalleryProps } from "../src";
+import { images } from "./images";
 
 const transparentPixel =
   "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
@@ -31,7 +35,10 @@ const getGalleryBrowserBuildPath = () => {
   }
 };
 
-const renderGallery = async (props, options = {}) => {
+const renderGallery = async (
+  props: GalleryProps,
+  options: { reactVersion?: number; timeout?: number; styles?: string } = {}
+) => {
   const reactVersion = options.reactVersion || 18;
   const timeout = options.timeout || 10000;
   const styles = options.styles || "";
@@ -46,14 +53,17 @@ const renderGallery = async (props, options = {}) => {
     await page.addStyleTag({ content: styles });
   }
 
-  const latestReactRender = (props) => {
+  const latestReactRender = (props: GalleryProps) => {
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(React.createElement(Gallery, props, null));
+    root.render(React.createElement(ReactGridGallery.Gallery, props, null));
   };
 
-  const previousReactRender = (props) => {
+  const previousReactRender = (props: GalleryProps) => {
     const root = document.getElementById("root");
-    ReactDOM.render(React.createElement(Gallery, props, null), root);
+    ReactDOM.render(
+      React.createElement(ReactGridGallery.Gallery, props, null),
+      root
+    );
   };
 
   const renderFunction =
@@ -136,7 +146,7 @@ describe("Gallery is visually correct", () => {
   it("when images are transparent", async () => {
     const transparentImages = images.map((i) => ({
       ...i,
-      thumbnail: transparentPixel,
+      src: transparentPixel,
     }));
 
     await renderGallery({ images: transparentImages });
@@ -147,7 +157,7 @@ describe("Gallery is visually correct", () => {
   it("when nano prop passed", async () => {
     const imagesWithNano = images.map((i, index) => ({
       ...i,
-      thumbnail: transparentPixel,
+      src: transparentPixel,
       nano: index % 2 ? redPixel : bluePixel,
     }));
 

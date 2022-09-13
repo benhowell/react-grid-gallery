@@ -1,54 +1,64 @@
 {
   "name": "react-grid-gallery",
-  "version": "0.5.6",
+  "version": "1.0.0",
   "description": "Justified gallery component for React.",
+  "types": "dist/react-grid-gallery.d.ts",
   "main": "dist/react-grid-gallery.cjs.js",
   "module": "dist/react-grid-gallery.esm.js",
   "browser": "dist/react-grid-gallery.umd.js",
   "files": [
     "dist",
-    "lib",
     "src"
   ],
+  "exports": {
+    "types": "./dist/react-grid-gallery.d.ts",
+    "browser": "./dist/react-grid-gallery.umd.js",
+    "import": "./dist/react-grid-gallery.esm.js",
+    "require": "./dist/react-grid-gallery.cjs.js"
+  },
+  "sideEffects": false,
   "scripts": {
-    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "clean": "rimraf dist",
+    "rollup:build": "rollup -c",
     "watch": "rollup -c -w",
-    "build:examples": "rollup -c rollup.config.examples.js",
-    "watch:examples": "rollup -c rollup.config.examples.js -w",
+    "build": "npm run clean && npm run rollup:build",
     "test": "jest",
     "test:unit": "jest --testPathIgnorePatterns=\\.e2e\\.test\\.js",
     "test:e2e": "jest --testPathPattern=\\.e2e\\.test\\.js"
   },
   "peerDependencies": {
-    "react": "^15.0 || ^16.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.8.1",
-    "react-images": "^0.5.16"
+    "react": ">=16.14.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.9",
-    "@babel/preset-env": "^7.18.9",
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.5",
-    "@types/jest": "^28.1.6",
-    "@types/react": "^16.14.30",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.3.0",
+    "@types/jest": "^29.0.0",
+    "@types/jest-environment-puppeteer": "^5.0.2",
+    "@types/jest-image-snapshot": "^5.1.0",
+    "@types/react": "^18.0.18",
     "jest": "^28.1.3",
-    "jest-environment-jsdom": "^28.1.3",
-    "jest-image-snapshot": "^5.1.0",
+    "jest-environment-jsdom": "^29.0.1",
+    "jest-image-snapshot": "^5.1.1",
     "jest-puppeteer": "^6.1.1",
-    "puppeteer": "^15.5.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "rollup": "^2.77.2",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-serve": "^2.0.0"
+    "puppeteer": "^17.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.33.0",
+    "typescript": "^4.8.2"
   },
   "repository": {
     "type": "git",
@@ -57,7 +67,6 @@
   "keywords": [
     "react",
     "react-component",
-    "lightbox",
     "image",
     "images",
     "photo",
