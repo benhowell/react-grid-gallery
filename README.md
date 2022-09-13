@@ -9,12 +9,12 @@ There are breaking changes with v0.5.x, check out the [migration guide](https://
 ## Live Demo & Examples
 
 https://benhowell.github.io/react-grid-gallery/
-* [Main Demo](https://benhowell.github.io/react-grid-gallery/#demo)
-* [Pre-selected Images](https://benhowell.github.io/react-grid-gallery/#pre-selected-images)
-* [Permanently Selected Images](https://benhowell.github.io/react-grid-gallery/#permanently-selected-images)
-* [Simple Gallery](https://benhowell.github.io/react-grid-gallery/#simple-gallery)
-* [Custom Overlay](https://benhowell.github.io/react-grid-gallery/#custom-overlay)
-* [Thumbnail Captions](https://benhowell.github.io/react-grid-gallery/#thumbnail-caption)
+* [Image Selection](https://benhowell.github.io/react-grid-gallery/examples/selection)
+* [Custom Overlay](https://benhowell.github.io/react-grid-gallery/examples/custom-overlay)
+* [Thumbnail Captions](https://benhowell.github.io/react-grid-gallery/examples/captions)
+* [Custom Image Component](https://benhowell.github.io/react-grid-gallery/examples/custom-image-component)
+* [Lightbox integration `react-image-lightbox`](https://benhowell.github.io/react-grid-gallery/examples/with-react-image-lightbox)
+* [Lightbox integration `yet-another-react-lightbox`](https://benhowell.github.io/react-grid-gallery/examples/with-yet-another-react-lightbox)
 
 
 ## Installation
