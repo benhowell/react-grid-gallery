@@ -4,7 +4,7 @@ Justified image gallery component for [React](http://facebook.github.io/react/) 
 
 ### :tada: v1.0.0 is out!
 
-There are breaking changes with v0.5.x, check out the [migration guide](https://github.com/benhowell/react-grid-gallery/UPGRADE_GUIDE.md) to learn more. Documentation for v0.5.x is [here](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6).
+There are breaking changes with v0.5.x, check out the [migration guide](https://github.com/benhowell/react-grid-gallery/blob/master/UPGRADE_GUIDE.md) to learn more. Documentation for v0.5.x is [here](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6).
 
 ## Live Demo & Examples
 
