@@ -32,6 +32,11 @@ const rotationTransformMap: Record<number, string> = {
 
 const SELECTION_MARGIN = 16;
 
+export const gallery: CSSProperties = {
+  display: "flex",
+  flexWrap: "wrap",
+};
+
 export const thumbnail = ({ item }: { item: ImageExtended }): CSSProperties => {
   const rotationTransformValue = rotationTransformMap[item.orientation];
 
@@ -110,7 +115,6 @@ export const galleryItem = ({ margin }: { margin: number }): CSSProperties => ({
   margin,
   WebkitUserSelect: "none",
   position: "relative",
-  float: "left",
   background: "#eee",
   padding: "0px",
 });
