@@ -18,10 +18,8 @@ Both event handlers now receive the same arguments:
 
 Styling props such as `thumbnailStyle`, `tagStyle`, `tileViewportStyle` now get some extra data as arguments, read more in [the docs](https://github.com/benhowell/react-grid-gallery#gallery-options).
 
-In [v0.5.x docs](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6#programmers-notes) there was a hacky access to `this` in event handlers. 
-After lightbox functionality was stripped out it's not needed and removed.
-
-In [v0.5.x](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6), there was [hacky access](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6#programmers-notes) to `this` in event handlers. After lightbox functionality was stripped out this hack was removed as well.
+In [v0.5.x](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6), there was [hacky access](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6#programmers-notes) to `this` in event handlers. 
+After lightbox functionality was stripped out this hack was removed as well.
 
 ### Image Options changes
 - `thumbnail` renamed to `src`
