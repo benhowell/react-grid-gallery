@@ -144,7 +144,6 @@ export const tileIconBar: CSSProperties = {
 
 export const tileDescription: CSSProperties = {
   background: "white",
-  height: "100%",
   width: "100%",
   margin: 0,
   userSelect: "text",
