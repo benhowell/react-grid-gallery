@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.p-t-1{
+  padding-top: 1rem;
+}
+
+.p-b-1{
+  padding-bottom: 1rem;
+}

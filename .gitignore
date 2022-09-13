@@ -8,3 +8,4 @@ lib/
 .DS_Store
 .idea
 .cache
+.next

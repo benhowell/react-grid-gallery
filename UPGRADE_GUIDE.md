@@ -2,7 +2,7 @@
 
 The biggest change from v0.5.x to 1.x.x is that now this library has no lightbox functionality. 
 Read [this discussion](https://github.com/benhowell/react-grid-gallery/discussions/179) to learn more about the motivation for that decision.
-So if you want need lightbox integration please check out our [examples](https://benhowell.github.io/react-grid-gallery/). 
+So if you need lightbox integration please check out our [examples](https://benhowell.github.io/react-grid-gallery/). 
 
 ## API changes
 Also, we made API polishing and renamed some props, and changed event handler signatures.

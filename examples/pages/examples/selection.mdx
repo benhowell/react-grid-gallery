@@ -1,0 +1,31 @@
+import App from "./../../selection/src/App";
+
+# Image Selection
+
+```jsx
+const [images, setImages] = useState(IMAGES);
+
+const handleSelect = (index: number, item: Image, event: MouseEvent<HTMLElement>) => {
+  const nextImages = images.map((image, i) =>
+    i === index ? { ...image, isSelected: !image.isSelected } : image
+  );
+  setImages(nextImages);
+};
+
+return (
+  <Gallery images={images} onSelect={handleSelect} />
+)
+```
+
+## Live Demo
+<App />
+
+## Source Code
+[react-grid-gallery/examples/selection](https://github.com/benhowell/react-grid-gallery/blob/master/examples/selection/src/App.tsx)
+
+## CodeSandbox
+[![Edit test](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/test-lrhmcy?fontsize=14&hidenavigation=1&theme=dark&view=preview)
+
+
+
+

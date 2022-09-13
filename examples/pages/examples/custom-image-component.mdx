@@ -1,0 +1,42 @@
+import App from "./../../custom-image-component/src/App";
+
+# Custom Image Component
+
+Substitute in a React component that would get passed `imageProps` (the props that would have been passed to the `<img>` tag) and `item` (the original item in `images`) to be used to render thumbnails; useful for lazy loading.
+
+```jsx
+import { ThumbnailImageProps } from "react-grid-gallery";
+
+const ImageComponent = (props: ThumbnailImageProps) => {
+  const [show, setShow] = useState(false);
+
+  if (show) {
+    return <img {...props.imageProps} />;
+  }
+
+  return (
+    <div style={{ ...props.imageProps.style, textAlign: "center" }} onMouseOver={() => setShow(true)}>
+      Hover to show
+    </div>
+  );
+};
+```
+
+```jsx
+<Gallery
+  images={images}
+  thumbnailImageComponent={ImageComponent}
+/>
+```
+
+
+## Live Demo
+<App />
+
+## Source Code
+[react-grid-gallery/examples/custom-image-component](https://github.com/benhowell/react-grid-gallery/blob/master/examples/custom-image-component/src/App.tsx)
+
+## CodeSandbox
+[![Edit test](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/test-lrhmcy?fontsize=14&hidenavigation=1&theme=dark&view=preview)
+
+
