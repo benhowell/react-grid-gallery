@@ -98,6 +98,7 @@ export interface GalleryProps<T extends Image = Image> {
   thumbnailStyle?: StyleProp<T>;
   tagStyle?: StyleProp<T>;
   thumbnailImageComponent?: ComponentType<ThumbnailImageProps>;
+  wrapperStyle?: CSSProperties;
 }
 
 export interface CheckButtonProps {

@@ -10,7 +10,7 @@ export const Gallery = <T extends ImageInterface>(
 ): JSX.Element => {
   const galleryRef = useRef(null);
 
-  const { maxRows, rowHeight, margin, enableImageSelection } = props;
+  const { maxRows, rowHeight, margin, enableImageSelection, wrapperStyle } = props;
   const { defaultContainerWidth, images } = props;
 
   const [containerWidth, setContainerWidth] = useState(defaultContainerWidth);
@@ -49,7 +49,7 @@ export const Gallery = <T extends ImageInterface>(
   return (
     <div id={props.id} className="ReactGridGallery" ref={galleryRef}>
       <ResizeListener onResize={handleResize} />
-      <div style={styles.gallery}>
+      <div style={{ ...styles.gallery, ...wrapperStyle}}>
         {thumbnails.map((item, index) => (
           <Image
             key={item.key || index}
