@@ -114,6 +114,7 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
 
 ### Acknowledgements
+ * [itoldya](https://github.com/itoldya) for the large overhaul of the code base to bring the library to its v1 release.
 
  * Visual design inspired by [Google Photos](https://photos.google.com/).
 
