@@ -19,7 +19,7 @@
   "sideEffects": false,
   "scripts": {
     "prepublishOnly": "npm run build",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist && rimraf node_modules/.cache",
     "rollup:build": "rollup -c",
     "watch": "rollup -c -w",
     "build": "npm run clean && npm run rollup:build",

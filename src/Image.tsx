@@ -4,32 +4,52 @@ import { ImageExtended, ImageProps } from "./types";
 import * as styles from "./styles";
 import { getStyle } from "./styles";
 
-export const Image = <T extends ImageExtended>(
-  props: ImageProps<T>
-): JSX.Element => {
-  const { item, thumbnailImageComponent: ThumbnailImageComponent } = props;
+export const Image = <T extends ImageExtended>({
+  item,
+  thumbnailImageComponent: ThumbnailImageComponent,
+  isSelectable = true,
+  thumbnailStyle,
+  tagStyle,
+  tileViewportStyle,
+  margin,
+  index,
+  onSelect,
+  onClick,
+}: ImageProps<T>): JSX.Element => {
   const styleContext = { item };
 
   const [hover, setHover] = useState(false);
 
   const thumbnailProps = {
-    key: props.index,
+    key: index,
     "data-testid": "grid-gallery-item_thumbnail",
     src: item.src,
     alt: item.alt ? item.alt : "",
     title: typeof item.caption === "string" ? item.caption : null,
-    style: getStyle(props.thumbnailStyle, styles.thumbnail, styleContext),
+    style: getStyle(thumbnailStyle, styles.thumbnail, styleContext),
   };
 
   const handleCheckButtonClick = (event: MouseEvent<HTMLElement>) => {
-    if (!props.isSelectable) {
+    if (!isSelectable) {
       return;
     }
-    props.onSelect(props.index, event);
+    onSelect(index, event);
   };
 
   const handleViewportClick = (event: MouseEvent<HTMLElement>) => {
-    props.onClick(props.index, event);
+    onClick(index, event);
+  };
+
+  const thumbnailImageProps = {
+    item,
+    index,
+    margin,
+    onSelect,
+    onClick,
+    isSelectable,
+    tileViewportStyle,
+    thumbnailStyle,
+    tagStyle,
   };
 
   return (
@@ -38,7 +58,7 @@ export const Image = <T extends ImageExtended>(
       data-testid="grid-gallery-item"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      style={styles.galleryItem({ margin: props.margin })}
+      style={styles.galleryItem({ margin })}
     >
       <div
         className="ReactGridGallery_tile-icon-bar"
@@ -46,7 +66,7 @@ export const Image = <T extends ImageExtended>(
       >
         <CheckButton
           isSelected={item.isSelected}
-          isVisible={item.isSelected || (props.isSelectable && hover)}
+          isVisible={item.isSelected || (isSelectable && hover)}
           onClick={handleCheckButtonClick}
         />
       </div>
@@ -62,9 +82,7 @@ export const Image = <T extends ImageExtended>(
               title={tag.title}
               style={styles.tagItemBlock}
             >
-              <span
-                style={getStyle(props.tagStyle, styles.tagItem, styleContext)}
-              >
+              <span style={getStyle(tagStyle, styles.tagItem, styleContext)}>
                 {tag.value}
               </span>
             </div>
@@ -84,22 +102,21 @@ export const Image = <T extends ImageExtended>(
       <div
         className="ReactGridGallery_tile-overlay"
         style={styles.tileOverlay({
-          showOverlay: hover && !item.isSelected && props.isSelectable,
+          showOverlay: hover && !item.isSelected && isSelectable,
         })}
       />
 
       <div
         className="ReactGridGallery_tile-viewport"
         data-testid="grid-gallery-item_viewport"
-        style={getStyle(
-          props.tileViewportStyle,
-          styles.tileViewport,
-          styleContext
-        )}
+        style={getStyle(tileViewportStyle, styles.tileViewport, styleContext)}
         onClick={handleViewportClick}
       >
         {ThumbnailImageComponent ? (
-          <ThumbnailImageComponent {...props} imageProps={thumbnailProps} />
+          <ThumbnailImageComponent
+            {...thumbnailImageProps}
+            imageProps={thumbnailProps}
+          />
         ) : (
           <img {...thumbnailProps} />
         )}
@@ -114,8 +131,4 @@ export const Image = <T extends ImageExtended>(
       )}
     </div>
   );
-};
-
-Image.defaultProps = {
-  isSelectable: true,
 };

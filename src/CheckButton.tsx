@@ -2,10 +2,14 @@ import { useState } from "react";
 import * as styles from "./styles";
 import { CheckButtonProps } from "./types";
 
-export const CheckButton = (props: CheckButtonProps): JSX.Element => {
-  const { isSelected, isVisible, onClick } = props;
-  const { selectedColor, hoverColor, color } = props;
-
+export const CheckButton = ({
+  isSelected = false,
+  isVisible = true,
+  onClick,
+  color = "#FFFFFFB2",
+  selectedColor = "#4285F4FF",
+  hoverColor = "#FFFFFFFF",
+}: CheckButtonProps): JSX.Element => {
   const [hover, setHover] = useState(false);
 
   const circleStyle = { display: isSelected ? "block" : "none" };
@@ -56,12 +60,4 @@ export const CheckButton = (props: CheckButtonProps): JSX.Element => {
       </svg>
     </div>
   );
-};
-
-CheckButton.defaultProps = {
-  isSelected: false,
-  isVisible: true,
-  color: "#FFFFFFB2",
-  selectedColor: "#4285F4FF",
-  hoverColor: "#FFFFFFFF",
 };

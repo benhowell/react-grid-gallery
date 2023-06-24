@@ -61,14 +61,14 @@ export interface ImageProps<T extends ImageExtended = ImageExtended> {
   item: T;
   index: number;
   margin: number;
-  height: number;
   isSelectable: boolean;
   onClick: (index: number, event: MouseEvent<HTMLElement>) => void;
   onSelect: (index: number, event: MouseEvent<HTMLElement>) => void;
   tileViewportStyle: StyleProp<T>;
   thumbnailStyle: StyleProp<T>;
   tagStyle: StyleProp<T>;
-  thumbnailImageComponent: ComponentType<ThumbnailImageProps>;
+  height?: number;
+  thumbnailImageComponent?: ComponentType<ThumbnailImageProps>;
 }
 
 export interface ThumbnailImageComponentImageProps {
@@ -104,7 +104,7 @@ export interface CheckButtonProps {
   isSelected: boolean;
   isVisible: boolean;
   onClick: (event: MouseEvent<HTMLElement>) => void;
-  color: string;
-  selectedColor: string;
-  hoverColor: string;
+  color?: string;
+  selectedColor?: string;
+  hoverColor?: string;
 }

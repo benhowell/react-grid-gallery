@@ -5,13 +5,22 @@ import { buildLayoutFlat } from "./buildLayout";
 import { Image as ImageInterface, GalleryProps } from "./types";
 import * as styles from "./styles";
 
-export const Gallery = <T extends ImageInterface>(
-  props: GalleryProps<T>
-): JSX.Element => {
+export const Gallery = <T extends ImageInterface>({
+  images,
+  id = "ReactGridGallery",
+  enableImageSelection = true,
+  onSelect = () => {},
+  rowHeight = 180,
+  maxRows,
+  margin = 2,
+  defaultContainerWidth = 0,
+  onClick = () => {},
+  tileViewportStyle,
+  thumbnailStyle,
+  tagStyle,
+  thumbnailImageComponent,
+}: GalleryProps<T>): JSX.Element => {
   const galleryRef = useRef(null);
-
-  const { maxRows, rowHeight, margin, enableImageSelection } = props;
-  const { defaultContainerWidth, images } = props;
 
   const [containerWidth, setContainerWidth] = useState(defaultContainerWidth);
 
@@ -39,15 +48,15 @@ export const Gallery = <T extends ImageInterface>(
 
   const handleSelect = (index: number, event: MouseEvent<HTMLElement>) => {
     event.preventDefault();
-    props.onSelect(index, images[index], event);
+    onSelect(index, images[index], event);
   };
 
   const handleClick = (index: number, event: MouseEvent<HTMLElement>) => {
-    props.onClick(index, images[index], event);
+    onClick(index, images[index], event);
   };
 
   return (
-    <div id={props.id} className="ReactGridGallery" ref={galleryRef}>
+    <div id={id} className="ReactGridGallery" ref={galleryRef}>
       <ResizeListener onResize={handleResize} />
       <div style={styles.gallery}>
         {thumbnails.map((item, index) => (
@@ -60,10 +69,10 @@ export const Gallery = <T extends ImageInterface>(
             isSelectable={enableImageSelection}
             onClick={handleClick}
             onSelect={handleSelect}
-            tagStyle={props.tagStyle}
-            tileViewportStyle={props.tileViewportStyle}
-            thumbnailStyle={props.thumbnailStyle}
-            thumbnailImageComponent={props.thumbnailImageComponent}
+            tagStyle={tagStyle}
+            tileViewportStyle={tileViewportStyle}
+            thumbnailStyle={thumbnailStyle}
+            thumbnailImageComponent={thumbnailImageComponent}
           />
         ))}
       </div>
@@ -72,13 +81,3 @@ export const Gallery = <T extends ImageInterface>(
 };
 
 Gallery.displayName = "Gallery";
-
-Gallery.defaultProps = {
-  id: "ReactGridGallery",
-  enableImageSelection: true,
-  rowHeight: 180,
-  margin: 2,
-  defaultContainerWidth: 0,
-  onClick: () => {},
-  onSelect: () => {},
-};
