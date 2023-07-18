@@ -150,6 +150,8 @@ React Grid Gallery is free to use for personal and commercial projects under the
 
 * [jimishf](https://github.com/JimishF) for lightBoxProps option to assign any prop directly to lightbox [PR #121](https://github.com/benhowell/react-grid-gallery/pull/121).
 
+* [kym6464](https://github.com/kym6464) for replacing deprecated defaultProps and for clearing of rollup cache on build [PR #298](https://github.com/benhowell/react-grid-gallery/pull/298)
+
 
  * Demo stock photos:
    * [Jeshu John - designerspics.com](https://designerspics.com)
