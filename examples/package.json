@@ -16,9 +16,9 @@
     "install-all": "run-p install:*"
   },
   "dependencies": {
-    "next": "^12.3.0",
-    "nextra": "^2.0.0-beta.26",
-    "nextra-theme-docs": "^2.0.0-beta.26"
+    "next": "^12.3.4",
+    "nextra": "^2.13.2",
+    "nextra-theme-docs": "^2.13.2"
   },
   "devDependencies": {
     "@types/node": "18.7.16",
