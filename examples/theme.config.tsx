@@ -2,14 +2,18 @@ export default {
   project: { link: "https://github.com/benhowell/react-grid-gallery" },
   docsRepositoryBase:
     "https://github.com/benhowell/react-grid-gallery/blob/master/examples",
-  titleSuffix: " – React Grid Gallery",
-  unstable_faviconGlyph: "👋",
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s – React Grid Gallery",
+    };
+  },
+  faviconGlyph: "👋",
   footer: {
     text: (
       <span>
         Maintained by{" "}
         <a
-          className="dark:text-gray-200 hover:opacity-70 text-gray-500 text-gray-900"
+          className="dark:nx-text-gray-200 hover:nx-opacity-70 nx-text-gray-500 nx-text-gray-900"
           target="_blank"
           href="https://github.com/benhowell"
         >
@@ -17,7 +21,7 @@ export default {
         </a>{" "}
         and{" "}
         <a
-          className="dark:text-gray-200 hover:opacity-70 text-gray-500 text-gray-900"
+          className="dark:nx-text-gray-200 hover:nx-opacity-70 nx-text-gray-500 nx-text-gray-900"
           target="_blank"
           href="https://github.com/itoldya"
         >
@@ -29,7 +33,7 @@ export default {
   },
   logo: (
     <>
-      <span className="mr-2 hidden font-extrabold md:inline">
+      <span className="nx-mr-2 hidden nx-font-extrabold md:nx-inline">
         React Grid Gallery
       </span>
     </>
