@@ -16,7 +16,7 @@
     "install-all": "run-p install:*"
   },
   "dependencies": {
-    "next": "^12.3.4",
+    "next": "^13.5.4",
     "nextra": "^2.13.2",
     "nextra-theme-docs": "^2.13.2"
   },
