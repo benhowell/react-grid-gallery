@@ -13,4 +13,7 @@ module.exports = {
   },
   basePath: "/react-grid-gallery",
   assetPrefix: "/react-grid-gallery/",
+  images: {
+    unoptimized: true,
+  },
 };
