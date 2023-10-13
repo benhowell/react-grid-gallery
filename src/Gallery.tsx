@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback, useRef, MouseEvent } from "react";
+import { MouseEvent } from "react";
 import { Image } from "./Image";
-import { ResizeListener } from "./ResizeListener";
+import { useContainerWidth } from "./useContainerWidth";
 import { buildLayoutFlat } from "./buildLayout";
 import { Image as ImageInterface, GalleryProps } from "./types";
 import * as styles from "./styles";
@@ -20,24 +20,9 @@ export const Gallery = <T extends ImageInterface>({
   tagStyle,
   thumbnailImageComponent,
 }: GalleryProps<T>): JSX.Element => {
-  const galleryRef = useRef(null);
-
-  const [containerWidth, setContainerWidth] = useState(defaultContainerWidth);
-
-  const handleResize = useCallback(() => {
-    if (!galleryRef.current) {
-      return;
-    }
-    let width = galleryRef.current.clientWidth;
-    try {
-      width = galleryRef.current.getBoundingClientRect().width;
-    } catch (err) {}
-    setContainerWidth(Math.floor(width));
-  }, []);
-
-  useEffect(() => {
-    handleResize();
-  }, []);
+  const { containerRef, containerWidth } = useContainerWidth(
+    defaultContainerWidth
+  );
 
   const thumbnails = buildLayoutFlat<T>(images, {
     containerWidth,
@@ -56,8 +41,7 @@ export const Gallery = <T extends ImageInterface>({
   };
 
   return (
-    <div id={id} className="ReactGridGallery" ref={galleryRef}>
-      <ResizeListener onResize={handleResize} />
+    <div id={id} className="ReactGridGallery" ref={containerRef}>
       <div style={styles.gallery}>
         {thumbnails.map((item, index) => (
           <Image
