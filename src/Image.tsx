@@ -1,4 +1,4 @@
-import {useState, MouseEvent, memo} from "react";
+import { useState, MouseEvent, memo } from "react";
 import { CheckButton } from "./CheckButton";
 import { ImageExtended, ImageProps } from "./types";
 import * as styles from "./styles";
