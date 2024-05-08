@@ -3,10 +3,10 @@ import { CheckButton } from "./CheckButton";
 import { ImageExtended, ImageProps } from "./types";
 import * as styles from "./styles";
 import { getStyle } from "./styles";
+import isEqual from "lodash-es/isEqual";
 
 const imagePropsAreEqual = (prevProps: ImageProps, currProps: ImageProps) => {
   // states are the same iff the props are the same
-
   const {
     item: prevItem,
     index: prevIndex,
@@ -24,17 +24,11 @@ const imagePropsAreEqual = (prevProps: ImageProps, currProps: ImageProps) => {
   } = currProps;
 
   return (
-      prevItem.src === currItem.src &&
-      prevItem.width === currItem.width &&
-      prevItem.height === currItem.height &&
-      prevItem.scaledHeight === currItem.scaledHeight &&
-      prevItem.scaledWidth === currItem.scaledWidth &&
-      prevItem.viewportWidth === currItem.viewportWidth &&
-      prevItem.marginLeft === currItem.marginLeft &&
-      prevIndex === currIndex &&
-      prevMargin === currMargin &&
-      prevHeight === currHeight &&
-      prevIsSelectable === currIsSelectable
+    isEqual(prevItem, currItem) &&
+    isEqual(prevIndex, currIndex) &&
+    isEqual(prevMargin, currMargin) &&
+    isEqual(prevHeight, currHeight) &&
+    isEqual(prevIsSelectable, currIsSelectable)
   );
 };
 
