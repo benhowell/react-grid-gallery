@@ -1,44 +1,10 @@
-import { useState, MouseEvent, memo } from "react";
+import { useState, MouseEvent } from "react";
 import { CheckButton } from "./CheckButton";
 import { ImageExtended, ImageProps } from "./types";
 import * as styles from "./styles";
 import { getStyle } from "./styles";
 
-const imagePropsAreEqual = (prevProps: ImageProps, currProps: ImageProps) => {
-  // states are the same iff the props are the same
-
-  const {
-    item: prevItem,
-    index: prevIndex,
-    margin: prevMargin,
-    height: prevHeight,
-    isSelectable: prevIsSelectable,
-  } = prevProps;
-
-  const {
-    item: currItem,
-    index: currIndex,
-    margin: currMargin,
-    height: currHeight,
-    isSelectable: currIsSelectable,
-  } = currProps;
-
-  return (
-      prevItem.src === currItem.src &&
-      prevItem.width === currItem.width &&
-      prevItem.height === currItem.height &&
-      prevItem.scaledHeight === currItem.scaledHeight &&
-      prevItem.scaledWidth === currItem.scaledWidth &&
-      prevItem.viewportWidth === currItem.viewportWidth &&
-      prevItem.marginLeft === currItem.marginLeft &&
-      prevIndex === currIndex &&
-      prevMargin === currMargin &&
-      prevHeight === currHeight &&
-      prevIsSelectable === currIsSelectable
-  );
-};
-
-const ImageBase = <T extends ImageExtended>({
+export const Image = <T extends ImageExtended>({
   item,
   thumbnailImageComponent: ThumbnailImageComponent,
   isSelectable = true,
@@ -166,5 +132,3 @@ const ImageBase = <T extends ImageExtended>({
     </div>
   );
 };
-
-export const Image = memo(ImageBase, imagePropsAreEqual);
