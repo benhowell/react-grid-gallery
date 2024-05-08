@@ -87,5 +87,8 @@
   "bugs": {
     "url": "https://github.com/benhowell/react-grid-gallery/issues"
   },
-  "homepage": "https://benhowell.github.io/react-grid-gallery/"
+  "homepage": "https://benhowell.github.io/react-grid-gallery/",
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  }
 }
