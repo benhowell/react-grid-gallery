@@ -33,7 +33,7 @@
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.24.5",
-    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-react": "^7.24.6",
     "@babel/preset-typescript": "^7.23.2",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.5",
