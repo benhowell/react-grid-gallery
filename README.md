@@ -2,6 +2,16 @@
 
 Justified image gallery component for [React](http://facebook.github.io/react/) inspired by [Google Photos](https://photos.google.com/).
 
+---
+
+## The react-grid-gallery library is no longer maintained.
+
+After more than 10 years I've decided it's time to officially end support of the library, today, the 28th of August 2025. As I haven't used it in any project since 2015, the development and maintainence was solely for the benefit of FOSS and my goodwill towards those using this library in their own projects.
+
+Feel free to continue to use, fork, fork and maintain, submit PR's, whatever. Thanks and goodbye!
+
+---
+
 ### :tada: v1.0.0 is out!
 
 There are breaking changes with v0.5.x, check out the [migration guide](https://github.com/benhowell/react-grid-gallery/blob/master/UPGRADE_GUIDE.md) to learn more. Documentation for v0.5.x is [here](https://github.com/benhowell/react-grid-gallery/tree/v0.5.6).
