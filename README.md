@@ -4,7 +4,7 @@ Justified image gallery component for [React](http://facebook.github.io/react/) 
 
 ---
 
-## The react-grid-gallery library is no longer maintained.
+## The react-grid-gallery library is no longer maintained
 
 After more than 10 years I've decided it's time to officially end support of the library, today, the 28th of August 2025. As I haven't used it in any project since 2015, the development and maintainence was solely for the benefit of FOSS and my goodwill towards those using this library in their own projects.
 
