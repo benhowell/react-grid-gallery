@@ -49,7 +49,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-image-snapshot": "^6.4.0",
     "jest-puppeteer": "^10.0.1",
-    "puppeteer": "^21.3.8",
+    "puppeteer": "^22.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.5",
